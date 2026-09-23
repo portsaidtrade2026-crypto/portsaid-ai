@@ -2,6 +2,8 @@
 
 import { useCart } from "@/lib/context/cart-context"
 import AddNoteButton from "@/modules/cart/components/add-note-button"
+import { translateCatalogValue } from "@/lib/i18n/catalog"
+import { useI18n } from "@/lib/i18n/provider"
 import DeleteButton from "@/modules/common/components/delete-button"
 import LineItemPrice from "@/modules/common/components/line-item-price"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
@@ -24,6 +26,7 @@ const ItemFull = ({
   currencyCode,
   disabled,
 }: ItemProps) => {
+  const { locale, t } = useI18n()
   const [updating, setUpdating] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -103,10 +106,10 @@ const ItemFull = ({
         </LocalizedClientLink>
         <div className="flex flex-col gap-y-2 justify-between min-h-full self-stretch">
           <div className="flex flex-col">
-            <span className="text-neutral-600 text-[0.6rem]">BRAND</span>
+            <span className="text-neutral-600 text-[0.6rem]">{t("BRAND")}</span>
 
             <span className="txt-medium-plus text-neutral-950">
-              {item.product?.title}
+              {translateCatalogValue(item.product?.title, locale, item.product?.metadata, "title")}
             </span>
             <span className="text-neutral-600 text-xs">
               {item.variant?.title}

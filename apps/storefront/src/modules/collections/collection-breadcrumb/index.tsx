@@ -1,5 +1,8 @@
+"use client"
+
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
+import { useI18n } from "@/lib/i18n/provider"
 
 const CollectionBreadcrumbItem = ({
   title,
@@ -25,9 +28,10 @@ const CollectionBreadcrumb = ({
 }: {
   collection: HttpTypes.StoreCollection
 }) => {
+  const { t } = useI18n()
   return (
     <ul className="flex items-center gap-x-3 text-sm">
-      <CollectionBreadcrumbItem title="Products" key="base" />
+       <CollectionBreadcrumbItem title={t("Products")} key="base" />
       <span className="text-neutral-500">{">"}</span>
       <CollectionBreadcrumbItem
         title={collection.title}

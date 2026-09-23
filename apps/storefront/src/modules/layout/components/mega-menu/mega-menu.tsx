@@ -5,6 +5,7 @@ import { clx } from "@medusajs/ui"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
+import { useI18n } from "@/lib/i18n/provider"
 
 const MegaMenu = ({
   categories,
@@ -15,6 +16,7 @@ const MegaMenu = ({
   const [selectedCategory, setSelectedCategory] = useState<
     HttpTypes.StoreProductCategory["id"] | null
   >(null)
+  const { t } = useI18n()
 
   const pathname = usePathname()
 
@@ -84,7 +86,7 @@ const MegaMenu = ({
           className="hover:text-ui-fg-base hover:bg-neutral-100 rounded-full px-3 py-2"
           href="/store"
         >
-          Products
+          {t("Products")}
         </LocalizedClientLink>
         {isHovered && (
           <div className="fixed left-0 right-0 top-[60px] flex gap-32 py-10 px-20 bg-white border-b border-neutral-200 ">

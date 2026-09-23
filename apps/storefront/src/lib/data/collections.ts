@@ -3,6 +3,8 @@
 import { sdk } from "@/lib/config"
 import { HttpTypes } from "@medusajs/types"
 import { getCacheOptions } from "./cookies"
+import { getRequestLocale } from "@/lib/i18n/server"
+import { localizeCollection } from "@/lib/i18n/catalog"
 
 export const retrieveCollection = async (id: string) => {
   const next = {
@@ -13,10 +15,13 @@ export const retrieveCollection = async (id: string) => {
     .fetch<{ collection: HttpTypes.StoreCollection }>(
       `/store/collections/${id}`,
       {
+        query: { fields: "+metadata" },
         next,
       }
     )
-    .then(({ collection }) => collection)
+    .then(async ({ collection }) =>
+      localizeCollection(collection, await getRequestLocale())
+    )
 }
 
 export const listCollections = async (
@@ -37,7 +42,15 @@ export const listCollections = async (
         next,
       }
     )
-    .then(({ collections }) => ({ collections, count: collections.length }))
+    .then(async ({ collections }) => {
+      const locale = await getRequestLocale()
+      return {
+        collections: collections.map((collection) =>
+          localizeCollection(collection, locale)
+        ),
+        count: collections.length,
+      }
+    })
 }
 
 export const getCollectionByHandle = async (
@@ -52,5 +65,8 @@ export const getCollectionByHandle = async (
       query: { handle },
       next,
     })
-    .then(({ collections }) => collections[0])
+    .then(async ({ collections }) =>
+      collections[0] &&
+      localizeCollection(collections[0], await getRequestLocale())
+    )
 }

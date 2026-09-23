@@ -1,6 +1,7 @@
 "use client"
 
 import { isStripeLike, paymentInfoMap } from "@/lib/constants"
+import { useI18n } from "@/lib/i18n/provider"
 import { initiatePaymentSession } from "@/lib/data/cart"
 import ErrorMessage from "@/modules/checkout/components/error-message"
 import PaymentContainer from "@/modules/checkout/components/payment-container"
@@ -23,6 +24,7 @@ const Payment = ({
   cart: any
   availablePaymentMethods: any[]
 }) => {
+  const { t } = useI18n()
   const activeSession = cart.payment_collection?.payment_sessions?.find(
     (paymentSession: any) => paymentSession.status === "pending"
   )
@@ -224,7 +226,7 @@ const Payment = ({
             >
               {!activeSession && isStripeLike(selectedPaymentMethod)
                 ? " Enter card details"
-                : "Next step"}
+                : t("Next step")}
             </Button>
           </div>
         </div>

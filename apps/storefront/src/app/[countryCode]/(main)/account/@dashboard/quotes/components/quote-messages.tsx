@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { AdminOrderLineItem, AdminOrderPreview } from "@medusajs/types"
 import { Button, clx, Container, Heading, Select, Textarea } from "@medusajs/ui"
 import { useMemo, useState } from "react"
+import { useI18n } from "@/lib/i18n/provider"
 import { Controller, useForm } from "react-hook-form"
 import { z } from "zod"
 import { QuoteTableItem } from "./quote-table"
@@ -27,6 +28,7 @@ const QuoteMessages = ({
   quote: StoreQuoteResponse["quote"]
   preview: AdminOrderPreview
 }) => {
+  const { t } = useI18n()
   const {
     register,
     handleSubmit,
@@ -65,7 +67,7 @@ const QuoteMessages = ({
   return (
     <Container className="divide-y divide-dashed p-0 ">
       <div className="flex items-center justify-between px-6 py-4">
-        <Heading level="h3">Messages</Heading>
+        <Heading level="h3">{t("Messages")}</Heading>
       </div>
 
       <div>
@@ -109,14 +111,14 @@ const QuoteMessages = ({
             <div className="flex-1">
               <div className="flex items-center gap-x-1">
                 <label className="font-sans txt-compact-small font-medium">
-                  Pick Quote Item
+                  {t("Pick Quote Item")}
                 </label>
               </div>
               <span
                 className="txt-small text-ui-fg-subtle"
                 id=":r10:-form-item-description"
               >
-                Select a quote item to write a message around
+                {t("Select a quote item to write a message around")}
               </span>
             </div>
             <div className="flex-1">
@@ -127,7 +129,7 @@ const QuoteMessages = ({
                   <Select {...field} onValueChange={onChange} value={value}>
                     <Select.Trigger className="bg-ui-bg-base" ref={ref}>
                       <Select.Value />
-                      {value ? <Select.Value /> : "Select Item"}
+                      {value ? <Select.Value /> : t("Select Item")}
                     </Select.Trigger>
 
                     <Select.Content>

@@ -1,3 +1,6 @@
+ "use client"
+
+import { useI18n } from "@/lib/i18n/provider"
 import { HttpTypes } from "@medusajs/types"
 import { clx } from "@medusajs/ui"
 
@@ -7,13 +10,14 @@ type ItemUnitPriceProps = {
 }
 
 const ItemUnitPrice = ({ item, style = "default" }: ItemUnitPriceProps) => {
+  const { t } = useI18n()
   const hasReducedPrice = !!item.compare_at_unit_price
   return (
     <div className="flex flex-col text-ui-fg-muted justify-center h-full">
       {hasReducedPrice && (
         <p>
           {style === "default" && (
-            <span className="text-ui-fg-muted">Original: </span>
+            <span className="text-ui-fg-muted">{t("Original")}: </span>
           )}
           <span
             className="line-through"

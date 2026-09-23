@@ -1,13 +1,11 @@
 "use client"
 
 import { StatusBadge } from "@medusajs/ui"
+import { useI18n } from "@/lib/i18n/provider"
 
 const StatusTitles: Record<string, string> = {
-  accepted: "Accepted",
-  customer_rejected: "Customer Rejected",
-  merchant_rejected: "Merchant Rejected",
-  pending_merchant: "Pending Merchant",
-  pending_customer: "Pending Customer",
+  accepted: "Accepted", customer_rejected: "Customer Rejected", merchant_rejected: "Merchant Rejected",
+  pending_merchant: "Pending Merchant", pending_customer: "Pending Customer",
 }
 
 const StatusColors: Record<string, "green" | "orange" | "red" | "blue"> = {
@@ -19,9 +17,10 @@ const StatusColors: Record<string, "green" | "orange" | "red" | "blue"> = {
 }
 
 export default function QuoteStatusBadge({ status }: { status: string }) {
+  const { t } = useI18n()
   return (
     <StatusBadge color={StatusColors[status]}>
-      {StatusTitles[status]}
+      {t(StatusTitles[status])}
     </StatusBadge>
   )
 }

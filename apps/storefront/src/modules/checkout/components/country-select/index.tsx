@@ -1,3 +1,6 @@
+ "use client"
+
+import { useI18n } from "@/lib/i18n/provider"
 import NativeSelect, {
   NativeSelectProps,
 } from "@/modules/common/components/native-select"
@@ -9,7 +12,9 @@ const CountrySelect = forwardRef<
   NativeSelectProps & {
     region?: HttpTypes.StoreRegion
   }
->(({ placeholder = "Country", region, defaultValue, ...props }, ref) => {
+>(({ placeholder, region, defaultValue, ...props }, ref) => {
+  const { t } = useI18n()
+  placeholder = placeholder || t("Country")
   const innerRef = useRef<HTMLSelectElement>(null)
 
   useImperativeHandle<HTMLSelectElement | null, HTMLSelectElement | null>(

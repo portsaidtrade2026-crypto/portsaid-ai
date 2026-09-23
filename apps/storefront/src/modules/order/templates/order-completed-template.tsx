@@ -1,4 +1,6 @@
 import { Heading } from "@medusajs/ui"
+import { getRequestLocale } from "@/lib/i18n/server"
+import { commerceTranslations } from "@/lib/i18n/dictionaries/commerce"
 import CheckoutTotals from "@/modules/checkout/components/checkout-totals"
 import Help from "@/modules/order/components/help"
 import Items from "@/modules/order/components/items"
@@ -14,6 +16,9 @@ type OrderCompletedTemplateProps = {
 export default async function OrderCompletedTemplate({
   order,
 }: OrderCompletedTemplateProps) {
+  const locale = await getRequestLocale()
+  const translate = (text: string) =>
+    locale === "en" ? text : commerceTranslations[locale]?.[text] || text
   return (
     <div className="py-6 min-h-[calc(100vh-64px)]">
       <div className="content-container flex flex-col justify-center items-center gap-y-10 max-w-4xl h-full w-full">
@@ -25,12 +30,12 @@ export default async function OrderCompletedTemplate({
             level="h1"
             className="flex flex-col gap-y-3 text-ui-fg-base text-3xl mb-4"
           >
-            <span>Thank you!</span>
-            <span>Your order was placed successfully.</span>
+            <span>{translate("Thank you!")}</span>
+            <span>{translate("Your order was placed successfully.")}</span>
           </Heading>
           <OrderDetails order={order} />
           <Heading level="h2" className="flex flex-row text-3xl-regular">
-            Summary
+            {translate("Summary")}
           </Heading>
           <Items items={order.items} order={order} />
           <CheckoutTotals cartOrOrder={order} />

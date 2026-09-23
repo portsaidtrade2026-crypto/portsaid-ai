@@ -1,5 +1,6 @@
 import { HttpTypes } from "@medusajs/types"
 import { NextRequest, NextResponse } from "next/server"
+import { localeFromCountry } from "@/lib/i18n/config"
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
 const PUBLISHABLE_API_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
@@ -8,6 +9,11 @@ const DEFAULT_REGION = process.env.NEXT_PUBLIC_DEFAULT_REGION || "us"
 const regionMapCache = {
   regionMap: new Map<string, HttpTypes.StoreRegion>(),
   regionMapUpdated: Date.now(),
+}
+
+/** Maps the actual visitor country to the initial UI language, independently of Medusa regions. */
+export function resolveLocale(countryCode: string | null | undefined) {
+  return localeFromCountry(countryCode)
 }
 
 async function getRegionMap(cacheId: string) {
@@ -115,7 +121,6 @@ export async function middleware(request: NextRequest) {
   const checkoutStep = searchParams.get("step")
   const cacheIdCookie = request.cookies.get("_medusa_cache_id")
   const cartIdCookie = request.cookies.get("_medusa_cart_id")
-
   let redirectUrl = request.nextUrl.href
 
   let response = NextResponse.redirect(redirectUrl, 307)
@@ -128,7 +133,7 @@ export async function middleware(request: NextRequest) {
   const countryCode = regionMap && (await getCountryCode(request, regionMap))
 
   const urlHasCountryCode =
-    countryCode && request.nextUrl.pathname.split("/")[1].includes(countryCode)
+    countryCode && request.nextUrl.pathname.split("/")[1]?.toLowerCase() === countryCode
 
   // check if one of the country codes is in the url
   if (urlHasCountryCode && (!cartId || cartIdCookie) && cacheIdCookie) {

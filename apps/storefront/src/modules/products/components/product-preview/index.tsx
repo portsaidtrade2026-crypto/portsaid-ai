@@ -5,6 +5,8 @@ import LocalizedClientLink from "@/modules/common/components/localized-client-li
 import Thumbnail from "../thumbnail"
 import PreviewAddToCart from "./preview-add-to-cart"
 import PreviewPrice from "./price"
+import { getRequestLocale } from "@/lib/i18n/server"
+import { translateCatalogValue } from "@/lib/i18n/catalog"
 
 export default async function ProductPreview({
   product,
@@ -18,6 +20,9 @@ export default async function ProductPreview({
   if (!product) {
     return null
   }
+  const locale = await getRequestLocale()
+  const tCatalog = (value: string) =>
+    translateCatalogValue(value, locale)
 
   const { cheapestPrice } = getProductPrice({
     product,
@@ -42,14 +47,16 @@ export default async function ProductPreview({
           />
         </div>
         <div className="flex flex-col txt-compact-medium">
-          <Text className="text-neutral-600 text-xs">BRAND</Text>
+          <Text className="text-neutral-600 text-xs">{tCatalog("BRAND")}</Text>
           <Text className="text-ui-fg-base" data-testid="product-title">
             {product.title}
           </Text>
         </div>
         <div className="flex flex-col gap-0">
           {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
-          <Text className="text-neutral-600 text-[0.6rem]">Excl. VAT</Text>
+          <Text className="text-neutral-600 text-[0.6rem]">
+            {tCatalog("Excl. VAT")}
+          </Text>
         </div>
         <div className="flex justify-between">
           <div className="flex flex-row gap-1 items-center">
@@ -66,7 +73,7 @@ export default async function ProductPreview({
               •
             </span>
             <Text className="text-neutral-600 text-xs">
-              {inventoryQuantity} left
+              {inventoryQuantity} {tCatalog("left")}
             </Text>
           </div>
           <PreviewAddToCart product={product} region={region} />

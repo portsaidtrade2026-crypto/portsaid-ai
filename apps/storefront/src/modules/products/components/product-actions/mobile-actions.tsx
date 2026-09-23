@@ -1,3 +1,5 @@
+"use client"
+
 import { Dialog, Transition } from "@headlessui/react"
 import useToggleState from "@/lib/hooks/use-toggle-state"
 import { getProductPrice } from "@/lib/util/get-product-price"
@@ -8,6 +10,7 @@ import ChevronDown from "@/modules/common/icons/chevron-down"
 import X from "@/modules/common/icons/x"
 import React, { Fragment, useMemo } from "react"
 import OptionSelect from "./option-select"
+import { useI18n } from "@/lib/i18n/provider"
 
 type MobileActionsProps = {
   product: HttpTypes.StoreProduct
@@ -32,6 +35,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
   show,
   optionsDisabled,
 }) => {
+  const { t } = useI18n()
   const { state, open, close } = useToggleState()
 
   const price = getProductPrice({
@@ -105,7 +109,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                   <span>
                     {variant
                       ? Object.values(options).join(" / ")
-                      : "Select Options"}
+                       : t("Select Options")}
                   </span>
                   <ChevronDown />
                 </div>
@@ -118,10 +122,10 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                 data-testid="mobile-cart-button"
               >
                 {!variant
-                  ? "Select variant"
+                 ? t("Select variant")
                   : !inStock
-                  ? "Out of stock"
-                  : "Add to cart"}
+                   ? t("Out of stock")
+                   : t("Add to cart")}
               </Button>
             </div>
           </div>

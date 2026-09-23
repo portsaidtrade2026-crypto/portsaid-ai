@@ -1,6 +1,7 @@
 "use client"
 
 import { ChevronUpDown } from "@medusajs/icons"
+import { useI18n } from "@/lib/i18n/provider"
 
 export type SortOptions = "price_asc" | "price_desc" | "created_at"
 
@@ -30,24 +31,25 @@ const SortProducts = ({
   sortBy,
   setQueryParams,
 }: SortProductsProps) => {
+  const { t } = useI18n()
   const handleChange = (value: SortOptions) => {
     setQueryParams("sortBy", value)
   }
 
   return (
     <div className="flex items-center gap-2 text-sm p-2 justify-between">
-      <span className="text-neutral-500">Sort by:</span>
+       <span className="text-neutral-500">{t("Sort by:")}</span>
       <div className="relative">
         <select
           className="w-full pr-8 overflow-hidden focus:outline-none appearance-none"
-          title="Sort by"
+           title={t("Sort by")}
           value={sortBy}
           onChange={(e) => handleChange(e.target.value as SortOptions)}
           data-testid={dataTestId}
         >
           {sortOptions.map((option) => (
             <option key={option.value} value={option.value}>
-              {option.label}
+              {t(option.label)}
             </option>
           ))}
         </select>

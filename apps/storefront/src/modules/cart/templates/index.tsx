@@ -10,9 +10,11 @@ import Summary from "@/modules/cart/templates/summary"
 import { B2BCustomer } from "@/types/global"
 import { Heading } from "@medusajs/ui"
 import { useMemo } from "react"
+import { useI18n } from "@/lib/i18n/provider"
 
 const CartTemplate = ({ customer }: { customer: B2BCustomer | null }) => {
   const { cart } = useCart()
+  const { t } = useI18n()
 
   const spendLimitExceeded = useMemo(
     () => checkSpendingLimit(cart, customer),
@@ -32,7 +34,7 @@ const CartTemplate = ({ customer }: { customer: B2BCustomer | null }) => {
             <div className="flex flex-col py-6 gap-y-6">
               <div className="pb-3 flex items-center">
                 <Heading className="text-neutral-950">
-                  You have {totalItems} items in your cart
+                  {t("You have {count} items in your cart", { count: totalItems })}
                 </Heading>
               </div>
               <div className="grid grid-cols-1 small:grid-cols-[1fr_360px] gap-2">

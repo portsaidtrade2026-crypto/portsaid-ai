@@ -1,12 +1,16 @@
+"use client"
+
 import { clx, Text } from "@medusajs/ui"
 import { getProductPrice } from "@/lib/util/get-product-price"
 import { HttpTypes } from "@medusajs/types"
+import { useI18n } from "@/lib/i18n/provider"
 
 export default function ProductPrice({
   product,
 }: {
   product: HttpTypes.StoreProduct
 }) {
+  const { t } = useI18n()
   const { cheapestPrice } = getProductPrice({
     product,
   })
@@ -27,9 +31,11 @@ export default function ProductPrice({
           data-testid="product-price"
           data-value={cheapestPrice.calculated_price_number}
         >
-          From {cheapestPrice.calculated_price}
+           {t("From")} {cheapestPrice.calculated_price}
         </Text>
-        <Text className="text-neutral-600 text-[0.6rem]">Excl. VAT</Text>
+        <Text className="text-neutral-600 text-[0.6rem]">
+          {t("Excl. VAT")}
+        </Text>
       </span>
       {cheapestPrice.price_type === "sale" && (
         <p

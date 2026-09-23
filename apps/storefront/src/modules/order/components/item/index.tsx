@@ -1,5 +1,7 @@
 import { HttpTypes } from "@medusajs/types"
 import { Text } from "@medusajs/ui"
+import { getRequestLocale } from "@/lib/i18n/server"
+import { translateCatalogValue } from "@/lib/i18n/catalog"
 
 import LineItemOptions from "@/modules/common/components/line-item-options"
 import Thumbnail from "@/modules/products/components/thumbnail"
@@ -10,7 +12,8 @@ type ItemProps = {
   order: HttpTypes.StoreOrder
 }
 
-const Item = ({ item, order }: ItemProps) => {
+const Item = async ({ item, order }: ItemProps) => {
+  const locale = await getRequestLocale()
   return (
     <tr className="flex gap-x-4">
       <td className="w-20">
@@ -20,7 +23,7 @@ const Item = ({ item, order }: ItemProps) => {
       <td className="flex flex-col w-full">
         <div>
           <Text className="font-normal" data-testid="product-name">
-            {item.product_title}
+            {translateCatalogValue(item.product_title, locale, item.product?.metadata, "title")}
           </Text>
 
           <LineItemOptions

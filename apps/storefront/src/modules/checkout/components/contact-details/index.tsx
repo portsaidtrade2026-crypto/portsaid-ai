@@ -1,6 +1,7 @@
 "use client"
 
 import { setContactDetails } from "@/lib/data/cart"
+import { useI18n } from "@/lib/i18n/provider"
 import Divider from "@/modules/common/components/divider"
 import { ApprovalStatusType, B2BCart, B2BCustomer } from "@/types"
 import { CheckCircleSolid } from "@medusajs/icons"
@@ -18,6 +19,7 @@ const ContactDetails = ({
   cart: B2BCart | null
   customer: B2BCustomer | null
 }) => {
+  const { t } = useI18n()
   const searchParams = useSearchParams()
   const router = useRouter()
   const pathname = usePathname()
@@ -117,8 +119,8 @@ const ContactDetails = ({
                   {requiresApproval &&
                   cartApprovalStatus !== ApprovalStatusType.APPROVED &&
                   !customerIsAdmin
-                    ? "Review order"
-                    : "Next step"}
+                    ? t("Review order")
+                    : t("Next step")}
                 </SubmitButton>
                 <ErrorMessage
                   error={message}

@@ -1,6 +1,9 @@
+"use client"
+
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
 import type { JSX } from "react"
+import { useI18n } from "@/lib/i18n/provider"
 
 const CategoryBreadcrumbItem = ({
   title,
@@ -28,6 +31,7 @@ const CategoryBreadcrumb = ({
   categories: HttpTypes.StoreProductCategory[]
   category: HttpTypes.StoreProductCategory
 }) => {
+  const { t } = useI18n()
   const generateBreadcrumbs = (
     category: HttpTypes.StoreProductCategory
   ): JSX.Element[] => {
@@ -76,7 +80,7 @@ const CategoryBreadcrumb = ({
     )
 
     breadcrumbs.unshift(
-      <CategoryBreadcrumbItem title="Products" key={`base`} />
+      <CategoryBreadcrumbItem title={t("Products")} key={`base`} />
     )
 
     return breadcrumbs

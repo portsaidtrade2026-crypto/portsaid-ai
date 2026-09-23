@@ -1,6 +1,7 @@
 "use client"
 
 import { setBillingAddress, updateCart } from "@/lib/data/cart"
+import { useI18n } from "@/lib/i18n/provider"
 import compareAddresses from "@/lib/util/compare-addresses"
 import BillingAddressForm from "@/modules/checkout/components/billing-address-form"
 import ErrorMessage from "@/modules/checkout/components/error-message"
@@ -15,6 +16,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useCallback, useState } from "react"
 
 const BillingAddress = ({ cart }: { cart: B2BCart | null }) => {
+  const { t } = useI18n()
   const searchParams = useSearchParams()
   const router = useRouter()
   const pathname = usePathname()
@@ -90,7 +92,7 @@ const BillingAddress = ({ cart }: { cart: B2BCart | null }) => {
           {cart?.shipping_address?.address_1 && (
             <CheckboxWithLabel
               disabled={cartApprovalStatus === ApprovalStatusType.PENDING}
-              label="Same as shipping address"
+              label={t("Same as shipping address")}
               name="same_as_billing"
               checked={sameAsBilling}
               onChange={handleToggleSameAsBilling}

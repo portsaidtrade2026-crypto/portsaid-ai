@@ -4,19 +4,21 @@ import { HttpTypes } from "@medusajs/types"
 import { Table, Text } from "@medusajs/ui"
 import Markdown from "react-markdown"
 import Accordion from "./accordion"
+import { useI18n } from "@/lib/i18n/provider"
 
 type ProductTabsProps = {
   product: HttpTypes.StoreProduct
 }
 
 const ProductTabs = ({ product }: ProductTabsProps) => {
+  const { t } = useI18n()
   const tabs = [
     {
-      label: "Description",
+      label: t("Description"),
       component: <ProductSpecsTab product={product} />,
     },
     {
-      label: "Specifications",
+      label: t("Specifications"),
       component: <ProductSpecificationsTab product={product} />,
     },
   ]
@@ -65,6 +67,7 @@ const ProductSpecsTab = ({ product }: ProductTabsProps) => {
 }
 
 const ProductSpecificationsTab = ({ product }: ProductTabsProps) => {
+  const { t } = useI18n()
   return (
     <div className="text-small-regular py-8">
       <Table className="rounded-lg shadow-borders-base overflow-hidden border-none">
@@ -72,15 +75,15 @@ const ProductSpecificationsTab = ({ product }: ProductTabsProps) => {
           {product.weight && (
             <Table.Row>
               <Table.Cell className="border-r">
-                <span className="font-semibold">Weight</span>
+                <span className="font-semibold">{t("Weight")}</span>
               </Table.Cell>
-              <Table.Cell className="px-4">{product.weight} grams</Table.Cell>
+               <Table.Cell className="px-4">{product.weight} {t("grams")}</Table.Cell>
             </Table.Row>
           )}
           {(product.height || product.width || product.length) && (
             <Table.Row>
               <Table.Cell className="border-r">
-                <span className="font-semibold">Dimensions (HxWxL)</span>
+                <span className="font-semibold">{t("Dimensions (HxWxL)")}</span>
               </Table.Cell>
               <Table.Cell className="px-4">
                 {product.height}mm x {product.width}mm x {product.length}mm
@@ -89,16 +92,24 @@ const ProductSpecificationsTab = ({ product }: ProductTabsProps) => {
           )}
 
           {product.metadata &&
-            Object.entries(product.metadata).map(([key, value]) => (
+            Object.entries(product.metadata)
+              .filter(
+                ([key, value]) =>
+                  key !== "translations" &&
+                  (typeof value === "string" ||
+                    typeof value === "number" ||
+                    typeof value === "boolean")
+              )
+              .map(([key, value]) => (
               <Table.Row key={key}>
                 <Table.Cell className="border-r">
                   <span className="font-semibold">{key}</span>
                 </Table.Cell>
                 <Table.Cell className="px-4">
-                  <p>{value as string}</p>
+                  <p>{String(value)}</p>
                 </Table.Cell>
               </Table.Row>
-            ))}
+              ))}
         </Table.Body>
       </Table>
     </div>
