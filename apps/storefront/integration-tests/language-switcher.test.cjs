@@ -25,7 +25,7 @@ test("language selection persists inside a cross-site Replit-style preview ifram
 
   const parent = http.createServer((_request, response) => {
     response.setHeader("Content-Type", "text/html")
-    response.end(`<iframe src="https://${domain}:5000/dk" style="width:100%;height:800px"></iframe>`)
+    response.end(`<meta name="viewport" content="width=device-width,initial-scale=1"><iframe src="https://${domain}:5000/dk" style="width:100%;height:800px"></iframe>`)
   })
   await new Promise((resolve) => parent.listen(0, "127.0.0.1", resolve))
   const parentPort = parent.address().port
@@ -173,9 +173,11 @@ test("language selection persists inside a cross-site Replit-style preview ifram
     await send("Emulation.setDeviceMetricsOverride", {
       width: 320, height: 720, deviceScaleFactor: 1, mobile: true,
     })
+    // The embedded iframe is narrower than its 320px parent because the
+    // parent document retains its default body margin.
     await until(
-      () => evaluate("window.innerWidth === 320"),
-      "320px mobile viewport"
+      () => evaluate("window.innerWidth <= 320 && window.innerWidth >= 280"),
+      "narrow mobile iframe viewport"
     )
     assert.equal(
       await evaluate("document.documentElement.scrollWidth <= window.innerWidth"),

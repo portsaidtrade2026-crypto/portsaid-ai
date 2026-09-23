@@ -31,6 +31,8 @@ ZA ZM ZW
 
 const displayNames = new Intl.DisplayNames("en", { type: "region" })
 
-export const companyCountries = countryCodes
-  .map((code) => displayNames.of(code) ?? code)
-  .sort((a, b) => a.localeCompare(b, "en"))
+export const companyCountryOptions = countryCodes
+  .map((code) => ({ code, name: displayNames.of(code) ?? code }))
+  .sort((a, b) => a.name.localeCompare(b.name, "en"))
+
+export const companyCountries = companyCountryOptions.map(({ name }) => name)
