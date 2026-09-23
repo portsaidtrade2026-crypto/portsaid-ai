@@ -7,7 +7,7 @@ import Footer from "@/modules/layout/templates/footer"
 import { NavigationHeader } from "@/modules/layout/templates/nav"
 import FreeShippingPriceNudge from "@/modules/shipping/components/free-shipping-price-nudge"
 import { StoreFreeShippingPrice } from "@/types/shipping-option/http"
-import { ArrowUpRightMini, ExclamationCircleSolid } from "@medusajs/icons"
+import { ArrowUpRightMini } from "@medusajs/icons"
 import { StoreCart } from "@medusajs/types"
 import { Metadata } from "next"
 import { getRequestLocale } from "@/lib/i18n/server"
@@ -30,20 +30,20 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
   return (
     <>
       <NavigationHeader />
-      <div className="flex items-center text-neutral-50 justify-center small:p-4 p-2 text-center bg-neutral-900 small:gap-2 gap-1 text-sm">
+      <div className="flex items-center text-[#f9f8f4] justify-center small:p-3 p-2 text-center bg-[#121212] border-b border-[#655314] small:gap-2 gap-1 text-sm">
         <div className="flex flex-col small:flex-row small:gap-2 gap-1 items-center">
           <span className="flex items-center gap-1">
-            <ExclamationCircleSolid className="inline" color="#A1A1AA" />
-            {translate(locale, "Build your own B2B store with this starter:")}
+            {translate(locale, "PORTSAID · Plastics & Automotive")}
           </span>
 
           <a
-            className="group hover:text-ui-fg-interactive-hover text-ui-fg-interactive self-end small:self-auto"
+            className="group text-[#e5c126] hover:text-[#fff1a6] self-end small:self-auto"
             href="https://cloud.medusajs.com"
             target="_blank"
+            rel="noopener noreferrer"
           >
-            {translate(locale, "Deploy to Medusa Cloud")}
-            <ArrowUpRightMini className="group-hover:text-ui-fg-interactive-hover inline text-ui-fg-interactive" />
+            {translate(locale, "Built with Medusa")}
+            <ArrowUpRightMini className="inline" />
           </a>
         </div>
       </div>

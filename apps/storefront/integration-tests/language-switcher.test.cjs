@@ -133,6 +133,55 @@ test("language selection persists inside a cross-site Replit-style preview ifram
         "the iframe must persist its partitioned language preference"
       )
     }
+
+    await until(
+      () => evaluate(`(() => {
+        const button = document.querySelector('[data-testid="theme-toggle"]')
+        return !!button && Object.keys(button).some((key) => key.startsWith('__reactProps$'))
+      })()`),
+      "theme toggle hydration"
+    )
+    await evaluate("document.querySelector('[data-testid=theme-toggle]').click()")
+    await until(
+      () => evaluate("document.documentElement.dataset.mode === 'dark' && document.documentElement.classList.contains('dark')"),
+      "dark theme"
+    )
+    assert.equal(await evaluate("document.cookie.includes('portsaid_theme_preview=dark')"), true)
+    assert.equal(await evaluate("localStorage.getItem('portsaid_theme')"), "dark")
+
+    // A full navigation to the unchanged registration URL exercises the
+    // server-rendered theme, not only a client-side class change.
+    await evaluate("location.assign('/dk/account?view=register')")
+    await until(
+      () => evaluate("location.pathname === '/dk/account' && document.readyState === 'complete' && !!document.querySelector('[data-testid=register-page]')"),
+      "registration page"
+    )
+    assert.equal(await evaluate("document.documentElement.dataset.mode"), "dark")
+    assert.equal(await evaluate("document.documentElement.classList.contains('dark')"), true)
+    await until(
+      () => evaluate("Object.keys(document.querySelector('[data-testid=theme-toggle]')).some((key) => key.startsWith('__reactProps$'))"),
+      "registration theme toggle hydration"
+    )
+    await evaluate("document.querySelector('[data-testid=theme-toggle]').click()")
+    assert.equal(await evaluate("document.documentElement.dataset.mode"), "light")
+    await evaluate("location.assign('/dk/store')")
+    await until(
+      () => evaluate("document.readyState === 'complete' && location.pathname === '/dk/store'"),
+      "light theme on the product catalog"
+    )
+    assert.equal(await evaluate("document.documentElement.dataset.mode"), "light")
+    await send("Emulation.setDeviceMetricsOverride", {
+      width: 320, height: 720, deviceScaleFactor: 1, mobile: true,
+    })
+    await until(
+      () => evaluate("window.innerWidth === 320"),
+      "320px mobile viewport"
+    )
+    assert.equal(
+      await evaluate("document.documentElement.scrollWidth <= window.innerWidth"),
+      true,
+      "mobile navigation must not cause horizontal scrolling at 320px"
+    )
   } finally {
     ws?.close()
     chrome.kill("SIGTERM")

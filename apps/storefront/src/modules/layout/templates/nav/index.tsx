@@ -4,7 +4,6 @@ import AccountButton from "@/modules/account/components/account-button"
 import CartButton from "@/modules/cart/components/cart-button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import FilePlus from "@/modules/common/icons/file-plus"
-import LogoIcon from "@/modules/common/icons/logo"
 import { MegaMenuWrapper } from "@/modules/layout/components/mega-menu"
 import { RequestQuoteConfirmation } from "@/modules/quotes/components/request-quote-confirmation"
 import { RequestQuotePrompt } from "@/modules/quotes/components/request-quote-prompt"
@@ -15,6 +14,7 @@ import { Suspense } from "react"
 import LanguageSwitcher from "@/modules/layout/components/language-switcher"
 import { getRequestLocale } from "@/lib/i18n/server"
 import { translate } from "@/lib/i18n/messages"
+import ThemeToggle from "@/modules/layout/components/theme-toggle"
 
 export async function NavigationHeader() {
   const locale = await getRequestLocale()
@@ -23,17 +23,19 @@ export async function NavigationHeader() {
   const cart = await retrieveCart()
 
   return (
-    <div className="sticky top-0 inset-x-0 group bg-white text-zinc-900 small:p-4 p-2 text-sm border-b duration-200 border-ui-border-base z-50">
+    <div className="sticky top-0 inset-x-0 group bg-ui-bg-base text-ui-fg-base small:p-4 p-2 text-sm border-b duration-200 border-ui-border-base z-50">
       <header className="flex w-full content-container relative small:mx-auto justify-between">
-        <div className="small:mx-auto flex justify-between items-center min-w-full">
+        <div className="small:mx-auto flex flex-col small:flex-row small:justify-between items-start small:items-center min-w-full gap-2 small:gap-0">
           <div className="flex items-center small:space-x-4">
-            <LocalizedClientLink
-              className="hover:text-ui-fg-base flex items-center w-fit"
+              <LocalizedClientLink
+               className="hover:text-[#705700] dark:hover:text-[#e5c126] flex items-center w-fit"
               href="/"
             >
-              <h1 className="small:text-base text-sm font-medium flex items-center">
-                <LogoIcon className="inline me-2" />
-                Medusa B2B Starter
+                <h1 className="small:text-base text-sm font-semibold flex items-center">
+                 <span className="bg-[#121212] rounded-md px-2 py-1.5 me-2 flex items-center">
+                   <img src="/portsaid-logo.png" alt="PORTSAID" className="h-8 w-[52px] object-contain" />
+                 </span>
+                 <span className="hidden small:inline tracking-[.12em]">PORTSAID <span className="text-[#a6840d]">/</span> B2B</span>
               </h1>
             </LocalizedClientLink>
 
@@ -47,19 +49,20 @@ export async function NavigationHeader() {
               </ul>
             </nav>
           </div>
-          <div className="flex justify-end items-center gap-2">
+          <div className="flex w-full small:w-auto justify-between small:justify-end items-center gap-1 small:gap-2">
             <div className="relative mr-2 hidden small:inline-flex">
               <input
                 disabled
                 type="text"
                 placeholder={t("Search for products")}
-              className="bg-gray-100 text-zinc-900 px-4 py-2 rounded-full pe-10 shadow-borders-base hidden small:inline-block hover:cursor-not-allowed"
+              className="bg-ui-bg-subtle text-ui-fg-base px-4 py-2 rounded-full pe-10 border border-ui-border-base hidden small:inline-block hover:cursor-not-allowed"
                 title={t("Install a search provider to enable product search")}
               />
             </div>
 
             <div className="h-4 w-px bg-neutral-300" />
             <LanguageSwitcher />
+            <ThemeToggle />
 
             {customer && cart?.items && cart.items.length > 0 ? (
               <RequestQuoteConfirmation>

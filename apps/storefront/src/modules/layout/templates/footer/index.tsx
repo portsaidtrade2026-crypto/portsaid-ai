@@ -20,15 +20,16 @@ export default async function Footer() {
   })
 
   return (
-    <footer className="border-t border-ui-border-base w-full">
+    <footer className="border-t border-ui-border-base w-full bg-ui-bg-subtle">
       <div className="content-container flex flex-col w-full">
         <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
           <div>
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
+              className="txt-compact-xlarge-plus text-ui-fg-base hover:text-[#705700] dark:hover:text-[#e5c126] uppercase tracking-[.18em] flex items-center gap-3"
             >
-              Medusa Store
+              <span className="bg-[#121212] rounded-md p-2 inline-flex"><img src="/portsaid-logo.png" alt="PORTSAID" className="w-16 h-10 object-contain" /></span>
+              <span>PORTSAID</span>
             </LocalizedClientLink>
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
@@ -155,7 +156,7 @@ export default async function Footer() {
         </div>
         <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
           <Text className="txt-compact-small">
-            © {new Date().getFullYear()} Medusa Store. {t("All rights reserved.")}
+             © {new Date().getFullYear()} PORTSAID. {t("All rights reserved.")}
           </Text>
           <MedusaCTA />
         </div>

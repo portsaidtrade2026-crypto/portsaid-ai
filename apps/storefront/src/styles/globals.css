@@ -1,6 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap");
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+:root {
+  --ps-ink: 18 18 18;
+  --ps-paper: 249 248 244;
+  --ps-panel: 255 254 250;
+  --ps-line: 218 215 205;
+  --ps-muted: 91 89 82;
+  --ps-gold: 229 193 38;
+  --ps-gold-deep: 166 132 13;
+  --background: 44 43 40;
+  --foreground: 18 18 18;
+  --ui-bg-base: 249 248 244;
+  --ui-bg-subtle: 239 237 229;
+  --ui-bg-component: 255 254 250;
+  --ui-fg-base: 18 18 18;
+  --ui-fg-subtle: 91 89 82;
+  --ui-fg-muted: 125 121 110;
+  --ui-border-base: 218 215 205;
+  --ui-border-interactive: 166 132 13;
+  --ui-button: 18 18 18;
+  --ui-button-text: 255 254 250;
+  color-scheme: light;
+}
+
+html.dark {
+  --ps-ink: 244 242 234;
+  --ps-paper: 25 25 23;
+  --ps-panel: 34 34 31;
+  --ps-line: 76 74 66;
+  --ps-muted: 188 184 171;
+  --background: 25 25 23;
+  --foreground: 244 242 234;
+  --ui-bg-base: 25 25 23;
+  --ui-bg-subtle: 35 35 32;
+  --ui-bg-component: 44 43 40;
+  --ui-fg-base: 244 242 234;
+  --ui-fg-subtle: 188 184 171;
+  --ui-fg-muted: 145 141 129;
+  --ui-border-base: 76 74 66;
+  --ui-border-interactive: 229 193 38;
+  --ui-button: 229 193 38;
+  --ui-button-text: 18 18 18;
+  color-scheme: dark;
+}
+
+html, body {
+  background: rgb(var(--ui-bg-base));
+  color: rgb(var(--ui-fg-base));
+  font-family: "DM Sans", ui-sans-serif, sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .035;
+  z-index: 100;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+}
+
+h1, h2, h3, h4, .display-type {
+  font-family: "Barlow Condensed", "DM Sans", sans-serif;
+  letter-spacing: .015em;
+}
+
+button, input, select, textarea { font: inherit; }
+a { color: inherit; transition: color .18s ease, background-color .18s ease, border-color .18s ease; }
+::selection { background: rgb(var(--ps-gold)); color: rgb(var(--ps-ink)); }
 
 @layer utilities {
   /* Chrome, Safari and Opera */
@@ -51,11 +121,17 @@
 
 @layer components {
   .content-container {
-    @apply max-w-[1440px] w-full mx-auto px-6;
+    @apply max-w-[1440px] w-full mx-auto px-4 small:px-6;
   }
 
   .contrast-btn {
-    @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
+    @apply px-4 py-2 border rounded-full transition-colors duration-200 ease-in;
+    border-color: rgb(var(--ui-fg-base));
+    color: rgb(var(--ui-fg-base));
+  }
+  .contrast-btn:hover {
+    background: rgb(var(--ui-button));
+    color: rgb(var(--ui-button-text));
   }
 
   .text-xsmall-regular {
@@ -110,3 +186,30 @@
     @apply text-[32px] leading-[44px] font-semibold;
   }
 }
+
+@layer utilities {
+  .text-ui-fg-base { color: rgb(var(--ui-fg-base)); }
+  .text-ui-fg-subtle { color: rgb(var(--ui-fg-subtle)); }
+  .text-ui-fg-muted { color: rgb(var(--ui-fg-muted)); }
+  .border-ui-border-base { border-color: rgb(var(--ui-border-base)); }
+  .bg-ui-bg-base { background-color: rgb(var(--ui-bg-base)); }
+  .bg-ui-bg-subtle { background-color: rgb(var(--ui-bg-subtle)); }
+  .bg-ui-bg-component { background-color: rgb(var(--ui-bg-component)); }
+}
+
+input, textarea, select {
+  background-color: rgb(var(--ui-bg-component));
+  color: rgb(var(--ui-fg-base));
+  border-color: rgb(var(--ui-border-base));
+}
+
+input::placeholder, textarea::placeholder { color: rgb(var(--ui-fg-muted)); }
+
+/* Legacy storefront utility classes are kept for route stability, but inherit
+   the PORTSAID surface system instead of forcing white panels in dark mode. */
+.bg-white { background-color: rgb(var(--ui-bg-component)) !important; }
+.bg-neutral-100, .bg-gray-100 { background-color: rgb(var(--ui-bg-subtle)) !important; }
+.text-zinc-900, .text-neutral-950 { color: rgb(var(--ui-fg-base)) !important; }
+.text-neutral-600 { color: rgb(var(--ui-fg-subtle)) !important; }
+.border-gray-200, .border-neutral-200 { border-color: rgb(var(--ui-border-base)) !important; }
+html.dark .bg-white { background-color: rgb(var(--ui-bg-component)) !important; }
