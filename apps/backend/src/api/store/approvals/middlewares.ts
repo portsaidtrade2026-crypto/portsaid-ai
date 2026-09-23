@@ -47,11 +47,11 @@ export const storeApprovalsMiddlewares: MiddlewareRoute[] = [
   },
 ];
 
-const ensureApprovalAccess = async (
+async function ensureApprovalAccess(
   req: AuthenticatedMedusaRequest,
   res: MedusaResponse,
   next: MedusaNextFunction
-) => {
+) {
   const { id } = req.params;
 
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
@@ -100,4 +100,4 @@ const ensureApprovalAccess = async (
   }
 
   next();
-};
+}
