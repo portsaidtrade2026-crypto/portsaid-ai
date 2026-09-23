@@ -8,12 +8,14 @@ import CircleMinus from "@/modules/common/icons/circle-minus"
 import CirclePlus from "@/modules/common/icons/circle-plus"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useCallback, useMemo } from "react"
+import { useI18n } from "@/lib/i18n/provider"
 
 type OptionsPickerProps = {
   options: HttpTypes.StoreProductOption[]
 }
 
 const OptionsPicker = ({ options }: OptionsPickerProps) => {
+  const { t } = useI18n()
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -71,7 +73,7 @@ const OptionsPicker = ({ options }: OptionsPickerProps) => {
             <AccordionPrimitive.Header>
               <AccordionPrimitive.Trigger className="group flex w-full items-center justify-between">
                 <Text className="text-sm font-medium text-neutral-950">
-                  {option.title}
+                  {t(option.title || "")}
                 </Text>
                 <div className="relative w-[18px] h-[18px]">
                   <CircleMinus className="absolute inset-0 opacity-0 group-data-[state=open]:opacity-100" />

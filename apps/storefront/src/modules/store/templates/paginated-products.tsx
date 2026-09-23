@@ -5,6 +5,8 @@ import { Pagination } from "@/modules/store/components/pagination"
 import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
 import { B2BCustomer } from "@/types"
 import { Container } from "@medusajs/ui"
+import { getRequestLocale } from "@/lib/i18n/server"
+import { translate } from "@/lib/i18n/messages"
 
 const PRODUCT_LIMIT = 12
 
@@ -71,6 +73,8 @@ export default async function PaginatedProducts({
   })
 
   const totalPages = Math.ceil(count / PRODUCT_LIMIT)
+  const locale = await getRequestLocale()
+  const t = (value: string) => translate(locale, value)
 
   return (
     <>
@@ -88,7 +92,7 @@ export default async function PaginatedProducts({
           })
         ) : (
           <Container className="text-center text-sm text-neutral-500">
-            No products found for this category.
+            {t("No products found for this category.")}
           </Container>
         )}
       </ul>

@@ -77,18 +77,16 @@ const ImageGallery = ({ product }: ImageGalleryProps) => {
         className="relative aspect-[29/34] w-full overflow-hidden"
         id={selectedImage.id}
       >
-        <div className="flex p-48">
-          {!!selectedImage.url && (
-            <Image
-              src={selectedImage.url}
-              priority
-              className="absolute inset-0 rounded-rounded p-20 overflow-visible object-contain"
-              alt={(selectedImage.metadata?.alt as string) || ""}
-              fill
-              sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
-            />
-          )}
-        </div>
+        {!!selectedImage.url && (
+          <Image
+            src={selectedImage.url}
+            priority
+            className="absolute inset-0 rounded-rounded p-6 small:p-20 object-contain"
+            alt={(selectedImage.metadata?.alt as string) || ""}
+            fill
+            sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
+          />
+        )}
       </div>
       <div className="flex small:flex-row flex-col-reverse gap-y-3 justify-between w-full">
         {images.length > 1 && (

@@ -28,9 +28,15 @@ export default async function ProductPreview({
     product,
   })
 
-  const inventoryQuantity = product.variants?.reduce((acc, variant) => {
-    return acc + (variant?.inventory_quantity || 0)
-  }, 0)
+  const trackedVariants = product.variants?.filter(
+    (variant) => variant.manage_inventory !== false
+  )
+  const knownQuantities = trackedVariants
+    ?.map((variant) => variant.inventory_quantity)
+    .filter((quantity): quantity is number => typeof quantity === "number")
+  const inventoryQuantity = knownQuantities?.length
+    ? knownQuantities.reduce((acc, quantity) => acc + quantity, 0)
+    : null
 
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
@@ -62,9 +68,9 @@ export default async function ProductPreview({
           <div className="flex flex-row gap-1 items-center">
             <span
               className={clx({
-                "text-green-500": inventoryQuantity && inventoryQuantity > 50,
+                "text-green-500": inventoryQuantity !== null && inventoryQuantity > 50,
                 "text-orange-500":
-                  inventoryQuantity &&
+                  inventoryQuantity !== null &&
                   inventoryQuantity <= 50 &&
                   inventoryQuantity > 0,
                 "text-red-500": inventoryQuantity === 0,
@@ -73,7 +79,9 @@ export default async function ProductPreview({
               •
             </span>
             <Text className="text-neutral-600 text-xs">
-              {inventoryQuantity} {tCatalog("left")}
+              {inventoryQuantity === null
+                ? tCatalog("Availability on request")
+                : `${inventoryQuantity} ${tCatalog("left")}`}
             </Text>
           </div>
           <PreviewAddToCart product={product} region={region} />

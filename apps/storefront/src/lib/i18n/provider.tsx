@@ -1,10 +1,14 @@
 "use client"
 
-import { createContext, useContext } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 import { defaultLocale, isLocale, Locale, localeCookie, previewLocaleCookie } from "./config"
 import { translate } from "./messages"
 
-type I18nValue = { locale: Locale; t: (english: string, vars?: Record<string, string | number>) => string }
+type I18nValue = {
+  locale: Locale
+  setLocale: (locale: Locale) => void
+  t: (english: string, vars?: Record<string, string | number>) => string
+}
 const I18nContext = createContext<I18nValue | null>(null)
 
 function interpolate(value: string, vars?: Record<string, string | number>) {
@@ -18,8 +22,10 @@ function interpolate(value: string, vars?: Record<string, string | number>) {
 }
 
 export function I18nProvider({ locale: initialLocale, children }: { locale: Locale; children: React.ReactNode }) {
-  const locale = initialLocale ?? defaultLocale
-  return <I18nContext.Provider value={{ locale, t: (text, vars) => interpolate(translate(locale, text), vars) }}>{children}</I18nContext.Provider>
+  const [locale, setLocale] = useState(initialLocale ?? defaultLocale)
+  useEffect(() => setLocale(initialLocale ?? defaultLocale), [initialLocale])
+
+  return <I18nContext.Provider value={{ locale, setLocale, t: (text, vars) => interpolate(translate(locale, text), vars) }}>{children}</I18nContext.Provider>
 }
 
 export function persistLocalePreference(next: Locale) {
