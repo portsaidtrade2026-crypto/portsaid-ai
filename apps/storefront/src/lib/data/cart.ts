@@ -181,7 +181,7 @@ export async function addToCartBulk({
   }
 
   await fetch(
-    `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/carts/${cart.id}/line-items/bulk`,
+    `${process.env.MEDUSA_BACKEND_URL || process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"}/store/carts/${cart.id}/line-items/bulk`,
     {
       method: "POST",
       headers,

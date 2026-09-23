@@ -1,4 +1,4 @@
-modules = ["nodejs-20", "postgresql-16", "python-base-3.13"]
+modules = ["nodejs-20", "python-base-3.13", "postgresql-16"]
 run = "cd apps/backend && pnpm dev"
 
 [nix]
@@ -10,7 +10,6 @@ externalPort = 5000
 
 [[ports]]
 localPort = 9000
-externalPort = 9000
 
 [userenv]
 
@@ -19,9 +18,19 @@ ADMIN_CORS = "http://localhost:5173,http://localhost:9000,https://93a29f0b-c4f1-
 AUTH_CORS = "http://localhost:5173,http://localhost:9000,https://93a29f0b-c4f1-4409-8b65-d2b3a2f64272-00-1ubbc9w5y3uwc.pike.replit.dev"
 NEXT_PUBLIC_BASE_URL = "https://93a29f0b-c4f1-4409-8b65-d2b3a2f64272-00-1ubbc9w5y3uwc.pike.replit.dev"
 NEXT_PUBLIC_DEFAULT_REGION = "us"
-NEXT_PUBLIC_MEDUSA_BACKEND_URL = "https://93a29f0b-c4f1-4409-8b65-d2b3a2f64272-00-1ubbc9w5y3uwc.pike.replit.dev:9000"
+NEXT_PUBLIC_MEDUSA_BACKEND_URL = "http://127.0.0.1:9000"
 NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY = "pk_e7baca658add6990237851f1ef76a390b1f6cbaeb81b37bad456243c55c28d1e"
 STORE_CORS = "http://localhost:5000,http://localhost:8000,https://93a29f0b-c4f1-4409-8b65-d2b3a2f64272-00-1ubbc9w5y3uwc.pike.replit.dev"
+MEDUSA_BACKEND_URL = "http://127.0.0.1:9000"
+
+[userenv.production]
+ADMIN_CORS = "https://portsaid-ai.replit.app"
+AUTH_CORS = "https://portsaid-ai.replit.app"
+MEDUSA_BACKEND_URL = "http://127.0.0.1:9000"
+NEXT_PUBLIC_BASE_URL = "https://portsaid-ai.replit.app"
+NEXT_PUBLIC_DEFAULT_REGION = "us"
+NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY = "pk_e7baca658add6990237851f1ef76a390b1f6cbaeb81b37bad456243c55c28d1e"
+STORE_CORS = "https://portsaid-ai.replit.app"
 
 [workflows]
 runButton = "Project"
@@ -60,9 +69,14 @@ outputType = "webview"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd apps/storefront && NEXT_PUBLIC_MEDUSA_BACKEND_URL=\"https://${REPLIT_DEV_DOMAIN}:9000\" corepack pnpm exec next dev -H 0.0.0.0 -p 5000"
+args = "cd apps/storefront && MEDUSA_BACKEND_URL=http://127.0.0.1:9000 corepack pnpm exec next dev -H 0.0.0.0 -p 5000"
 waitForPort = 5000
 
 [postMerge]
 path = "scripts/post-merge.sh"
 timeoutMs = 300000
+
+[deployment]
+deploymentTarget = "cloudrun"
+build = "corepack pnpm --filter @b2b-starter/backend build && corepack pnpm --filter @b2b-starter/storefront build"
+run = "bash scripts/start-production.sh"

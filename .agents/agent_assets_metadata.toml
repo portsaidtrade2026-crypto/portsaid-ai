@@ -14,3 +14,31 @@ mtime_ms = 1790175043204
 storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:93a29f0b-c4f1-4409-8b65-d2b3a2f64272/47cdbd29-f0a7-4bc2-ac58-b71c3cc5bf70/52f74d59-40c6-472e-868a-7c779133c1b1"
 storage_version_token = "1790175122585191"
 content_type = "text/markdown"
+
+[[outputs]]
+id = "ES-aUyIn-MoL68SWZm4vh"
+uri = "file://reports/production-build.log"
+type = "unspecified"
+title = "Complete production build log"
+description = "Exact configured backend and storefront build output, including non-failing lint warnings."
+logical_id = "6edbe4cb-6a02-4147-b868-84162d81eef2"
+content_hash = "sha256:1cfd9fe4c33251f090582068c6882c8f374a2c3cf95ee69d1c3ae231f750b1f6"
+size = 8528
+mtime_ms = 1790179316575
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:93a29f0b-c4f1-4409-8b65-d2b3a2f64272/6edbe4cb-6a02-4147-b868-84162d81eef2/1680840a-d878-41cb-a173-dba32d318375"
+storage_version_token = "1790179909580684"
+content_type = "application/octet-stream"
+
+[[outputs]]
+id = "lRLIYFf78dIwdrkUfbrqN"
+uri = "file://reports/production-start.log"
+type = "unspecified"
+title = "Complete production-mode startup log"
+description = "Isolated loopback Medusa and storefront smoke run on the development database; no production writes."
+logical_id = "400c0cde-8dbf-4072-9a08-cba309f884e7"
+content_hash = "sha256:7220162b2c9f02af6330fdd1e31b253b45c989d4d248a38b96d4ea8c2f6b86fd"
+size = 17084
+mtime_ms = 1790179743536
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:93a29f0b-c4f1-4409-8b65-d2b3a2f64272/400c0cde-8dbf-4072-9a08-cba309f884e7/213d735a-02e1-4b1f-9bf6-ff1b7ff0f7ff"
+storage_version_token = "1790179911004225"
+content_type = "application/octet-stream"
