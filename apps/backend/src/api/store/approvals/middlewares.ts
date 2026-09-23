@@ -91,6 +91,11 @@ export const storeApprovalsMiddlewares: MiddlewareRoute[] = [
     ],
   },
   {
+    method: ["GET"],
+    matcher: "/store/approvals/:id",
+    middlewares: [ensureApprovalType],
+  },
+  {
     method: ["POST"],
     matcher: "/store/approvals/:id",
     middlewares: [
