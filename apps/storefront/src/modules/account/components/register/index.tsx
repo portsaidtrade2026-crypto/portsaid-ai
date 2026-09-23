@@ -1,19 +1,18 @@
 "use client"
 
 import { currencySymbolMap } from "@/lib/constants"
+import { companyCountries } from "@/lib/company-countries"
 import { signup } from "@/lib/data/customer"
 import { LOGIN_VIEW } from "@/modules/account/templates/login-template"
 import ErrorMessage from "@/modules/checkout/components/error-message"
 import { SubmitButton } from "@/modules/checkout/components/submit-button"
 import Input from "@/modules/common/components/input"
-import { HttpTypes } from "@medusajs/types"
 import { Checkbox, Label, Select, Text } from "@medusajs/ui"
 import { ChangeEvent, useActionState, useState } from "react"
 import { useParams } from "next/navigation"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void
-  regions: HttpTypes.StoreRegion[]
 }
 
 interface FormData {
@@ -59,7 +58,7 @@ const placeholder = ({
   )
 }
 
-const Register = ({ setCurrentView, regions }: Props) => {
+const Register = ({ setCurrentView }: Props) => {
   const { countryCode } = useParams<{ countryCode: string }>()
   const [message, formAction] = useActionState(signup, null)
   const [termsAccepted, setTermsAccepted] = useState(false)
@@ -95,13 +94,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
     !!formData.company_country &&
     !!formData.currency_code
 
-  const countryNames = regions
-    .flatMap((region) =>
-      region.countries?.map((country) => country?.display_name || country?.name)
-    )
-    .filter((country) => country !== undefined)
-
-  const currencies = regions.map((region) => region.currency_code)
+  const currencies = ["try", "usd", "eur"]
 
   return (
     <div
@@ -224,7 +217,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
               />
             </Select.Trigger>
             <Select.Content>
-              {countryNames?.map((country) => (
+              {companyCountries.map((country) => (
                 <Select.Item key={country} value={country}>
                   {country}
                 </Select.Item>
@@ -248,7 +241,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
               />
             </Select.Trigger>
             <Select.Content>
-              {[...new Set(currencies)].map((currency) => (
+              {currencies.map((currency) => (
                 <Select.Item key={currency} value={currency}>
                   {currency.toUpperCase()} ({currencySymbolMap[currency]})
                 </Select.Item>

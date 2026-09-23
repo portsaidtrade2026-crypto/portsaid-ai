@@ -2,7 +2,6 @@
 
 import Login from "@/modules/account/components/login"
 import Register from "@/modules/account/components/register"
-import { HttpTypes } from "@medusajs/types"
 import { clx } from "@medusajs/ui"
 import Image from "next/image"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
@@ -13,7 +12,7 @@ export enum LOGIN_VIEW {
   REGISTER = "register",
 }
 
-const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
+const LoginTemplate = () => {
   const route = usePathname()
   const searchParams = useSearchParams()
   const router = useRouter()
@@ -56,7 +55,7 @@ const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
         {currentView === LOGIN_VIEW.LOG_IN ? (
           <Login setCurrentView={updateView} />
         ) : (
-          <Register setCurrentView={updateView} regions={regions} />
+          <Register setCurrentView={updateView} />
         )}
       </div>
 
