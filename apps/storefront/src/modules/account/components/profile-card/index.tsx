@@ -4,7 +4,6 @@ import { updateCustomer } from "@/lib/data/customer"
 import Button from "@/modules/common/components/button"
 import Input from "@/modules/common/components/input"
 import { B2BCustomer } from "@/types/global"
-import { HttpTypes } from "@medusajs/types"
 import { Container, Text, clx, toast } from "@medusajs/ui"
 import { useState } from "react"
 
@@ -15,10 +14,10 @@ const ProfileCard = ({ customer }: { customer: B2BCustomer }) => {
   const { first_name, last_name, phone } = customer
 
   const [customerData, setCustomerData] = useState({
-    first_name,
-    last_name,
-    phone,
-  } as HttpTypes.StoreUpdateCustomer)
+    first_name: first_name ?? "",
+    last_name: last_name ?? "",
+    phone: phone ?? "",
+  })
 
   const handleSave = async () => {
     setIsSaving(true)
