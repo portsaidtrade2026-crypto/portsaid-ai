@@ -1,2 +1,3 @@
 - [Medusa managed database constraint](test-runner-database.md) — avoid running isolated HTTP tests against the managed development PostgreSQL endpoint.
 - [Medusa HTTP test database](medusa-http-test-database.md) — the integration runner creates temporary PostgreSQL databases and treats non-local DB_HOST as SSL.
+- [Company bootstrap authorization](company-bootstrap-authorization.md) — first-admin enrollment needs a narrowly scoped exception until company creation records an owner.
