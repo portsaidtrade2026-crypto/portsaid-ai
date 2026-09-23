@@ -1,0 +1,19 @@
+Approved for development-only release preparation. Do not publish, access or modify production, change production configuration, or run production database migrations.
+
+1. Determine from configuration only whether the deployment targets Replit-managed PostgreSQL or an external database. Do not query production.
+2. Preserve the quote-ownership fix and prepare two immutable, tested release revisions:
+   A. Schema-first compatible revision: includes the quote fix and revoked_jwt schema/migration, but keeps JWT revocation middleware and the pruning job disabled for production traffic through a secure feature flag that defaults to disabled.
+   B. JWT activation revision: enables the already-tested revocation middleware and pruning job only after the production schema verification gate passes.
+3. Ensure revision A remains fully compatible with the current production schema before migration and with the new schema afterward.
+4. Resolve the standalone authentication test-runner repeatability problem. Run the complete authentication/revocation suite three consecutive times from a clean stopped state, with explicit test counts and exit code 0 for every run.
+5. Test both revisions using disposable development databases only, including migration application, schema verification, login, logout, revoked-token replay returning 401, restart persistence, second-instance rejection, tenant isolation, and quote ownership.
+6. Verify the migration ledger handling. Explain exactly how Replit’s schema-diff publication and Medusa’s migration ledger will remain consistent without adding production DDL to build or startup.
+7. Record the immutable commit SHA for each revision and list the exact file differences between them.
+8. Provide separate step-by-step approval checkpoints for:
+   - production backup/recovery point,
+   - schema-first publication,
+   - production schema and migration-ledger verification,
+   - JWT activation publication,
+   - post-release testing and monitoring,
+   - safe code-only rollback.
+9. Do not publish automatically. Report results and wait for my approval.
