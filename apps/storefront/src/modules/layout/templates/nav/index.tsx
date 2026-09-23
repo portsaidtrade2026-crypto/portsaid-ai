@@ -83,8 +83,8 @@ export async function NavigationHeader() {
               </RequestQuotePrompt>
             )}
 
-            <Suspense fallback={<SkeletonAccountButton />}>
-              <AccountButton customer={customer} />
+            <Suspense fallback={<SkeletonAccountButton label={t("Log in")} />}>
+              <AccountButton customer={customer} locale={locale} />
             </Suspense>
 
             <Suspense fallback={<SkeletonCartButton />}>

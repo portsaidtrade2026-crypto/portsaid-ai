@@ -7,3 +7,4 @@
 - [PORTSAID logo selection](portsaid-logo-selection.md) — prefer the lossless transparent mark over padded JPEG variants for reusable storefront branding.
 - [pnpm version mismatch](pnpm-version-mismatch.md) — workspace dependencies use pnpm 10's store despite the root manifest pinning pnpm 9; avoid mixing stores.
 - [Radix Select empty-value submission](radix-select-empty-value.md) — a cleared select can serialize its first option; use an explicit controlled hidden value for dependent form fields.
+- [Locale refresh verification](locale-refresh-verification.md) — a client locale change can precede the refreshed server-rendered interface; verify both before asserting language consistency.

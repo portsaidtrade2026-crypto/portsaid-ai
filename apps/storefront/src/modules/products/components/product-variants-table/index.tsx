@@ -76,8 +76,8 @@ const ProductVariantsTable = ({
   }
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="overflow-x-auto p-px">
+    <div className="flex flex-col gap-6 w-full min-w-0">
+      <div className="overflow-x-auto w-full min-w-0 p-px">
         <Table className="w-full rounded-xl overflow-hidden shadow-borders-base border-none ">
           <Table.Header className="border-t-0">
             <Table.Row className="bg-neutral-100 border-none hover:!bg-neutral-100">
@@ -88,7 +88,7 @@ const ProductVariantsTable = ({
                 }
                 return (
                   <Table.HeaderCell key={option.id} className="px-4 border-x">
-                    {option.title}
+                    {t(option.title || "")}
                   </Table.HeaderCell>
                 )
               })}
