@@ -2,8 +2,22 @@ import {
   AuthenticatedMedusaRequest,
   MedusaResponse,
 } from "@medusajs/framework";
+import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { updateApprovalsWorkflow } from "../../../../workflows/approval/workflows";
 import { StoreUpdateApprovalType } from "../validators";
+
+export const GET = async (
+  req: AuthenticatedMedusaRequest,
+  res: MedusaResponse
+) => {
+  const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
+  const { data: [approval] } = await query.graph({
+    entity: "approval",
+    fields: ["*"],
+    filters: { id: req.params.id },
+  });
+  res.json({ approval });
+};
 
 export const POST = async (
   req: AuthenticatedMedusaRequest<StoreUpdateApprovalType>,
