@@ -3,3 +3,4 @@
 - [Replit Next.js Server Actions proxy](next-server-action-origin.md) — the preview can send an Origin with :5000 while the forwarded host omits it.
 - [Company signup geography](company-signup-geography.md) — company address and preferred currency are independent of the store's checkout regions.
 - [Storefront visitor geography](storefront-visitor-geography.md) — local country ranges avoid runtime TLS failures; keep language selection separate from checkout regions.
+- [Embedded preview locale cookies](embedded-preview-locale-cookies.md) — Replit's cross-site preview needs partitioned cookies for saved language and redirect cache state.

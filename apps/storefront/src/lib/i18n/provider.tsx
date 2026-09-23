@@ -1,7 +1,7 @@
 "use client"
 
-import { createContext, useContext, useState } from "react"
-import { defaultLocale, isLocale, Locale, localeCookie } from "./config"
+import { createContext, useContext } from "react"
+import { defaultLocale, isLocale, Locale, localeCookie, previewLocaleCookie } from "./config"
 import { translate } from "./messages"
 
 type I18nValue = { locale: Locale; t: (english: string, vars?: Record<string, string | number>) => string }
@@ -18,14 +18,15 @@ function interpolate(value: string, vars?: Record<string, string | number>) {
 }
 
 export function I18nProvider({ locale: initialLocale, children }: { locale: Locale; children: React.ReactNode }) {
-  const [locale, setLocale] = useState(initialLocale ?? defaultLocale)
-  const changeLocale = (next: Locale) => {
-    setLocale(next)
-    document.cookie = `${localeCookie}=${next}; Path=/; Max-Age=31536000; SameSite=Lax`
-    document.documentElement.lang = next
-    document.documentElement.dir = next === "ar" ? "rtl" : "ltr"
-  }
+  const locale = initialLocale ?? defaultLocale
   return <I18nContext.Provider value={{ locale, t: (text, vars) => interpolate(translate(locale, text), vars) }}>{children}</I18nContext.Provider>
+}
+
+export function persistLocalePreference(next: Locale) {
+  document.cookie = `${localeCookie}=${next}; Path=/; Max-Age=31536000; SameSite=Lax`
+  if (window.location.protocol === "https:") {
+    document.cookie = `${previewLocaleCookie}=${next}; Path=/; Max-Age=31536000; SameSite=None; Secure; Partitioned`
+  }
 }
 
 export function useI18n() {
