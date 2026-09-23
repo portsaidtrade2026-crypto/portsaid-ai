@@ -42,3 +42,73 @@ mtime_ms = 1790179743536
 storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:93a29f0b-c4f1-4409-8b65-d2b3a2f64272/400c0cde-8dbf-4072-9a08-cba309f884e7/213d735a-02e1-4b1f-9bf6-ff1b7ff0f7ff"
 storage_version_token = "1790179911004225"
 content_type = "application/octet-stream"
+
+[[outputs]]
+id = "D_ToqDX78fjpABjfhWJ9T"
+uri = "file://reports/production-build-with-secrets.log"
+type = "unspecified"
+title = "Latest local production build log"
+description = "Complete Medusa and Next production build output after production secrets were saved."
+logical_id = "7e061bd4-cf41-4064-9540-09c6ceb3e42a"
+content_hash = "sha256:bfbb27d6601bdca541b53005c28031d49711742c5a8452f6812723f80cf73c90"
+size = 8528
+mtime_ms = 1790181695628
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:93a29f0b-c4f1-4409-8b65-d2b3a2f64272/7e061bd4-cf41-4064-9540-09c6ceb3e42a/00151b82-fdd5-41c8-aa1e-1aaa798711eb"
+storage_version_token = "1790181845936303"
+content_type = "application/octet-stream"
+
+[[outputs]]
+id = "f3l9Wmw0Hc-c4qkBleVoz"
+uri = "file://reports/production-start-with-secrets.log"
+type = "unspecified"
+title = "Latest production-mode startup log"
+description = "Complete isolated startup smoke log using saved secrets and the development database only."
+logical_id = "c372db86-ee15-414b-9354-b83771098918"
+content_hash = "sha256:b1060d8411f7e3e3e15b2616c4a322a8fb5b31fdef10d503dcf6af98cac66219"
+size = 10096
+mtime_ms = 1790181713980
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:93a29f0b-c4f1-4409-8b65-d2b3a2f64272/c372db86-ee15-414b-9354-b83771098918/8b087706-4fa9-41e7-8d92-b9dd4793a475"
+storage_version_token = "1790181847271330"
+content_type = "application/octet-stream"
+
+[[outputs]]
+id = "-rkum8dyohxTewbUV9pye"
+uri = "file://reports/production-auth-build.log"
+type = "unspecified"
+title = "Exact production build log"
+description = "Complete successful Medusa and Next build output."
+logical_id = "d307daff-f1ef-4deb-bb02-61d7eaf61b74"
+content_hash = "sha256:eb353bec935c4a3dd1a87b97d3af83bf28c7c749c4fafde2b6da83e04dcc23fd"
+size = 8528
+mtime_ms = 1790182406784
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:93a29f0b-c4f1-4409-8b65-d2b3a2f64272/d307daff-f1ef-4deb-bb02-61d7eaf61b74/72c5adf3-7ed3-4e79-84b5-8229b74f3ce3"
+storage_version_token = "1790182581961142"
+content_type = "application/octet-stream"
+
+[[outputs]]
+id = "1jl1NLrTU0J1tdgmh296k"
+uri = "file://reports/production-auth-start.log"
+type = "unspecified"
+title = "Isolated production startup log"
+description = "Production-mode services on local ports, using the development database."
+logical_id = "00b04fdf-1f33-4f29-855a-805829aa9457"
+content_hash = "sha256:a91959a1d243c87ab05ec1f6496a64c5798276ac72eef0c7c08f465c21b4210b"
+size = 17092
+mtime_ms = 1790182434008
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:93a29f0b-c4f1-4409-8b65-d2b3a2f64272/00b04fdf-1f33-4f29-855a-805829aa9457/d911a768-da76-47f0-8366-774df409a479"
+storage_version_token = "1790182583284741"
+content_type = "application/octet-stream"
+
+[[outputs]]
+id = "8KczVHwnP5RwjrhGLJlog"
+uri = "file://reports/production-auth-test.log"
+type = "unspecified"
+title = "Authentication verification results"
+description = "Login, cookie persistence, JWT validation, and logout test output; no secrets or tokens included."
+logical_id = "10a3c153-1672-4948-a533-f7c7f27bdae6"
+content_hash = "sha256:148874bba8eebf75dffa9a23aa427ee69452a0a9a020cd2f74c5b183567d32fe"
+size = 611
+mtime_ms = 1790182434116
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:93a29f0b-c4f1-4409-8b65-d2b3a2f64272/10a3c153-1672-4948-a533-f7c7f27bdae6/22588a76-771d-41be-ba4c-ae5ef6909c33"
+storage_version_token = "1790182584624270"
+content_type = "application/octet-stream"
