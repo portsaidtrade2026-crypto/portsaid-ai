@@ -1,7 +1,6 @@
 "use client"
 
 import { currencySymbolMap } from "@/lib/constants"
-import { companyCountries } from "@/lib/company-countries"
 import { signup } from "@/lib/data/customer"
 import { LOGIN_VIEW } from "@/modules/account/templates/login-template"
 import ErrorMessage from "@/modules/checkout/components/error-message"
@@ -11,6 +10,7 @@ import { Checkbox, Label, Select, Text } from "@medusajs/ui"
 import { ChangeEvent, useActionState, useState } from "react"
 import { useParams } from "next/navigation"
 import { useI18n } from "@/lib/i18n/provider"
+import CompanyLocationFields from "./company-location-fields"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void
@@ -65,6 +65,7 @@ const Register = ({ setCurrentView }: Props) => {
   const [message, formAction] = useActionState(signup, null)
   const [termsAccepted, setTermsAccepted] = useState(false)
   const [formData, setFormData] = useState<FormData>(initialFormData)
+  const [locationReady, setLocationReady] = useState(false)
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -85,6 +86,7 @@ const Register = ({ setCurrentView }: Props) => {
 
   const isValid =
     termsAccepted &&
+    locationReady &&
     !!formData.email &&
     !!formData.first_name &&
     !!formData.last_name &&
@@ -173,24 +175,9 @@ const Register = ({ setCurrentView }: Props) => {
             value={formData.company_address}
             onChange={handleChange}
           />
-          <Input
-            label={t("Company city")}
-            name="company_city"
-            required
-            autoComplete="city"
-            data-testid="company-city-input"
-            className="bg-white"
-            value={formData.company_city}
-            onChange={handleChange}
-          />
-          <Input
-            label={t("Company state")}
-            name="company_state"
-            autoComplete="state"
-            data-testid="company-state-input"
-            className="bg-white"
-            value={formData.company_state}
-            onChange={handleChange}
+          <CompanyLocationFields
+            onChange={(values) => setFormData((prev) => ({ ...prev, ...values }))}
+            onReadyChange={setLocationReady}
           />
           <Input
             label={t("Company zip")}
@@ -203,30 +190,6 @@ const Register = ({ setCurrentView }: Props) => {
             onChange={handleChange}
           />
           <Select
-            name="company_country"
-            required
-            autoComplete="country"
-            data-testid="company-country-input"
-            value={formData.company_country}
-            onValueChange={handleSelectChange("company_country")}
-          >
-            <Select.Trigger className="rounded-full h-10 px-4">
-              <Select.Value
-                placeholder={placeholder({
-                  placeholder: t("Select a country"),
-                  required: true,
-                })}
-              />
-            </Select.Trigger>
-            <Select.Content>
-              {companyCountries.map((country) => (
-                <Select.Item key={country} value={country}>
-                  {country}
-                </Select.Item>
-              ))}
-            </Select.Content>
-          </Select>
-          <Select
             name="currency_code"
             required
             autoComplete="currency"
@@ -234,7 +197,7 @@ const Register = ({ setCurrentView }: Props) => {
             value={formData.currency_code}
             onValueChange={handleSelectChange("currency_code")}
           >
-            <Select.Trigger className="rounded-full h-10 px-4">
+            <Select.Trigger data-testid="company-currency-trigger" className="rounded-full h-10 px-4">
               <Select.Value
                 placeholder={placeholder({
                   placeholder: t("Select a currency"),
