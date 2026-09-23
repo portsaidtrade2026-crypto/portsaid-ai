@@ -1,2 +1,3 @@
 - [Medusa managed database constraint](test-runner-database.md) — avoid running isolated HTTP tests against the managed development PostgreSQL endpoint.
 - [Medusa HTTP test database](medusa-http-test-database.md) — the integration runner creates temporary PostgreSQL databases and treats non-local DB_HOST as SSL.
+- [Replit Next.js Server Actions proxy](next-server-action-origin.md) — the preview can send an Origin with :5000 while the forwarded host omits it.

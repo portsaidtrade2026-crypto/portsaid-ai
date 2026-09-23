@@ -11,6 +11,7 @@
     "dev": "next dev -p 8000",
     "build": "next build",
     "start": "next start -p 8000",
+    "test:e2e:company-registration": "node --test integration-tests/company-registration.test.cjs",
     "lint": "next lint",
     "clean": "rm -rf .next node_modules",
     "analyze": "ANALYZE=true next build"
