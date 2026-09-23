@@ -2,30 +2,19 @@ import type {
   AuthenticatedMedusaRequest,
   MedusaResponse,
 } from "@medusajs/framework";
-import {
-  IOrderModuleService,
-  RemoteQueryFunction,
-} from "@medusajs/framework/types";
-import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils";
+import { IOrderModuleService } from "@medusajs/framework/types";
+import { Modules } from "@medusajs/framework/utils";
+import { requireCustomerQuote } from "../../../../../utils/customer-quote";
 
 export const GET = async (
   req: AuthenticatedMedusaRequest,
   res: MedusaResponse
 ) => {
-  const { id } = req.params;
-  const query = req.scope.resolve<RemoteQueryFunction>(
-    ContainerRegistrationKeys.QUERY
-  );
-
-  const {
-    data: [quote],
-  } = await query.graph(
-    {
-      entity: "quote",
-      fields: req.queryConfig.fields,
-      filters: { id },
-    },
-    { throwIfKeyNotFound: true }
+  const quote = await requireCustomerQuote(
+    req.scope,
+    req.params.id,
+    req.auth_context.actor_id,
+    req.queryConfig.fields
   );
 
   const orderModuleService: IOrderModuleService = req.scope.resolve(

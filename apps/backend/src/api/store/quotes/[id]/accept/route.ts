@@ -2,7 +2,7 @@ import type {
   AuthenticatedMedusaRequest,
   MedusaResponse,
 } from "@medusajs/framework";
-import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
+import { requireCustomerQuote } from "../../../../../utils/customer-quote";
 import { customerAcceptQuoteWorkflow } from "../../../../../workflows/quote/workflows";
 import { AcceptQuoteType } from "../../validators";
 
@@ -10,26 +10,24 @@ export const POST = async (
   req: AuthenticatedMedusaRequest<AcceptQuoteType>,
   res: MedusaResponse
 ) => {
-  const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
   const { id } = req.params;
+  const customerId = req.auth_context.actor_id;
+
+  await requireCustomerQuote(req.scope, id, customerId);
 
   await customerAcceptQuoteWorkflow(req.scope).run({
     input: {
       ...req.validatedBody,
       quote_id: id,
-      customer_id: req.auth_context.actor_id,
+      customer_id: customerId,
     },
   });
 
-  const {
-    data: [quote],
-  } = await query.graph(
-    {
-      entity: "quote",
-      fields: req.queryConfig.fields,
-      filters: { id },
-    },
-    { throwIfKeyNotFound: true }
+  const quote = await requireCustomerQuote(
+    req.scope,
+    id,
+    customerId,
+    req.queryConfig.fields
   );
 
   return res.json({ quote });
