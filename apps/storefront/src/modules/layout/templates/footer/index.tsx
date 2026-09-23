@@ -3,7 +3,6 @@ import { listCollections } from "@/lib/data/collections"
 import { Text, clx } from "@medusajs/ui"
 
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
-import MedusaCTA from "@/modules/layout/components/medusa-cta"
 import { getRequestLocale } from "@/lib/i18n/server"
 import { translate } from "@/lib/i18n/messages"
 
@@ -20,17 +19,19 @@ export default async function Footer() {
   })
 
   return (
-    <footer className="border-t border-ui-border-base w-full bg-ui-bg-subtle">
+    <footer className="border-t border-[var(--ps-line)] w-full">
       <div className="content-container flex flex-col w-full">
-        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
+        <div className="flex flex-col gap-y-10 xsmall:flex-row items-start justify-between py-24">
           <div>
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-base hover:text-[#705700] dark:hover:text-[#e5c126] uppercase tracking-[.18em] flex items-center gap-3"
+              className="brand-lockup"
             >
-              <span className="bg-[#121212] rounded-md p-2 inline-flex"><img src="/portsaid-logo.png" alt="PORTSAID" className="w-16 h-10 object-contain" /></span>
-              <span>PORTSAID</span>
+              <img src="/logo-portsaid.png" alt="Portsaid Plastik ve Otomotiv" />
             </LocalizedClientLink>
+            <p className="mt-5 max-w-[220px] text-xs leading-5 text-[var(--ps-muted)]">
+              {t("Components and supply for the road ahead. Built for businesses that keep moving.")}
+            </p>
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
             {product_categories && product_categories?.length > 0 && (
@@ -118,37 +119,20 @@ export default async function Footer() {
               </div>
             )}
             <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">{t("Medusa")}</span>
+                <span className="txt-small-plus txt-ui-fg-base">Portsaid</span>
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
                 <li>
-                  <a
-                    href="https://github.com/medusajs"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    GitHub
-                  </a>
+                  <LocalizedClientLink href="/account" className="hover:text-ui-fg-base">{t("Customer account")}</LocalizedClientLink>
                 </li>
                 <li>
-                  <a
-                    href="https://docs.medusajs.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    {t("Documentation")}
-                  </a>
+                  <LocalizedClientLink href="/store" className="hover:text-ui-fg-base">
+                    {t("Catalogue")}
+                  </LocalizedClientLink>
                 </li>
                 <li>
-                  <a
-                    href="https://github.com/medusajs/b2b-starter-medusa"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    {t("Source code")}
-                  </a>
+                  <LocalizedClientLink href="/account" className="hover:text-ui-fg-base">
+                    {t("Request a quote")}
+                  </LocalizedClientLink>
                 </li>
               </ul>
             </div>
@@ -156,9 +140,9 @@ export default async function Footer() {
         </div>
         <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
           <Text className="txt-compact-small">
-             © {new Date().getFullYear()} PORTSAID. {t("All rights reserved.")}
+            © {new Date().getFullYear()} Portsaid Plastik ve Otomotiv. {t("All rights reserved.")}
           </Text>
-          <MedusaCTA />
+          <span className="text-xs uppercase tracking-[.18em] text-[var(--ps-muted)]">FS / PORTSAID</span>
         </div>
       </div>
     </footer>

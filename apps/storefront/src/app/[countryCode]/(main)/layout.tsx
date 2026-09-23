@@ -7,11 +7,11 @@ import Footer from "@/modules/layout/templates/footer"
 import { NavigationHeader } from "@/modules/layout/templates/nav"
 import FreeShippingPriceNudge from "@/modules/shipping/components/free-shipping-price-nudge"
 import { StoreFreeShippingPrice } from "@/types/shipping-option/http"
-import { ArrowUpRightMini } from "@medusajs/icons"
 import { StoreCart } from "@medusajs/types"
 import { Metadata } from "next"
 import { getRequestLocale } from "@/lib/i18n/server"
 import { translate } from "@/lib/i18n/messages"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
@@ -30,21 +30,18 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
   return (
     <>
       <NavigationHeader />
-      <div className="flex items-center text-[#f9f8f4] justify-center small:p-3 p-2 text-center bg-[#121212] border-b border-[#655314] small:gap-2 gap-1 text-sm">
+      <div className="flex items-center justify-center small:p-3 p-2 text-center ps-yellow-band small:gap-2 gap-1 text-xs font-medium tracking-wide">
         <div className="flex flex-col small:flex-row small:gap-2 gap-1 items-center">
           <span className="flex items-center gap-1">
-            {translate(locale, "PORTSAID · Plastics & Automotive")}
+             {translate(locale, "Reliable parts, direct supply")}
           </span>
 
-          <a
-            className="group text-[#e5c126] hover:text-[#fff1a6] self-end small:self-auto"
-            href="https://cloud.medusajs.com"
-            target="_blank"
-            rel="noopener noreferrer"
+          <LocalizedClientLink
+            href="/store"
+            className="self-end small:self-auto underline underline-offset-4 hover:opacity-70"
           >
-            {translate(locale, "Built with Medusa")}
-            <ArrowUpRightMini className="inline" />
-          </a>
+            {translate(locale, "Explore our catalogue")}
+          </LocalizedClientLink>
         </div>
       </div>
 

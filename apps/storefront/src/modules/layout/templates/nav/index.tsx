@@ -23,19 +23,17 @@ export async function NavigationHeader() {
   const cart = await retrieveCart()
 
   return (
-    <div className="sticky top-0 inset-x-0 group bg-ui-bg-base text-ui-fg-base small:p-4 p-2 text-sm border-b duration-200 border-ui-border-base z-50">
+    <div className="brand-header sticky top-0 inset-x-0 group ps-surface text-[var(--ps-ink)] small:p-4 p-2 text-sm border-b duration-200 border-[var(--ps-line)] z-50">
       <header className="flex w-full content-container relative small:mx-auto justify-between">
-        <div className="small:mx-auto flex flex-col small:flex-row small:justify-between items-start small:items-center min-w-full gap-2 small:gap-0">
+        <div className="small:mx-auto flex justify-between items-center min-w-0 w-full gap-2">
           <div className="flex items-center small:space-x-4">
-              <LocalizedClientLink
-               className="hover:text-[#705700] dark:hover:text-[#e5c126] flex items-center w-fit"
+            <LocalizedClientLink
+              className="hover:text-ui-fg-base flex items-center w-fit"
               href="/"
             >
-                <h1 className="small:text-base text-sm font-semibold flex items-center">
-                 <span className="bg-[#121212] rounded-md px-2 py-1.5 me-2 flex items-center">
-                   <img src="/portsaid-logo.png" alt="PORTSAID" className="h-8 w-[52px] object-contain" />
-                 </span>
-                 <span className="hidden small:inline tracking-[.12em]">PORTSAID <span className="text-[#a6840d]">/</span> B2B</span>
+              <h1 className="brand-lockup">
+                <img src="/logo-portsaid.png" alt="Portsaid Plastik ve Otomotiv" />
+                <small className="hidden medium:block">{t("Industrial supply")}</small>
               </h1>
             </LocalizedClientLink>
 
@@ -49,13 +47,13 @@ export async function NavigationHeader() {
               </ul>
             </nav>
           </div>
-          <div className="flex w-full small:w-auto justify-between small:justify-end items-center gap-1 small:gap-2">
+          <div className="flex justify-end items-center gap-1 small:gap-2 min-w-0 shrink-0">
             <div className="relative mr-2 hidden small:inline-flex">
               <input
                 disabled
                 type="text"
                 placeholder={t("Search for products")}
-              className="bg-ui-bg-subtle text-ui-fg-base px-4 py-2 rounded-full pe-10 border border-ui-border-base hidden small:inline-block hover:cursor-not-allowed"
+              className="bg-[var(--ps-paper)] text-[var(--ps-ink)] px-4 py-2 rounded-full pe-10 border border-[var(--ps-line)] hidden small:inline-block hover:cursor-not-allowed"
                 title={t("Install a search provider to enable product search")}
               />
             </div>

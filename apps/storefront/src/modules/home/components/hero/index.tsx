@@ -1,41 +1,46 @@
 "use client"
 
 import { Heading } from "@medusajs/ui"
-import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import Button from "@/modules/common/components/button"
 import Image from "next/image"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { useI18n } from "@/lib/i18n/provider"
 
 const Hero = () => {
   const { t } = useI18n()
   return (
-    <section className="w-full border-b border-ui-border-base bg-[#171715] text-white">
-      <div className="content-container grid min-h-[530px] items-center gap-10 py-16 small:grid-cols-[1fr_.75fr] small:py-24">
-        <div className="relative z-10 flex flex-col items-start gap-7">
-          <div>
-          <p className="text-[#e5c126] text-xs uppercase tracking-[.3em] font-semibold">
-            {t("Plastik ve Otomotiv")}
+    <div className="h-[75vh] w-full border-b border-[var(--ps-line)] relative bg-[#e9e9df] overflow-hidden">
+      <Image
+        src="/hero-image.jpg"
+        alt="Hero background"
+        layout="fill"
+        quality={100}
+        priority
+      />
+      <div className="brand-hero-overlay absolute inset-0 z-1 flex flex-col justify-center items-start text-start small:p-32 p-8 gap-6 bg-gradient-to-r from-[#111214]/80 via-[#111214]/35 to-transparent">
+        <span>
+          <p className="text-[var(--ps-yellow)] text-xs uppercase tracking-[.24em] font-semibold">
+            FS / PORTSAID — {t("Industrial supply")}
           </p>
 
           <Heading
             level="h1"
-            className="text-5xl small:text-7xl leading-[1.04] text-[#f9f8f4] font-semibold mt-6 mb-5 max-w-xl"
+            className="text-5xl small:text-7xl leading-[.95] text-white font-semibold mt-7 mb-5 max-w-3xl tracking-[-.04em]"
           >
-            {t("Parts that keep business moving")}
+            {t("Built for the parts that keep moving.")}
           </Heading>
 
-          <p className="leading-8 text-[#d8d5cb] font-normal text-base small:text-lg max-w-lg">
-            {t("Reliable plastics and automotive essentials, ready for efficient B2B ordering.")}
+          <p className="leading-7 text-white/75 font-normal text-lg max-w-md">
+            {t("Automotive and plastic components, sourced with precision and ready for your next production run.")}
           </p>
-          </div>
-        <LocalizedClientLink href="/store" className="inline-flex items-center rounded-md bg-[#e5c126] px-6 py-3 font-semibold text-[#121212] hover:bg-[#f2d44d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e5c126]">
-          {t("Browse products")}
+        </span>
+        <LocalizedClientLink href="/store">
+          <Button variant="secondary" className="rounded-2xl">
+            {t("Browse catalogue")}
+          </Button>
         </LocalizedClientLink>
-        </div>
-        <div className="hidden small:flex items-center justify-center">
-          <Image src="/portsaid-logo.png" alt="PORTSAID" width={362} height={221} priority className="h-auto w-full max-w-[440px] object-contain" />
-        </div>
       </div>
-    </section>
+    </div>
   )
 }
 

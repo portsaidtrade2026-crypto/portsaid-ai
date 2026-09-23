@@ -6,6 +6,7 @@ import { clx } from "@medusajs/ui"
 import Image from "next/image"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
+import { useI18n } from "@/lib/i18n/provider"
 
 export enum LOGIN_VIEW {
   LOG_IN = "log-in",
@@ -16,6 +17,7 @@ const LoginTemplate = () => {
   const route = usePathname()
   const searchParams = useSearchParams()
   const router = useRouter()
+  const { t } = useI18n()
 
   const [imageLoaded, setImageLoaded] = useState(false)
   const [currentView, setCurrentView] = useState<LOGIN_VIEW>(() => {
@@ -51,7 +53,7 @@ const LoginTemplate = () => {
 
   return (
     <div className="grid grid-cols-1 small:grid-cols-2 gap-2 m-2 min-h-[80vh]">
-      <div className="flex justify-center items-center bg-neutral-100 p-6 small:p-0 h-full">
+      <div className="flex justify-center items-center ps-surface p-6 small:p-0 h-full border border-[var(--ps-line)]">
         {currentView === LOGIN_VIEW.LOG_IN ? (
           <Login setCurrentView={updateView} />
         ) : (
@@ -59,7 +61,11 @@ const LoginTemplate = () => {
         )}
       </div>
 
-      <div className="relative">
+      <div className="relative min-h-[320px] overflow-hidden bg-[#111214]">
+        <div className="absolute z-10 inset-0 flex flex-col justify-end p-8 text-white bg-gradient-to-t from-[#111214]/85 to-transparent">
+          <img src="/logo-portsaid.png" alt="Portsaid Plastik ve Otomotiv" className="w-44 mb-4" />
+          <p className="max-w-xs text-sm text-white/75">{t("Your supply line, made dependable.")}</p>
+        </div>
         <Image
           src="/account-block.jpg"
           alt="Login banner background"

@@ -50,6 +50,18 @@ test("the bundled IP country database detects location without geo headers", { t
   }
 })
 
+test("unknown geography stays English and a manual preference wins over location", { timeout: 120000 }, async () => {
+  for (const [country, preference, ip, locale] of [
+    [null, null, null, "en"],
+    [null, null, "127.0.0.1", "en"],
+    ["TR", "en", null, "en"],
+    [null, "ar", "2.17.224.1", "ar"],
+  ]) {
+    const html = await visit("/dk", country, preference, ip)
+    assert.match(html, new RegExp(`<html lang="${locale}"`))
+  }
+})
+
 test("product names and descriptions follow the visitor language", { timeout: 120000 }, async () => {
   for (const [country, title, description] of [
     ["TR", "1080p HD Pro Web Kamerası", "Standart dizüstü kameralarından"],

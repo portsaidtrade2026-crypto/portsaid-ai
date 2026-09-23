@@ -79,19 +79,16 @@ test("buyer journeys against the running Medusa API", async (t) => {
     )
     ctx.company = companies[0]
     assert.ok(ctx.company.id)
-    const { employee } = await request(
-      "POST",
-      `/store/companies/${ctx.company.id}/employees`,
-      { customer_id: customer.id, is_admin: true },
-      ctx.token
-    )
-    assert.ok(employee.id)
     const { customer: account } = await request(
       "GET",
       "/store/customers/me?fields=*employee,*employee.company",
       undefined,
       ctx.token
     )
+    const employee = account.employee
+    assert.ok(employee?.id, "company creation should automatically add its owner as an employee")
+    assert.equal(employee.is_admin, true)
+    assert.equal(account.id, customer.id)
     assert.equal(account.employee.company.id, ctx.company.id)
     console.log(`COMPANY LOGIN VERIFIED: ${ctx.company.id} / ${employee.id}`)
   })

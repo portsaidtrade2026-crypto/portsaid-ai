@@ -43,7 +43,7 @@ export default function ThemeToggle() {
       type="button"
       data-testid="theme-toggle"
       onClick={toggleTheme}
-      className="inline-flex size-9 shrink-0 items-center justify-center rounded-full border border-ui-border-base bg-ui-bg-base text-ui-fg-base transition-colors hover:border-amber-500 hover:bg-ui-bg-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+      className="theme-toggle shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
     >
       <span className="sr-only dark:hidden">{labels[locale].dark}</span>
       <span className="sr-only hidden dark:inline">{labels[locale].light}</span>
