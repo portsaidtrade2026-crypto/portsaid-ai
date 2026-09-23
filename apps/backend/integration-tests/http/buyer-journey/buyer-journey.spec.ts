@@ -59,10 +59,10 @@ medusaIntegrationTestRunner({
       return data.companies[0];
     };
 
-    const createBuyerCart = async (companyId?: string) =>
+    const createBuyerCart = async (companyId?: string, buyerHeaders = headers) =>
       cartSeeder({
         api,
-        storeHeaders: headers,
+        storeHeaders: buyerHeaders,
         data: {
           region_id: regionId,
           sales_channel_id: channelId,
@@ -204,6 +204,77 @@ medusaIntegrationTestRunner({
       expect(afterApproval.status).toBe(200);
       expect(afterApproval.data.type).toBe("order");
       expect(afterApproval.data.order.id).toEqual(expect.any(String));
+    });
+
+    it("isolates approval lists, detail reads, and updates between company admins", async () => {
+      const companyA = await registerCompany();
+      const emailB = "other-admin@example.com";
+      const registration = await api.post("/auth/customer/emailpass/register", {
+        email: emailB,
+        password: "password",
+      });
+      const otherHeaders = {
+        headers: {
+          ...headers.headers,
+          Authorization: `Bearer ${registration.data.token}`,
+        },
+      };
+      await api.post("/store/customers", { email: emailB }, otherHeaders);
+      const login = await api.post("/auth/customer/emailpass", {
+        email: emailB,
+        password: "password",
+      });
+      otherHeaders.headers.Authorization = `Bearer ${login.data.token}`;
+      const { data: createdB } = await api.post(
+        "/store/companies",
+        { name: "Other Co", email: emailB, currency_code: "usd" },
+        otherHeaders
+      );
+      const companyB = createdB.companies[0];
+
+      for (const [company, buyerHeaders] of [
+        [companyA, headers],
+        [companyB, otherHeaders],
+      ] as const) {
+        await api.post(
+          `/store/companies/${company.id}/approval-settings`,
+          { requires_admin_approval: true },
+          buyerHeaders
+        );
+      }
+      const cartA = await createBuyerCart(companyA.id);
+      const cartB = await createBuyerCart(companyB.id, otherHeaders);
+      const approvalA = (await api.post(
+        `/store/carts/${cartA.id}/approvals`, {}, headers
+      )).data.approvals[0];
+      const approvalB = (await api.post(
+        `/store/carts/${cartB.id}/approvals`, {}, otherHeaders
+      )).data.approvals[0];
+
+      const listA = (await api.get("/store/approvals", headers)).data;
+      const listB = (await api.get("/store/approvals", otherHeaders)).data;
+      expect(listA.carts_with_approvals.map((cart) => cart.id)).toContain(cartA.id);
+      expect(listA.carts_with_approvals.map((cart) => cart.id)).not.toContain(cartB.id);
+      expect(listB.carts_with_approvals.map((cart) => cart.id)).toContain(cartB.id);
+      expect(listB.carts_with_approvals.map((cart) => cart.id)).not.toContain(cartA.id);
+
+      expect((await api.get(`/store/approvals/${approvalA.id}`, headers)).data.approval.id)
+        .toBe(approvalA.id);
+      const forbidden = async (request) => {
+        const { response } = await request.catch((error) => error);
+        expect(response.status).toBe(403);
+      };
+      await forbidden(api.get(`/store/approvals/${approvalB.id}`, headers));
+      await forbidden(api.get(`/store/approvals/${approvalA.id}`, otherHeaders));
+      await forbidden(api.post(
+        `/store/approvals/${approvalB.id}`, { status: "approved" }, headers
+      ));
+      expect((await api.get(`/store/approvals/${approvalB.id}`, otherHeaders))
+        .data.approval.status).toBe("pending");
+      const updated = await api.post(
+        `/store/approvals/${approvalB.id}`, { status: "approved" }, otherHeaders
+      );
+      expect(updated.data.approval.status).toBe("approved");
     });
   },
 });

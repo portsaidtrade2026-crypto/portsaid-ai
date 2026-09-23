@@ -13,7 +13,41 @@ import { ApprovalType } from "../../../types/approval";
 import { approvalTransformQueryConfig } from "./query-config";
 import { StoreGetApprovals, StoreUpdateApproval } from "./validators";
 
-const ensureApprovalType = async (
+export const storeApprovalsMiddlewares: MiddlewareRoute[] = [
+  {
+    method: "ALL",
+    matcher: "/store/approvals*",
+    middlewares: [
+      authenticate("customer", ["session", "bearer"]),
+      ensureRole("company_admin"),
+    ],
+  },
+  {
+    method: ["GET"],
+    matcher: "/store/approvals",
+    middlewares: [
+      validateAndTransformQuery(
+        StoreGetApprovals,
+        approvalTransformQueryConfig
+      ),
+    ],
+  },
+  {
+    method: ["GET"],
+    matcher: "/store/approvals/:id",
+    middlewares: [ensureApprovalAccess],
+  },
+  {
+    method: ["POST"],
+    matcher: "/store/approvals/:id",
+    middlewares: [
+      ensureApprovalAccess,
+      validateAndTransformBody(StoreUpdateApproval),
+    ],
+  },
+];
+
+const ensureApprovalAccess = async (
   req: AuthenticatedMedusaRequest,
   res: MedusaResponse,
   next: MedusaNextFunction
@@ -32,13 +66,6 @@ const ensureApprovalType = async (
 
   if (!approval) {
     res.status(404).json({ message: "Approval not found" });
-    return;
-  }
-
-  const approvalType = approval.type as unknown as ApprovalType;
-
-  if (approvalType !== ApprovalType.ADMIN) {
-    res.status(403).json({ message: "Forbidden" });
     return;
   }
 
@@ -63,44 +90,14 @@ const ensureApprovalType = async (
   ]);
   const customerCompanyId = customerResult.data[0]?.employee?.company?.id;
   const cartCompanyId = cartResult.data[0]?.company?.id;
-  if (!cartCompanyId || customerCompanyId !== cartCompanyId) {
+  if (
+    !cartCompanyId ||
+    customerCompanyId !== cartCompanyId ||
+    approval.type !== ApprovalType.ADMIN
+  ) {
     res.status(403).json({ message: "Forbidden" });
     return;
   }
 
   next();
 };
-
-export const storeApprovalsMiddlewares: MiddlewareRoute[] = [
-  {
-    method: "ALL",
-    matcher: "/store/approvals*",
-    middlewares: [
-      authenticate("customer", ["session", "bearer"]),
-      ensureRole("company_admin"),
-    ],
-  },
-  {
-    method: ["GET"],
-    matcher: "/store/approvals",
-    middlewares: [
-      validateAndTransformQuery(
-        StoreGetApprovals,
-        approvalTransformQueryConfig
-      ),
-    ],
-  },
-  {
-    method: ["GET"],
-    matcher: "/store/approvals/:id",
-    middlewares: [ensureApprovalType],
-  },
-  {
-    method: ["POST"],
-    matcher: "/store/approvals/:id",
-    middlewares: [
-      ensureApprovalType,
-      validateAndTransformBody(StoreUpdateApproval),
-    ],
-  },
-];
