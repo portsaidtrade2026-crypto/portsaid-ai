@@ -3,6 +3,7 @@ export const locales = ["en", "tr", "bg", "ar"] as const
 export type Locale = (typeof locales)[number]
 export const defaultLocale: Locale = "en"
 export const localeCookie = "medusa_locale"
+export const previewLocaleCookie = "medusa_locale_preview"
 
 export const arabLeagueCountries = new Set([
   "dz", "bh", "km", "dj", "eg", "iq", "jo", "kw", "lb", "ly", "mr",
