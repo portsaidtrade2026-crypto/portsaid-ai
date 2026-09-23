@@ -32,9 +32,7 @@ medusaIntegrationTestRunner({
       storeHeaders = generateStoreHeaders({ publishableKey });
       const res = await createStoreUser({ api, storeHeaders });
       customerToken = res.token;
-      console.log("vic logs customerToken", customerToken);
       storeHeaders.headers["Authorization"] = `Bearer ${customerToken}`;
-      console.log("vic logs storeHeaders", storeHeaders);
       region = await regionSeeder({ api, adminHeaders, data: {} });
 
       salesChannel = await salesChannelSeeder({
@@ -231,7 +229,6 @@ medusaIntegrationTestRunner({
     });
 
     describe("DELETE /store/companies/:id", () => {
-      console.log("vic logs storeHeaders", storeHeaders);
       let company1;
 
       beforeEach(async () => {
@@ -270,7 +267,109 @@ medusaIntegrationTestRunner({
           .delete(`/store/companies/does-not-exist`, storeHeaders)
           .catch((e) => e);
 
-        expect(response.status).toEqual(204);
+        expect(response.response.status).toEqual(404);
+      });
+    });
+
+    describe("company access", () => {
+      const createCompany = async (headers, name) => {
+        const { data } = await api.post(
+          "/store/companies",
+          { name, email: `${name.toLowerCase()}@example.com`, currency_code: "usd" },
+          headers
+        );
+        return data.companies[0];
+      };
+
+      const createCustomer = async (email) => {
+        const registerToken = (await api.post("/auth/customer/emailpass/register", {
+          email,
+          password: "password",
+        })).data.token;
+        const headers = {
+          headers: {
+            ...storeHeaders.headers,
+            Authorization: `Bearer ${registerToken}`,
+          },
+        };
+        const customer = (await api.post("/store/customers", { email }, headers)).data.customer;
+        const token = (await api.post("/auth/customer/emailpass", {
+          email,
+          password: "password",
+        })).data.token;
+        headers.headers.Authorization = `Bearer ${token}`;
+        return { customer, headers };
+      };
+
+      it("blocks another company's administrator and employee from reading or changing its records", async () => {
+        const companyA = await createCompany(storeHeaders, "Alpha");
+        const ownerB = await createCustomer("owner-b@example.com");
+        const companyB = await createCompany(ownerB.headers, "Bravo");
+        const employeeA = await createCustomer("employee-a@example.com");
+        await api.post(
+          `/store/companies/${companyA.id}/employees`,
+          { customer_id: employeeA.customer.id, is_admin: false },
+          storeHeaders
+        );
+        const { data: employeesB } = await api.get(
+          `/store/companies/${companyB.id}/employees`,
+          ownerB.headers
+        );
+        const targetId = employeesB.employees[0].id;
+
+        const forbidden = async (promise) => {
+          const { response } = await promise.catch((error) => error);
+          expect(response.status).toBe(403);
+        };
+
+        for (const headers of [storeHeaders, employeeA.headers]) {
+          await forbidden(api.get(`/store/companies/${companyB.id}`, headers));
+          await forbidden(api.get(`/store/companies/${companyB.id}/employees`, headers));
+          await forbidden(api.get(`/store/companies/${companyB.id}/employees/${targetId}`, headers));
+          await forbidden(api.post(`/store/companies/${companyB.id}`, { name: "Hijacked" }, headers));
+          await forbidden(api.post(`/store/companies/${companyB.id}/employees`, {
+            customer_id: employeeA.customer.id,
+          }, headers));
+          await forbidden(api.post(`/store/companies/${companyB.id}/employees/${targetId}`, {
+            spending_limit: 100,
+          }, headers));
+          await forbidden(api.delete(`/store/companies/${companyB.id}/employees/${targetId}`, headers));
+          await forbidden(api.post(`/store/companies/${companyB.id}/approval-settings`, {
+            requires_admin_approval: true,
+          }, headers));
+          await forbidden(api.delete(`/store/companies/${companyB.id}`, headers));
+        }
+
+        const { data: after } = await api.get(`/store/companies/${companyB.id}`, ownerB.headers);
+        expect(after.company.name).toBe("Bravo");
+        expect(after.company.approval_settings.requires_admin_approval).toBe(false);
+        const { data: employeeAfter } = await api.get(
+          `/store/companies/${companyB.id}/employees/${targetId}`,
+          ownerB.headers
+        );
+        expect(Number(employeeAfter.employee.spending_limit)).toBe(0);
+      });
+
+      it("allows members to read their own company but reserves writes for its admins", async () => {
+        const company = await createCompany(storeHeaders, "Alpha");
+        const member = await createCustomer("member@example.com");
+        await api.post(`/store/companies/${company.id}/employees`, {
+          customer_id: member.customer.id,
+        }, storeHeaders);
+
+        expect((await api.get(`/store/companies/${company.id}`, member.headers)).status).toBe(200);
+        expect((await api.get(`/store/companies/${company.id}/employees`, member.headers)).status).toBe(200);
+        const { response } = await api.post(
+          `/store/companies/${company.id}/approval-settings`,
+          { requires_admin_approval: true },
+          member.headers
+        ).catch((error) => error);
+        expect(response.status).toBe(403);
+        expect((await api.post(
+          `/store/companies/${company.id}/approval-settings`,
+          { requires_admin_approval: true },
+          storeHeaders
+        )).status).toBe(201);
       });
     });
   },

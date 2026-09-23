@@ -13,7 +13,7 @@ export const GET = async (
   req: MedusaRequest<StoreGetEmployeeParamsType>,
   res: MedusaResponse
 ) => {
-  const { employeeId } = req.params;
+  const { id, employeeId } = req.params;
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
   const {
@@ -26,6 +26,7 @@ export const GET = async (
       filters: {
         ...req.filterableFields,
         id: employeeId,
+        company_id: id,
       },
     },
     { throwIfKeyNotFound: true }
@@ -41,6 +42,15 @@ export const POST = async (
   const { id, employeeId } = req.params;
   const { spending_limit, is_admin } = req.validatedBody;
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
+
+  const { data: [target] } = await query.graph({
+    entity: "employee",
+    fields: ["id"],
+    filters: { id: employeeId, company_id: id },
+  });
+  if (!target) {
+    return res.status(404).json({ type: "not_found", message: "Employee not found" });
+  }
 
   await updateEmployeesWorkflow.run({
     input: {
@@ -62,6 +72,7 @@ export const POST = async (
       filters: {
         ...req.filterableFields,
         id: employeeId,
+        company_id: id,
       },
     },
     { throwIfKeyNotFound: true }
@@ -71,7 +82,16 @@ export const POST = async (
 };
 
 export const DELETE = async (req: MedusaRequest, res: MedusaResponse) => {
-  const { employeeId } = req.params;
+  const { id, employeeId } = req.params;
+  const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
+  const { data: [target] } = await query.graph({
+    entity: "employee",
+    fields: ["id"],
+    filters: { id: employeeId, company_id: id },
+  });
+  if (!target) {
+    return res.status(404).json({ type: "not_found", message: "Employee not found" });
+  }
 
   await deleteEmployeesWorkflow.run({
     input: [employeeId],

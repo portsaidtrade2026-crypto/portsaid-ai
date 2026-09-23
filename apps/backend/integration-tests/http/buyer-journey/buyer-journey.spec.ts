@@ -82,12 +82,11 @@ medusaIntegrationTestRunner({
         }),
       });
 
-      const { data: created } = await api.post(
+      const { data: created } = await api.get(
         `/store/companies/${company.id}/employees`,
-        { customer_id: customerId, is_admin: true, spending_limit: 0 },
         headers
       );
-      expect(created.employee).toMatchObject({
+      expect(created.employees[0]).toMatchObject({
         id: expect.any(String),
         company_id: company.id,
         is_admin: true,
@@ -106,7 +105,7 @@ medusaIntegrationTestRunner({
         signedIn
       );
       expect(profile.customer.employee).toMatchObject({
-        id: created.employee.id,
+        id: created.employees[0].id,
         company_id: company.id,
       });
     });
@@ -140,11 +139,6 @@ medusaIntegrationTestRunner({
 
     it("blocks checkout while a company approval is pending and releases it when approved", async () => {
       const company = await registerCompany();
-      await api.post(
-        `/store/companies/${company.id}/employees`,
-        { customer_id: customerId, is_admin: true },
-        headers
-      );
       const settings = await api.post(
         `/store/companies/${company.id}/approval-settings`,
         { requires_admin_approval: true },

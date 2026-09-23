@@ -26,6 +26,14 @@ export const ensureCompanyAccess = ({
     }
 
     const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
+    const { data: [company] } = await query.graph({
+      entity: "company",
+      fields: ["id", "email", "employees.id"],
+      filters: { id: companyId },
+    });
+    if (!company) {
+      return res.status(404).json({ type: "not_found", message: "Company not found" });
+    }
     const {
       data: [customer],
     } = await query.graph({
@@ -44,16 +52,8 @@ export const ensureCompanyAccess = ({
     // An unclaimed company needs one initial admin, but never let an existing
     // admin claim a different company just because it has no employees.
     if (allowBootstrap && !customer?.employee) {
-      const {
-        data: [company],
-      } = await query.graph({
-        entity: "company",
-        fields: ["id", "email", "employees.id"],
-        filters: { id: companyId },
-      });
       const body = req.body as { customer_id?: string; is_admin?: boolean };
       if (
-        company &&
         company.employees?.length === 0 &&
         customer?.email?.toLowerCase() === company.email?.toLowerCase() &&
         body?.customer_id === customerId &&
