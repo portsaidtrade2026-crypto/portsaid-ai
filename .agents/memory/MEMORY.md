@@ -4,3 +4,4 @@
 - [Company signup geography](company-signup-geography.md) — company address and preferred currency are independent of the store's checkout regions.
 - [Storefront visitor geography](storefront-visitor-geography.md) — local country ranges avoid runtime TLS failures; keep language selection separate from checkout regions.
 - [Embedded preview locale cookies](embedded-preview-locale-cookies.md) — Replit's cross-site preview needs partitioned cookies for saved language and redirect cache state.
+- [PORTSAID logo selection](portsaid-logo-selection.md) — prefer the lossless transparent mark over padded JPEG variants for reusable storefront branding.
