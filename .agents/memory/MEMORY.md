@@ -11,3 +11,4 @@
 - [Replit private service ports](replit-private-service-ports.md) — keep internal services listed by localPort without externalPort; removing a live port block entirely can make Replit rediscover it.
 - [Next build isolation during smoke tests](next-production-build-isolation.md) — stop the development storefront before building and starting production locally; both modes share build output.
 - [Headless browser clicks](headless-browser-clicks.md) — CDP mouse events do not scroll offscreen targets; scroll visible elements into view before clicking in tests.
+- [Medusa revocation middleware matching](medusa-revocation-middleware.md) — prefer string namespace matchers and the original URL for logout exceptions; test on protected built-in routes.
