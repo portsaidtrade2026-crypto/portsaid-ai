@@ -1,1 +1,2 @@
-- [Medusa integration test database constraints](test-runner-database.md) — upstream isolated-db runner cannot reliably create temporary databases on the managed Replit PostgreSQL here.
+- [Medusa managed database constraint](test-runner-database.md) — avoid running isolated HTTP tests against the managed development PostgreSQL endpoint.
+- [Medusa HTTP test database](medusa-http-test-database.md) — the integration runner creates temporary PostgreSQL databases and treats non-local DB_HOST as SSL.

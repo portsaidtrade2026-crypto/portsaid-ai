@@ -2,7 +2,7 @@ import {
   IAuthModuleService,
   IUserModuleService,
 } from "@medusajs/framework/types";
-import { Modules } from "@medusajs/framework/utils";
+import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils";
 import jwt from "jsonwebtoken";
 import Scrypt from "scrypt-kdf";
 
@@ -43,7 +43,8 @@ export const createAdminUser = async (adminHeaders, appContainer) => {
       actor_type: "user",
       auth_identity_id: authIdentity.id,
     },
-    process.env.JWT_SECRET,
+    appContainer.resolve(ContainerRegistrationKeys.CONFIG_MODULE).projectConfig.http
+      .jwtSecret,
     {
       expiresIn: "1d",
     }
