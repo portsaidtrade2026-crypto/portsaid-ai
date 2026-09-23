@@ -16,6 +16,17 @@ module.exports = defineConfig({
       cookieSecret: process.env.COOKIE_SECRET,
     },
   },
+  admin: {
+    vite: (config) => {
+      return {
+        ...config,
+        server: {
+          ...config.server,
+          allowedHosts: true,
+        },
+      };
+    },
+  },
   modules: {
     [COMPANY_MODULE]: {
       resolve: "./modules/company",

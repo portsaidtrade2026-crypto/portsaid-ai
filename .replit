@@ -1,0 +1,9 @@
+modules = ["nodejs-20", "postgresql-16"]
+run = "cd apps/backend && pnpm dev"
+
+[nix]
+channel = "stable-25_05"
+
+[[ports]]
+localPort = 9000
+externalPort = 9000
