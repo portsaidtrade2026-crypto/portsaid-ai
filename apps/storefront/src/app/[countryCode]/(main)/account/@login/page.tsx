@@ -3,7 +3,7 @@ import { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Log in",
-  description: "Log in to your Medusa Store account.",
+  description: "Log in to your Portsaid account.",
 }
 
 export default async function Login() {

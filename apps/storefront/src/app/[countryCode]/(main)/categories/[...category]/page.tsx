@@ -29,7 +29,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     const description = product_category.description ?? `${title} ${translate(locale, "Category")}.`
 
     return {
-      title: `${title} | Medusa Store`,
+      title: `${title} | Portsaid`,
       description,
       alternates: {
         canonical: `${params.category.join("/")}`,

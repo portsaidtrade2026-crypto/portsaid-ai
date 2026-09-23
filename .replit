@@ -55,13 +55,13 @@ outputType = "console"
 name = "Storefront"
 author = "agent"
 
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "cd apps/storefront && corepack pnpm exec next dev -H 0.0.0.0 -p 5000"
-waitForPort = 5000
-
 [workflows.workflow.metadata]
 outputType = "webview"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd apps/storefront && NEXT_PUBLIC_MEDUSA_BACKEND_URL=\"https://${REPLIT_DEV_DOMAIN}:9000\" corepack pnpm exec next dev -H 0.0.0.0 -p 5000"
+waitForPort = 5000
 
 [postMerge]
 path = "scripts/post-merge.sh"

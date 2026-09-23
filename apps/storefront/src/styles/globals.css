@@ -4,15 +4,12 @@
 @import "tailwindcss/utilities";
 
 :root {
-  --ps-ink: 18 18 18;
-  --ps-paper: 249 248 244;
-  --ps-panel: 255 254 250;
-  --ps-line: 218 215 205;
-  --ps-muted: 91 89 82;
-  --ps-gold: 229 193 38;
-  --ps-gold-deep: 166 132 13;
-  --background: 44 43 40;
-  --foreground: 18 18 18;
+  --ps-yellow: #f4e900;
+  --ps-ink: #111214;
+  --ps-paper: #f6f6f2;
+  --ps-muted: #6d6e68;
+  --ps-line: #d9d9d2;
+  --ps-panel: #ffffff;
   --ui-bg-base: 249 248 244;
   --ui-bg-subtle: 239 237 229;
   --ui-bg-component: 255 254 250;
@@ -26,14 +23,13 @@
   color-scheme: light;
 }
 
-html.dark {
-  --ps-ink: 244 242 234;
-  --ps-paper: 25 25 23;
-  --ps-panel: 34 34 31;
-  --ps-line: 76 74 66;
-  --ps-muted: 188 184 171;
-  --background: 25 25 23;
-  --foreground: 244 242 234;
+:root.dark {
+  --ps-paper: #151616;
+  --ps-panel: #202121;
+  --ps-ink: #f3f3ed;
+  --ps-muted: #aaa99f;
+  --ps-line: #3a3b38;
+  color-scheme: dark;
   --ui-bg-base: 25 25 23;
   --ui-bg-subtle: 35 35 32;
   --ui-bg-component: 44 43 40;
@@ -44,33 +40,44 @@ html.dark {
   --ui-border-interactive: 229 193 38;
   --ui-button: 229 193 38;
   --ui-button-text: 18 18 18;
-  color-scheme: dark;
 }
 
-html, body {
-  background: rgb(var(--ui-bg-base));
-  color: rgb(var(--ui-fg-base));
+html { background: var(--ps-paper); }
+body {
+  background: var(--ps-paper);
+  color: var(--ps-ink);
+  transition: background-color .25s ease, color .25s ease;
   font-family: "DM Sans", ui-sans-serif, sans-serif;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: .035;
-  z-index: 100;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
-}
-
-h1, h2, h3, h4, .display-type {
-  font-family: "Barlow Condensed", "DM Sans", sans-serif;
-  letter-spacing: .015em;
-}
-
+h1, h2, h3, h4, .display-type { font-family: "Barlow Condensed", "DM Sans", sans-serif; }
 button, input, select, textarea { font: inherit; }
-a { color: inherit; transition: color .18s ease, background-color .18s ease, border-color .18s ease; }
-::selection { background: rgb(var(--ps-gold)); color: rgb(var(--ps-ink)); }
+::selection { background: var(--ps-yellow); color: #111214; }
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border: 1px solid var(--ps-line);
+  border-radius: 999px; color: var(--ps-ink); background: var(--ps-panel);
+  transition: transform .2s ease, background-color .2s ease;
+}
+.theme-toggle:hover { transform: rotate(12deg); background: var(--ps-yellow); color: #111214; }
+.brand-lockup { display: inline-flex; align-items: center; gap: 10px; }
+.brand-lockup img { width: 108px; height: auto; object-fit: contain; }
+.brand-lockup small { color: var(--ps-muted); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; }
+.ps-surface { background: var(--ps-panel); color: var(--ps-ink); }
+.ps-yellow-band { background: var(--ps-yellow); color: #111214; }
+
+/* Existing commerce pages use Medusa's neutral utility backgrounds. Keep
+   those surfaces readable when the storefront theme changes. */
+.dark .bg-white { background-color: var(--ps-panel); }
+.dark .bg-neutral-100, .dark .bg-gray-100 { background-color: var(--ps-paper); }
+.dark .text-neutral-600, .dark .text-neutral-500,
+.dark .text-ui-fg-subtle, .dark .text-ui-fg-muted { color: var(--ps-muted); }
+.dark .text-ui-fg-base, .dark .txt-ui-fg-base { color: var(--ps-ink); }
+.dark .brand-header svg path[fill="#52525B"] { fill: var(--ps-ink); }
+.dark .brand-header .hover\:bg-neutral-100:hover { background-color: var(--ps-line); }
+[dir="rtl"] .brand-hero-overlay {
+  background-image: linear-gradient(to left, rgba(17, 18, 20, .8), rgba(17, 18, 20, .35), transparent);
+}
 
 @layer utilities {
   /* Chrome, Safari and Opera */
@@ -121,17 +128,11 @@ a { color: inherit; transition: color .18s ease, background-color .18s ease, bor
 
 @layer components {
   .content-container {
-    @apply max-w-[1440px] w-full mx-auto px-4 small:px-6;
+    @apply max-w-[1440px] w-full mx-auto px-4 small:px-8;
   }
 
   .contrast-btn {
-    @apply px-4 py-2 border rounded-full transition-colors duration-200 ease-in;
-    border-color: rgb(var(--ui-fg-base));
-    color: rgb(var(--ui-fg-base));
-  }
-  .contrast-btn:hover {
-    background: rgb(var(--ui-button));
-    color: rgb(var(--ui-button-text));
+    @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
   }
 
   .text-xsmall-regular {
@@ -187,29 +188,6 @@ a { color: inherit; transition: color .18s ease, background-color .18s ease, bor
   }
 }
 
-@layer utilities {
-  .text-ui-fg-base { color: rgb(var(--ui-fg-base)); }
-  .text-ui-fg-subtle { color: rgb(var(--ui-fg-subtle)); }
-  .text-ui-fg-muted { color: rgb(var(--ui-fg-muted)); }
-  .border-ui-border-base { border-color: rgb(var(--ui-border-base)); }
-  .bg-ui-bg-base { background-color: rgb(var(--ui-bg-base)); }
-  .bg-ui-bg-subtle { background-color: rgb(var(--ui-bg-subtle)); }
-  .bg-ui-bg-component { background-color: rgb(var(--ui-bg-component)); }
+@media (max-width: 639px) {
+  .brand-lockup img { width: 92px; }
 }
-
-input, textarea, select {
-  background-color: rgb(var(--ui-bg-component));
-  color: rgb(var(--ui-fg-base));
-  border-color: rgb(var(--ui-border-base));
-}
-
-input::placeholder, textarea::placeholder { color: rgb(var(--ui-fg-muted)); }
-
-/* Legacy storefront utility classes are kept for route stability, but inherit
-   the PORTSAID surface system instead of forcing white panels in dark mode. */
-.bg-white { background-color: rgb(var(--ui-bg-component)) !important; }
-.bg-neutral-100, .bg-gray-100 { background-color: rgb(var(--ui-bg-subtle)) !important; }
-.text-zinc-900, .text-neutral-950 { color: rgb(var(--ui-fg-base)) !important; }
-.text-neutral-600 { color: rgb(var(--ui-fg-subtle)) !important; }
-.border-gray-200, .border-neutral-200 { border-color: rgb(var(--ui-border-base)) !important; }
-html.dark .bg-white { background-color: rgb(var(--ui-bg-component)) !important; }
