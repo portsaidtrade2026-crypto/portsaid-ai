@@ -1,6 +1,7 @@
 "use server"
 
 import { sdk } from "@/lib/config"
+import { jwtRevocationEnabled } from "@/lib/config/jwt-revocation"
 import medusaError from "@/lib/util/medusa-error"
 import { B2BCustomer } from "@/types/global"
 import { HttpTypes } from "@medusajs/types"
@@ -176,7 +177,7 @@ export async function login(_currentState: unknown, formData: FormData) {
 
 export async function signout(countryCode: string, customerId: string) {
   const headers = await getAuthHeaders()
-  if ("authorization" in headers) {
+  if (jwtRevocationEnabled && "authorization" in headers) {
     // Revoke durably before deleting the browser credential. If the database
     // is unavailable, keep the cookie so the customer can retry logout.
     await sdk.client.fetch("/store/auth/revoke", {

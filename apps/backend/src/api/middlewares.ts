@@ -4,21 +4,17 @@ import { adminMiddlewares } from "./admin/middlewares";
 import { storeMiddlewares } from "./store/middlewares";
 import { authenticate } from "@medusajs/medusa";
 import { rejectRevokedJwt } from "./middlewares/revoked-jwt";
+import { jwtRevocationEnabled } from "../config/jwt-revocation";
 
 export default defineMiddlewares({
   routes: [
-    {
-      matcher: "/store*",
-      middlewares: [rejectRevokedJwt],
-    },
-    {
-      matcher: "/admin*",
-      middlewares: [rejectRevokedJwt],
-    },
-    {
-      matcher: "/auth*",
-      middlewares: [rejectRevokedJwt],
-    },
+    ...(jwtRevocationEnabled
+      ? [
+          { matcher: "/store*", middlewares: [rejectRevokedJwt] },
+          { matcher: "/admin*", middlewares: [rejectRevokedJwt] },
+          { matcher: "/auth*", middlewares: [rejectRevokedJwt] },
+        ]
+      : []),
     {
       method: "POST",
       matcher: "/store/auth/revoke",

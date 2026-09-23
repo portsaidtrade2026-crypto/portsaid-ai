@@ -1,14 +1,28 @@
 const assert = require("node:assert/strict")
 const { spawn } = require("node:child_process")
 const { randomUUID } = require("node:crypto")
+const { once } = require("node:events")
+const { createServer } = require("node:net")
 const { test } = require("node:test")
 const WebSocket = require("next/dist/compiled/ws")
 
 const storefront = process.env.AUTH_TEST_STOREFRONT_URL || "http://localhost:5100"
 const backend = process.env.AUTH_TEST_BACKEND_URL || "http://127.0.0.1:9100"
 const publishableKey = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
+const revocationMode = process.env.REVOCATION_TEST_MODE || "enabled"
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+async function freePort() {
+  const server = createServer()
+  await new Promise((resolve, reject) => {
+    server.once("error", reject)
+    server.listen(0, "127.0.0.1", resolve)
+  })
+  const port = server.address().port
+  await new Promise((resolve) => server.close(resolve))
+  return port
+}
 
 async function until(check, label, timeout = 30000) {
   const deadline = Date.now() + timeout
@@ -75,21 +89,29 @@ async function createDevelopmentCustomer(email, password) {
 }
 
 test("production-mode login, JWT validation, logout, and session cookie", { timeout: 120000 }, async () => {
+  assert.equal(process.env.REVOCATION_TEST_DATABASE_DISPOSABLE, "1",
+    "production-mode auth test requires a disposable local database")
+  for (const address of [storefront, backend]) {
+    assert.ok(["localhost", "127.0.0.1", "::1"].includes(new URL(address).hostname),
+      "auth test targets must be loopback")
+  }
+  assert.ok(["disabled", "enabled"].includes(revocationMode), "invalid revocation test mode")
   assert.ok(publishableKey, "publishable key is required")
   const email = `production-auth-${randomUUID()}@example.invalid`
   const password = `${randomUUID()}Aa1!`
   await createDevelopmentCustomer(email, password)
 
+  const debugPort = await freePort()
   const browser = spawn(process.env.CHROMIUM_PATH || "/repl/tools/bin/chromium", [
     "--headless", "--no-sandbox", "--disable-dev-shm-usage",
-    "--remote-debugging-port=9234",
+    `--remote-debugging-port=${debugPort}`,
     `--user-data-dir=/tmp/production-auth-chrome-${randomUUID()}`,
     "about:blank",
   ], { stdio: "ignore" })
   let cdp
   try {
     const target = await until(async () => {
-      const response = await fetch("http://127.0.0.1:9234/json")
+       const response = await fetch(`http://127.0.0.1:${debugPort}/json`)
       return (await response.json()).find((entry) => entry.type === "page")
     }, "test browser")
     cdp = await connect(target.webSocketDebuggerUrl)
@@ -184,10 +206,16 @@ test("production-mode login, JWT validation, logout, and session cookie", { time
     await until(() => evaluate("!!document.querySelector('[data-testid=login-page]')"), "guest login screen", 45000)
     console.log("PASS logout removes the authentication cookie and returns to guest login")
     const oldToken = await verify(jwtCookie.value)
-    assert.equal(oldToken.status, 401, "logout must revoke the old JWT")
-    console.log("PASS previously issued JWT returns 401 after logout")
+    assert.equal(oldToken.status, revocationMode === "enabled" ? 401 : 200,
+      revocationMode === "enabled" ? "logout must revoke the old JWT" : "schema-first logout does not claim server revocation")
+    console.log(revocationMode === "enabled"
+      ? "PASS previously issued JWT returns 401 after logout"
+      : "PASS schema-first logout keeps legacy bearer behavior")
   } finally {
     cdp?.close()
     browser.kill()
+    if (browser.exitCode === null) {
+      await Promise.race([once(browser, "exit"), sleep(5000)]).catch(() => {})
+    }
   }
 })
