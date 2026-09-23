@@ -8,7 +8,7 @@ import { track } from "@vercel/analytics/server"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { retrieveCart, updateCart } from "./cart"
-import { createCompany, createEmployee } from "./companies"
+import { createCompany } from "./companies"
 import {
   getAuthHeaders,
   getCacheOptions,
@@ -63,6 +63,14 @@ export const updateCustomer = async (body: HttpTypes.StoreUpdateCustomer) => {
 
 export async function signup(_currentState: unknown, formData: FormData) {
   const password = formData.get("password") as string
+  const accountCountryCode = formData.get("account_country_code")
+  const countryCode =
+    typeof accountCountryCode === "string" && /^[a-z]{2}$/.test(accountCountryCode)
+      ? accountCountryCode
+      : null
+  if (!countryCode) {
+    return "Invalid account country code"
+  }
   const customerForm = {
     email: formData.get("email") as string,
     first_name: formData.get("first_name") as string,
@@ -79,7 +87,7 @@ export async function signup(_currentState: unknown, formData: FormData) {
 
     const customHeaders = { authorization: `Bearer ${token}` }
 
-    const { customer: createdCustomer } = await sdk.store.customer.create(
+    await sdk.store.customer.create(
       customerForm,
       {},
       customHeaders
@@ -90,7 +98,7 @@ export async function signup(_currentState: unknown, formData: FormData) {
       password,
     })
 
-    setAuthToken(loginToken as string)
+    await setAuthToken(loginToken as string)
 
     const companyForm = {
       name: formData.get("company_name") as string,
@@ -104,31 +112,19 @@ export async function signup(_currentState: unknown, formData: FormData) {
       currency_code: formData.get("currency_code") as string,
     }
 
-    const createdCompany = await createCompany(companyForm)
-
-    const createdEmployee = await createEmployee({
-      company_id: createdCompany?.id as string,
-      customer_id: createdCustomer.id,
-      is_admin: true,
-      spending_limit: 0,
-    }).catch((err) => {
-      console.log("error creating employee", err)
-    })
+    // Company creation enrolls the creator as its first admin.
+    await createCompany(companyForm)
 
     const cacheTag = await getCacheTag("customers")
     revalidateTag(cacheTag)
 
     await transferCart()
 
-    return {
-      customer: createdCustomer,
-      company: createdCompany,
-      employee: createdEmployee,
-    }
   } catch (error: any) {
     console.log("error", error)
     return error.toString()
   }
+  redirect(`/${countryCode}/account`)
 }
 
 export async function login(_currentState: unknown, formData: FormData) {

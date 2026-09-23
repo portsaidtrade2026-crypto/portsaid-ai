@@ -9,6 +9,7 @@ import Input from "@/modules/common/components/input"
 import { HttpTypes } from "@medusajs/types"
 import { Checkbox, Label, Select, Text } from "@medusajs/ui"
 import { ChangeEvent, useActionState, useState } from "react"
+import { useParams } from "next/navigation"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void
@@ -59,6 +60,7 @@ const placeholder = ({
 }
 
 const Register = ({ setCurrentView, regions }: Props) => {
+  const { countryCode } = useParams<{ countryCode: string }>()
   const [message, formAction] = useActionState(signup, null)
   const [termsAccepted, setTermsAccepted] = useState(false)
   const [formData, setFormData] = useState<FormData>(initialFormData)
@@ -112,6 +114,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
         company account.
       </Text>
       <form className="w-full flex flex-col" action={formAction}>
+        <input type="hidden" name="account_country_code" value={countryCode} />
         <div className="flex flex-col w-full gap-y-4">
           <Input
             label="Email"

@@ -7,6 +7,15 @@ checkEnvVariables()
  */
 const nextConfig = {
   reactStrictMode: true,
+  // The Replit proxy strips :5000 from x-forwarded-host while the browser
+  // includes it in Origin. Permit only this workspace's development origin.
+  ...(process.env.REPLIT_DEV_DOMAIN && {
+    experimental: {
+      serverActions: {
+        allowedOrigins: [`${process.env.REPLIT_DEV_DOMAIN}:5000`],
+      },
+    },
+  }),
   typescript: {
     ignoreBuildErrors: true,
   },
