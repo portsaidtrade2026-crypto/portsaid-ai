@@ -29,3 +29,9 @@ request, merchant-sent quote/customer acceptance, cart approval, and checkout.
 It creates uniquely named test customers, companies, administrator accounts,
 carts, quotes, and orders in the development database; it does not clean them
 up. It does not drive the Next.js UI or test a real external payment provider.
+
+To check company-admin isolation against the live development API, run
+`corepack pnpm --filter @b2b-starter/backend test:e2e:company-isolation`.
+This creates two test customers/companies, tests authorized and cross-company
+settings reads and writes, nested employee routes, and approval actions. Like
+the buyer journey check, it leaves its uniquely named development test data.

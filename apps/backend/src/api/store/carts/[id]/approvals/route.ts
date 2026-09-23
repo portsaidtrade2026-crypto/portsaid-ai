@@ -2,6 +2,7 @@ import {
   AuthenticatedMedusaRequest,
   MedusaResponse,
 } from "@medusajs/framework";
+import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { ApprovalStatusType } from "../../../../../types/approval";
 import { createApprovalsWorkflow } from "../../../../../workflows/approval/workflows";
 
@@ -13,6 +14,29 @@ export const POST = async (
   const { customer_id } = req.auth_context.app_metadata as {
     customer_id: string;
   };
+  if (!customer_id) {
+    res.status(403).json({ message: "Forbidden" });
+    return;
+  }
+  const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
+  const [customerResult, cartResult] = await Promise.all([
+    query.graph({
+      entity: "customer",
+      fields: ["employee.company.id"],
+      filters: { id: customer_id },
+    }),
+    query.graph({
+      entity: "cart",
+      fields: ["company.id"],
+      filters: { id: cartId },
+    }),
+  ]);
+  const customerCompanyId = customerResult.data[0]?.employee?.company?.id;
+  const cartCompanyId = cartResult.data[0]?.company?.id;
+  if (!cartCompanyId || customerCompanyId !== cartCompanyId) {
+    res.status(403).json({ message: "Forbidden" });
+    return;
+  }
 
   const { result: approvals, errors } = await createApprovalsWorkflow.run({
     input: {
