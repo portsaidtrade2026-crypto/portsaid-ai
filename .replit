@@ -5,5 +5,60 @@ run = "cd apps/backend && pnpm dev"
 channel = "stable-25_05"
 
 [[ports]]
+localPort = 5000
+externalPort = 5000
+
+[[ports]]
 localPort = 9000
 externalPort = 9000
+
+[userenv]
+
+[userenv.development]
+ADMIN_CORS = "http://localhost:5173,http://localhost:9000,https://93a29f0b-c4f1-4409-8b65-d2b3a2f64272-00-1ubbc9w5y3uwc.pike.replit.dev"
+AUTH_CORS = "http://localhost:5173,http://localhost:9000,https://93a29f0b-c4f1-4409-8b65-d2b3a2f64272-00-1ubbc9w5y3uwc.pike.replit.dev"
+NEXT_PUBLIC_BASE_URL = "https://93a29f0b-c4f1-4409-8b65-d2b3a2f64272-00-1ubbc9w5y3uwc.pike.replit.dev"
+NEXT_PUBLIC_DEFAULT_REGION = "us"
+NEXT_PUBLIC_MEDUSA_BACKEND_URL = "https://93a29f0b-c4f1-4409-8b65-d2b3a2f64272-00-1ubbc9w5y3uwc.pike.replit.dev:9000"
+NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY = "pk_e7baca658add6990237851f1ef76a390b1f6cbaeb81b37bad456243c55c28d1e"
+STORE_CORS = "http://localhost:5000,http://localhost:8000,https://93a29f0b-c4f1-4409-8b65-d2b3a2f64272-00-1ubbc9w5y3uwc.pike.replit.dev"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Medusa Backend"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Storefront"
+
+[[workflows.workflow]]
+name = "Medusa Backend"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd apps/backend && corepack pnpm dev"
+waitForPort = 9000
+
+[workflows.workflow.metadata]
+outputType = "console"
+
+[[workflows.workflow]]
+name = "Storefront"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd apps/storefront && corepack pnpm exec next dev -H 0.0.0.0 -p 5000"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
