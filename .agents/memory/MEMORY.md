@@ -1,0 +1,1 @@
+- [Medusa integration test database constraints](test-runner-database.md) — upstream isolated-db runner cannot reliably create temporary databases on the managed Replit PostgreSQL here.
