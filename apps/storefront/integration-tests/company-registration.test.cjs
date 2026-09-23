@@ -196,13 +196,32 @@ test("Register submits a company in Germany with EUR and opens the account", { t
       "account dashboard after Register",
       60000
     )
+    await until(
+      () => evaluate(`!!${element('[data-testid="overview-page-wrapper"]')}`),
+      "authenticated overview"
+    )
     assert.ok(await evaluate(`document.body.textContent.includes('Hello Test')`), "greeting should interpolate the new customer's name")
+    const dashboard = await evaluate(`({
+      links: [...document.querySelectorAll('[data-testid="account-nav"] a')].map(a => a.getAttribute("href")),
+      welcome: !!document.querySelector('[data-testid="welcome-message"]'),
+      email: document.querySelector('[data-testid="customer-email"]')?.textContent,
+      profile: !!document.querySelector('[data-testid="customer-profile-completion"]'),
+      addresses: !!document.querySelector('[data-testid="addresses-count"]'),
+      orders: !!document.querySelector('[data-testid="orders-wrapper"]'),
+      previous: !!document.querySelector('[data-testid="previously-purchased-items-wrapper"]')
+    })`)
+    for (const path of ["", "/profile", "/company", "/addresses", "/orders", "/approvals", "/quotes"]) {
+      assert.ok(dashboard.links.includes(`/dk/account${path}`), `Missing authenticated navigation: ${path}`)
+    }
+    assert.equal(dashboard.email, email)
+    assert.ok(dashboard.welcome && dashboard.profile && dashboard.addresses && dashboard.orders && dashboard.previous,
+      `Incomplete account overview: ${JSON.stringify(dashboard)}`)
     const errors = cdp.events.slice(before).filter((event) =>
       event.method === "Runtime.exceptionThrown" ||
       (event.method === "Network.responseReceived" && event.params.response.status >= 500)
     )
     assert.deepEqual(errors.map((event) => event.params.exceptionDetails?.text || `${event.params.response.status} ${event.params.response.url}`), [])
-    console.log("POST /dk/account -> account dashboard visible; no browser exception or HTTP 5xx")
+    console.log("POST /dk/account -> authenticated overview, navigation, profile/address/order content visible; no browser exception or HTTP 5xx")
 
     const cookies = await cdp.send("Network.getCookies", { urls: [origin] })
     const token = cookies.cookies.find((cookie) => cookie.name === "_medusa_jwt")?.value

@@ -7,6 +7,7 @@ import { getRequestLocale } from "@/lib/i18n/server"
 import { localizeCollection } from "@/lib/i18n/catalog"
 
 export const retrieveCollection = async (id: string) => {
+  const locale = await getRequestLocale()
   const next = {
     ...(await getCacheOptions("collections")),
   }
@@ -19,14 +20,15 @@ export const retrieveCollection = async (id: string) => {
         next,
       }
     )
-    .then(async ({ collection }) =>
-      localizeCollection(collection, await getRequestLocale())
+    .then(({ collection }) =>
+      localizeCollection(collection, locale)
     )
 }
 
 export const listCollections = async (
   queryParams: Record<string, string> = {}
 ): Promise<{ collections: HttpTypes.StoreCollection[]; count: number }> => {
+  const locale = await getRequestLocale()
   const next = {
     ...(await getCacheOptions("collections")),
   }
@@ -42,8 +44,7 @@ export const listCollections = async (
         next,
       }
     )
-    .then(async ({ collections }) => {
-      const locale = await getRequestLocale()
+    .then(({ collections }) => {
       return {
         collections: collections.map((collection) =>
           localizeCollection(collection, locale)
@@ -56,6 +57,7 @@ export const listCollections = async (
 export const getCollectionByHandle = async (
   handle: string
 ): Promise<HttpTypes.StoreCollection> => {
+  const locale = await getRequestLocale()
   const next = {
     ...(await getCacheOptions("collections")),
   }
@@ -65,8 +67,8 @@ export const getCollectionByHandle = async (
       query: { handle },
       next,
     })
-    .then(async ({ collections }) =>
+    .then(({ collections }) =>
       collections[0] &&
-      localizeCollection(collections[0], await getRequestLocale())
+      localizeCollection(collections[0], locale)
     )
 }

@@ -25,14 +25,16 @@ export async function NavigationHeader() {
   return (
     <div className="brand-header sticky top-0 inset-x-0 group ps-surface text-[var(--ps-ink)] small:p-4 p-2 text-sm border-b duration-200 border-[var(--ps-line)] z-50">
       <header className="flex w-full content-container relative small:mx-auto justify-between">
-        <div className="small:mx-auto flex justify-between items-center min-w-0 w-full gap-2">
+        <div className="small:mx-auto flex flex-col small:flex-row small:justify-between items-start small:items-center min-w-0 w-full gap-2">
           <div className="flex items-center small:space-x-4">
             <LocalizedClientLink
               className="hover:text-ui-fg-base flex items-center w-fit"
               href="/"
             >
               <h1 className="brand-lockup">
-                <img src="/logo-portsaid.png" alt="Portsaid Plastik ve Otomotiv" />
+                <span className="brand-plaque">
+                  <img src="/portsaid-logo.png" alt="Portsaid Plastik ve Otomotiv" />
+                </span>
                 <small className="hidden medium:block">{t("Industrial supply")}</small>
               </h1>
             </LocalizedClientLink>
@@ -47,7 +49,7 @@ export async function NavigationHeader() {
               </ul>
             </nav>
           </div>
-          <div className="flex justify-end items-center gap-1 small:gap-2 min-w-0 shrink-0">
+          <div className="flex w-full small:w-auto justify-between small:justify-end items-center gap-1 small:gap-2 min-w-0 shrink-0">
             <div className="relative mr-2 hidden small:inline-flex">
               <input
                 disabled

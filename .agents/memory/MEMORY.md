@@ -3,7 +3,7 @@
 - [Replit Next.js Server Actions proxy](next-server-action-origin.md) — the preview can send an Origin with :5000 while the forwarded host omits it.
 - [Company signup geography](company-signup-geography.md) — company address and preferred currency are independent of the store's checkout regions.
 - [Storefront visitor geography](storefront-visitor-geography.md) — local country ranges avoid runtime TLS failures; keep language selection separate from checkout regions.
-- [Embedded preview locale cookies](embedded-preview-locale-cookies.md) — Replit's cross-site preview needs partitioned cookies for saved language and redirect cache state.
+- [Embedded preview locale cookies](embedded-preview-locale-cookies.md) — partitioned cookies support preview; a valid country route must not self-redirect to set its cache cookie.
 - [PORTSAID logo selection](portsaid-logo-selection.md) — prefer the lossless transparent mark over padded JPEG variants for reusable storefront branding.
 - [pnpm version mismatch](pnpm-version-mismatch.md) — workspace dependencies use pnpm 10's store despite the root manifest pinning pnpm 9; avoid mixing stores.
 - [Radix Select empty-value submission](radix-select-empty-value.md) — a cleared select can serialize its first option; use an explicit controlled hidden value for dependent form fields.

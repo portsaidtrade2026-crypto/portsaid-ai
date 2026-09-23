@@ -53,7 +53,7 @@ export async function generateStaticParams() {
     return null
   }
 
-  const categories = await listCategories()
+  const categories = await listCategories(undefined, { localize: false })
 
   return countryCodes
     .map((countryCode) =>

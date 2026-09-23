@@ -7,8 +7,12 @@ import { getRequestLocale } from "@/lib/i18n/server"
 import { localizeCategory } from "@/lib/i18n/catalog"
 
 export const listCategories = async (
-  query?: Record<string, any>
+  query?: Record<string, any>,
+  { localize = true }: { localize?: boolean } = {}
 ): Promise<HttpTypes.StoreProductCategory[]> => {
+  // Static-parameter generation has no request cookies; it only needs handles.
+  // Resolve the locale before the SDK promise, while request scope is available.
+  const locale = localize ? await getRequestLocale() : null
   const next = {
     ...(await getCacheOptions("categories")),
   }
@@ -28,15 +32,17 @@ export const listCategories = async (
         next,
       }
     )
-    .then(async ({ product_categories }) => {
-      const locale = await getRequestLocale()
-      return product_categories.map((category) => localizeCategory(category, locale))
+    .then(({ product_categories }) => {
+      return locale
+        ? product_categories.map((category) => localizeCategory(category, locale))
+        : product_categories
     })
 }
 
 export const getCategoryByHandle = async (
   categoryHandle: string[]
 ): Promise<HttpTypes.StoreProductCategory> => {
+  const locale = await getRequestLocale()
   const handle = `${categoryHandle.join("/")}`
 
   const next = {
@@ -54,8 +60,7 @@ export const getCategoryByHandle = async (
         next,
       }
     )
-    .then(async ({ product_categories }) => {
-      const locale = await getRequestLocale()
+    .then(({ product_categories }) => {
       return product_categories[0] && localizeCategory(product_categories[0], locale)
     })
 }

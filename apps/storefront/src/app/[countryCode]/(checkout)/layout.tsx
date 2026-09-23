@@ -13,7 +13,9 @@ export default function CheckoutLayout({
         <nav className="flex h-full items-center content-container justify-between gap-3">
           <LocalizedClientLink className="hover:text-ui-fg-base" href="/">
             <h1 className="brand-lockup">
-              <img src="/logo-portsaid.png" alt="Portsaid Plastik ve Otomotiv" />
+              <span className="brand-plaque">
+                <img src="/portsaid-logo.png" alt="Portsaid Plastik ve Otomotiv" />
+              </span>
             </h1>
           </LocalizedClientLink>
           <div className="flex items-center gap-2">
