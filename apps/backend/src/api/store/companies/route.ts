@@ -4,6 +4,7 @@ import type {
 } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { createCompaniesWorkflow } from "../../../workflows/company/workflows/create-companies";
+import { createEmployeesWorkflow } from "../../../workflows/employee/workflows";
 import { StoreCreateCompanyType } from "./validators";
 
 export const POST = async (
@@ -20,6 +21,21 @@ export const POST = async (
       : [{ ...req.validatedBody }],
     container: req.scope,
   });
+
+  for (const company of createdCompanies) {
+    await createEmployeesWorkflow.run({
+      input: {
+        employeeData: {
+          company_id: company.id,
+          customer_id: req.auth_context.actor_id,
+          is_admin: true,
+          spending_limit: 0,
+        },
+        customerId: req.auth_context.actor_id,
+      },
+      container: req.scope,
+    });
+  }
 
   const { data: companies } = await query.graph(
     {

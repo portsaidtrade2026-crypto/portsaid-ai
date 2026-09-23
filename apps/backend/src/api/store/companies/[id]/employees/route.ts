@@ -30,9 +30,9 @@ export const GET = async (
 
   res.json({
     employees,
-    count: metadata!.count,
-    offset: metadata!.skip,
-    limit: metadata!.take,
+    count: metadata?.count ?? employees.length,
+    offset: metadata?.skip ?? 0,
+    limit: metadata?.take ?? employees.length,
   });
 };
 
