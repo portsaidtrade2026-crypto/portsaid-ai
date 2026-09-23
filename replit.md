@@ -18,3 +18,14 @@ environment variables in Replit. Backend-only secrets remain outside version con
 
 Redis is optional in development; Medusa uses its in-memory fallback when
 `REDIS_URL` is not configured.
+
+## Buyer journey checks
+
+With the backend running and development database seeded with a region,
+product, shipping option, and payment provider, run
+`corepack pnpm --filter @b2b-starter/backend test:e2e:buyer` from the root.
+This exercises the live HTTP API for company signup/login, cart, quote
+request, merchant-sent quote/customer acceptance, cart approval, and checkout.
+It creates uniquely named test customers, companies, administrator accounts,
+carts, quotes, and orders in the development database; it does not clean them
+up. It does not drive the Next.js UI or test a real external payment provider.
