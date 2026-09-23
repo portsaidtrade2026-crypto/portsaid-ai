@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "RvEnDrqyUwO3DiH6eh89s"
+uri = "file://reports/security-remediation-report.md"
+type = "text"
+title = "Dependency security remediation report"
+description = "Complete 130-finding classification, remediation changes, final scan results, and verification outcomes."
+logical_id = "47cdbd29-f0a7-4bc2-ac58-b71c3cc5bf70"
+content_hash = "sha256:5129050bdef4e4c9081c13e4885eefebd00a7e4cdefa68fe0ad231e088d44f70"
+size = 12520
+mtime_ms = 1790175043204
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:93a29f0b-c4f1-4409-8b65-d2b3a2f64272/47cdbd29-f0a7-4bc2-ac58-b71c3cc5bf70/52f74d59-40c6-472e-868a-7c779133c1b1"
+storage_version_token = "1790175122585191"
+content_type = "text/markdown"
