@@ -1,6 +1,7 @@
 "use client"
 
 import { getCartApprovalStatus } from "@/lib/util/get-cart-approval-status"
+import { useI18n } from "@/lib/i18n/provider"
 import Divider from "@/modules/common/components/divider"
 import Radio from "@/modules/common/components/radio"
 import { B2BCart } from "@/types"
@@ -9,6 +10,7 @@ import { clx } from "@medusajs/ui"
 import { useState } from "react"
 
 const CompanyForm = ({ cart }: { cart: B2BCart }) => {
+  const { t } = useI18n()
   const [selectedOption, setSelectedOption] = useState("company")
 
   const { isPendingAdminApproval, isPendingSalesManagerApproval } =
@@ -61,7 +63,7 @@ const CompanyForm = ({ cart }: { cart: B2BCart }) => {
               data-testid="company-form-custom-radio"
               disabled={isPendingApproval}
             />
-            <span>Custom checkout</span>
+            <span>{t("Custom checkout")}</span>
           </div>
         </RadioGroup.Option>
       </RadioGroup>

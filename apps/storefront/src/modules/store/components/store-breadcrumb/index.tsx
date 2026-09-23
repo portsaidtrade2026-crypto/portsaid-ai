@@ -1,4 +1,7 @@
+"use client"
+
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import { useI18n } from "@/lib/i18n/provider"
 
 const StoreBreadcrumbItem = ({
   title,
@@ -20,11 +23,12 @@ const StoreBreadcrumbItem = ({
 }
 
 const StoreBreadcrumb = () => {
+  const { t } = useI18n()
   return (
     <ul className="flex items-center gap-x-3 text-sm">
-      <StoreBreadcrumbItem title="Products" key="base" />
+      <StoreBreadcrumbItem title={t("Products")} key="base" />
       <span className="text-neutral-500">{">"}</span>
-      <StoreBreadcrumbItem title="All products" handle="/store" />
+      <StoreBreadcrumbItem title={t("All products")} handle="/store" />
     </ul>
   )
 }

@@ -1,5 +1,6 @@
 "use client"
 
+import { useI18n } from "@/lib/i18n/provider"
 import { convertToLocale } from "@/lib/util/money"
 import Divider from "@/modules/common/components/divider"
 import { B2BCart, B2BOrder } from "@/types"
@@ -9,6 +10,7 @@ import React from "react"
 const CheckoutTotals: React.FC<{
   cartOrOrder: B2BCart | B2BOrder
 }> = ({ cartOrOrder }) => {
+  const { t } = useI18n()
   if (!cartOrOrder) return null
 
   const {
@@ -26,7 +28,7 @@ const CheckoutTotals: React.FC<{
       <div className="flex flex-col gap-y-2 txt-medium text-ui-fg-subtle ">
         <div className="flex items-center justify-between">
           <Text className="flex gap-x-1 items-center">
-            Subtotal (excl. shipping and taxes)
+            {t("Subtotal (excl. shipping and taxes)")}
           </Text>
           <Text
             data-testid="cart-item-subtotal"
@@ -37,7 +39,7 @@ const CheckoutTotals: React.FC<{
         </div>
         {!!discount_total && (
           <div className="flex items-center justify-between">
-            <Text>Discount</Text>
+            <Text>{t("Discount")}</Text>
             <Text
               className="text-ui-fg-interactive"
               data-testid="cart-discount"
@@ -49,20 +51,20 @@ const CheckoutTotals: React.FC<{
           </div>
         )}
         <div className="flex items-center justify-between">
-          <Text>Shipping</Text>
+          <Text>{t("Shipping")}</Text>
           <Text data-testid="cart-shipping" data-value={shipping_total || 0}>
             {convertToLocale({ amount: shipping_total ?? 0, currency_code })}
           </Text>
         </div>
         <div className="flex justify-between">
-          <Text className="flex gap-x-1 items-center ">Taxes</Text>
+          <Text className="flex gap-x-1 items-center ">{t("Taxes")}</Text>
           <Text data-testid="cart-taxes" data-value={tax_total || 0}>
             {convertToLocale({ amount: tax_total ?? 0, currency_code })}
           </Text>
         </div>
         {!!gift_card_total && (
           <div className="flex items-center justify-between">
-            <Text>Gift card</Text>
+          <Text>{t("Gift card")}</Text>
             <Text
               className="text-ui-fg-interactive"
               data-testid="cart-gift-card-amount"
@@ -76,7 +78,7 @@ const CheckoutTotals: React.FC<{
       </div>
       <Divider className="my-2" />
       <div className="flex items-center justify-between text-ui-fg-base mb-2 txt-medium ">
-        <Text className="font-medium">Total</Text>
+        <Text className="font-medium">{t("Total")}</Text>
         <Text
           className="txt-xlarge-plus"
           data-testid="cart-total"

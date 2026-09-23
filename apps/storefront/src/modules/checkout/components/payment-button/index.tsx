@@ -1,6 +1,7 @@
 "use client"
 
 import { isManual, isPaypal, isStripeLike } from "@/lib/constants"
+import { useI18n } from "@/lib/i18n/provider"
 import { createCartApproval, placeOrder } from "@/lib/data/cart"
 import ErrorMessage from "@/modules/checkout/components/error-message"
 import Button from "@/modules/common/components/button"
@@ -34,6 +35,7 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
   cart,
   "data-testid": dataTestId,
 }) => {
+  const { t } = useI18n()
   const notReady =
     !cart ||
     !cart.shipping_address ||
@@ -89,7 +91,7 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
         />
       )
     default:
-      return <Button disabled>Select a payment method</Button>
+      return <Button disabled>{t("Select a payment method")}</Button>
   }
 }
 
@@ -100,6 +102,7 @@ const RequestApprovalButton = ({
   cart: B2BCart
   notReady: boolean
 }) => {
+  const { t } = useI18n()
   const [submitting, setSubmitting] = useState(false)
 
   const { requires_admin_approval, requires_sales_manager_approval } =
@@ -125,10 +128,10 @@ const RequestApprovalButton = ({
       <Container className="flex flex-col gap-y-2">
         <Text className="text-neutral-700-950 text-xs text-center">
           {requires_admin_approval && requires_sales_manager_approval
-            ? "This order requires approval by both a company admin and a sales manager."
+            ? t("This order requires approval by both a company admin and a sales manager.")
             : requires_admin_approval
-            ? "This order requires approval by a company admin."
-            : "This order requires approval by a sales manager."}
+            ? t("This order requires approval by a company admin.")
+            : t("This order requires approval by a sales manager.")}
         </Text>
         <Button
           className="w-full h-10 rounded-full shadow-none"
@@ -136,7 +139,7 @@ const RequestApprovalButton = ({
           onClick={createApproval}
           isLoading={submitting}
         >
-          {isPendingAdminApproval ? "Approval Requested" : "Request Approval"}
+          {isPendingAdminApproval ? t("Approval Requested") : t("Request Approval")}
         </Button>
       </Container>
     </>

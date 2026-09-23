@@ -22,7 +22,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
           className="text-2xl text-ui-fg-subtle whitespace-pre-line"
           data-testid="product-description"
         >
-          {product.subtitle}
+          {product.subtitle || product.description}
         </Text>
       </div>
     </div>

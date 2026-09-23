@@ -10,6 +10,7 @@ import Input from "@/modules/common/components/input"
 import { Checkbox, Label, Select, Text } from "@medusajs/ui"
 import { ChangeEvent, useActionState, useState } from "react"
 import { useParams } from "next/navigation"
+import { useI18n } from "@/lib/i18n/provider"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void
@@ -59,6 +60,7 @@ const placeholder = ({
 }
 
 const Register = ({ setCurrentView }: Props) => {
+  const { t } = useI18n()
   const { countryCode } = useParams<{ countryCode: string }>()
   const [message, formAction] = useActionState(signup, null)
   const [termsAccepted, setTermsAccepted] = useState(false)
@@ -102,15 +104,15 @@ const Register = ({ setCurrentView }: Props) => {
       data-testid="register-page"
     >
       <Text className="text-4xl text-neutral-950 text-left mb-4">
-        Create your
+        {t("Create your")}
         <br />
-        company account.
+        {t("company account.")}
       </Text>
       <form className="w-full flex flex-col" action={formAction}>
         <input type="hidden" name="account_country_code" value={countryCode} />
         <div className="flex flex-col w-full gap-y-4">
           <Input
-            label="Email"
+            label={t("Email")}
             name="email"
             required
             type="email"
@@ -121,7 +123,7 @@ const Register = ({ setCurrentView }: Props) => {
             onChange={handleChange}
           />
           <Input
-            label="First name"
+            label={t("First name")}
             name="first_name"
             required
             autoComplete="given-name"
@@ -131,7 +133,7 @@ const Register = ({ setCurrentView }: Props) => {
             onChange={handleChange}
           />
           <Input
-            label="Last name"
+            label={t("Last name")}
             name="last_name"
             required
             autoComplete="family-name"
@@ -141,7 +143,7 @@ const Register = ({ setCurrentView }: Props) => {
             onChange={handleChange}
           />
           <Input
-            label="Company name"
+            label={t("Company name")}
             name="company_name"
             required
             autoComplete="organization"
@@ -151,7 +153,7 @@ const Register = ({ setCurrentView }: Props) => {
             onChange={handleChange}
           />
           <Input
-            label="Password"
+            label={t("Password")}
             name="password"
             required
             type="password"
@@ -162,7 +164,7 @@ const Register = ({ setCurrentView }: Props) => {
             onChange={handleChange}
           />
           <Input
-            label="Company address"
+            label={t("Company address")}
             name="company_address"
             required
             autoComplete="address"
@@ -172,7 +174,7 @@ const Register = ({ setCurrentView }: Props) => {
             onChange={handleChange}
           />
           <Input
-            label="Company city"
+            label={t("Company city")}
             name="company_city"
             required
             autoComplete="city"
@@ -182,7 +184,7 @@ const Register = ({ setCurrentView }: Props) => {
             onChange={handleChange}
           />
           <Input
-            label="Company state"
+            label={t("Company state")}
             name="company_state"
             autoComplete="state"
             data-testid="company-state-input"
@@ -191,7 +193,7 @@ const Register = ({ setCurrentView }: Props) => {
             onChange={handleChange}
           />
           <Input
-            label="Company zip"
+            label={t("Company zip")}
             name="company_zip"
             required
             autoComplete="postal-code"
@@ -211,7 +213,7 @@ const Register = ({ setCurrentView }: Props) => {
             <Select.Trigger className="rounded-full h-10 px-4">
               <Select.Value
                 placeholder={placeholder({
-                  placeholder: "Select a country",
+                  placeholder: t("Select a country"),
                   required: true,
                 })}
               />
@@ -235,7 +237,7 @@ const Register = ({ setCurrentView }: Props) => {
             <Select.Trigger className="rounded-full h-10 px-4">
               <Select.Value
                 placeholder={placeholder({
-                  placeholder: "Select a currency",
+                  placeholder: t("Select a currency"),
                   required: true,
                 })}
               />
@@ -265,7 +267,7 @@ const Register = ({ setCurrentView }: Props) => {
             htmlFor="terms-checkbox"
             data-testid="terms-label"
           >
-            I agree to the terms and conditions.
+            {t("I agree to the terms and conditions.")}
           </Label>
         </div>
         <SubmitButton
@@ -273,16 +275,16 @@ const Register = ({ setCurrentView }: Props) => {
           data-testid="register-button"
           disabled={!isValid}
         >
-          Register
+          {t("Register")}
         </SubmitButton>
       </form>
       <span className="text-center text-ui-fg-base text-small-regular mt-6">
-        Already a member?{" "}
+        {t("Already a member?")}{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.LOG_IN)}
           className="underline"
         >
-          Log in
+          {t("Log in")}
         </button>
         .
       </span>

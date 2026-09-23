@@ -11,6 +11,7 @@ import { B2BCustomer } from "@/types/global"
 import { ArrowRightOnRectangle, BuildingStorefront } from "@medusajs/icons"
 import { clx } from "@medusajs/ui"
 import { useParams, usePathname } from "next/navigation"
+import { useI18n } from "@/lib/i18n/provider"
 
 const AccountNav = ({
   customer,
@@ -20,6 +21,7 @@ const AccountNav = ({
   numPendingApprovals: number
 }) => {
   const route = usePathname()
+  const { t } = useI18n()
 
   const { countryCode } = useParams() as { countryCode: string }
 
@@ -38,13 +40,13 @@ const AccountNav = ({
           >
             <>
               <ChevronDown className="transform rotate-90" />
-              <span>Account</span>
+               <span>{t("Account")}</span>
             </>
           </LocalizedClientLink>
         ) : (
           <>
             <div className="text-xl-semi mb-4 px-8">
-              Hello {customer?.first_name}
+               {t("Hello {name}", { name: customer?.first_name || "" })}
             </div>
             <div className="text-base-regular">
               <ul>
@@ -57,7 +59,7 @@ const AccountNav = ({
                     <>
                       <div className="flex items-center gap-x-2">
                         <User size={20} />
-                        <span>Profile</span>
+                         <span>{t("Profile")}</span>
                       </div>
                       <ChevronDown className="transform -rotate-90" />
                     </>
@@ -72,7 +74,7 @@ const AccountNav = ({
                     <>
                       <div className="flex items-center gap-x-2">
                         <BuildingStorefront width={20} />
-                        <span>Company</span>
+                         <span>{t("Company")}</span>
                       </div>
                       <ChevronDown className="transform -rotate-90" />
                     </>
@@ -87,7 +89,7 @@ const AccountNav = ({
                     <>
                       <div className="flex items-center gap-x-2">
                         <MapPin size={20} />
-                        <span>Addresses</span>
+                         <span>{t("Addresses")}</span>
                       </div>
                       <ChevronDown className="transform -rotate-90" />
                     </>
@@ -101,7 +103,7 @@ const AccountNav = ({
                   >
                     <div className="flex items-center gap-x-2">
                       <Package size={20} />
-                      <span>Orders</span>
+                       <span>{t("Orders")}</span>
                     </div>
                     <ChevronDown className="transform -rotate-90" />
                   </LocalizedClientLink>
@@ -115,7 +117,7 @@ const AccountNav = ({
                     >
                       <div className="flex items-center gap-x-2">
                         <FilePlus size={16} />
-                        <span>Approvals</span>
+                         <span>{t("Approvals")}</span>
                       </div>
                       <ChevronDown className="transform -rotate-90" />
                     </LocalizedClientLink>
@@ -129,7 +131,7 @@ const AccountNav = ({
                   >
                     <div className="flex items-center gap-x-2">
                       <FilePlus size={16} />
-                      <span>Quotes</span>
+                         <span>{t("Quotes")}</span>
                     </div>
                     <ChevronDown className="transform -rotate-90" />
                   </LocalizedClientLink>
@@ -143,7 +145,7 @@ const AccountNav = ({
                   >
                     <div className="flex items-center gap-x-2">
                       <ArrowRightOnRectangle />
-                      <span>Log out</span>
+                       <span>{t("Log out")}</span>
                     </div>
                     <ChevronDown className="transform -rotate-90" />
                   </button>
@@ -162,7 +164,7 @@ const AccountNav = ({
                 route={route!}
                 data-testid="overview-link"
               >
-                Overview
+                {t("Overview")}
               </AccountNavLink>
             </li>
             <li>
@@ -171,7 +173,7 @@ const AccountNav = ({
                 route={route!}
                 data-testid="profile-link"
               >
-                Profile
+                {t("Profile")}
               </AccountNavLink>
             </li>
             <li>
@@ -180,7 +182,7 @@ const AccountNav = ({
                 route={route!}
                 data-testid="company-link"
               >
-                Company
+                {t("Company")}
               </AccountNavLink>
             </li>
             <li>
@@ -189,7 +191,7 @@ const AccountNav = ({
                 route={route!}
                 data-testid="addresses-link"
               >
-                Addresses
+                {t("Addresses")}
               </AccountNavLink>
             </li>
             <li>
@@ -198,7 +200,7 @@ const AccountNav = ({
                 route={route!}
                 data-testid="orders-link"
               >
-                Orders
+                {t("Orders")}
               </AccountNavLink>
             </li>
             {customer?.employee?.is_admin && (
@@ -208,7 +210,7 @@ const AccountNav = ({
                   route={route!}
                   data-testid="approvals-link"
                 >
-                  Approvals{" "}
+                  {t("Approvals")}{" "}
                   {numPendingApprovals > 0 && (
                     <span className="bg-blue-500 text-white text-xs px-1.5 py-px rounded-full">
                       {numPendingApprovals}
@@ -223,7 +225,7 @@ const AccountNav = ({
                 route={route!}
                 data-testid="quotes-link"
               >
-                Quotes
+                {t("Quotes")}
               </AccountNavLink>
             </li>
             <li className="text-neutral-400 hover:text-neutral-950">
@@ -232,7 +234,7 @@ const AccountNav = ({
                 onClick={handleLogout}
                 data-testid="logout-button"
               >
-                Log out
+                {t("Log out")}
               </button>
             </li>
           </ul>

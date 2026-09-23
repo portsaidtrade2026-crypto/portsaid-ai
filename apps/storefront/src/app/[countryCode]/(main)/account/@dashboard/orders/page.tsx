@@ -7,6 +7,8 @@ import PendingCustomerApprovals from "@/modules/account/components/pending-custo
 import { ApprovalStatusType } from "@/types/approval"
 import { Heading } from "@medusajs/ui"
 import { Metadata } from "next"
+import { getRequestLocale } from "@/lib/i18n/server"
+import { translate } from "@/lib/i18n/messages"
 
 export const metadata: Metadata = {
   title: "Orders",
@@ -14,6 +16,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Orders() {
+  const locale = await getRequestLocale()
   const customer = await retrieveCustomer()
   const orders = await listOrders()
 
@@ -34,20 +37,20 @@ export default async function Orders() {
       data-testid="orders-page-wrapper"
     >
       <div className="mb-4">
-        <Heading>Orders</Heading>
+        <Heading>{translate(locale, "Orders")}</Heading>
       </div>
       {approval_required && (
         <div>
           <Heading level="h2" className="text-neutral-700 mb-4">
-            Pending Approvals
+            {translate(locale, "Pending Approvals")}
           </Heading>
 
           <PendingCustomerApprovals cartsWithApprovals={carts_with_approvals} />
         </div>
       )}
       <div>
-        <Heading level="h2" className="text-neutral-700 mb-4">
-          Completed Orders
+          <Heading level="h2" className="text-neutral-700 mb-4">
+            {translate(locale, "Completed Orders")}
         </Heading>
 
         <OrderOverview orders={orders} />

@@ -1,3 +1,6 @@
+ "use client"
+
+import { useI18n } from "@/lib/i18n/provider"
 import Input from "@/modules/common/components/input"
 import { B2BCart, B2BCustomer } from "@/types"
 import React, { useEffect, useMemo, useState } from "react"
@@ -9,6 +12,7 @@ const ContactDetailsForm = ({
   customer: B2BCustomer | null
   cart: B2BCart | null
 }) => {
+  const { t } = useI18n()
   const [formData, setFormData] = useState<Record<string, string>>({
     email: "",
     invoice_recipient: "",
@@ -51,7 +55,7 @@ const ContactDetailsForm = ({
   return (
     <div className="flex flex-col small:grid small:grid-cols-2 gap-4">
       <Input
-        label="Email"
+          label={t("Email")}
         name="email"
         autoComplete="email"
         value={formData["email"]}
@@ -61,7 +65,7 @@ const ContactDetailsForm = ({
         className="small:col-span-2"
       />
       <Input
-        label="Invoice recipient"
+          label={t("Invoice recipient")}
         name="invoice_recipient"
         autoComplete="family-name"
         value={formData["invoice_recipient"]}
@@ -69,21 +73,21 @@ const ContactDetailsForm = ({
         data-testid="invoice-recipient-input"
       />
       <Input
-        label="Cost center"
+          label={t("Cost center")}
         name="cost_center"
         value={formData["cost_center"]}
         onChange={handleChange}
         data-testid="cost-center-input"
       />
       <Input
-        label="Requisition number"
+          label={t("Requisition number")}
         name="requisition_number"
         value={formData["requisition_number"]}
         onChange={handleChange}
         data-testid="requisition-number-input"
       />
       <Input
-        label="Door code/goods mark"
+          label={t("Door code/goods mark")}
         name="door_code"
         value={formData["door_code"]}
         onChange={handleChange}
@@ -91,7 +95,7 @@ const ContactDetailsForm = ({
       />
       <div className="col-span-2">
         <Input
-          label="Notes"
+          label={t("Notes")}
           name="notes"
           value={formData["notes"]}
           onChange={handleChange}

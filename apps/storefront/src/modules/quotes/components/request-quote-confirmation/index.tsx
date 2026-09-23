@@ -1,6 +1,7 @@
 "use client"
 
 import { createQuote } from "@/lib/data/quotes"
+import { useI18n } from "@/lib/i18n/provider"
 import { XCircle } from "@medusajs/icons"
 import { toast } from "@medusajs/ui"
 import Button from "@/modules/common/components/button"
@@ -13,6 +14,7 @@ export const RequestQuoteConfirmation = ({
 }: {
   children: React.ReactNode
 }) => {
+  const { t } = useI18n()
   const [requesting, setRequesting] = useState(false)
   const [open, setOpen] = useState(false)
   const { countryCode } = useParams()
@@ -27,7 +29,7 @@ export const RequestQuoteConfirmation = ({
       router.push(`/${countryCode}/account/quotes/details/${quote.id}`)
     } catch (error) {
       setRequesting(false)
-      toast.error("Failed to create quote request")
+      toast.error(t("Failed to create quote request"))
     }
 
     setOpen(false)
@@ -42,7 +44,7 @@ export const RequestQuoteConfirmation = ({
         <Dialog.Overlay className="bg-black/50 data-[state=open]:animate-overlayShow fixed inset-0 z-[75]" />
         <Dialog.Content className="z-[100] data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
           <Dialog.Title className="text-lg mb-6 flex justify-between">
-            Submit request for quote
+            {t("Submit request for quote")}
             <Dialog.Close asChild>
               <XCircle className="text-violet11 hover:bg-violet4 focus:shadow-violet7 inline-flex appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] outline-none cursor-pointer" />
             </Dialog.Close>
@@ -50,8 +52,7 @@ export const RequestQuoteConfirmation = ({
 
           <div className="flex flex-col gap-y-4">
             <p>
-              You are about to request a quote for the cart. If you confirm, the
-              cart will be converted to a quote.
+              {t("You are about to request a quote for the cart. If you confirm, the cart will be converted to a quote.")}
             </p>
           </div>
 

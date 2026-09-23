@@ -3,6 +3,8 @@ import ApprovalCard from "@/modules/account/components/approval-card"
 import ResourcePagination from "@/modules/account/components/resource-pagination"
 import { ApprovalStatusType } from "@/types/approval"
 import { Text } from "@medusajs/ui"
+import { getRequestLocale } from "@/lib/i18n/server"
+import { translate } from "@/lib/i18n/messages"
 
 export default async function RejectedApprovalRequestsAdminList({
   searchParams,
@@ -45,5 +47,6 @@ export default async function RejectedApprovalRequestsAdminList({
     )
   }
 
-  return <Text>No requests</Text>
+  const locale = await getRequestLocale()
+  return <Text>{translate(locale, "No requests")}</Text>
 }

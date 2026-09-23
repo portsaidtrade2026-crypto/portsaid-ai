@@ -1,6 +1,8 @@
 "use client"
 
 import LineItemPrice from "@/modules/common/components/line-item-price"
+import { translateCatalogValue } from "@/lib/i18n/catalog"
+import { useI18n } from "@/lib/i18n/provider"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import Thumbnail from "@/modules/products/components/thumbnail"
 import { HttpTypes } from "@medusajs/types"
@@ -13,6 +15,7 @@ type ItemProps = {
 }
 
 const ItemPreview = ({ item, showBorders = true, currencyCode }: ItemProps) => {
+  const { locale, t } = useI18n()
   const { handle } = item.product ?? {};
 
   const maxQuantity = item.variant?.inventory_quantity ?? 100
@@ -37,7 +40,7 @@ const ItemPreview = ({ item, showBorders = true, currencyCode }: ItemProps) => {
         <div className="flex flex-col gap-y-2 justify-between min-h-full self-stretch">
           <div className="flex flex-col">
             <span className="txt-medium-plus text-neutral-950">
-              {item.product?.title}
+              {translateCatalogValue(item.product?.title, locale, item.product?.metadata, "title")}
             </span>
             <span className="text-neutral-600 text-xs">
               {item.variant?.title}
@@ -46,7 +49,7 @@ const ItemPreview = ({ item, showBorders = true, currencyCode }: ItemProps) => {
           <div className="flex small:flex-row flex-col gap-2">
             {(item.metadata?.note as string) && (
               <div className="flex gap-x-1">
-                <span className="text-neutral-950 text-xs">Note:</span>
+                <span className="text-neutral-950 text-xs">{t("Note:")}</span>
                 <span className="text-xs text-neutral-600 italic truncate max-w-44 pr-px">
                   {item.metadata?.note as string}
                 </span>

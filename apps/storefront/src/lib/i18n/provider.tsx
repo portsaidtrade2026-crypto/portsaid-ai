@@ -1,0 +1,37 @@
+"use client"
+
+import { createContext, useContext, useState } from "react"
+import { defaultLocale, isLocale, Locale, localeCookie } from "./config"
+import { translate } from "./messages"
+
+type I18nValue = { locale: Locale; t: (english: string, vars?: Record<string, string | number>) => string }
+const I18nContext = createContext<I18nValue | null>(null)
+
+function interpolate(value: string, vars?: Record<string, string | number>) {
+  return Object.entries(vars ?? {}).reduce(
+    (result, [key, replacement]) =>
+      result
+        .replaceAll(`{{${key}}}`, () => String(replacement))
+        .replaceAll(`{${key}}`, () => String(replacement)),
+    value
+  )
+}
+
+export function I18nProvider({ locale: initialLocale, children }: { locale: Locale; children: React.ReactNode }) {
+  const [locale, setLocale] = useState(initialLocale ?? defaultLocale)
+  const changeLocale = (next: Locale) => {
+    setLocale(next)
+    document.cookie = `${localeCookie}=${next}; Path=/; Max-Age=31536000; SameSite=Lax`
+    document.documentElement.lang = next
+    document.documentElement.dir = next === "ar" ? "rtl" : "ltr"
+  }
+  return <I18nContext.Provider value={{ locale, t: (text, vars) => interpolate(translate(locale, text), vars) }}>{children}</I18nContext.Provider>
+}
+
+export function useI18n() {
+  const value = useContext(I18nContext)
+  if (!value) throw new Error("useI18n must be used inside I18nProvider")
+  return value
+}
+
+export { isLocale }

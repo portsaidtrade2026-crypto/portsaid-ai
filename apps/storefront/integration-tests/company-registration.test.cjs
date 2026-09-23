@@ -156,6 +156,7 @@ test("Register submits a company in Germany with EUR and opens the account", { t
       "account dashboard after Register",
       60000
     )
+    assert.ok(await evaluate(`document.body.textContent.includes('Hello Test')`), "greeting should interpolate the new customer's name")
     const errors = cdp.events.slice(before).filter((event) =>
       event.method === "Runtime.exceptionThrown" ||
       (event.method === "Network.responseReceived" && event.params.response.status >= 500)

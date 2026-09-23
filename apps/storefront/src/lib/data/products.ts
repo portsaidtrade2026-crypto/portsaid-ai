@@ -6,6 +6,8 @@ import { getRegion } from "@/lib/data/regions"
 import { sortProducts } from "@/lib/util/sort-products"
 import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
 import { HttpTypes } from "@medusajs/types"
+import { getRequestLocale } from "@/lib/i18n/server"
+import { localizeProduct } from "@/lib/i18n/catalog"
 
 export const getProductsById = async ({
   ids,
@@ -29,13 +31,16 @@ export const getProductsById = async ({
       query: {
         id: ids,
         region_id: regionId,
-        fields:
-          "*variants,*variants.calculated_price,*variants.inventory_quantity",
+          fields:
+            "*variants,*variants.calculated_price,*variants.inventory_quantity,+metadata",
       },
       headers,
       next,
     })
-    .then(({ products }) => products)
+    .then(async ({ products }) => {
+      const locale = await getRequestLocale()
+      return products.map((product) => localizeProduct(product, locale))
+    })
 }
 
 export const getProductByHandle = async (handle: string, regionId: string) => {
@@ -60,7 +65,10 @@ export const getProductByHandle = async (handle: string, regionId: string) => {
       headers,
       next,
     })
-    .then(({ products }) => products[0])
+    .then(async ({ products }) => {
+      const locale = await getRequestLocale()
+      return products[0] && localizeProduct(products[0], locale)
+    })
 }
 
 export const listProducts = async ({
@@ -106,19 +114,20 @@ export const listProducts = async ({
           limit,
           offset,
           region_id: region.id,
-          fields: "*variants.calculated_price,*variants.options",
+           fields: "*variants.calculated_price,*variants.options,+metadata",
           ...queryParams,
         },
         headers,
         next,
       }
     )
-    .then(({ products, count }) => {
+    .then(async ({ products, count }) => {
+      const locale = await getRequestLocale()
       const nextPage = count > offset + limit ? pageParam + 1 : null
 
       return {
         response: {
-          products,
+          products: products.map((product) => localizeProduct(product, locale)),
           count,
         },
         nextPage: nextPage,

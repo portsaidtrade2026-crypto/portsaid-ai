@@ -9,12 +9,17 @@ import StoreBreadcrumb from "@/modules/store/components/store-breadcrumb"
 import PaginatedProducts from "@/modules/store/templates/paginated-products"
 import { Metadata } from "next"
 import { Suspense } from "react"
+import { getRequestLocale } from "@/lib/i18n/server"
+import { translate } from "@/lib/i18n/messages"
 
 export const dynamicParams = true
 
-export const metadata: Metadata = {
-  title: "Store",
-  description: "Explore all of our products.",
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getRequestLocale()
+  return {
+    title: translate(locale, "Store"),
+    description: translate(locale, "Explore all of our products."),
+  }
 }
 
 type Params = {

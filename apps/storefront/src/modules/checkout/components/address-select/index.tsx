@@ -1,3 +1,6 @@
+ "use client"
+
+import { useI18n } from "@/lib/i18n/provider"
 import compareAddresses from "@/lib/util/compare-addresses"
 import Radio from "@/modules/common/components/radio"
 import { Listbox, Transition } from "@headlessui/react"
@@ -20,6 +23,7 @@ const AddressSelect = ({
   addressInput,
   onSelect,
 }: AddressSelectProps) => {
+  const { t } = useI18n()
   const handleSelect = (id: string) => {
     const savedAddress = addresses.find((a) => a.id === id)
     if (savedAddress) {
@@ -43,7 +47,7 @@ const AddressSelect = ({
               <span className="block truncate">
                 {selectedAddress
                   ? selectedAddress.address_1
-                  : "Choose an address"}
+                   : t("Choose an address")}
               </span>
               <ChevronUpDown
                 className={clx("transition-rotate duration-200", {

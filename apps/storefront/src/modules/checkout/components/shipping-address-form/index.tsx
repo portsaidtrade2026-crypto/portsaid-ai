@@ -1,3 +1,6 @@
+ "use client"
+
+import { useI18n } from "@/lib/i18n/provider"
 import AddressSelect from "@/modules/checkout/components/address-select"
 import CountrySelect from "@/modules/checkout/components/country-select"
 import Input from "@/modules/common/components/input"
@@ -14,6 +17,7 @@ const ShippingAddressForm = ({
   customer: B2BCustomer | null
   cart: B2BCart | null
 }) => {
+  const { t } = useI18n()
   const [formData, setFormData] = useState<Record<string, any>>({
     "shipping_address.first_name": "",
     "shipping_address.last_name": "",
@@ -104,7 +108,7 @@ const ShippingAddressForm = ({
       )}
       <div className="grid grid-cols-2 gap-4">
         <Input
-          label="First name"
+          label={t("First name")}
           name="shipping_address.first_name"
           autoComplete="given-name"
           value={formData["shipping_address.first_name"]}
@@ -113,7 +117,7 @@ const ShippingAddressForm = ({
           data-testid="shipping-first-name-input"
         />
         <Input
-          label="Last name"
+          label={t("Last name")}
           name="shipping_address.last_name"
           autoComplete="family-name"
           value={formData["shipping_address.last_name"]}
@@ -122,7 +126,7 @@ const ShippingAddressForm = ({
           data-testid="shipping-last-name-input"
         />
         <Input
-          label="Phone"
+          label={t("Phone")}
           name="shipping_address.phone"
           autoComplete="tel"
           value={formData["shipping_address.phone"]}
@@ -131,7 +135,7 @@ const ShippingAddressForm = ({
           data-testid="shipping-phone-input"
         />
         <Input
-          label="Company name"
+          label={t("Company name")}
           name="shipping_address.company"
           value={formData["shipping_address.company"]}
           onChange={handleChange}
@@ -140,7 +144,7 @@ const ShippingAddressForm = ({
           colSpan={2}
         />
         <Input
-          label="Address"
+          label={t("Address")}
           name="shipping_address.address_1"
           autoComplete="address-line1"
           value={formData["shipping_address.address_1"]}
@@ -150,7 +154,7 @@ const ShippingAddressForm = ({
           colSpan={2}
         />
         <Input
-          label="Postal code"
+          label={t("Postal code")}
           name="shipping_address.postal_code"
           autoComplete="postal-code"
           value={formData["shipping_address.postal_code"]}
@@ -161,7 +165,7 @@ const ShippingAddressForm = ({
         />
         <div className="grid small:grid-cols-3 grid-cols-2 gap-4 col-span-2">
           <Input
-            label="City"
+          label={t("City")}
             name="shipping_address.city"
             autoComplete="address-level2"
             value={formData["shipping_address.city"]}
@@ -170,7 +174,7 @@ const ShippingAddressForm = ({
             data-testid="shipping-city-input"
           />
           <Input
-            label="Province"
+          label={t("Province")}
             name="shipping_address.province"
             autoComplete="address-level1"
             value={formData["shipping_address.province"]}

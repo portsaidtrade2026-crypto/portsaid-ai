@@ -4,6 +4,8 @@ import CategoryTemplate from "@/modules/categories/templates"
 import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
+import { getRequestLocale } from "@/lib/i18n/server"
+import { translate } from "@/lib/i18n/messages"
 
 export const dynamicParams = true
 
@@ -17,13 +19,14 @@ type Props = {
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params
+  const locale = await getRequestLocale()
 
   try {
     const product_category = await getCategoryByHandle(params.category)
 
     const title = product_category.name
 
-    const description = product_category.description ?? `${title} category.`
+    const description = product_category.description ?? `${title} ${translate(locale, "Category")}.`
 
     return {
       title: `${title} | Medusa Store`,

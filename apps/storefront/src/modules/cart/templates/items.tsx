@@ -5,6 +5,7 @@ import { B2BCart } from "@/types/global"
 import { StoreCartLineItem } from "@medusajs/types"
 import { Container, Text } from "@medusajs/ui"
 import { useMemo } from "react"
+import { useI18n } from "@/lib/i18n/provider"
 
 type ItemsTemplateProps = {
   cart: B2BCart
@@ -17,6 +18,7 @@ const ItemsTemplate = ({
   showBorders = true,
   showTotal = true,
 }: ItemsTemplateProps) => {
+  const { t } = useI18n()
   const items = cart?.items
   const totalQuantity = useMemo(
     () => cart?.items?.reduce((acc, item) => acc + item.quantity, 0),
@@ -52,7 +54,7 @@ const ItemsTemplate = ({
       {showTotal && (
         <Container>
           <div className="flex items-start justify-between h-full self-stretch">
-            <Text>Total: {totalQuantity} items</Text>
+            <Text>{t("Total: {count} items", { count: totalQuantity || 0 })}</Text>
             <Text>
               {convertToLocale({
                 amount: cart?.item_total,

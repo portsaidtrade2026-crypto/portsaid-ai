@@ -12,8 +12,13 @@ import SkeletonAccountButton from "@/modules/skeletons/components/skeleton-accou
 import SkeletonCartButton from "@/modules/skeletons/components/skeleton-cart-button"
 import SkeletonMegaMenu from "@/modules/skeletons/components/skeleton-mega-menu"
 import { Suspense } from "react"
+import LanguageSwitcher from "@/modules/layout/components/language-switcher"
+import { getRequestLocale } from "@/lib/i18n/server"
+import { translate } from "@/lib/i18n/messages"
 
 export async function NavigationHeader() {
+  const locale = await getRequestLocale()
+  const t = (text: string) => translate(locale, text)
   const customer = await retrieveCustomer().catch(() => null)
   const cart = await retrieveCart()
 
@@ -27,7 +32,7 @@ export async function NavigationHeader() {
               href="/"
             >
               <h1 className="small:text-base text-sm font-medium flex items-center">
-                <LogoIcon className="inline mr-2" />
+                <LogoIcon className="inline me-2" />
                 Medusa B2B Starter
               </h1>
             </LocalizedClientLink>
@@ -47,13 +52,14 @@ export async function NavigationHeader() {
               <input
                 disabled
                 type="text"
-                placeholder="Search for products"
-                className="bg-gray-100 text-zinc-900 px-4 py-2 rounded-full pr-10 shadow-borders-base hidden small:inline-block hover:cursor-not-allowed"
-                title="Install a search provider to enable product search"
+                placeholder={t("Search for products")}
+              className="bg-gray-100 text-zinc-900 px-4 py-2 rounded-full pe-10 shadow-borders-base hidden small:inline-block hover:cursor-not-allowed"
+                title={t("Install a search provider to enable product search")}
               />
             </div>
 
             <div className="h-4 w-px bg-neutral-300" />
+            <LanguageSwitcher />
 
             {customer && cart?.items && cart.items.length > 0 ? (
               <RequestQuoteConfirmation>
@@ -62,14 +68,14 @@ export async function NavigationHeader() {
                   // disabled={isPendingApproval}
                 >
                   <FilePlus />
-                  <span className="hidden small:inline-block">Quote</span>
+                  <span className="hidden small:inline-block">{t("Quote")}</span>
                 </button>
               </RequestQuoteConfirmation>
             ) : (
               <RequestQuotePrompt>
                 <button className="flex gap-1.5 items-center rounded-2xl bg-none shadow-none border-none hover:bg-neutral-100 px-2 py-1">
                   <FilePlus />
-                  <span className="hidden small:inline-block">Quote</span>
+                  <span className="hidden small:inline-block">{t("Quote")}</span>
                 </button>
               </RequestQuotePrompt>
             )}

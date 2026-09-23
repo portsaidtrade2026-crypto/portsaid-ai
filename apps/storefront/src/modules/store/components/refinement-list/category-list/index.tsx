@@ -1,3 +1,5 @@
+"use client"
+
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import Radio from "@/modules/common/components/radio"
 import SquareMinus from "@/modules/common/icons/square-minus"
@@ -6,6 +8,7 @@ import { HttpTypes } from "@medusajs/types"
 import { Container, Text } from "@medusajs/ui"
 import { usePathname, useSearchParams } from "next/navigation"
 import { useCallback, useEffect, useState } from "react"
+import { useI18n } from "@/lib/i18n/provider"
 
 const CategoryList = ({
   categories,
@@ -14,6 +17,7 @@ const CategoryList = ({
   categories: HttpTypes.StoreProductCategory[]
   currentCategory?: HttpTypes.StoreProductCategory
 }) => {
+  const { t } = useI18n()
   const getCategoriesToExpand = useCallback(
     (category: HttpTypes.StoreProductCategory) => {
       const categoriesToExpand = [category.id]
@@ -130,13 +134,13 @@ const CategoryList = ({
   return (
     <Container className="flex flex-col p-0 divide-y divide-neutral-200">
       <div className="flex justify-between items-center p-3">
-        <Text className="text-sm font-medium">Categories</Text>
+        <Text className="text-sm font-medium">{t("Categories")}</Text>
         {pathname.includes("/categories") && (
           <LocalizedClientLink
             href="/store"
             className="text-xs text-neutral-500 hover:text-neutral-700"
           >
-            Clear
+             {t("Clear")}
           </LocalizedClientLink>
         )}
       </div>
