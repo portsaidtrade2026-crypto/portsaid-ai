@@ -23,10 +23,10 @@ export const GET = async (
     filters: { id: customer_id },
   });
 
-  const companyId = customer?.employee?.company?.id as string;
+  const companyId = customer?.employee?.company?.id;
 
   if (!companyId) {
-    return res.json({ approvals: [], count: 0 });
+    return res.status(403).json({ message: "Forbidden" });
   }
 
   const {
@@ -44,7 +44,7 @@ export const GET = async (
     filters: { id: companyId },
   });
 
-  if (!company?.carts) {
+  if (!company?.carts?.length) {
     return res.json({ carts_with_approvals: [], count: 0 });
   }
 

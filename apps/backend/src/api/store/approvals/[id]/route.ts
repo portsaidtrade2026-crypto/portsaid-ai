@@ -16,6 +16,7 @@ export const GET = async (
     fields: ["*"],
     filters: { id: req.params.id },
   });
+
   res.json({ approval });
 };
 
