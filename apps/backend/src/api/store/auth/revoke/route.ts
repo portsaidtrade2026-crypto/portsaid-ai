@@ -4,6 +4,7 @@ import type {
 } from "@medusajs/framework/http";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { bearerToken, tokenDigest, tokenExpiry } from "../../../middlewares/revoked-jwt";
+import { jwtRevocationEnabled } from "../../../../config/jwt-revocation";
 
 export async function POST(
   request: AuthenticatedMedusaRequest,
@@ -13,6 +14,13 @@ export async function POST(
   const expiry = token && tokenExpiry(token);
   if (!token || !expiry || request.auth_context.actor_type !== "customer") {
     response.status(401).json({ message: "Valid customer bearer token required" });
+    return;
+  }
+
+  if (!jwtRevocationEnabled) {
+    // Schema-first release: preserve the previous cookie-only logout behavior
+    // without touching a table that may not exist yet. Never claim revocation.
+    response.status(200).json({ revoked: false });
     return;
   }
 
