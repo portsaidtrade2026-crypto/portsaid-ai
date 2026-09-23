@@ -9,3 +9,5 @@
 - [Radix Select empty-value submission](radix-select-empty-value.md) — a cleared select can serialize its first option; use an explicit controlled hidden value for dependent form fields.
 - [Locale refresh verification](locale-refresh-verification.md) — a client locale change can precede the refreshed server-rendered interface; verify both before asserting language consistency.
 - [Replit private service ports](replit-private-service-ports.md) — keep internal services listed by localPort without externalPort; removing a live port block entirely can make Replit rediscover it.
+- [Next build isolation during smoke tests](next-production-build-isolation.md) — stop the development storefront before building and starting production locally; both modes share build output.
+- [Headless browser clicks](headless-browser-clicks.md) — CDP mouse events do not scroll offscreen targets; scroll visible elements into view before clicking in tests.
