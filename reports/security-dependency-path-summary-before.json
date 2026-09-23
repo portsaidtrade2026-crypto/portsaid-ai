@@ -1,0 +1,868 @@
+{
+  "@babel/core@7.28.5": {
+    "direct": true,
+    "productionPaths": 0,
+    "devPaths": 4,
+    "productionExample": null,
+    "devExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "devDependencies",
+      "path": [
+        "@babel/core@7.28.5"
+      ]
+    }
+  },
+  "@grpc/grpc-js@1.14.3": {
+    "direct": false,
+    "productionPaths": 10,
+    "devPaths": 7070,
+    "productionExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "dependencies",
+      "path": [
+        "@medusajs/cli@2.21.0",
+        "@medusajs/deps@2.21.0",
+        "@opentelemetry/sdk-node@0.220.0",
+        "@opentelemetry/otlp-grpc-exporter-base@0.220.0",
+        "@grpc/grpc-js@1.14.3"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/test-utils@2.21.0",
+        "@medusajs/framework@2.21.0",
+        "@medusajs/deps@2.21.0",
+        "@opentelemetry/sdk-node@0.220.0",
+        "@opentelemetry/otlp-grpc-exporter-base@0.220.0",
+        "@grpc/grpc-js@1.14.3"
+      ]
+    }
+  },
+  "@humanfs/node@0.16.7": {
+    "direct": false,
+    "productionPaths": 0,
+    "devPaths": 24,
+    "productionExample": null,
+    "devExample": {
+      "workspace": ".",
+      "rootKind": "devDependencies",
+      "path": [
+        "eslint@9.39.4",
+        "@humanfs/node@0.16.7"
+      ]
+    }
+  },
+  "@protobufjs/utf8@1.1.0": {
+    "direct": false,
+    "productionPaths": 10,
+    "devPaths": 7070,
+    "productionExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "dependencies",
+      "path": [
+        "@medusajs/cli@2.21.0",
+        "@medusajs/deps@2.21.0",
+        "@opentelemetry/sdk-node@0.220.0",
+        "@opentelemetry/otlp-grpc-exporter-base@0.220.0",
+        "@grpc/grpc-js@1.14.3",
+        "@grpc/proto-loader@0.8.0",
+        "protobufjs@7.5.4",
+        "@protobufjs/utf8@1.1.0"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/test-utils@2.21.0",
+        "@medusajs/framework@2.21.0",
+        "@medusajs/deps@2.21.0",
+        "@opentelemetry/sdk-node@0.220.0",
+        "@opentelemetry/otlp-grpc-exporter-base@0.220.0",
+        "@grpc/grpc-js@1.14.3",
+        "@grpc/proto-loader@0.8.0",
+        "protobufjs@7.5.4",
+        "@protobufjs/utf8@1.1.0"
+      ]
+    }
+  },
+  "ajv@6.12.6": {
+    "direct": false,
+    "productionPaths": 0,
+    "devPaths": 2,
+    "productionExample": null,
+    "devExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "devDependencies",
+      "path": [
+        "babel-loader@8.4.1",
+        "schema-utils@2.7.1",
+        "ajv@6.12.6"
+      ]
+    }
+  },
+  "ajv@8.13.0": {
+    "direct": false,
+    "productionPaths": 10,
+    "devPaths": 3036,
+    "productionExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "dependencies",
+      "path": [
+        "@hookform/resolvers@5.5.7",
+        "ajv@8.13.0"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/test-utils@2.21.0",
+        "@medusajs/medusa@2.21.0",
+        "@medusajs/draft-order@2.21.0",
+        "@hookform/resolvers@5.5.7",
+        "ajv@8.13.0"
+      ]
+    }
+  },
+  "ajv@8.17.1": {
+    "direct": false,
+    "productionPaths": 6,
+    "devPaths": 6,
+    "productionExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "dependencies",
+      "path": [
+        "webpack@5.104.0",
+        "schema-utils@4.3.3",
+        "ajv@8.17.1"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "devDependencies",
+      "path": [
+        "babel-loader@8.4.1",
+        "webpack@5.104.0",
+        "schema-utils@4.3.3",
+        "ajv@8.17.1"
+      ]
+    }
+  },
+  "axios@1.13.2": {
+    "direct": false,
+    "productionPaths": 3,
+    "devPaths": 116,
+    "productionExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "dependencies",
+      "path": [
+        "@medusajs/cli@2.21.0",
+        "@medusajs/telemetry@2.21.0",
+        "axios@1.13.2"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/test-utils@2.21.0",
+        "axios@1.13.2"
+      ]
+    }
+  },
+  "baseline-browser-mapping@2.9.9": {
+    "direct": false,
+    "productionPaths": 4,
+    "devPaths": 898,
+    "productionExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "dependencies",
+      "path": [
+        "webpack@5.104.0",
+        "browserslist@4.28.1",
+        "baseline-browser-mapping@2.9.9"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "devDependencies",
+      "path": [
+        "autoprefixer@10.4.23",
+        "browserslist@4.28.1",
+        "baseline-browser-mapping@2.9.9"
+      ]
+    }
+  },
+  "body-parser@1.20.4": {
+    "direct": false,
+    "productionPaths": 10,
+    "devPaths": 621,
+    "productionExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "dependencies",
+      "path": [
+        "@medusajs/cli@2.21.0",
+        "express@4.22.1",
+        "body-parser@1.20.4"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/test-utils@2.21.0",
+        "express@4.22.1",
+        "body-parser@1.20.4"
+      ]
+    }
+  },
+  "brace-expansion@1.1.12": {
+    "direct": false,
+    "productionPaths": 0,
+    "devPaths": 226,
+    "productionExample": null,
+    "devExample": {
+      "workspace": ".",
+      "rootKind": "devDependencies",
+      "path": [
+        "eslint@9.39.4",
+        "minimatch@3.1.5",
+        "brace-expansion@1.1.12"
+      ]
+    }
+  },
+  "brace-expansion@2.0.2": {
+    "direct": false,
+    "productionPaths": 0,
+    "devPaths": 11,
+    "productionExample": null,
+    "devExample": {
+      "workspace": ".",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/eslint-plugin@2.21.0",
+        "@typescript-eslint/parser@8.50.0",
+        "@typescript-eslint/typescript-estree@8.50.0",
+        "minimatch@9.0.5",
+        "brace-expansion@2.0.2"
+      ]
+    }
+  },
+  "brace-expansion@5.0.5": {
+    "direct": false,
+    "productionPaths": 3,
+    "devPaths": 114,
+    "productionExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "dependencies",
+      "path": [
+        "@medusajs/cli@2.21.0",
+        "glob@13.0.6",
+        "minimatch@10.2.5",
+        "brace-expansion@5.0.5"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/test-utils@2.21.0",
+        "@medusajs/framework@2.21.0",
+        "glob@13.0.6",
+        "minimatch@10.2.5",
+        "brace-expansion@5.0.5"
+      ]
+    }
+  },
+  "browserslist@4.28.1": {
+    "direct": false,
+    "productionPaths": 0,
+    "devPaths": 1796,
+    "productionExample": null,
+    "devExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "devDependencies",
+      "path": [
+        "autoprefixer@10.4.23",
+        "browserslist@4.28.1"
+      ]
+    }
+  },
+  "diff@4.0.2": {
+    "direct": false,
+    "productionPaths": 0,
+    "devPaths": 5,
+    "productionExample": null,
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "ts-node@10.9.2",
+        "diff@4.0.2"
+      ]
+    }
+  },
+  "fast-uri@3.1.0": {
+    "direct": false,
+    "productionPaths": 6,
+    "devPaths": 6,
+    "productionExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "dependencies",
+      "path": [
+        "webpack@5.104.0",
+        "schema-utils@4.3.3",
+        "ajv@8.17.1",
+        "fast-uri@3.1.0"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "devDependencies",
+      "path": [
+        "babel-loader@8.4.1",
+        "webpack@5.104.0",
+        "schema-utils@4.3.3",
+        "ajv@8.17.1",
+        "fast-uri@3.1.0"
+      ]
+    }
+  },
+  "flatted@3.3.3": {
+    "direct": false,
+    "productionPaths": 0,
+    "devPaths": 24,
+    "productionExample": null,
+    "devExample": {
+      "workspace": ".",
+      "rootKind": "devDependencies",
+      "path": [
+        "eslint@9.39.4",
+        "file-entry-cache@8.0.0",
+        "flat-cache@4.0.1",
+        "flatted@3.3.3"
+      ]
+    }
+  },
+  "follow-redirects@1.15.11": {
+    "direct": false,
+    "productionPaths": 3,
+    "devPaths": 116,
+    "productionExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "dependencies",
+      "path": [
+        "@medusajs/cli@2.21.0",
+        "@medusajs/telemetry@2.21.0",
+        "axios@1.13.2",
+        "follow-redirects@1.15.11"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/test-utils@2.21.0",
+        "axios@1.13.2",
+        "follow-redirects@1.15.11"
+      ]
+    }
+  },
+  "form-data@4.0.5": {
+    "direct": false,
+    "productionPaths": 3,
+    "devPaths": 116,
+    "productionExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "dependencies",
+      "path": [
+        "@medusajs/cli@2.21.0",
+        "@medusajs/telemetry@2.21.0",
+        "axios@1.13.2",
+        "form-data@4.0.5"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/test-utils@2.21.0",
+        "axios@1.13.2",
+        "form-data@4.0.5"
+      ]
+    }
+  },
+  "immutable@3.7.6": {
+    "direct": false,
+    "productionPaths": 10,
+    "devPaths": 505,
+    "productionExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "dependencies",
+      "path": [
+        "@medusajs/cli@2.21.0",
+        "@medusajs/utils@2.21.0",
+        "@graphql-codegen/typescript@4.1.6",
+        "@graphql-codegen/visitor-plugin-common@5.8.0",
+        "@graphql-tools/relay-operation-optimizer@7.0.26",
+        "@ardatan/relay-compiler@12.0.3",
+        "immutable@3.7.6"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/test-utils@2.21.0",
+        "@medusajs/framework@2.21.0",
+        "@medusajs/utils@2.21.0",
+        "@graphql-codegen/typescript@4.1.6",
+        "@graphql-codegen/visitor-plugin-common@5.8.0",
+        "@graphql-tools/relay-operation-optimizer@7.0.26",
+        "@ardatan/relay-compiler@12.0.3",
+        "immutable@3.7.6"
+      ]
+    }
+  },
+  "js-yaml@3.14.2": {
+    "direct": false,
+    "productionPaths": 0,
+    "devPaths": 66,
+    "productionExample": null,
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "jest@29.7.0",
+        "@jest/core@29.7.0",
+        "@jest/transform@29.7.0",
+        "babel-plugin-istanbul@6.1.1",
+        "@istanbuljs/load-nyc-config@1.1.0",
+        "js-yaml@3.14.2"
+      ]
+    }
+  },
+  "js-yaml@4.1.1": {
+    "direct": false,
+    "productionPaths": 0,
+    "devPaths": 24,
+    "productionExample": null,
+    "devExample": {
+      "workspace": ".",
+      "rootKind": "devDependencies",
+      "path": [
+        "eslint@9.39.4",
+        "@eslint/eslintrc@3.3.5",
+        "js-yaml@4.1.1"
+      ]
+    }
+  },
+  "lodash@4.17.21": {
+    "direct": true,
+    "productionPaths": 5,
+    "devPaths": 2020,
+    "productionExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "dependencies",
+      "path": [
+        "lodash@4.17.21"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/test-utils@2.21.0",
+        "@medusajs/framework@2.21.0",
+        "@medusajs/utils@2.21.0",
+        "@graphql-codegen/core@4.0.2",
+        "@graphql-codegen/plugin-helpers@5.1.1",
+        "lodash@4.17.21"
+      ]
+    }
+  },
+  "minimatch@9.0.5": {
+    "direct": false,
+    "productionPaths": 0,
+    "devPaths": 11,
+    "productionExample": null,
+    "devExample": {
+      "workspace": ".",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/eslint-plugin@2.21.0",
+        "@typescript-eslint/parser@8.50.0",
+        "@typescript-eslint/typescript-estree@8.50.0",
+        "minimatch@9.0.5"
+      ]
+    }
+  },
+  "nanoid@3.3.11": {
+    "direct": false,
+    "productionPaths": 0,
+    "devPaths": 42,
+    "productionExample": null,
+    "devExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "devDependencies",
+      "path": [
+        "postcss@8.5.6",
+        "nanoid@3.3.11"
+      ]
+    }
+  },
+  "nanoid@3.3.16": {
+    "direct": false,
+    "productionPaths": 5,
+    "devPaths": 62,
+    "productionExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "dependencies",
+      "path": [
+        "next@15.5.21",
+        "postcss@8.4.31",
+        "nanoid@3.3.16"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "vite@7.3.6",
+        "postcss@8.5.22",
+        "nanoid@3.3.16"
+      ]
+    }
+  },
+  "next@15.5.21": {
+    "direct": true,
+    "productionPaths": 3,
+    "devPaths": 0,
+    "productionExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "dependencies",
+      "path": [
+        "next@15.5.21"
+      ]
+    },
+    "devExample": null
+  },
+  "path-to-regexp@0.1.12": {
+    "direct": false,
+    "productionPaths": 10,
+    "devPaths": 621,
+    "productionExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "dependencies",
+      "path": [
+        "@medusajs/cli@2.21.0",
+        "express@4.22.1",
+        "path-to-regexp@0.1.12"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/test-utils@2.21.0",
+        "express@4.22.1",
+        "path-to-regexp@0.1.12"
+      ]
+    }
+  },
+  "picomatch@2.3.1": {
+    "direct": false,
+    "productionPaths": 10,
+    "devPaths": 11370,
+    "productionExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "dependencies",
+      "path": [
+        "@medusajs/cli@2.21.0",
+        "@medusajs/deps@2.21.0",
+        "awilix@8.0.1",
+        "fast-glob@3.3.3",
+        "micromatch@4.0.8",
+        "picomatch@2.3.1"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "devDependencies",
+      "path": [
+        "tailwindcss@3.4.19",
+        "micromatch@4.0.8",
+        "picomatch@2.3.1"
+      ]
+    }
+  },
+  "picomatch@4.0.3": {
+    "direct": false,
+    "productionPaths": 4,
+    "devPaths": 281,
+    "productionExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "dependencies",
+      "path": [
+        "@medusajs/types@2.21.0",
+        "vite@7.3.6",
+        "picomatch@4.0.3"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "vite@7.3.6",
+        "picomatch@4.0.3"
+      ]
+    }
+  },
+  "postcss@8.4.31": {
+    "direct": false,
+    "productionPaths": 3,
+    "devPaths": 0,
+    "productionExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "dependencies",
+      "path": [
+        "next@15.5.21",
+        "postcss@8.4.31"
+      ]
+    },
+    "devExample": null
+  },
+  "postcss@8.5.22": {
+    "direct": false,
+    "productionPaths": 2,
+    "devPaths": 62,
+    "productionExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "dependencies",
+      "path": [
+        "@medusajs/types@2.21.0",
+        "vite@7.3.6",
+        "postcss@8.5.22"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "vite@7.3.6",
+        "postcss@8.5.22"
+      ]
+    }
+  },
+  "postcss@8.5.6": {
+    "direct": true,
+    "productionPaths": 0,
+    "devPaths": 42,
+    "productionExample": null,
+    "devExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "devDependencies",
+      "path": [
+        "postcss@8.5.6"
+      ]
+    }
+  },
+  "postcss-selector-parser@6.1.2": {
+    "direct": false,
+    "productionPaths": 0,
+    "devPaths": 16,
+    "productionExample": null,
+    "devExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "devDependencies",
+      "path": [
+        "tailwindcss@3.4.19",
+        "postcss-selector-parser@6.1.2"
+      ]
+    }
+  },
+  "protobufjs@7.5.4": {
+    "direct": false,
+    "productionPaths": 10,
+    "devPaths": 7070,
+    "productionExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "dependencies",
+      "path": [
+        "@medusajs/cli@2.21.0",
+        "@medusajs/deps@2.21.0",
+        "@opentelemetry/sdk-node@0.220.0",
+        "@opentelemetry/otlp-grpc-exporter-base@0.220.0",
+        "@grpc/grpc-js@1.14.3",
+        "@grpc/proto-loader@0.8.0",
+        "protobufjs@7.5.4"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/test-utils@2.21.0",
+        "@medusajs/framework@2.21.0",
+        "@medusajs/deps@2.21.0",
+        "@opentelemetry/sdk-node@0.220.0",
+        "@opentelemetry/otlp-grpc-exporter-base@0.220.0",
+        "@grpc/grpc-js@1.14.3",
+        "@grpc/proto-loader@0.8.0",
+        "protobufjs@7.5.4"
+      ]
+    }
+  },
+  "qs@6.14.0": {
+    "direct": false,
+    "productionPaths": 8,
+    "devPaths": 1242,
+    "productionExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "dependencies",
+      "path": [
+        "@medusajs/cli@2.21.0",
+        "express@4.22.1",
+        "qs@6.14.0"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/test-utils@2.21.0",
+        "express@4.22.1",
+        "qs@6.14.0"
+      ]
+    }
+  },
+  "qs@6.15.3": {
+    "direct": false,
+    "productionPaths": 3,
+    "devPaths": 8,
+    "productionExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "dependencies",
+      "path": [
+        "@medusajs/dashboard@2.21.0",
+        "qs@6.15.3"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/test-utils@2.21.0",
+        "@medusajs/medusa@2.21.0",
+        "qs@6.15.3"
+      ]
+    }
+  },
+  "rollup@4.53.5": {
+    "direct": false,
+    "productionPaths": 2,
+    "devPaths": 60,
+    "productionExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "dependencies",
+      "path": [
+        "@medusajs/types@2.21.0",
+        "vite@7.3.6",
+        "rollup@4.53.5"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "vite@7.3.6",
+        "rollup@4.53.5"
+      ]
+    }
+  },
+  "serialize-javascript@6.0.2": {
+    "direct": false,
+    "productionPaths": 1,
+    "devPaths": 1,
+    "productionExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "dependencies",
+      "path": [
+        "webpack@5.104.0",
+        "terser-webpack-plugin@5.3.16",
+        "serialize-javascript@6.0.2"
+      ]
+    },
+    "devExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "devDependencies",
+      "path": [
+        "babel-loader@8.4.1",
+        "webpack@5.104.0",
+        "terser-webpack-plugin@5.3.16",
+        "serialize-javascript@6.0.2"
+      ]
+    }
+  },
+  "sharp@0.34.5": {
+    "direct": false,
+    "productionPaths": 3,
+    "devPaths": 0,
+    "productionExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "dependencies",
+      "path": [
+        "next@15.5.21",
+        "sharp@0.34.5"
+      ]
+    },
+    "devExample": null
+  },
+  "turbo@2.6.3": {
+    "direct": true,
+    "productionPaths": 0,
+    "devPaths": 1,
+    "productionExample": null,
+    "devExample": {
+      "workspace": ".",
+      "rootKind": "devDependencies",
+      "path": [
+        "turbo@2.6.3"
+      ]
+    }
+  },
+  "uuid@9.0.1": {
+    "direct": false,
+    "productionPaths": 0,
+    "devPaths": 2,
+    "productionExample": null,
+    "devExample": {
+      "workspace": "./apps/backend",
+      "rootKind": "devDependencies",
+      "path": [
+        "@medusajs/test-utils@2.21.0",
+        "@medusajs/medusa@2.21.0",
+        "@medusajs/event-bus-redis@2.21.0",
+        "bullmq@5.13.0",
+        "uuid@9.0.1"
+      ]
+    }
+  },
+  "webpack@5.104.0": {
+    "direct": false,
+    "productionPaths": 0,
+    "devPaths": 2,
+    "productionExample": null,
+    "devExample": {
+      "workspace": "./apps/storefront",
+      "rootKind": "devDependencies",
+      "path": [
+        "babel-loader@8.4.1",
+        "webpack@5.104.0"
+      ]
+    }
+  }
+}

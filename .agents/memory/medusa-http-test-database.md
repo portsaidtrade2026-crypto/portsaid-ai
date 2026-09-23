@@ -10,3 +10,5 @@ Medusa's HTTP integration runner creates and drops its own PostgreSQL databases.
 **How to apply:** When running or diagnosing HTTP suites, provide DB_HOST=localhost and a role with database-creation privileges via the runner's DB_USERNAME/DB_PASSWORD variables. Do not point the runner at production credentials or infer that a working development DATABASE_URL is sufficient.
 
 In this Replit container, PostgreSQL's default Unix socket directory `/run/postgresql` may not exist. Start the local test server with `pg_ctl ... -o '-h localhost -k /tmp'` and run the Jest command in the same shell invocation; local daemons started in a separate shell invocation may not remain reachable. The HTTP suite also needs `NODE_OPTIONS=--experimental-vm-modules` for Medusa's dynamic config import.
+
+Managed PostgreSQL can accept the connection and temporary-database request but still exceed the suites' fixed 60-second setup hook during schema initialization. Treat that as an infrastructure-blocked run, not an application assertion failure; use the local test server above for reliable reruns.
