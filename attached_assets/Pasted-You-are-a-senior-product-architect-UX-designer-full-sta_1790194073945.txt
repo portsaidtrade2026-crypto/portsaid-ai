@@ -1,0 +1,148 @@
+You are a senior product architect, UX designer, full-stack engineer, integration engineer, security engineer, and QA engineer.
+
+Build a production-ready multilingual B2B product-catalog website and customer portal for:
+
+PORTSAID TRADING
+
+Read the complete requirements before making any architectural or implementation decision.
+
+Do not remove, simplify, replace, or ignore any requirement without:
+
+1. Identifying the requirement.
+2. Explaining the technical reason.
+3. Proposing a safe alternative.
+4. Receiving explicit approval.
+
+Treat this document as the master project specification.
+
+Do not attempt to implement the entire project in one uncontrolled step. Begin with system discovery, architecture, integration mapping, and a safe demonstration environment.
+
+==================================================
+PROJECT OBJECTIVE
+==================================================
+
+Create a professional B2B website that allows PORTSAID TRADING to:
+
+- Display and organize products.
+- Present detailed product specifications, images, documents, certifications, and packaging information.
+- Allow visitors to search, filter, and compare products.
+- Receive requests for quotations instead of requiring immediate online payment.
+- Allow customers to create and manage their own accounts.
+- Allow authorized employees to add and manage customers manually.
+- Interact with website visitors through a multilingual chat experience powered by the company’s existing n8n automation and AI-chat workflows.
+- Pass website, visitor, product, and quotation context securely to the existing n8n workflows.
+- Connect customers to the company’s existing Meta-connected WhatsApp number.
+- Analyze visitor journeys, behavior, searches, and product interests.
+- Convert anonymous visitors into identified leads and registered customers after they voluntarily provide identifying information.
+- Connect securely with the existing Bizim Hesap ERP/accounting system.
+- Connect securely with the existing company email and Telegram systems.
+- Operate as an installable mobile Progressive Web App.
+- Be simple enough for non-technical employees to manage without editing code.
+
+==================================================
+SYSTEM RESPONSIBILITIES
+==================================================
+
+Do not duplicate functionality unnecessarily.
+
+Use the following initial responsibility model, subject to verification during the discovery phase:
+
+1. WEBSITE APPLICATION
+
+The website should manage:
+
+- Public product-catalog presentation.
+- Multilingual content.
+- Customer registration and authentication.
+- Customer portal.
+- Quotation requests.
+- Website consent records.
+- Anonymous visitor sessions.
+- First-party website analytics.
+- Product-interest events.
+- PWA functionality.
+- Website administration.
+
+2. EXISTING N8N INSTANCE
+
+The existing n8n instance should manage:
+
+- Chatbot and AI workflows.
+- Workflow automation.
+- Secure routing of data between systems.
+- Notifications.
+- Lead-processing workflows.
+- Human-handover workflows.
+- Meta WhatsApp workflow integration.
+- Telegram workflow integration.
+- Email workflow integration.
+- Approved Bizim Hesap synchronization workflows.
+
+Do not use n8n as the website’s primary transactional database unless the current architecture explicitly requires this and the decision is approved.
+
+3. BIZIM HESAP
+
+Treat Bizim Hesap as the source of truth only for the entities confirmed by its available API and the company’s current configuration.
+
+Possible supported entities include:
+
+- Products.
+- Warehouses.
+- Inventory quantities.
+- Orders.
+- Invoices.
+
+Do not assume that Bizim Hesap supports customer, quotation, payment, or bidirectional synchronization endpoints until the actual API documentation and account permissions are inspected.
+
+Create a field-by-field integration map before implementation.
+
+4. META WHATSAPP CLOUD API
+
+Use the existing Meta-connected company number and existing webhook architecture.
+
+Do not:
+
+- Register a replacement number.
+- Create a conflicting webhook.
+- Expose Meta credentials.
+- Interrupt current conversations.
+- Replace existing approved message templates.
+- Use unofficial WhatsApp automation.
+
+5. COMPANY EMAIL AND TELEGRAM
+
+Use the existing approved accounts, APIs, bots, credentials, templates, and workflows.
+
+Do not create replacement accounts unless explicitly requested.
+
+==================================================
+FIRST RESPONSE REQUIRED FROM REPLIT
+==================================================
+
+For the first response, do not build the complete production system.
+
+First provide:
+
+1. A summary of your understanding of the project.
+2. A list of the existing systems and their proposed responsibilities.
+3. A proposed system architecture.
+4. A website sitemap.
+5. A visitor, lead, customer, and quotation data model.
+6. A data-flow diagram.
+7. An integration map for n8n, Meta WhatsApp, Bizim Hesap, email, and Telegram.
+8. A list of API documentation, webhook URLs, test credentials, and field mappings required.
+9. A list of technical risks and possible conflicts.
+10. A phased implementation plan.
+11. Acceptance criteria for every phase.
+12. A visual design proposal for desktop and mobile.
+13. A clear list of what will be built and what will be reused.
+14. A secure testing and rollback plan.
+
+Wait for approval before:
+
+- Connecting production credentials.
+- Changing existing webhooks.
+- Writing data to Bizim Hesap.
+- Sending real WhatsApp, email, or Telegram messages.
+- Migrating customer records.
+- Activating production visitor tracking.
