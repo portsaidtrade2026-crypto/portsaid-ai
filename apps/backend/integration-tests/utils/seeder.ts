@@ -19,7 +19,7 @@ export async function salesChannelSeeder({ api, adminHeaders, data }) {
 }
 
 export async function productSeeder({ api, adminHeaders, data }) {
-  return (
+  const product = (
     await api.post(
       "/admin/products",
       {
@@ -50,6 +50,20 @@ export async function productSeeder({ api, adminHeaders, data }) {
       adminHeaders
     )
   ).data.product;
+
+  await api.post(
+    `/admin/products/${product.id}`,
+    { status: "published" },
+    adminHeaders
+  );
+  for (const channel of data.sales_channels || []) {
+    await api.post(
+      `/admin/sales-channels/${channel.id}/products`,
+      { add: [product.id] },
+      adminHeaders
+    );
+  }
+  return product;
 }
 
 export async function cartSeeder({ api, storeHeaders, data }) {
