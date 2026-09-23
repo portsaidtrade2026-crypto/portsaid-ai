@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 
 export default async function OverviewTemplate() {
   const customer = await retrieveCustomer().catch(() => null)
-  const orders = await listOrders().catch(() => null)
-
   if (!customer) {
     notFound()
   }
+
+  const orders = await listOrders().catch(() => null)
 
   return <Overview customer={customer} orders={orders} />
 }

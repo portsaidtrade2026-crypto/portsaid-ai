@@ -22,7 +22,8 @@ import {
 export const retrieveCustomer = async (): Promise<B2BCustomer | null> => {
   const authHeaders = await getAuthHeaders()
 
-  if (!authHeaders) return null
+  // No JWT means a guest session; don't request an authenticated endpoint.
+  if (!("authorization" in authHeaders)) return null
 
   const headers = {
     ...authHeaders,

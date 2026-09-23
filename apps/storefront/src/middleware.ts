@@ -100,21 +100,22 @@ async function getCountryCode(
   }
 }
 
-async function setCacheId(request: NextRequest, response: NextResponse) {
-  const cacheId = request.nextUrl.searchParams.get("_medusa_cache_id")
+function getCacheId(request: NextRequest) {
+  return request.cookies.get("_medusa_cache_id")?.value ||
+    request.nextUrl.searchParams.get("_medusa_cache_id") ||
+    crypto.randomUUID()
+}
 
-  if (cacheId) {
-    return cacheId
+function attachCacheId(request: NextRequest, response: NextResponse, cacheId: string) {
+  if (!request.cookies.has("_medusa_cache_id")) {
+    response.cookies.set("_medusa_cache_id", cacheId, {
+      maxAge: 60 * 60 * 24,
+      sameSite: "none",
+      secure: true,
+      partitioned: true,
+    })
   }
-
-  const newCacheId = crypto.randomUUID()
-  response.cookies.set("_medusa_cache_id", newCacheId, {
-    maxAge: 60 * 60 * 24,
-    sameSite: "none",
-    secure: true,
-    partitioned: true,
-  })
-  return newCacheId
+  return response
 }
 
 /**
@@ -124,14 +125,12 @@ export async function middleware(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
   const cartId = searchParams.get("cart_id")
   const checkoutStep = searchParams.get("step")
-  const cacheIdCookie = request.cookies.get("_medusa_cache_id")
   const cartIdCookie = request.cookies.get("_medusa_cart_id")
   let redirectUrl = request.nextUrl.href
 
-  let response = NextResponse.redirect(redirectUrl, 307)
-
-  // Set a cache id to invalidate the cache for this instance only
-  const cacheId = await setCacheId(request, response)
+  // An already-correct country route must never redirect to itself just to set
+  // the cache cookie. Attach the cookie to whichever final response we return.
+  const cacheId = getCacheId(request)
 
   const regionMap = await getRegionMap(cacheId)
 
@@ -141,10 +140,6 @@ export async function middleware(request: NextRequest) {
     countryCode && request.nextUrl.pathname.split("/")[1]?.toLowerCase() === countryCode
 
   // check if one of the country codes is in the url
-  if (urlHasCountryCode && (!cartId || cartIdCookie) && cacheIdCookie) {
-    return NextResponse.next()
-  }
-
   // check if the url is a static asset
   if (request.nextUrl.pathname.includes(".")) {
     return NextResponse.next()
@@ -154,6 +149,7 @@ export async function middleware(request: NextRequest) {
     request.nextUrl.pathname === "/" ? "" : request.nextUrl.pathname
 
   const queryString = request.nextUrl.search ? request.nextUrl.search : ""
+  let response: NextResponse = NextResponse.next()
 
   // If no country code is set, we redirect to the relevant region.
   if (!urlHasCountryCode && countryCode) {
@@ -162,13 +158,13 @@ export async function middleware(request: NextRequest) {
   }
 
   // If a cart_id is in the params, we set it as a cookie and redirect to the address step.
-  if (cartId && !checkoutStep) {
+  if (cartId && !checkoutStep && !cartIdCookie) {
     redirectUrl = `${redirectUrl}&step=address`
     response = NextResponse.redirect(`${redirectUrl}`, 307)
     response.cookies.set("_medusa_cart_id", cartId, { maxAge: 60 * 60 * 24 })
   }
 
-  return response
+  return attachCacheId(request, response, cacheId)
 }
 
 export const config = {

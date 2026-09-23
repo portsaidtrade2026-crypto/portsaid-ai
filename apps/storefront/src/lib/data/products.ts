@@ -16,6 +16,7 @@ export const getProductsById = async ({
   ids: string[]
   regionId: string
 }) => {
+  const locale = await getRequestLocale()
   const headers = {
     ...(await getAuthHeaders()),
   }
@@ -37,13 +38,13 @@ export const getProductsById = async ({
       headers,
       next,
     })
-    .then(async ({ products }) => {
-      const locale = await getRequestLocale()
+    .then(({ products }) => {
       return products.map((product) => localizeProduct(product, locale))
     })
 }
 
 export const getProductByHandle = async (handle: string, regionId: string) => {
+  const locale = await getRequestLocale()
   const headers = {
     ...(await getAuthHeaders()),
   }
@@ -65,8 +66,7 @@ export const getProductByHandle = async (handle: string, regionId: string) => {
       headers,
       next,
     })
-    .then(async ({ products }) => {
-      const locale = await getRequestLocale()
+    .then(({ products }) => {
       return products[0] && localizeProduct(products[0], locale)
     })
 }
@@ -84,6 +84,7 @@ export const listProducts = async ({
   nextPage: number | null
   queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductParams
 }> => {
+  const locale = await getRequestLocale()
   const limit = queryParams?.limit || 12
   const _pageParam = Math.max(pageParam, 1)
   const offset = (_pageParam - 1) * limit
@@ -121,8 +122,7 @@ export const listProducts = async ({
         next,
       }
     )
-    .then(async ({ products, count }) => {
-      const locale = await getRequestLocale()
+    .then(({ products, count }) => {
       const nextPage = count > offset + limit ? pageParam + 1 : null
 
       return {
