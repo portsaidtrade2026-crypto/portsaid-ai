@@ -175,8 +175,17 @@ export async function login(_currentState: unknown, formData: FormData) {
 }
 
 export async function signout(countryCode: string, customerId: string) {
+  const headers = await getAuthHeaders()
+  if ("authorization" in headers) {
+    // Revoke durably before deleting the browser credential. If the database
+    // is unavailable, keep the cookie so the customer can retry logout.
+    await sdk.client.fetch("/store/auth/revoke", {
+      method: "POST",
+      headers,
+    })
+  }
   await sdk.auth.logout()
-  removeAuthToken()
+  await removeAuthToken()
   track("customer_logged_out")
 
   // remove next line if want the cart to persist after logout

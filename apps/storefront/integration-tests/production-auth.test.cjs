@@ -184,8 +184,8 @@ test("production-mode login, JWT validation, logout, and session cookie", { time
     await until(() => evaluate("!!document.querySelector('[data-testid=login-page]')"), "guest login screen", 45000)
     console.log("PASS logout removes the authentication cookie and returns to guest login")
     const oldToken = await verify(jwtCookie.value)
-    assert.ok([200, 401].includes(oldToken.status), "old JWT outcome should be explicit")
-    console.log(`POST-LOGOUT JWT: previously issued bearer token returned ${oldToken.status}`)
+    assert.equal(oldToken.status, 401, "logout must revoke the old JWT")
+    console.log("PASS previously issued JWT returns 401 after logout")
   } finally {
     cdp?.close()
     browser.kill()

@@ -1,6 +1,7 @@
 import { QUOTE_MODULE } from "./src/modules/quote";
 import { APPROVAL_MODULE } from "./src/modules/approval";
 import { COMPANY_MODULE } from "./src/modules/company";
+import { TOKEN_REVOCATION_MODULE } from "./src/modules/token-revocation";
 import { loadEnv, defineConfig } from "@medusajs/framework/utils";
 
 loadEnv(process.env.NODE_ENV || "development", process.cwd());
@@ -28,6 +29,9 @@ module.exports = defineConfig({
     },
   },
   modules: {
+    [TOKEN_REVOCATION_MODULE]: {
+      resolve: "./modules/token-revocation",
+    },
     [COMPANY_MODULE]: {
       resolve: "./modules/company",
     },
