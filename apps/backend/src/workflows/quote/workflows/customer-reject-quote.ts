@@ -1,5 +1,5 @@
-import { useRemoteQueryStep } from "@medusajs/core-flows";
 import { createWorkflow } from "@medusajs/framework/workflows-sdk";
+import { requireCustomerQuoteStep } from "../steps/require-customer-quote";
 import { updateQuotesWorkflow } from "./update-quote";
 
 /*
@@ -10,19 +10,16 @@ import { updateQuotesWorkflow } from "./update-quote";
 */
 export const customerRejectQuoteWorkflow = createWorkflow(
   "customer-reject-quote",
-  function (input: { quote_id: string }) {
-    useRemoteQueryStep({
-      entry_point: "quote",
-      fields: ["id"],
-      variables: { id: input.quote_id },
-      list: false,
-      throw_if_key_not_found: true,
+  function (input: { quote_id: string; customer_id: string }) {
+    const quote = requireCustomerQuoteStep({
+      quote_id: input.quote_id,
+      customer_id: input.customer_id,
     });
 
     updateQuotesWorkflow.runAsStep({
       input: [
         {
-          id: input.quote_id,
+          id: quote.id,
           status: "customer_rejected",
         },
       ],
