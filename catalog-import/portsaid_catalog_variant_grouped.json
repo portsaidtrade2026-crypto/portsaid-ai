@@ -13254,7 +13254,7 @@
             "2700 m",
             "300 m"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         },
         {
           "key": "color",
@@ -14315,7 +14315,7 @@
             "2.2 kg",
             "0.52 kg"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         },
         {
           "key": "color",
@@ -16539,7 +16539,7 @@
             "0.46 kg",
             "0.93 kg"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         },
         {
           "key": "color",
@@ -17408,7 +17408,7 @@
             "2.15 kg",
             "2.64 kg"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         },
         {
           "key": "color",
@@ -20763,7 +20763,7 @@
             "300 g",
             "200 g"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         },
         {
           "key": "stated-weight",
@@ -21993,7 +21993,7 @@
             "300 m",
             "∅"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         },
         {
           "key": "core-weight",
@@ -22009,7 +22009,7 @@
             "200 g",
             "400 g"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         },
         {
           "key": "stated-weight",
@@ -24551,7 +24551,7 @@
             "1700 g",
             "1800 g"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         },
         {
           "key": "stated-weight",
@@ -27603,7 +27603,7 @@
             "500 g",
             "200 g"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         },
         {
           "key": "length",
@@ -29112,7 +29112,7 @@
             "1 m",
             "900 mm"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         },
         {
           "key": "dimensions",
@@ -32924,7 +32924,7 @@
             "black",
             "red"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         }
       ],
       "variant_count": 3,
@@ -33598,7 +33598,7 @@
             "green",
             "∅"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         }
       ],
       "variant_count": 8,
@@ -38069,7 +38069,7 @@
             "60 mm",
             "70 mm"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         },
         {
           "key": "color",
@@ -38477,7 +38477,7 @@
             "90 m",
             "800 m"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         },
         {
           "key": "color",
@@ -39744,7 +39744,7 @@
             "40 um",
             "42 um"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         },
         {
           "key": "color",
@@ -39987,7 +39987,7 @@
             "50 mm",
             "60 mm"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         },
         {
           "key": "length",
@@ -43947,7 +43947,7 @@
             "19 mm",
             "18 mm"
           ],
-          "suggested_ui_selector": false
+          "suggested_ui_selector": true
         },
         {
           "key": "length",
