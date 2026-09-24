@@ -48,7 +48,7 @@ overrides:
   terser-webpack-plugin@5.3.16: 5.6.1
   webpack@5.104.0: 5.104.1
 
-packageExtensionsChecksum: 3dd484b9128c3f8613ce549c42194e89
+packageExtensionsChecksum: sha256-K5R1YJRoEg1Ep7o+Xo/JMHQLRBSsrY2mHLnwzRKoWno=
 
 importers:
 
@@ -95,7 +95,7 @@ importers:
         version: 2.21.0
       '@medusajs/medusa':
         specifier: 2.21.0
-        version: 2.21.0(m4jr5ccgdhc2ok5azzn67gizvi)
+        version: 2.21.0(17fb4fa887aacff63ca2f8ef3a43fb26)
       '@medusajs/ui':
         specifier: 4.2.4
         version: 4.2.4(@types/react-dom@19.0.5(@types/react@19.0.5))(@types/react@19.0.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
@@ -10849,7 +10849,7 @@ snapshots:
     dependencies:
       '@medusajs/framework': 2.21.0(@medusajs/cli@2.21.0(@types/node@20.19.27))(@types/node@20.19.27)(ioredis@5.8.2)(vite@7.3.6(@types/node@20.19.27)(jiti@2.7.0)(terser@5.44.1)(yaml@2.9.0))(zod@4.2.0)
 
-  '@medusajs/medusa@2.21.0(m4jr5ccgdhc2ok5azzn67gizvi)':
+  '@medusajs/medusa@2.21.0(17fb4fa887aacff63ca2f8ef3a43fb26)':
     dependencies:
       '@inquirer/checkbox': 2.5.0
       '@inquirer/confirm': 2.0.17
@@ -11144,7 +11144,7 @@ snapshots:
       ulid: 2.4.0
     optionalDependencies:
       '@medusajs/core-flows': 2.21.0(@medusajs/framework@2.21.0(@medusajs/cli@2.21.0(@types/node@20.19.27))(@types/node@20.19.27)(ioredis@5.8.2)(vite@7.3.6(@types/node@20.19.27)(jiti@2.7.0)(terser@5.44.1)(yaml@2.9.0))(zod@4.2.0))
-      '@medusajs/medusa': 2.21.0(m4jr5ccgdhc2ok5azzn67gizvi)
+      '@medusajs/medusa': 2.21.0(17fb4fa887aacff63ca2f8ef3a43fb26)
     transitivePeerDependencies:
       - debug
       - supports-color
