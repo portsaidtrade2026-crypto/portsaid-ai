@@ -20,10 +20,10 @@ unset PGHOST PGHOSTADDR PGPORT PGUSER PGPASSWORD PGDATABASE PGSERVICE PGSSLMODE
 # The root manifest pins pnpm 9, while this workspace's installed dependency
 # store was created with pnpm 10. Prevent pnpm from downloading another version.
 export npm_config_manage_package_manager_versions=false
-for command in initdb pg_ctl createdb psql pnpm; do
+for command in initdb pg_ctl createdb psql pnpm corepack python3; do
   command -v "$command" >/dev/null || { echo "Missing required command: $command" >&2; exit 2; }
 done
-for command in pg_dump node; do
+for command in node; do
   command -v "$command" >/dev/null || { echo "Missing required command: $command" >&2; exit 2; }
 done
 
@@ -59,13 +59,10 @@ PG_STARTED=1
 createdb -h 127.0.0.1 -p "$port" -U "$(whoami)" "$db"
 export REVOCATION_TEST_DATABASE_URL="postgres://$(whoami)@127.0.0.1:$port/$db"
 export REVOCATION_TEST_DATABASE_DISPOSABLE=1
-(
-  cd apps/backend
-  export DATABASE_URL="$REVOCATION_TEST_DATABASE_URL"
-  pnpm run build
-  # db:migrate also executes the project's initial-data-seed migration script.
-  pnpm exec medusa db:migrate
-)
+build_command=$(python3 -c 'import tomllib; print(tomllib.load(open(".replit", "rb"))["deployment"]["build"])')
+# Execute the actual pre-deploy sequence with a disposable local target. The
+# migration also runs the project's initial-data-seed migration script.
+DATABASE_URL="$REVOCATION_TEST_DATABASE_URL" bash -ec "$build_command"
 schema=$(psql "$REVOCATION_TEST_DATABASE_URL" -Atc "select to_regclass('public.revoked_jwt')")
 [[ "$schema" == "revoked_jwt" ]] || { echo "revoked_jwt migration is missing" >&2; exit 1; }
 ledger=$(psql "$REVOCATION_TEST_DATABASE_URL" -Atc "select count(*) from mikro_orm_migrations where name ilike '%Migration20260923170348%'")
@@ -74,10 +71,13 @@ publishable_key=$(psql "$REVOCATION_TEST_DATABASE_URL" -Atc "select token from a
 [[ -n "$publishable_key" ]] || { echo "local publishable API key seed is missing" >&2; exit 1; }
 echo "Verified disposable PostgreSQL schema, tokenRevocation migration ledger entry, and local publishable key seed."
 
-schema_dump="$root/revoked-jwt-schema.sql"
 if [[ "$mode" == disabled ]]; then
-  pg_dump "$REVOCATION_TEST_DATABASE_URL" --schema-only --table=public.revoked_jwt >"$schema_dump"
-  psql "$REVOCATION_TEST_DATABASE_URL" -v ON_ERROR_STOP=1 -c 'drop table public.revoked_jwt cascade' >/dev/null
+  # Simulate the actual pre-migration state, including the missing ORM ledger
+  # row; removing only the table would leave an impossible migration state.
+  psql "$REVOCATION_TEST_DATABASE_URL" -v ON_ERROR_STOP=1 \
+    -c "begin; delete from mikro_orm_migrations where name ilike '%Migration20260923170348%'; drop table public.revoked_jwt cascade; commit;" >/dev/null
+  old_ledger=$(psql "$REVOCATION_TEST_DATABASE_URL" -Atc "select count(*) from mikro_orm_migrations where name ilike '%Migration20260923170348%'")
+  [[ "$old_ledger" == "0" ]] || { echo "Pre-migration ledger simulation failed" >&2; exit 1; }
   export REVOCATION_TEST_MODE=disabled
   set +e
   output=$(cd apps/backend && unset DATABASE_URL && \
@@ -89,12 +89,19 @@ if [[ "$mode" == disabled ]]; then
   pass_count=$(printf '%s\n' "$output" | grep -Ec '^✔|^ok [0-9]+ ' || true)
   echo "mode=disabled schema=old-no-revoked-jwt tap_pass_count=$pass_count exit=$status"
   [[ "$status" -eq 0 && "$pass_count" -eq 1 ]] || exit 1
-  psql "$REVOCATION_TEST_DATABASE_URL" -v ON_ERROR_STOP=1 -f "$schema_dump" >/dev/null
+  # Bring the disposable database forward using Medusa's migration runner,
+  # restoring both schema objects and the ledger entry together.
+  (cd apps/backend && DATABASE_URL="$REVOCATION_TEST_DATABASE_URL" corepack pnpm exec medusa db:migrate) >"$root/remigrate.log" 2>&1 ||
+    { echo "Local re-migration failed" >&2; exit 1; }
+  restored_table=$(psql "$REVOCATION_TEST_DATABASE_URL" -Atc "select to_regclass('public.revoked_jwt')")
+  restored_ledger=$(psql "$REVOCATION_TEST_DATABASE_URL" -Atc "select count(*) from mikro_orm_migrations where name ilike '%Migration20260923170348%'")
+  [[ "$restored_table" == "revoked_jwt" && "$restored_ledger" == "1" ]] ||
+    { echo "Local re-migration did not restore both schema and ledger" >&2; exit 1; }
   for index in IDX_revoked_jwt_deleted_at IDX_revoked_jwt_expires_at; do
     found=$(psql "$REVOCATION_TEST_DATABASE_URL" -Atc "select count(*) from pg_indexes where schemaname = 'public' and tablename = 'revoked_jwt' and indexname = '$index'")
     [[ "$found" == "1" ]] || { echo "Expected revoked_jwt index is missing: $index" >&2; exit 1; }
   done
-  echo "Restored revoked_jwt schema and verified expected indexes."
+  echo "Re-migrated revoked_jwt schema and ledger; verified expected indexes."
 fi
 
 export REVOCATION_TEST_MODE="$mode"
