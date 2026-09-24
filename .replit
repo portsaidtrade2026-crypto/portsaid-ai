@@ -83,5 +83,5 @@ timeoutMs = 300000
 
 [deployment]
 deploymentTarget = "cloudrun"
-build = "corepack pnpm --filter @b2b-starter/backend build && corepack pnpm --filter @b2b-starter/storefront build"
+build = "corepack pnpm --filter @b2b-starter/backend exec medusa db:migrate && corepack pnpm --filter @b2b-starter/backend build && corepack pnpm --filter @b2b-starter/storefront build"
 run = "bash scripts/start-production.sh"
