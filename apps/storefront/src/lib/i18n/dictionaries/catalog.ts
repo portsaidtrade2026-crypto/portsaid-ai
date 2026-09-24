@@ -28,6 +28,8 @@ export const catalogTranslations: Record<
     Description: "Açıklama", Specifications: "Teknik özellikler", Weight: "Ağırlık", grams: "gram",
     "Dimensions (HxWxL)": "Boyutlar (YxGxU)",
     "Choose product variant(s) above": "Yukarıdan ürün varyant(lar)ını seçin",
+    "Price on request": "Fiyat için teklif isteyin",
+    "Not specified": "Belirtilmemiş",
     '16" Ultra-Slim AI Laptop | 3K OLED | 1.1cm Thin | 6-Speaker Audio':
       '16" Ultra İnce Yapay Zekâ Dizüstü | 3K OLED | 1,1 cm İncelik | 6 Hoparlörlü Ses',
     'This ultra-thin 16-inch laptop is a sophisticated, high-performance machine for the new era of artificial intelligence. It has been completely redesigned from the inside out. The cabinet features an exquisite new ceramic-aluminum composite material in a range of nature-inspired colors. This material provides durability while completing the ultra-slim design and resisting the test of time. This innovative computer utilizes the latest AI-enhanced processor with quiet ambient cooling. It\'s designed to enrich your lifestyle on the go with an astonishingly thin 1.1cm chassis that houses an advanced 16-inch 3K OLED display and immersive six-speaker audio.':
@@ -67,6 +69,8 @@ export const catalogTranslations: Record<
     Description: "Описание", Specifications: "Спецификации", Weight: "Тегло", grams: "грама",
     "Dimensions (HxWxL)": "Размери (ВxШxД)",
     "Choose product variant(s) above": "Изберете вариант(и) на продукта по-горе",
+    "Price on request": "Поискайте оферта за цена",
+    "Not specified": "Не е посочено",
     '16" Ultra-Slim AI Laptop | 3K OLED | 1.1cm Thin | 6-Speaker Audio': '16" ултратънък AI лаптоп | 3K OLED | 1,1 см | 6 високоговорителя',
     "1080p HD Pro Webcam | Superior Video | Privacy enabled": "1080p HD Pro уеб камера | Превъзходно видео | Защита на поверителността",
     '6.5" Ultra HD Smartphone | 3x Impact-Resistant Screen': '6,5" Ultra HD смартфон | Екран с 3 пъти по-висока устойчивост на удар',
@@ -104,6 +108,8 @@ export const catalogTranslations: Record<
     Description: "الوصف", Specifications: "المواصفات", Weight: "الوزن", grams: "غرام",
     "Dimensions (HxWxL)": "الأبعاد (الارتفاع×العرض×الطول)",
     "Choose product variant(s) above": "اختر طراز المنتج أعلاه",
+    "Price on request": "اطلب عرض سعر",
+    "Not specified": "غير محدد",
     '16" Ultra-Slim AI Laptop | 3K OLED | 1.1cm Thin | 6-Speaker Audio': 'حاسوب محمول فائق النحافة 16 بوصة بالذكاء الاصطناعي | OLED بدقة 3K | نحافة 1.1 سم | صوت بستة مكبرات',
     "1080p HD Pro Webcam | Superior Video | Privacy enabled": "كاميرا ويب احترافية HD بدقة 1080p | فيديو فائق | حماية الخصوصية",
     '6.5" Ultra HD Smartphone | 3x Impact-Resistant Screen': 'هاتف ذكي Ultra HD بحجم 6.5 بوصة | شاشة مقاومة للصدمات 3 مرات',

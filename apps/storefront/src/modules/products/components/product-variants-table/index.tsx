@@ -58,14 +58,21 @@ const ProductVariantsTable = ({
   const handleAddToCart = async () => {
     setIsAdding(true)
 
-    const lineItems = Array.from(lineItemsMap.entries()).map(
-      ([variantId, { quantity, ...variant }]) => ({
+    // Defense in depth: never let a variant with no resolvable price reach
+    // the cart, even if a stale quantity slipped in before this row got
+    // disabled (e.g. a product edited to remove pricing after the customer
+    // started typing a quantity).
+    const lineItems = Array.from(lineItemsMap.entries())
+      .filter(([variantId]) => {
+        const { variantPrice } = getProductPrice({ product, variantId })
+        return !!variantPrice
+      })
+      .map(([variantId, { quantity, ...variant }]) => ({
         productVariant: {
           ...variant,
         },
         quantity,
-      })
-    )
+      }))
 
     addToCartEventBus.emitCartAdd({
       lineItems,
@@ -124,12 +131,17 @@ const ProductVariantsTable = ({
                     )
                   })}
                   <Table.Cell className="px-4 border-x">
-                    {variantPrice?.calculated_price}
+                    {variantPrice?.calculated_price || (
+                      <span className="text-neutral-500">
+                        {t("Price on request")}
+                      </span>
+                    )}
                   </Table.Cell>
                   <Table.Cell className="pl-1 !pr-1">
                     <BulkTableQuantity
                       variantId={variant.id}
                       onChange={handleQuantityChange}
+                      disabled={!variantPrice}
                     />
                   </Table.Cell>
                 </Table.Row>

@@ -9,14 +9,18 @@ import { useState } from "react"
 const PreviewAddToCart = ({
   product,
   region,
+  disabled,
 }: {
   product: StoreProduct
   region: StoreRegion
+  disabled?: boolean
 }) => {
   const [isAdding, setIsAdding] = useState(false)
 
   const handleAddToCart = async () => {
-    if (!product?.variants?.[0]?.id) return null
+    // Defense in depth: never add a variant with no resolvable price to the
+    // cart, even if this handler is somehow triggered while `disabled`.
+    if (disabled || !product?.variants?.[0]?.id) return null
 
     setIsAdding(true)
 
@@ -35,6 +39,10 @@ const PreviewAddToCart = ({
 
     setIsAdding(false)
   }
+  if (disabled) {
+    return null
+  }
+
   return (
     <Button
       className="rounded-full p-3 border-none shadow-none"

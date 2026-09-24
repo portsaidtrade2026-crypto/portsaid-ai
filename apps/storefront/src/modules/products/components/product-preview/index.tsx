@@ -59,10 +59,21 @@ export default async function ProductPreview({
           </Text>
         </div>
         <div className="flex flex-col gap-0">
-          {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
-          <Text className="text-neutral-600 text-[0.6rem]">
-            {tCatalog("Excl. VAT")}
-          </Text>
+          {cheapestPrice ? (
+            <>
+              <PreviewPrice price={cheapestPrice} />
+              <Text className="text-neutral-600 text-[0.6rem]">
+                {tCatalog("Excl. VAT")}
+              </Text>
+            </>
+          ) : (
+            <Text
+              className="text-neutral-950 font-medium text-lg"
+              data-testid="price-on-request"
+            >
+              {tCatalog("Price on request")}
+            </Text>
+          )}
         </div>
         <div className="flex justify-between">
           <div className="flex flex-row gap-1 items-center">
@@ -84,7 +95,11 @@ export default async function ProductPreview({
                 : `${inventoryQuantity} ${tCatalog("left")}`}
             </Text>
           </div>
-          <PreviewAddToCart product={product} region={region} />
+          <PreviewAddToCart
+            product={product}
+            region={region}
+            disabled={!cheapestPrice}
+          />
         </div>
       </div>
     </LocalizedClientLink>

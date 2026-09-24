@@ -16,7 +16,13 @@ export default function ProductPrice({
   })
 
   if (!cheapestPrice) {
-    return <div className="block w-32 h-9 bg-gray-100 animate-pulse" />
+    return (
+      <div className="flex flex-col text-neutral-950">
+        <Text className="font-medium text-xl" data-testid="product-price-on-request">
+          {t("Price on request")}
+        </Text>
+      </div>
+    )
   }
 
   return (

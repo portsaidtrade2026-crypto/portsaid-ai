@@ -5,9 +5,10 @@ import { useEffect, useState } from "react"
 type BulkTableQuantityProps = {
   variantId: string
   onChange: (variantId: string, quantity: number) => void
+  disabled?: boolean
 }
 
-const BulkTableQuantity = ({ variantId, onChange }: BulkTableQuantityProps) => {
+const BulkTableQuantity = ({ variantId, onChange, disabled }: BulkTableQuantityProps) => {
   const [quantity, setQuantity] = useState("0")
   const [shiftPressed, setShiftPressed] = useState(false)
 
@@ -68,6 +69,7 @@ const BulkTableQuantity = ({ variantId, onChange }: BulkTableQuantityProps) => {
         onClick={() => handleSubtract()}
         className="rounded-full hover:bg-neutral-200"
         variant="transparent"
+        disabled={disabled}
       >
         <MinusMini />
       </IconButton>
@@ -76,12 +78,14 @@ const BulkTableQuantity = ({ variantId, onChange }: BulkTableQuantityProps) => {
         onChange={(e) => handleChange(e)}
         onKeyDown={handleKeyDown}
         type="number"
+        disabled={disabled}
         className="max-w-10 text-center items-center justify-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
       />
       <IconButton
         onClick={() => handleAdd()}
         className="rounded-full hover:bg-neutral-200"
         variant="transparent"
+        disabled={disabled}
       >
         <PlusMini />
       </IconButton>
