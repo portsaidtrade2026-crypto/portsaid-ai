@@ -125,6 +125,25 @@ function attachCacheId(request: NextRequest, response: NextResponse, cacheId: st
  * Middleware to handle region selection and cache id.
  */
 export async function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname
+  // Next's account slot chunks only resolve when the dynamic segment and slot
+  // names are both literal, rather than partially URL-encoded.
+  if (
+    pathname.startsWith(
+      "/_next/static/chunks/app/%5BcountryCode%5D/(main)/account/"
+    ) &&
+    pathname.endsWith(".js")
+  ) {
+    const url = request.nextUrl.clone()
+    url.pathname = pathname
+      .replace("%5BcountryCode%5D", "[countryCode]")
+      .replace(/%40/gi, "@")
+    return NextResponse.rewrite(url)
+  }
+  if (pathname.startsWith("/_next/static/chunks/app/")) {
+    return NextResponse.next()
+  }
+
   const searchParams = request.nextUrl.searchParams
   const cartId = searchParams.get("cart_id")
   const checkoutStep = searchParams.get("step")
@@ -173,5 +192,6 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     "/((?!api|_next/static|_next/image|favicon.ico|images|assets|png|svg|jpg|jpeg|gif|webp).*)",
+    "/_next/static/chunks/app/:path*",
   ],
 }
