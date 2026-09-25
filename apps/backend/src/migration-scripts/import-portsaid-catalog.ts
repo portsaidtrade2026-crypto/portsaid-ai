@@ -62,8 +62,22 @@ type CatalogProduct = {
   variants: CatalogVariant[];
 };
 
+// Turkish label for the JSON's placeholder for a variant that simply lacks
+// this axis. Must be used consistently everywhere an axis value is turned
+// into text - both when declaring an option's allowed values AND when
+// assigning a variant's value for that axis - or Medusa rejects the mismatch
+// ("Option value X does not exist for option Y").
+const NOT_SPECIFIED_TR = "Belirtilmemiş";
+
+// The JSON encodes "not specified" as the U+2205 (empty set) character in
+// option_axes[].values (see fix_collisions.js's recompute step); normalize
+// that to the same readable label used for a spec's own is_not_specified flag.
+function normalizeAxisValue(v: string): string {
+  return v === "∅" ? NOT_SPECIFIED_TR : v;
+}
+
 function specValueDisplay(spec: CatalogSpec): string {
-  if (spec.is_not_specified) return "Not specified";
+  if (spec.is_not_specified) return NOT_SPECIFIED_TR;
   return spec.unit ? `${spec.value} ${spec.unit}` : String(spec.value);
 }
 
@@ -192,7 +206,7 @@ export default async function import_portsaid_catalog({
     for (const axis of parent.option_axes.filter((a) => a.suggested_ui_selector)) {
       const title = axis.labels.tr || axis.key;
       if (!globalOptionValuesByTitle.has(title)) globalOptionValuesByTitle.set(title, new Set());
-      for (const val of axis.values) globalOptionValuesByTitle.get(title)!.add(val);
+      for (const val of axis.values) globalOptionValuesByTitle.get(title)!.add(normalizeAxisValue(val));
     }
   }
   // Medusa still requires at least one option per product; families with no
@@ -331,7 +345,7 @@ export default async function import_portsaid_catalog({
         } else {
           for (const axis of selectorAxes) {
             const spec = v.specifications.find((s) => s.key === axis.key);
-            const display = spec ? specValueDisplay(spec) : "Not specified";
+            const display = spec ? specValueDisplay(spec) : NOT_SPECIFIED_TR;
             optionValues[axis.labels.tr || axis.key] = display;
           }
         }
@@ -373,7 +387,7 @@ export default async function import_portsaid_catalog({
                 : selectorAxes.map((axis) => ({
                     id: (optionIdByAxisKey.get(axis.key) as any)!.id,
                     value_ids: axis.values
-                      .map((val) => valueId(axis.key, val))
+                      .map((val) => valueId(axis.key, normalizeAxisValue(val)))
                       .filter((id): id is string => !!id),
                   })),
               variants: variantInputs,
