@@ -24,7 +24,8 @@
     "test:e2e:buyer": "node --test integration-tests/live/buyer-journeys.test.mjs",
     "test:e2e:company-isolation": "node --test integration-tests/live/company-isolation.test.mjs",
     "test:integration:modules": "TEST_TYPE=integration:modules NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
-    "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit"
+    "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
+    "import-catalog": "medusa exec ./src/migration-scripts/import-portsaid-catalog.ts"
   },
   "dependencies": {
     "@medusajs/admin-sdk": "2.21.0",
