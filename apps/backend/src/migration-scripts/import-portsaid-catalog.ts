@@ -52,6 +52,7 @@ type CatalogOptionAxis = {
 type CatalogProduct = {
   parent_id: string;
   category: string;
+  family_key: string;
   translations: Record<
     string,
     { name: string; short_description: string; description: string; uses: string[] }
@@ -64,6 +65,31 @@ type CatalogProduct = {
 function specValueDisplay(spec: CatalogSpec): string {
   if (spec.is_not_specified) return "Not specified";
   return spec.unit ? `${spec.value} ${spec.unit}` : String(spec.value);
+}
+
+// Turkish-aware enough title-casing for the family_key fragment (uppercase
+// source text) - handles the dotted/dotless I pair so "İÇ" doesn't become
+// "İç" -> "İç" incorrectly cased as "IÇ" under the default JS uppercase/
+// lowercase behaviour for the Turkish locale's i/İ vs ı/I distinction.
+function titleCaseTr(s: string): string {
+  return s
+    .toLocaleLowerCase("tr-TR")
+    .split(" ")
+    .filter(Boolean)
+    .map((w) => w.charAt(0).toLocaleUpperCase("tr-TR") + w.slice(1))
+    .join(" ");
+}
+
+// Build a unique-enough, still-readable product title. Every family within
+// the same category previously got the identical category-name title (e.g.
+// every "Hotmelt Koli Bandı" family), which made Medusa's auto-generated URL
+// handle collide and reject every family after the first ("Product with
+// handle: ..., already exists" on a real run). `family_key` is already
+// unique per (category, family_key) pair by construction, so combining both
+// guarantees a unique title while staying meaningful to read.
+function buildProductTitle(categoryName: string, familyKey: string): string {
+  const cleanedFamily = familyKey && familyKey !== "GENEL" ? titleCaseTr(familyKey) : "";
+  return cleanedFamily ? `${categoryName} — ${cleanedFamily}` : categoryName;
 }
 
 export default async function import_portsaid_catalog({
@@ -326,12 +352,13 @@ export default async function import_portsaid_catalog({
 
       const trTranslation = parent.translations.tr;
       const categoryId = categoryIdByName.get(parent.category);
+      const productTitle = buildProductTitle(parent.category, parent.family_key);
 
       await createProductsWorkflow(container).run({
         input: {
           products: [
             {
-              title: trTranslation.name,
+              title: productTitle,
               category_ids: categoryId ? [categoryId] : [],
               description: trTranslation.description,
               status: ProductStatus.DRAFT,
