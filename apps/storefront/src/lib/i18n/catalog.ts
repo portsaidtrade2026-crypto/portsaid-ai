@@ -6,6 +6,43 @@ type TranslationMetadata = {
   translations?: Record<string, Record<string, string>>
 }
 
+const LOCAL_MEDIA_HOSTS = new Set(["localhost", "127.0.0.1", "[::1]"])
+
+export const toStorefrontMediaUrl = (
+  value: string | null | undefined
+): string | null | undefined => {
+  if (!value) return value
+
+  let pathname: string
+  let search = ""
+
+  if (value.startsWith("/static/")) {
+    pathname = value
+  } else {
+    try {
+      const url = new URL(value)
+      if (
+        url.protocol !== "http:" ||
+        !LOCAL_MEDIA_HOSTS.has(url.hostname) ||
+        !url.pathname.startsWith("/static/")
+      ) {
+        return value
+      }
+      pathname = url.pathname
+      search = url.search
+    } catch {
+      return value
+    }
+  }
+
+  const filename = pathname.slice("/static/".length)
+  if (!filename || filename.includes("/") || filename.toLowerCase().startsWith("private-")) {
+    return value
+  }
+
+  return `/api/medusa-media/${filename}${search}`
+}
+
 const fromMetadata = (
   value: string | null | undefined,
   metadata: unknown,
@@ -35,6 +72,12 @@ export const localizeProduct = (
   locale: Locale = "en"
 ): HttpTypes.StoreProduct => ({
   ...product,
+  thumbnail: toStorefrontMediaUrl(product.thumbnail) ?? null,
+  images:
+    product.images?.map((image) => ({
+      ...image,
+      url: toStorefrontMediaUrl(image.url) || image.url,
+    })) ?? null,
   title: translateCatalogValue(product.title, locale, product.metadata, "title"),
   subtitle: translateCatalogValue(
     product.subtitle,
