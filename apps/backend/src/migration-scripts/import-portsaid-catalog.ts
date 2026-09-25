@@ -133,6 +133,40 @@ export default async function import_portsaid_catalog({
   const categoryIdByName = new Map(categoryResult.map((c: any) => [c.name, c.id]));
   logStep({ step: "create_categories", count: categoryResult.length });
 
+  // ---- Create ALL product options ONCE, globally ----
+  // Many families share the same axis label (e.g. "Genişlik"/"Kalınlık"/
+  // "Uzunluk" appear across dozens of unrelated products), and Medusa product
+  // options are catalog-wide, not per-product - creating one per family (as
+  // the first run of this script did) fails with "already exists" the second
+  // time a shared title comes up. Collect the union of values per title
+  // across every family first, then create each option exactly once.
+  const globalOptionValuesByTitle = new Map<string, Set<string>>();
+  for (const parent of catalogData.products) {
+    for (const axis of parent.option_axes.filter((a) => a.suggested_ui_selector)) {
+      const title = axis.labels.tr || axis.key;
+      if (!globalOptionValuesByTitle.has(title)) globalOptionValuesByTitle.set(title, new Set());
+      for (const val of axis.values) globalOptionValuesByTitle.get(title)!.add(val);
+    }
+  }
+  // Medusa still requires at least one option per product; families with no
+  // varying axis (single variant, or every axis constant) get a shared
+  // "Default option" / "Default option value" pair - the storefront already
+  // knows to hide exactly this title/value from the UI (see
+  // product-variants-table/index.tsx).
+  globalOptionValuesByTitle.set("Default option", new Set(["Default option value"]));
+
+  logger.info(`Creating ${globalOptionValuesByTitle.size} global product options...`);
+  const { result: globalProductOptions } = await createProductOptionsWorkflow(container).run({
+    input: {
+      product_options: [...globalOptionValuesByTitle.entries()].map(([title, values]) => ({
+        title,
+        values: [...values],
+      })),
+    },
+  });
+  const globalOptionByTitle = new Map(globalProductOptions.map((o: any) => [o.title, o]));
+  logStep({ step: "create_global_options", count: globalProductOptions.length });
+
   // ---- Import products ----
   let productsCreated = 0;
   let variantsCreated = 0;
@@ -143,31 +177,23 @@ export default async function import_portsaid_catalog({
   for (const parent of catalogData.products) {
     try {
       const selectorAxes = parent.option_axes.filter((a) => a.suggested_ui_selector);
+      const usingDefaultOption = selectorAxes.length === 0;
 
-      // Medusa product options, one per selector axis, using the TR label
-      // (storefront default locale) as the option title and the axis's
-      // distinct values (already computed) as the option's values.
-      const { result: productOptions } = await createProductOptionsWorkflow(container).run({
-        input: {
-          product_options: selectorAxes.map((axis) => ({
-            title: axis.labels.tr || axis.key,
-            values: axis.values,
-          })),
-        },
-      });
-
-      // Match by title (not array position) - mirrors the proven pattern in
-      // initial-data-seed.ts rather than relying on response ordering.
+      // Reference the globally-created options (never create per-product).
       const optionIdByAxisKey = new Map(
-        selectorAxes.map((axis) => [
-          axis.key,
-          productOptions.find((o: any) => o.title === (axis.labels.tr || axis.key)),
-        ])
+        selectorAxes.map((axis) => {
+          const title = axis.labels.tr || axis.key;
+          return [axis.key, globalOptionByTitle.get(title)];
+        })
       );
       const valueId = (axisKey: string, value: string): string | undefined => {
         const opt = optionIdByAxisKey.get(axisKey);
-        return opt?.values?.find((v: any) => v.value === value)?.id;
+        return (opt as any)?.values?.find((v: any) => v.value === value)?.id;
       };
+      const defaultOption = globalOptionByTitle.get("Default option");
+      const defaultValueId = (defaultOption as any)?.values?.find(
+        (v: any) => v.value === "Default option value"
+      )?.id;
 
       // Upload each variant's image, then build the variant payload.
       const variantInputs: any[] = [];
@@ -200,10 +226,14 @@ export default async function import_portsaid_catalog({
         }
 
         const optionValues: Record<string, string> = {};
-        for (const axis of selectorAxes) {
-          const spec = v.specifications.find((s) => s.key === axis.key);
-          const display = spec ? specValueDisplay(spec) : "Not specified";
-          optionValues[axis.labels.tr || axis.key] = display;
+        if (usingDefaultOption) {
+          optionValues["Default option"] = "Default option value";
+        } else {
+          for (const axis of selectorAxes) {
+            const spec = v.specifications.find((s) => s.key === axis.key);
+            const display = spec ? specValueDisplay(spec) : "Not specified";
+            optionValues[axis.labels.tr || axis.key] = display;
+          }
         }
 
         variantInputs.push({
@@ -231,12 +261,19 @@ export default async function import_portsaid_catalog({
               category_ids: categoryId ? [categoryId] : [],
               description: trTranslation.description,
               status: ProductStatus.DRAFT,
-              options: selectorAxes.map((axis) => ({
-                id: optionIdByAxisKey.get(axis.key)!.id,
-                value_ids: axis.values
-                  .map((val) => valueId(axis.key, val))
-                  .filter((id): id is string => !!id),
-              })),
+              options: usingDefaultOption
+                ? [
+                    {
+                      id: (defaultOption as any).id,
+                      value_ids: defaultValueId ? [defaultValueId] : [],
+                    },
+                  ]
+                : selectorAxes.map((axis) => ({
+                    id: (optionIdByAxisKey.get(axis.key) as any)!.id,
+                    value_ids: axis.values
+                      .map((val) => valueId(axis.key, val))
+                      .filter((id): id is string => !!id),
+                  })),
               variants: variantInputs,
               metadata: {
                 translations: parent.translations,
