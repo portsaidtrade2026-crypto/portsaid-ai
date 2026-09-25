@@ -24,6 +24,16 @@ module.exports = defineConfig({
         server: {
           ...config.server,
           allowedHosts: true,
+          // Replit's public dev domain proxies HTTP fine but does not
+          // forward Vite's HMR websocket for this (intentionally private)
+          // port, which was surfacing as "Failed to load module script:
+          // ... MIME type text/html" and a WebSocket connection timeout in
+          // the browser console - the browser falls back to the dev
+          // server's catch-all HTML response for every asset request once
+          // the HMR handshake can't complete. Disabling HMR removes the
+          // websocket dependency entirely; the admin still loads and
+          // functions normally, just without live-reload-on-edit.
+          hmr: false,
         },
       };
     },
