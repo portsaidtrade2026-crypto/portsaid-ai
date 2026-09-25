@@ -4,6 +4,7 @@ import { adminMiddlewares } from "./admin/middlewares";
 import { storeMiddlewares } from "./store/middlewares";
 import { authenticate } from "@medusajs/medusa";
 import { rejectRevokedJwt } from "./middlewares/revoked-jwt";
+import { normalizeLocalMediaUrlsMiddleware } from "./middlewares/normalize-local-media-urls";
 import { jwtRevocationEnabled } from "../config/jwt-revocation";
 
 export default defineMiddlewares({
@@ -36,6 +37,10 @@ export default defineMiddlewares({
           "approval_status"
         ),
       ],
+    },
+    {
+      matcher: "/admin*",
+      middlewares: [normalizeLocalMediaUrlsMiddleware],
     },
   ],
 });
