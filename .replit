@@ -90,3 +90,6 @@ timeoutMs = 300000
 deploymentTarget = "cloudrun"
 build = "corepack pnpm --filter @b2b-starter/backend build && corepack pnpm --filter @b2b-starter/storefront build"
 run = "bash scripts/start-production.sh"
+
+[objectStorage]
+defaultBucketID = "replit-objstore-4567b0cd-3d44-4104-a09d-e618c25c031a"
