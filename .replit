@@ -67,7 +67,7 @@ outputType = "console"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd apps/backend/.medusa/server && ../../node_modules/.bin/medusa start"
+args = "cd apps/backend && corepack pnpm start"
 waitForPort = 9000
 
 [[workflows.workflow]]
