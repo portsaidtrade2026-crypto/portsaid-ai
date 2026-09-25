@@ -23,6 +23,7 @@ module.exports = defineConfig({
     },
   },
   admin: {
+    backendUrl: "/",
     vite: (config) => {
       return {
         ...config,

@@ -13,4 +13,5 @@
 - [Headless browser clicks](headless-browser-clicks.md) — CDP mouse events do not scroll offscreen targets; scroll visible elements into view before clicking in tests.
 - [Medusa revocation middleware matching](medusa-revocation-middleware.md) — prefer string namespace matchers and the original URL for logout exceptions; test on protected built-in routes.
 - [Medusa production startup location](medusa-production-start-cwd.md) — start the built backend from its output directory so the admin bundle resolves.
+- [Medusa admin API behind preview](medusa-admin-preview-url.md) — use a same-origin backend URL; workspace loopback fails from remote browsers and hides auth providers.
 - [Catalog import safeguards](catalog-import-safeguards.md) — verify live Development counts independently; never trust an import log or delete the catalog broadly.
