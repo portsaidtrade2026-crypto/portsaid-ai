@@ -62,13 +62,13 @@ args = "Storefront"
 name = "Medusa Backend"
 author = "agent"
 
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "cd apps/backend && corepack pnpm dev"
-waitForPort = 9000
-
 [workflows.workflow.metadata]
 outputType = "console"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd apps/backend/.medusa/server && ../../node_modules/.bin/medusa start"
+waitForPort = 9000
 
 [[workflows.workflow]]
 name = "Storefront"

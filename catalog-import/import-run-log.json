@@ -9,870 +9,870 @@
   },
   "steps": [
     {
-      "at": "2026-09-25T05:14:03.989Z",
+      "at": "2026-09-25T06:36:14.166Z",
       "step": "delete_placeholder_products",
-      "count": 112
+      "count": 122
     },
     {
-      "at": "2026-09-25T05:14:03.994Z",
+      "at": "2026-09-25T06:36:14.172Z",
       "step": "create_categories",
       "created": 0,
       "reused": 13
     },
     {
-      "at": "2026-09-25T05:14:04.283Z",
+      "at": "2026-09-25T06:36:14.191Z",
       "step": "create_global_options",
       "created": 0
     },
     {
-      "at": "2026-09-25T05:14:04.410Z",
+      "at": "2026-09-25T06:36:14.449Z",
       "step": "product_created",
       "parent_id": "family-2adbaddc5d42",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:05.723Z",
+      "at": "2026-09-25T06:36:17.143Z",
       "step": "product_created",
       "parent_id": "family-bd26d115e950",
       "category": "Endüstriyel Streç Film",
       "variants": 107
     },
     {
-      "at": "2026-09-25T05:14:05.820Z",
+      "at": "2026-09-25T06:36:17.237Z",
       "step": "product_created",
       "parent_id": "family-045c883799b1",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:05.993Z",
+      "at": "2026-09-25T06:36:17.397Z",
       "step": "product_created",
       "parent_id": "family-88a7253470c2",
       "category": "Endüstriyel Streç Film",
       "variants": 5
     },
     {
-      "at": "2026-09-25T05:14:06.168Z",
+      "at": "2026-09-25T06:36:17.528Z",
       "step": "product_created",
       "parent_id": "family-25d0acb87aa7",
       "category": "Endüstriyel Streç Film",
       "variants": 4
     },
     {
-      "at": "2026-09-25T05:14:06.282Z",
+      "at": "2026-09-25T06:36:17.651Z",
       "step": "product_created",
       "parent_id": "family-8a3cf1c4e07e",
       "category": "Endüstriyel Streç Film",
       "variants": 3
     },
     {
-      "at": "2026-09-25T05:14:06.363Z",
+      "at": "2026-09-25T06:36:17.739Z",
       "step": "product_created",
       "parent_id": "family-85b9e42908ab",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:06.547Z",
+      "at": "2026-09-25T06:36:17.975Z",
       "step": "product_created",
       "parent_id": "family-303b2c88cd2e",
       "category": "Endüstriyel Streç Film",
       "variants": 13
     },
     {
-      "at": "2026-09-25T05:14:06.656Z",
+      "at": "2026-09-25T06:36:18.111Z",
       "step": "product_created",
       "parent_id": "family-a88c6ed79116",
       "category": "Endüstriyel Streç Film",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:06.784Z",
+      "at": "2026-09-25T06:36:18.228Z",
       "step": "product_created",
       "parent_id": "family-4924d1861b10",
       "category": "Endüstriyel Streç Film",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:07.042Z",
+      "at": "2026-09-25T06:36:18.373Z",
       "step": "product_created",
       "parent_id": "family-871c2745de91",
       "category": "Endüstriyel Streç Film",
       "variants": 5
     },
     {
-      "at": "2026-09-25T05:14:07.122Z",
+      "at": "2026-09-25T06:36:18.459Z",
       "step": "product_created",
       "parent_id": "family-56ff10a16b9a",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:07.312Z",
+      "at": "2026-09-25T06:36:18.681Z",
       "step": "product_created",
       "parent_id": "family-ea40915e2289",
       "category": "Endüstriyel Streç Film",
       "variants": 14
     },
     {
-      "at": "2026-09-25T05:14:07.467Z",
+      "at": "2026-09-25T06:36:18.857Z",
       "step": "product_created",
       "parent_id": "family-cc8b29adcbbf",
       "category": "Endüstriyel Streç Film",
       "variants": 10
     },
     {
-      "at": "2026-09-25T05:14:07.550Z",
+      "at": "2026-09-25T06:36:18.942Z",
       "step": "product_created",
       "parent_id": "family-b88fa7b7111d",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:07.639Z",
+      "at": "2026-09-25T06:36:19.048Z",
       "step": "product_created",
       "parent_id": "family-9e35bd9f1858",
       "category": "Endüstriyel Streç Film",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:07.750Z",
+      "at": "2026-09-25T06:36:19.173Z",
       "step": "product_created",
       "parent_id": "family-a62bf8a9f06c",
       "category": "Endüstriyel Streç Film",
       "variants": 4
     },
     {
-      "at": "2026-09-25T05:14:07.824Z",
+      "at": "2026-09-25T06:36:19.250Z",
       "step": "product_created",
       "parent_id": "family-56bbd7c7b279",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:07.934Z",
+      "at": "2026-09-25T06:36:19.362Z",
       "step": "product_created",
       "parent_id": "family-e29cb0e83b3b",
       "category": "Endüstriyel Streç Film",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:08.015Z",
+      "at": "2026-09-25T06:36:19.440Z",
       "step": "product_created",
       "parent_id": "family-6ce1556cdef9",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:08.138Z",
+      "at": "2026-09-25T06:36:19.552Z",
       "step": "product_created",
       "parent_id": "family-3afb4cd7e4a8",
       "category": "Endüstriyel Streç Film",
       "variants": 4
     },
     {
-      "at": "2026-09-25T05:14:08.221Z",
+      "at": "2026-09-25T06:36:19.629Z",
       "step": "product_created",
       "parent_id": "family-dd39d69c27dd",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:08.297Z",
+      "at": "2026-09-25T06:36:19.708Z",
       "step": "product_created",
       "parent_id": "family-3f3ec6b506d0",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:08.377Z",
+      "at": "2026-09-25T06:36:19.783Z",
       "step": "product_created",
       "parent_id": "family-808ee5fe11b9",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:08.452Z",
+      "at": "2026-09-25T06:36:19.867Z",
       "step": "product_created",
       "parent_id": "family-a8286fde2e00",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:08.531Z",
+      "at": "2026-09-25T06:36:19.951Z",
       "step": "product_created",
       "parent_id": "family-1db6f7d47579",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:08.644Z",
+      "at": "2026-09-25T06:36:20.060Z",
       "step": "product_created",
       "parent_id": "family-4d95d23d52b8",
       "category": "Endüstriyel Streç Film",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:08.724Z",
+      "at": "2026-09-25T06:36:20.144Z",
       "step": "product_created",
       "parent_id": "family-aed7d19e0e99",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:08.793Z",
+      "at": "2026-09-25T06:36:20.229Z",
       "step": "product_created",
       "parent_id": "family-cf17f629c742",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:08.889Z",
+      "at": "2026-09-25T06:36:20.325Z",
       "step": "product_created",
       "parent_id": "family-997a84c5cdfc",
       "category": "Endüstriyel Streç Film",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:08.978Z",
+      "at": "2026-09-25T06:36:20.420Z",
       "step": "product_created",
       "parent_id": "family-9a9aa91a1af4",
       "category": "Endüstriyel Streç Film",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:09.056Z",
+      "at": "2026-09-25T06:36:20.501Z",
       "step": "product_created",
       "parent_id": "family-49f36f2a94a0",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:09.140Z",
+      "at": "2026-09-25T06:36:20.714Z",
       "step": "product_created",
       "parent_id": "family-76c3ec8cccba",
       "category": "Endüstriyel Streç Film",
       "variants": 3
     },
     {
-      "at": "2026-09-25T05:14:09.210Z",
+      "at": "2026-09-25T06:36:20.798Z",
       "step": "product_created",
       "parent_id": "family-944d055b0d04",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:09.286Z",
+      "at": "2026-09-25T06:36:20.888Z",
       "step": "product_created",
       "parent_id": "family-77e21e6cad47",
       "category": "Endüstriyel Streç Film",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:09.360Z",
+      "at": "2026-09-25T06:36:20.969Z",
       "step": "product_created",
       "parent_id": "family-218cf34d8c4c",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:09.435Z",
+      "at": "2026-09-25T06:36:21.051Z",
       "step": "product_created",
       "parent_id": "family-05eaac2f1844",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:09.505Z",
+      "at": "2026-09-25T06:36:21.125Z",
       "step": "product_created",
       "parent_id": "family-6bfc9d5daf93",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:09.581Z",
+      "at": "2026-09-25T06:36:21.208Z",
       "step": "product_created",
       "parent_id": "family-7863c3f36e6f",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:09.659Z",
+      "at": "2026-09-25T06:36:21.290Z",
       "step": "product_created",
       "parent_id": "family-79194d87bdac",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:09.733Z",
+      "at": "2026-09-25T06:36:21.371Z",
       "step": "product_created",
       "parent_id": "family-56325604f815",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:09.809Z",
+      "at": "2026-09-25T06:36:21.454Z",
       "step": "product_created",
       "parent_id": "family-129c20524cb9",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:09.891Z",
+      "at": "2026-09-25T06:36:21.541Z",
       "step": "product_created",
       "parent_id": "family-cc829ae90c62",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:09.972Z",
+      "at": "2026-09-25T06:36:21.622Z",
       "step": "product_created",
       "parent_id": "family-2ccf0f4d7c74",
       "category": "Endüstriyel Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:10.075Z",
+      "at": "2026-09-25T06:36:21.721Z",
       "step": "product_created",
       "parent_id": "family-3df562f9aab0",
       "category": "Endüstriyel Streç Film",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:10.149Z",
+      "at": "2026-09-25T06:36:21.800Z",
       "step": "product_created",
       "parent_id": "family-a9c9a4258552",
       "category": "Ambalaj Makineleri",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:10.221Z",
+      "at": "2026-09-25T06:36:21.882Z",
       "step": "product_created",
       "parent_id": "family-8236b119f79f",
       "category": "Ambalaj Makineleri",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:10.300Z",
+      "at": "2026-09-25T06:36:21.970Z",
       "step": "product_created",
       "parent_id": "family-5aa377472748",
       "category": "Ambalaj Makineleri",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:10.369Z",
+      "at": "2026-09-25T06:36:22.044Z",
       "step": "product_created",
       "parent_id": "family-9906337f2625",
       "category": "Fabrika ve Depo Malzemeleri",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:10.446Z",
+      "at": "2026-09-25T06:36:22.115Z",
       "step": "product_created",
       "parent_id": "family-856d8143baa1",
       "category": "Fabrika ve Depo Malzemeleri",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:10.515Z",
+      "at": "2026-09-25T06:36:22.194Z",
       "step": "product_created",
       "parent_id": "family-b819f8c19bcb",
       "category": "Fabrika ve Depo Malzemeleri",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:10.585Z",
+      "at": "2026-09-25T06:36:22.269Z",
       "step": "product_created",
       "parent_id": "family-dec4e8dfcdd3",
       "category": "Fabrika ve Depo Malzemeleri",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:10.664Z",
+      "at": "2026-09-25T06:36:22.346Z",
       "step": "product_created",
       "parent_id": "family-0c19612afa15",
       "category": "Fabrika ve Depo Malzemeleri",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:10.806Z",
+      "at": "2026-09-25T06:36:22.492Z",
       "step": "product_created",
       "parent_id": "family-311a4a8ba92b",
       "category": "Fabrika ve Depo Malzemeleri",
       "variants": 9
     },
     {
-      "at": "2026-09-25T05:14:10.882Z",
+      "at": "2026-09-25T06:36:22.571Z",
       "step": "product_created",
       "parent_id": "family-c6b8ae7b28dd",
       "category": "Fabrika ve Depo Malzemeleri",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:10.953Z",
+      "at": "2026-09-25T06:36:22.658Z",
       "step": "product_created",
       "parent_id": "family-542364b1ba7a",
       "category": "Fabrika ve Depo Malzemeleri",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:11.030Z",
+      "at": "2026-09-25T06:36:22.742Z",
       "step": "product_created",
       "parent_id": "family-d03c336c112e",
       "category": "Gıda Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:11.128Z",
+      "at": "2026-09-25T06:36:22.835Z",
       "step": "product_created",
       "parent_id": "family-a245d0ce8bb2",
       "category": "Gıda Streç Film",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:11.219Z",
+      "at": "2026-09-25T06:36:22.932Z",
       "step": "product_created",
       "parent_id": "family-57e240bae301",
       "category": "Gıda Streç Film",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:11.291Z",
+      "at": "2026-09-25T06:36:23.006Z",
       "step": "product_created",
       "parent_id": "family-ab69c28d15dc",
       "category": "Gıda Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:11.436Z",
+      "at": "2026-09-25T06:36:23.172Z",
       "step": "product_created",
       "parent_id": "family-59a90e22dbb3",
       "category": "Balonlu Naylon",
       "variants": 9
     },
     {
-      "at": "2026-09-25T05:14:11.513Z",
+      "at": "2026-09-25T06:36:23.342Z",
       "step": "product_created",
       "parent_id": "family-c5b9055f7e12",
       "category": "Balonlu Naylon",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:11.585Z",
+      "at": "2026-09-25T06:36:23.423Z",
       "step": "product_created",
       "parent_id": "family-1a02920bcf9e",
       "category": "Balonlu Naylon",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:11.834Z",
+      "at": "2026-09-25T06:36:23.734Z",
       "step": "product_created",
       "parent_id": "family-57bcc79ad025",
       "category": "Balonlu Naylon",
       "variants": 22
     },
     {
-      "at": "2026-09-25T05:14:11.976Z",
+      "at": "2026-09-25T06:36:23.880Z",
       "step": "product_created",
       "parent_id": "family-96a8eba89333",
       "category": "Balonlu Naylon",
       "variants": 6
     },
     {
-      "at": "2026-09-25T05:14:12.050Z",
+      "at": "2026-09-25T06:36:23.959Z",
       "step": "product_created",
       "parent_id": "family-321aa45a8757",
       "category": "Balonlu Naylon",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:12.361Z",
+      "at": "2026-09-25T06:36:24.115Z",
       "step": "product_created",
       "parent_id": "family-06767ab4c5cd",
       "category": "Karton Kutu ve Kağıt Çantalar",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:12.443Z",
+      "at": "2026-09-25T06:36:24.202Z",
       "step": "product_created",
       "parent_id": "family-fddc960c7251",
       "category": "Karton Kutu ve Kağıt Çantalar",
       "variants": 3
     },
     {
-      "at": "2026-09-25T05:14:12.521Z",
+      "at": "2026-09-25T06:36:24.284Z",
       "step": "product_created",
       "parent_id": "family-b07ba2aafedf",
       "category": "Karton Kutu ve Kağıt Çantalar",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:12.590Z",
+      "at": "2026-09-25T06:36:24.367Z",
       "step": "product_created",
       "parent_id": "family-d5e0266bfb0e",
       "category": "Karton Kutu ve Kağıt Çantalar",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:12.681Z",
+      "at": "2026-09-25T06:36:24.456Z",
       "step": "product_created",
       "parent_id": "family-2eb7e351ed53",
       "category": "Karton Kutu ve Kağıt Çantalar",
       "variants": 3
     },
     {
-      "at": "2026-09-25T05:14:12.749Z",
+      "at": "2026-09-25T06:36:24.526Z",
       "step": "product_created",
       "parent_id": "family-6783abf49f2f",
       "category": "Karton Kutu ve Kağıt Çantalar",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:12.826Z",
+      "at": "2026-09-25T06:36:24.600Z",
       "step": "product_created",
       "parent_id": "family-8ea925cac8a5",
       "category": "Karton Kutu ve Kağıt Çantalar",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:12.897Z",
+      "at": "2026-09-25T06:36:24.673Z",
       "step": "product_created",
       "parent_id": "family-721eef8ef750",
       "category": "Karton Kutu ve Kağıt Çantalar",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:12.964Z",
+      "at": "2026-09-25T06:36:24.770Z",
       "step": "product_created",
       "parent_id": "family-ce6d2f7e3f41",
       "category": "Karton Kutu ve Kağıt Çantalar",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:13.192Z",
+      "at": "2026-09-25T06:36:24.861Z",
       "step": "product_created",
       "parent_id": "family-aa3b4f35875d",
       "category": "PE Köpük",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:13.310Z",
+      "at": "2026-09-25T06:36:25.057Z",
       "step": "product_created",
       "parent_id": "family-783164c2d53a",
       "category": "Jumbo Streç Film",
       "variants": 8
     },
     {
-      "at": "2026-09-25T05:14:13.387Z",
+      "at": "2026-09-25T06:36:25.169Z",
       "step": "product_created",
       "parent_id": "family-7507d35542ed",
       "category": "Jumbo Streç Film",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:13.458Z",
+      "at": "2026-09-25T06:36:25.290Z",
       "step": "product_created",
       "parent_id": "family-e3e200d90e84",
       "category": "Jumbo Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:13.525Z",
+      "at": "2026-09-25T06:36:25.382Z",
       "step": "product_created",
       "parent_id": "family-73fd837252f5",
       "category": "Jumbo Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:13.596Z",
+      "at": "2026-09-25T06:36:25.502Z",
       "step": "product_created",
       "parent_id": "family-f71df6f84079",
       "category": "Jumbo Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:13.664Z",
+      "at": "2026-09-25T06:36:25.622Z",
       "step": "product_created",
       "parent_id": "family-c1e89296930d",
       "category": "Pre-Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:13.740Z",
+      "at": "2026-09-25T06:36:25.733Z",
       "step": "product_created",
       "parent_id": "family-6d47616fc2f4",
       "category": "Pre-Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:13.815Z",
+      "at": "2026-09-25T06:36:25.873Z",
       "step": "product_created",
       "parent_id": "family-6e12029d5a3e",
       "category": "Pre-Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:13.881Z",
+      "at": "2026-09-25T06:36:26.069Z",
       "step": "product_created",
       "parent_id": "family-bd6c204c181f",
       "category": "Pre-Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:13.956Z",
+      "at": "2026-09-25T06:36:26.145Z",
       "step": "product_created",
       "parent_id": "family-283afe41cb26",
       "category": "Pre-Streç Film",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:14.024Z",
+      "at": "2026-09-25T06:36:26.223Z",
       "step": "product_created",
       "parent_id": "family-506ff5d0fee0",
       "category": "PP Çember",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:14.099Z",
+      "at": "2026-09-25T06:36:26.312Z",
       "step": "product_created",
       "parent_id": "family-5d79df0d1b5a",
       "category": "PP Çember",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:14.174Z",
+      "at": "2026-09-25T06:36:26.471Z",
       "step": "product_created",
       "parent_id": "family-bd5af0cee349",
       "category": "PP Çember",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:14.238Z",
+      "at": "2026-09-25T06:36:26.543Z",
       "step": "product_created",
       "parent_id": "family-b90d85479696",
       "category": "PP Çember",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:14.319Z",
+      "at": "2026-09-25T06:36:26.631Z",
       "step": "product_created",
       "parent_id": "family-84e4ae496e78",
       "category": "PP Çember",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:14.385Z",
+      "at": "2026-09-25T06:36:26.805Z",
       "step": "product_created",
       "parent_id": "family-94d673053878",
       "category": "PP Çember",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:14.479Z",
+      "at": "2026-09-25T06:36:26.913Z",
       "step": "product_created",
       "parent_id": "family-ac837dc8d51f",
       "category": "PP Çember",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:14.555Z",
+      "at": "2026-09-25T06:36:27.089Z",
       "step": "product_created",
       "parent_id": "family-8a4f0f9189d6",
       "category": "PP Çember",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:14.626Z",
+      "at": "2026-09-25T06:36:27.174Z",
       "step": "product_created",
       "parent_id": "family-0d52566f3da1",
       "category": "PP Çember",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:14.688Z",
+      "at": "2026-09-25T06:36:27.246Z",
       "step": "product_created",
       "parent_id": "family-716fa739f9e5",
       "category": "PP Çember",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:14.760Z",
+      "at": "2026-09-25T06:36:27.327Z",
       "step": "product_created",
       "parent_id": "family-68ad9ef1b3a0",
       "category": "PP Çember",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:14.831Z",
+      "at": "2026-09-25T06:36:27.405Z",
       "step": "product_created",
       "parent_id": "family-f5a5a193f38d",
       "category": "PP Çember",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:15.042Z",
+      "at": "2026-09-25T06:36:27.604Z",
       "step": "product_created",
       "parent_id": "family-f22857337aef",
       "category": "PP Çember",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:15.114Z",
+      "at": "2026-09-25T06:36:27.831Z",
       "step": "product_created",
       "parent_id": "family-c22729121dbe",
       "category": "PP Çember",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:15.191Z",
+      "at": "2026-09-25T06:36:27.909Z",
       "step": "product_created",
       "parent_id": "family-0c5cdc61ac75",
       "category": "Hotmelt Koli Bandı",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:15.258Z",
+      "at": "2026-09-25T06:36:27.982Z",
       "step": "product_created",
       "parent_id": "family-c3a34918c087",
       "category": "Hotmelt Koli Bandı",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:15.362Z",
+      "at": "2026-09-25T06:36:28.106Z",
       "step": "product_created",
       "parent_id": "family-754285e3169d",
       "category": "Hotmelt Koli Bandı",
       "variants": 3
     },
     {
-      "at": "2026-09-25T05:14:15.452Z",
+      "at": "2026-09-25T06:36:28.202Z",
       "step": "product_created",
       "parent_id": "family-19d39be61383",
       "category": "Hotmelt Koli Bandı",
       "variants": 3
     },
     {
-      "at": "2026-09-25T05:14:15.522Z",
+      "at": "2026-09-25T06:36:28.285Z",
       "step": "product_created",
       "parent_id": "family-bcf95c08b637",
       "category": "Hotmelt Koli Bandı",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:15.670Z",
+      "at": "2026-09-25T06:36:28.449Z",
       "step": "product_created",
       "parent_id": "family-99fdcb967310",
       "category": "Hotmelt Koli Bandı",
       "variants": 12
     },
     {
-      "at": "2026-09-25T05:14:15.746Z",
+      "at": "2026-09-25T06:36:28.537Z",
       "step": "product_created",
       "parent_id": "family-b7896cf2dcdc",
       "category": "Hotmelt Koli Bandı",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:15.830Z",
+      "at": "2026-09-25T06:36:28.631Z",
       "step": "product_created",
       "parent_id": "family-e883975d3b00",
       "category": "Hotmelt Koli Bandı",
       "variants": 3
     },
     {
-      "at": "2026-09-25T05:14:15.935Z",
+      "at": "2026-09-25T06:36:28.755Z",
       "step": "product_created",
       "parent_id": "family-58dcc048e308",
       "category": "Hotmelt Koli Bandı",
       "variants": 4
     },
     {
-      "at": "2026-09-25T05:14:16.012Z",
+      "at": "2026-09-25T06:36:28.851Z",
       "step": "product_created",
       "parent_id": "family-9d142820b6e2",
       "category": "Hotmelt Koli Bandı",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:16.153Z",
+      "at": "2026-09-25T06:36:29.008Z",
       "step": "product_created",
       "parent_id": "family-317369ff9a9d",
       "category": "Hotmelt Koli Bandı",
       "variants": 11
     },
     {
-      "at": "2026-09-25T05:14:16.231Z",
+      "at": "2026-09-25T06:36:29.086Z",
       "step": "product_created",
       "parent_id": "family-a00758df5070",
       "category": "Hotmelt Koli Bandı",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:16.382Z",
+      "at": "2026-09-25T06:36:29.251Z",
       "step": "product_created",
       "parent_id": "family-04aa44878708",
       "category": "Hotmelt Koli Bandı",
       "variants": 12
     },
     {
-      "at": "2026-09-25T05:14:16.531Z",
+      "at": "2026-09-25T06:36:29.402Z",
       "step": "product_created",
       "parent_id": "family-d3407197e1f6",
       "category": "Hotmelt Koli Bandı",
       "variants": 13
     },
     {
-      "at": "2026-09-25T05:14:16.606Z",
+      "at": "2026-09-25T06:36:29.481Z",
       "step": "product_created",
       "parent_id": "family-e75ed3b7ed83",
       "category": "Hotmelt Koli Bandı",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:16.674Z",
+      "at": "2026-09-25T06:36:29.548Z",
       "step": "product_created",
       "parent_id": "family-15955346236c",
       "category": "Akrilik Koli Bandı",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:16.742Z",
+      "at": "2026-09-25T06:36:29.627Z",
       "step": "product_created",
       "parent_id": "family-7a622ebfeeae",
       "category": "Akrilik Koli Bandı",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:16.827Z",
+      "at": "2026-09-25T06:36:29.714Z",
       "step": "product_created",
       "parent_id": "family-f0bad2e3e770",
       "category": "Maskeleme Bandı",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:16.900Z",
+      "at": "2026-09-25T06:36:29.787Z",
       "step": "product_created",
       "parent_id": "family-9807c82f5495",
       "category": "Maskeleme Bandı",
       "variants": 1
     },
     {
-      "at": "2026-09-25T05:14:16.987Z",
+      "at": "2026-09-25T06:36:29.873Z",
       "step": "product_created",
       "parent_id": "family-0db5b5d12c6a",
       "category": "Maskeleme Bandı",
       "variants": 3
     },
     {
-      "at": "2026-09-25T05:14:17.275Z",
+      "at": "2026-09-25T06:36:29.964Z",
       "step": "product_created",
       "parent_id": "family-94466bcae57e",
       "category": "Maskeleme Bandı",
       "variants": 2
     },
     {
-      "at": "2026-09-25T05:14:17.349Z",
+      "at": "2026-09-25T06:36:30.054Z",
       "step": "product_created",
       "parent_id": "family-574f31c8872e",
       "category": "Maskeleme Bandı",
