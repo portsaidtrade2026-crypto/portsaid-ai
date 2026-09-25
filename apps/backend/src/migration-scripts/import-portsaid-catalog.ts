@@ -120,18 +120,38 @@ export default async function import_portsaid_catalog({
   }
 
   // ---- Create categories (Ahmed's 22, from every category referenced in the catalogue) ----
+  // Idempotent: categories (unlike products) are not deleted/recreated each
+  // run, so re-running this script after a partial failure must not try to
+  // recreate a category that already exists from a prior run.
   const categoryNames = [...new Set(catalogData.products.map((p) => p.category))];
-  logger.info(`Creating ${categoryNames.length} product categories...`);
-  const { result: categoryResult } = await createProductCategoriesWorkflow(container).run({
-    input: {
-      product_categories: categoryNames.map((name) => ({
-        name,
-        is_active: true,
-      })),
-    },
+  const { data: existingCategories } = await query.graph({
+    entity: "product_category",
+    fields: ["id", "name"],
   });
-  const categoryIdByName = new Map(categoryResult.map((c: any) => [c.name, c.id]));
-  logStep({ step: "create_categories", count: categoryResult.length });
+  const categoryIdByName = new Map<string, string>(
+    existingCategories.map((c: any) => [c.name, c.id])
+  );
+  const missingCategoryNames = categoryNames.filter((n) => !categoryIdByName.has(n));
+  if (missingCategoryNames.length) {
+    logger.info(`Creating ${missingCategoryNames.length} new product categories...`);
+    const { result: categoryResult } = await createProductCategoriesWorkflow(container).run({
+      input: {
+        product_categories: missingCategoryNames.map((name) => ({
+          name,
+          is_active: true,
+        })),
+      },
+    });
+    for (const c of categoryResult as any[]) categoryIdByName.set(c.name, c.id);
+  }
+  logger.info(
+    `Categories ready: ${categoryIdByName.size} total (${missingCategoryNames.length} created, ${categoryNames.length - missingCategoryNames.length} reused).`
+  );
+  logStep({
+    step: "create_categories",
+    created: missingCategoryNames.length,
+    reused: categoryNames.length - missingCategoryNames.length,
+  });
 
   // ---- Create ALL product options ONCE, globally ----
   // Many families share the same axis label (e.g. "Genişlik"/"Kalınlık"/
@@ -155,17 +175,34 @@ export default async function import_portsaid_catalog({
   // product-variants-table/index.tsx).
   globalOptionValuesByTitle.set("Default option", new Set(["Default option value"]));
 
-  logger.info(`Creating ${globalOptionValuesByTitle.size} global product options...`);
-  const { result: globalProductOptions } = await createProductOptionsWorkflow(container).run({
-    input: {
-      product_options: [...globalOptionValuesByTitle.entries()].map(([title, values]) => ({
-        title,
-        values: [...values],
-      })),
-    },
+  // Idempotent for the same reason as categories: options can outlive the
+  // products that reference them, so a re-run must reuse, not recreate.
+  const { data: existingOptions } = await query.graph({
+    entity: "product_option",
+    fields: ["id", "title", "values.id", "values.value"],
   });
-  const globalOptionByTitle = new Map(globalProductOptions.map((o: any) => [o.title, o]));
-  logStep({ step: "create_global_options", count: globalProductOptions.length });
+  const globalOptionByTitle = new Map<string, any>(
+    existingOptions.map((o: any) => [o.title, o])
+  );
+  const missingOptionTitles = [...globalOptionValuesByTitle.keys()].filter(
+    (t) => !globalOptionByTitle.has(t)
+  );
+  if (missingOptionTitles.length) {
+    logger.info(`Creating ${missingOptionTitles.length} new global product options...`);
+    const { result: newOptions } = await createProductOptionsWorkflow(container).run({
+      input: {
+        product_options: missingOptionTitles.map((title) => ({
+          title,
+          values: [...globalOptionValuesByTitle.get(title)!],
+        })),
+      },
+    });
+    for (const o of newOptions as any[]) globalOptionByTitle.set(o.title, o);
+  }
+  logger.info(
+    `Options ready: ${globalOptionByTitle.size} total (${missingOptionTitles.length} created, reused the rest).`
+  );
+  logStep({ step: "create_global_options", created: missingOptionTitles.length });
 
   // ---- Import products ----
   let productsCreated = 0;
