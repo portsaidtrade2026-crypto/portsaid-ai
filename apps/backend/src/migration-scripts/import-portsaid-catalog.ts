@@ -11,6 +11,7 @@ import {
   createProductOptionsWorkflow,
   createProductsWorkflow,
   deleteProductsWorkflow,
+  updateProductOptionsWorkflow,
   uploadFilesWorkflow,
 } from "@medusajs/medusa/core-flows";
 
@@ -199,6 +200,32 @@ export default async function import_portsaid_catalog({
     });
     for (const o of newOptions as any[]) globalOptionByTitle.set(o.title, o);
   }
+
+  // A REUSED option (from an earlier partial run) may not have every value
+  // this run needs yet - top it up with the union of its existing values and
+  // the values this run requires, rather than leaving lookups to silently
+  // fail later ("Option value X does not exist").
+  let optionsToppedUp = 0;
+  for (const [title, neededValues] of globalOptionValuesByTitle) {
+    const existing = globalOptionByTitle.get(title);
+    if (!existing) continue;
+    const existingValueStrings = new Set((existing.values || []).map((v: any) => v.value));
+    const missingValues = [...neededValues].filter((v) => !existingValueStrings.has(v));
+    if (!missingValues.length) continue;
+    const mergedValues = [...existingValueStrings, ...missingValues];
+    const { result: updated } = await updateProductOptionsWorkflow(container).run({
+      input: {
+        selector: { id: existing.id },
+        update: { values: mergedValues },
+      },
+    });
+    globalOptionByTitle.set(title, (updated as any[])[0]);
+    optionsToppedUp++;
+  }
+  if (optionsToppedUp) {
+    logger.info(`Topped up ${optionsToppedUp} reused option(s) with previously-missing values.`);
+  }
+
   logger.info(
     `Options ready: ${globalOptionByTitle.size} total (${missingOptionTitles.length} created, reused the rest).`
   );
@@ -233,7 +260,16 @@ export default async function import_portsaid_catalog({
       )?.id;
 
       // Upload each variant's image, then build the variant payload.
+      // NOTE: Medusa's ProductImage rows are always product-scoped
+      // (product_id is required); a first live run confirmed passing
+      // `images` on the *variant* input throws "Value for
+      // ProductImage.product_id is required, 'undefined' found". So every
+      // uploaded image is collected here and attached to the product's own
+      // `images` array below (deduplicated) instead - each variant still
+      // records which image is "its" photo via `metadata.image_url` for a
+      // future per-variant gallery pass.
       const variantInputs: any[] = [];
+      const productImageUrls: string[] = [];
       for (const v of parent.variants) {
         let imageUrl: string | undefined;
         const localPath = path.join(ASSETS_DIR, v.image);
@@ -253,6 +289,7 @@ export default async function import_portsaid_catalog({
               },
             });
             imageUrl = uploaded[0]?.url;
+            if (imageUrl && !productImageUrls.includes(imageUrl)) productImageUrls.push(imageUrl);
             imagesUploaded++;
           } else {
             logStep({ step: "image_missing", variant_id: v.variant_id, path: localPath });
@@ -282,8 +319,8 @@ export default async function import_portsaid_catalog({
           metadata: {
             specifications: v.specifications,
             source_refs: (v as any).source_refs ?? null,
+            image_url: imageUrl ?? null,
           },
-          ...(imageUrl ? { images: [{ url: imageUrl }] } : {}),
         });
       }
 
@@ -298,6 +335,7 @@ export default async function import_portsaid_catalog({
               category_ids: categoryId ? [categoryId] : [],
               description: trTranslation.description,
               status: ProductStatus.DRAFT,
+              images: productImageUrls.map((url) => ({ url })),
               options: usingDefaultOption
                 ? [
                     {
