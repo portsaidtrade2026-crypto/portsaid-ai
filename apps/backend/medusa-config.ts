@@ -2,7 +2,12 @@ import { QUOTE_MODULE } from "./src/modules/quote";
 import { APPROVAL_MODULE } from "./src/modules/approval";
 import { COMPANY_MODULE } from "./src/modules/company";
 import { TOKEN_REVOCATION_MODULE } from "./src/modules/token-revocation";
-import { loadEnv, defineConfig } from "@medusajs/framework/utils";
+import {
+  ContainerRegistrationKeys,
+  Modules,
+  loadEnv,
+  defineConfig,
+} from "@medusajs/framework/utils";
 
 loadEnv(process.env.NODE_ENV || "development", process.cwd());
 
@@ -39,6 +44,21 @@ module.exports = defineConfig({
     },
   },
   modules: {
+    [Modules.AUTH]: {
+      resolve: "@medusajs/medusa/auth",
+      dependencies: [Modules.CACHE, ContainerRegistrationKeys.LOGGER],
+      options: {
+        mfa: {
+          encryption_key: process.env.AUTH_MFA_ENCRYPTION_KEY,
+        },
+        providers: [
+          {
+            resolve: "@medusajs/medusa/auth-emailpass",
+            id: "emailpass",
+          },
+        ],
+      },
+    },
     [TOKEN_REVOCATION_MODULE]: {
       resolve: "./modules/token-revocation",
     },
