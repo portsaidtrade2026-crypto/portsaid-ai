@@ -108,6 +108,7 @@ export default async function reupload_product_images({
           products: [
             {
               id: product.id,
+              thumbnail: productImageUrls[0],
               images: productImageUrls.map((url) => ({ url })),
               variants: variantUpdates,
             } as any,
