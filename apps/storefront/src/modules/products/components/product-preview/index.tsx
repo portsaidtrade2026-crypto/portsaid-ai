@@ -98,7 +98,6 @@ export default async function ProductPreview({
           <PreviewAddToCart
             product={product}
             region={region}
-            disabled={!cheapestPrice}
           />
         </div>
       </div>

@@ -9,18 +9,17 @@ import { useState } from "react"
 const PreviewAddToCart = ({
   product,
   region,
-  disabled,
 }: {
   product: StoreProduct
   region: StoreRegion
-  disabled?: boolean
 }) => {
   const [isAdding, setIsAdding] = useState(false)
 
+  // Unpriced variants are addable on purpose: this B2B storefront's
+  // request-a-quote flow depends on being able to add unpriced items to the
+  // cart, then converting that cart to a quote (see RequestQuotePrompt).
   const handleAddToCart = async () => {
-    // Defense in depth: never add a variant with no resolvable price to the
-    // cart, even if this handler is somehow triggered while `disabled`.
-    if (disabled || !product?.variants?.[0]?.id) return null
+    if (!product?.variants?.[0]?.id) return null
 
     setIsAdding(true)
 
@@ -38,9 +37,6 @@ const PreviewAddToCart = ({
     })
 
     setIsAdding(false)
-  }
-  if (disabled) {
-    return null
   }
 
   return (

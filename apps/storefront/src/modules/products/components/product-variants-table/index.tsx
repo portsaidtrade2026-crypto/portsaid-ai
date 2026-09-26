@@ -58,21 +58,20 @@ const ProductVariantsTable = ({
   const handleAddToCart = async () => {
     setIsAdding(true)
 
-    // Defense in depth: never let a variant with no resolvable price reach
-    // the cart, even if a stale quantity slipped in before this row got
-    // disabled (e.g. a product edited to remove pricing after the customer
-    // started typing a quantity).
-    const lineItems = Array.from(lineItemsMap.entries())
-      .filter(([variantId]) => {
-        const { variantPrice } = getProductPrice({ product, variantId })
-        return !!variantPrice
-      })
-      .map(([variantId, { quantity, ...variant }]) => ({
+    // Unpriced variants are NOT filtered out here: this B2B storefront's
+    // whole request-a-quote flow depends on adding unpriced items to the
+    // cart, then converting that cart to a quote instead of checking out
+    // directly (see RequestQuotePrompt: "Add products to your cart" ->
+    // "Open cart & click Request a quote"). Filtering them out here would
+    // make every unpriced product impossible to request at all.
+    const lineItems = Array.from(lineItemsMap.entries()).map(
+      ([variantId, { quantity, ...variant }]) => ({
         productVariant: {
           ...variant,
         },
         quantity,
-      }))
+      })
+    )
 
     addToCartEventBus.emitCartAdd({
       lineItems,
@@ -141,7 +140,6 @@ const ProductVariantsTable = ({
                     <BulkTableQuantity
                       variantId={variant.id}
                       onChange={handleQuantityChange}
-                      disabled={!variantPrice}
                     />
                   </Table.Cell>
                 </Table.Row>
