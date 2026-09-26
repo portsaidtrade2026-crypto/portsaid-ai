@@ -82,6 +82,10 @@ button, input, select, textarea { font: inherit; }
 .dark .bg-neutral-100, .dark .bg-gray-100 { background-color: var(--ps-paper); }
 .dark .text-neutral-600, .dark .text-neutral-500,
 .dark .text-ui-fg-subtle, .dark .text-ui-fg-muted { color: var(--ps-muted); }
+/* text-neutral-900/950 are near-black, hardcoded in several components
+   (cart line items, quantity inputs, ...) with no dark: variant - on a dark
+   background that's nearly invisible text, not just low-contrast. */
+.dark .text-neutral-950, .dark .text-neutral-900 { color: var(--ps-ink); }
 .dark .text-ui-fg-base, .dark .txt-ui-fg-base { color: var(--ps-ink); }
 .dark .brand-header svg path[fill="#52525B"] { fill: var(--ps-ink); }
 .dark .brand-header .hover\:bg-neutral-100:hover { background-color: var(--ps-line); }
