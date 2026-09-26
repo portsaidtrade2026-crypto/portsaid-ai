@@ -6,7 +6,7 @@ FROM base AS deps
 COPY pnpm-workspace.yaml package.json pnpm-lock.yaml ./
 COPY apps/backend/package.json apps/backend/package.json
 COPY apps/storefront/package.json apps/storefront/package.json
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --no-frozen-lockfile
 
 FROM deps AS build
 COPY . .
