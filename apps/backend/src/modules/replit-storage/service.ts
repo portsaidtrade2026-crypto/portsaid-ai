@@ -114,6 +114,8 @@ export default class ReplitStorageService extends AbstractFileProviderService {
   }
 
   async getAsBuffer(file: ProviderGetFileDTO): Promise<Buffer> {
+    // @ts-expect-error - @replit/object-storage's bundled types don't
+    // reflect the actual `{result, error}` shape it returns at runtime.
     const { result, error } = await this.client_.downloadAsBytes(file.fileKey);
     if (error) {
       throw new MedusaError(MedusaError.Types.NOT_FOUND, error.message);
