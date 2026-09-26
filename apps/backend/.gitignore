@@ -2,6 +2,7 @@
 .env
 .DS_Store
 /uploads
+/private-data/
 /node_modules
 yarn-error.log
 
