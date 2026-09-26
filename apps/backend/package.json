@@ -27,7 +27,8 @@
     "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
     "import-catalog": "medusa exec ./src/migration-scripts/import-portsaid-catalog.ts",
     "fix-titles": "medusa exec ./src/migration-scripts/fix-cyrillic-family-titles.ts",
-    "remove-demo-categories": "medusa exec ./src/migration-scripts/remove-demo-categories.ts"
+    "remove-demo-categories": "medusa exec ./src/migration-scripts/remove-demo-categories.ts",
+    "import-customers": "medusa exec ./src/migration-scripts/import-existing-customers.ts"
   },
   "dependencies": {
     "@medusajs/admin-sdk": "2.21.0",
