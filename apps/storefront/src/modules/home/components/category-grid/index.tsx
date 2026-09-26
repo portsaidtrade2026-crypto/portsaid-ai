@@ -42,7 +42,7 @@ const CategoryGrid = () => {
       <div className="flex items-end justify-between mb-6">
         <div>
           <p className="text-[var(--ps-yellow)] text-xs uppercase tracking-[.24em] font-semibold">
-            FS / PORTSAID
+            PS / PORTSAID
           </p>
           <h2 className="display-type text-3xl small:text-4xl font-semibold mt-1">
             Ürün Kategorileri

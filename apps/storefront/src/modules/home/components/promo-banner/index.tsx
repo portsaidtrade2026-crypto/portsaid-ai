@@ -20,7 +20,7 @@ const PromoBanner = () => {
         <div className="absolute inset-0 bg-[#111214]/70" />
         <div className="relative z-10 flex flex-col justify-center items-start h-full px-6 xsmall:px-10 small:px-16 py-10 gap-4 max-w-xl">
           <p className="text-[var(--ps-yellow)] text-xs uppercase tracking-[.24em] font-semibold">
-            FS / PORTSAID
+            PS / PORTSAID
           </p>
           <h2 className="display-type text-3xl xsmall:text-4xl small:text-5xl font-semibold text-white leading-[1.1]">
             Bize Katılın
