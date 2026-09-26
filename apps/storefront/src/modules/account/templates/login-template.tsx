@@ -63,7 +63,7 @@ const LoginTemplate = () => {
 
       <div className="relative min-h-[320px] overflow-hidden bg-[#111214]">
         <div className="absolute z-10 inset-0 flex flex-col justify-end p-8 text-white bg-gradient-to-t from-[#111214]/85 to-transparent">
-          <img src="/logo-portsaid.png" alt="Portsaid Plastik ve Otomotiv" className="w-44 mb-4" />
+          <img src="/logo-portsaid.png" alt="Portsaid Plastik" className="w-44 mb-4" />
           <p className="max-w-xs text-sm text-white/75">{t("Your supply line, made dependable.")}</p>
         </div>
         <Image

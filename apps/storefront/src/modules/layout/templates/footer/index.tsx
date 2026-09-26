@@ -27,7 +27,7 @@ export default async function Footer() {
               href="/"
               className="brand-lockup"
             >
-              <img src="/logo-portsaid.png" alt="Portsaid Plastik ve Otomotiv" />
+              <img src="/logo-portsaid.png" alt="Portsaid Plastik" />
             </LocalizedClientLink>
             <p className="mt-5 max-w-[220px] text-xs leading-5 text-[var(--ps-muted)]">
               {t("Components and supply for the road ahead. Built for businesses that keep moving.")}
@@ -140,7 +140,7 @@ export default async function Footer() {
         </div>
         <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
           <Text className="txt-compact-small">
-            © {new Date().getFullYear()} Portsaid Plastik ve Otomotiv. {t("All rights reserved.")}
+            © {new Date().getFullYear()} Portsaid Plastik. {t("All rights reserved.")}
           </Text>
           <span className="text-xs uppercase tracking-[.18em] text-[var(--ps-muted)]">PS / PORTSAID</span>
         </div>

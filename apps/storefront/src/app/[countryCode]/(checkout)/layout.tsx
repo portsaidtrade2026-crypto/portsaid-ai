@@ -14,7 +14,7 @@ export default function CheckoutLayout({
           <LocalizedClientLink className="hover:text-ui-fg-base" href="/">
             <h1 className="brand-lockup">
               <span className="brand-plaque">
-                <img src="/portsaid-logo.png" alt="Portsaid Plastik ve Otomotiv" />
+                <img src="/portsaid-logo.png" alt="Portsaid Plastik" />
               </span>
             </h1>
           </LocalizedClientLink>
@@ -28,7 +28,7 @@ export default function CheckoutLayout({
         {children}
       </div>
       <div className="py-5 text-center text-xs text-[var(--ps-muted)]">
-        © {new Date().getFullYear()} Portsaid Plastik ve Otomotiv
+        © {new Date().getFullYear()} Portsaid Plastik
       </div>
     </div>
   )
