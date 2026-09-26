@@ -7,9 +7,9 @@ import { Metadata } from "next"
 import { Suspense } from "react"
 
 export const metadata: Metadata = {
-  title: "Portsaid Plastik ve Otomotiv | Industrial supply",
+  title: "PS PORT — Ambalaj ve Endüstriyel Tedarik",
   description:
-    "Reliable plastic and automotive components for businesses that keep moving.",
+    "Reliable packaging, office, and logistics supplies for businesses that keep moving.",
 }
 
 export default async function Home(props: {

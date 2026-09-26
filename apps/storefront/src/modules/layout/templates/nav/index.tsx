@@ -33,7 +33,7 @@ export async function NavigationHeader() {
             >
               <h1 className="brand-lockup">
                 <span className="brand-plaque">
-                  <img src="/portsaid-logo.png" alt="Portsaid Plastik ve Otomotiv" />
+                  <img src="/portsaid-logo.png" alt="Portsaid Plastik" />
                 </span>
                 <small className="hidden medium:block">{t("Industrial supply")}</small>
               </h1>
