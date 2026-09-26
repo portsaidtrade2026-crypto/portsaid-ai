@@ -156,6 +156,7 @@ export default async function import_portsaid_catalog({
   const { data: existingProducts } = await query.graph({
     entity: "product",
     fields: ["id", "title"],
+    pagination: { take: 1000 },
   });
   if (existingProducts.length && !keepExisting) {
     logger.info(`Deleting ${existingProducts.length} existing (placeholder) products...`);
@@ -168,6 +169,7 @@ export default async function import_portsaid_catalog({
       `KEEP_EXISTING_PRODUCTS=1: leaving ${existingProducts.length} existing product(s) in place.`
     );
   }
+  const existingTitles = new Set(existingProducts.map((product) => product.title));
 
   // ---- Create categories (Ahmed's 22, from every category referenced in the catalogue) ----
   // Idempotent: categories (unlike products) are not deleted/recreated each
@@ -284,12 +286,21 @@ export default async function import_portsaid_catalog({
 
   // ---- Import products ----
   let productsCreated = 0;
+  let productsSkippedExisting = 0;
   let variantsCreated = 0;
   let imagesUploaded = 0;
   let imagesFailed = 0;
   const productErrors: Array<{ parent_id: string; error: string }> = [];
 
   for (const parent of catalogData.products) {
+    const productTitle = buildProductTitle(parent.category, parent.family_key);
+    if (keepExisting && existingTitles.has(productTitle)) {
+      productsSkippedExisting++;
+      logger.info(`Already exists, skipping product: ${productTitle}`);
+      logStep({ step: "product_skipped_existing", parent_id: parent.parent_id });
+      continue;
+    }
+
     try {
       const selectorAxes = parent.option_axes.filter((a) => a.suggested_ui_selector);
       const usingDefaultOption = selectorAxes.length === 0;
@@ -377,7 +388,6 @@ export default async function import_portsaid_catalog({
 
       const trTranslation = parent.translations.tr;
       const categoryId = categoryIdByName.get(parent.category);
-      const productTitle = buildProductTitle(parent.category, parent.family_key);
 
       await createProductsWorkflow(container).run({
         input: {
@@ -414,6 +424,7 @@ export default async function import_portsaid_catalog({
       });
 
       productsCreated++;
+      existingTitles.add(productTitle);
       variantsCreated += variantInputs.length;
       logStep({
         step: "product_created",
@@ -430,6 +441,7 @@ export default async function import_portsaid_catalog({
   const summary = {
     products_attempted: catalogData.products.length,
     products_created: productsCreated,
+    products_skipped_existing: productsSkippedExisting,
     variants_created: variantsCreated,
     images_uploaded: imagesUploaded,
     images_failed: imagesFailed,
