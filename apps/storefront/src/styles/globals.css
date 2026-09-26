@@ -61,6 +61,12 @@ button, input, select, textarea { font: inherit; }
 }
 .theme-toggle:hover { transform: rotate(12deg); background: var(--ps-yellow); color: #111214; }
 .brand-lockup { display: inline-flex; align-items: center; gap: 10px; }
+/* Some browsers only honor color-scheme for native form controls (like the
+   language <select>'s dropdown popup) when it's set directly on the control
+   itself, not just inherited from :root - without this the popup list still
+   renders with the OS's light-theme colors even on an otherwise dark page. */
+.dark select { color-scheme: dark; }
+
 .brand-plaque {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 3px 5px;

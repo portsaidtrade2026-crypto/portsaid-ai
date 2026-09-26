@@ -35,7 +35,11 @@ export const localizeProduct = (
   locale: Locale = "en"
 ): HttpTypes.StoreProduct => ({
   ...product,
-  title: translateCatalogValue(product.title, locale, product.metadata, "title"),
+  // The imported catalog's per-product translations store the localized
+  // product name under "name" (matching the source JSON's translations.*.name),
+  // not "title" - looking up "title" here always missed, silently falling
+  // back to the raw (Turkish) product.title for every real product.
+  title: translateCatalogValue(product.title, locale, product.metadata, "name"),
   subtitle: translateCatalogValue(
     product.subtitle,
     locale,

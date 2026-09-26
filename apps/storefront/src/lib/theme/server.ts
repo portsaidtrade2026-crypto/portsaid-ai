@@ -7,5 +7,5 @@ export async function getRequestTheme(): Promise<Theme> {
   if (isTheme(previewTheme)) return previewTheme
 
   const savedTheme = requestCookies.get(themeCookie)?.value
-  return isTheme(savedTheme) ? savedTheme : "light"
+  return isTheme(savedTheme) ? savedTheme : "dark"
 }
