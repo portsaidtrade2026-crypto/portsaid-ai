@@ -1,62 +1,62 @@
-import { access } from "node:fs/promises";
-import path from "node:path";
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { Modules } from "@medusajs/framework/utils";
 
-const IMAGE_EXTENSIONS = new Set([
-  ".avif",
-  ".gif",
-  ".jpeg",
-  ".jpg",
-  ".png",
-  ".svg",
-  ".webp",
-]);
-
-function getStaticDirectories(): string[] {
-  const workingDirectory = process.cwd();
-  const isBuiltServer =
-    path.basename(workingDirectory) === "server" &&
-    path.basename(path.dirname(workingDirectory)) === ".medusa";
-  const backendRoot = isBuiltServer
-    ? path.resolve(workingDirectory, "../..")
-    : workingDirectory;
-
-  return [
-    path.resolve(backendRoot, "static"),
-    path.resolve(workingDirectory, "static"),
-  ];
-}
+// Serves files written by the @medusajs/file-local provider (FILE_PROVIDER=
+// local - see medusa-config.ts). Recent Medusa versions no longer register a
+// built-in static file server, so uploaded images 404 on the URL the
+// provider itself generates (http://.../static/<filename>) unless something
+// serves that path - this route is that something. Mirrors
+// src/api/replit-storage/[key]/route.ts, which does the same thing for the
+// Replit deployment's file provider.
+const EXT_TO_CONTENT_TYPE: Record<string, string> = {
+  ".webp": "image/webp",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".png": "image/png",
+  ".gif": "image/gif",
+  ".svg": "image/svg+xml",
+  ".avif": "image/avif",
+};
 
 export async function GET(
   request: MedusaRequest,
   response: MedusaResponse
 ): Promise<void> {
-  const filename = request.params.filename;
-  if (
-    !filename ||
-    path.basename(filename) !== filename ||
-    filename.startsWith("private-") ||
-    !IMAGE_EXTENSIONS.has(path.extname(filename).toLowerCase())
-  ) {
-    response.sendStatus(404);
+  const rawFilename = (request.params as Record<string, string>).filename;
+  let filename: string;
+  try {
+    filename = decodeURIComponent(rawFilename);
+  } catch {
+    response.status(400).json({ message: "Invalid filename" });
     return;
   }
 
-  for (const directory of getStaticDirectories()) {
-    const filePath = path.resolve(directory, filename);
-    if (!filePath.startsWith(`${directory}${path.sep}`)) {
-      continue;
-    }
-
-    try {
-      await access(filePath);
-      response.setHeader("Cache-Control", "public, max-age=86400");
-      response.sendFile(filePath);
-      return;
-    } catch {
-      // The built server and source project may use different static folders.
-    }
+  if (
+    filename.includes("..") ||
+    filename.includes("\0") ||
+    filename.startsWith("/") ||
+    filename.toLowerCase().startsWith("private-")
+  ) {
+    response.status(400).json({ message: "Invalid filename" });
+    return;
   }
 
-  response.sendStatus(404);
+  const ext = filename.slice(filename.lastIndexOf(".")).toLowerCase();
+  const contentType = EXT_TO_CONTENT_TYPE[ext];
+  if (!contentType) {
+    response.status(400).json({ message: "Unsupported file type" });
+    return;
+  }
+
+  const fileModuleService = request.scope.resolve(Modules.FILE);
+  try {
+    const buffer = await fileModuleService
+      .getProvider()
+      .getAsBuffer({ fileKey: filename });
+    response.setHeader("Content-Type", contentType);
+    response.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+    response.status(200).send(buffer);
+  } catch (e: any) {
+    response.status(404).json({ message: "Not found" });
+  }
 }
