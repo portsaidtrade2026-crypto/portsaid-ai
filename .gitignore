@@ -58,3 +58,5 @@ yarn-error.log*
 ehthumbs.db
 Thumbs.db
 **/.DS_Store
+# Real customer PII - never commit (uploaded directly into the Replit workspace, not via git)
+apps/backend/private-data/

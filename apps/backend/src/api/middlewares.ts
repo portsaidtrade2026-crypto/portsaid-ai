@@ -21,6 +21,11 @@ export default defineMiddlewares({
       matcher: "/store/auth/revoke",
       middlewares: [authenticate("customer", ["bearer"])],
     },
+    {
+      method: "POST",
+      matcher: "/store/customers/claim",
+      middlewares: [authenticate("customer", ["bearer"])],
+    },
     ...adminMiddlewares,
     ...storeMiddlewares,
     {

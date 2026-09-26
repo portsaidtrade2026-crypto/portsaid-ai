@@ -1,5 +1,6 @@
 "use client"
 
+import ClaimAccount from "@/modules/account/components/claim-account"
 import Login from "@/modules/account/components/login"
 import Register from "@/modules/account/components/register"
 import { clx } from "@medusajs/ui"
@@ -11,6 +12,7 @@ import { useI18n } from "@/lib/i18n/provider"
 export enum LOGIN_VIEW {
   LOG_IN = "log-in",
   REGISTER = "register",
+  CLAIM_ACCOUNT = "claim-account",
 }
 
 const LoginTemplate = () => {
@@ -56,6 +58,8 @@ const LoginTemplate = () => {
       <div className="flex justify-center items-center ps-surface p-6 small:p-0 h-full border border-[var(--ps-line)]">
         {currentView === LOGIN_VIEW.LOG_IN ? (
           <Login setCurrentView={updateView} />
+        ) : currentView === LOGIN_VIEW.CLAIM_ACCOUNT ? (
+          <ClaimAccount setCurrentView={updateView} />
         ) : (
           <Register setCurrentView={updateView} />
         )}
