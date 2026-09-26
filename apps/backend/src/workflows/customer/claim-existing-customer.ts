@@ -28,6 +28,8 @@ export const claimExistingCustomerWorkflow = createWorkflow(
     updateCustomersWorkflow.runAsStep({
       input: {
         selector: { id: input.customerId },
+        // Medusa's workflow type omits this module-supported account flag.
+        // @ts-expect-error has_account is accepted by the customer module at runtime
         update: { has_account: true },
       },
     });
