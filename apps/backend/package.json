@@ -30,7 +30,8 @@
     "remove-demo-categories": "medusa exec ./src/migration-scripts/remove-demo-categories.ts",
     "import-customers": "medusa exec ./src/migration-scripts/import-existing-customers.ts",
     "reupload-images": "medusa exec ./src/migration-scripts/reupload-product-images.ts",
-    "publish-catalog": "medusa exec ./src/migration-scripts/publish-imported-products.ts"
+    "publish-catalog": "medusa exec ./src/migration-scripts/publish-imported-products.ts",
+    "reorganize-categories": "medusa exec ./src/migration-scripts/reorganize-categories.ts"
   },
   "dependencies": {
     "@replit/object-storage": "1.0.0",
