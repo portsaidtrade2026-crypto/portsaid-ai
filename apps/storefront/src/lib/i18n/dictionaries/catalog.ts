@@ -42,6 +42,8 @@ export const catalogTranslations: Record<
     "Dimensions (HxWxL)": "Boyutlar (YxGxU)",
     "Choose product variant(s) above": "Yukarıdan ürün varyant(lar)ını seçin",
     "Price on request": "Fiyat için teklif isteyin",
+    "Some items need a quote before you can check out - use Request Quote below.":
+      "Bazı ürünler için teklif gerekiyor - aşağıdan Teklif İste'yi kullanın.",
     "Not specified": "Belirtilmemiş",
     '16" Ultra-Slim AI Laptop | 3K OLED | 1.1cm Thin | 6-Speaker Audio':
       '16" Ultra İnce Yapay Zekâ Dizüstü | 3K OLED | 1,1 cm İncelik | 6 Hoparlörlü Ses',
@@ -96,6 +98,8 @@ export const catalogTranslations: Record<
     "Dimensions (HxWxL)": "Размери (ВxШxД)",
     "Choose product variant(s) above": "Изберете вариант(и) на продукта по-горе",
     "Price on request": "Поискайте оферта за цена",
+    "Some items need a quote before you can check out - use Request Quote below.":
+      "Някои артикули изискват оферта, преди да можете да платите - използвайте Поискай оферта по-долу.",
     "Not specified": "Не е посочено",
     '16" Ultra-Slim AI Laptop | 3K OLED | 1.1cm Thin | 6-Speaker Audio': '16" ултратънък AI лаптоп | 3K OLED | 1,1 см | 6 високоговорителя',
     "1080p HD Pro Webcam | Superior Video | Privacy enabled": "1080p HD Pro уеб камера | Превъзходно видео | Защита на поверителността",
@@ -148,6 +152,8 @@ export const catalogTranslations: Record<
     "Dimensions (HxWxL)": "الأبعاد (الارتفاع×العرض×الطول)",
     "Choose product variant(s) above": "اختر طراز المنتج أعلاه",
     "Price on request": "اطلب عرض سعر",
+    "Some items need a quote before you can check out - use Request Quote below.":
+      "بعض المنتجات تحتاج عرض سعر قبل إتمام الشراء - استخدم زر طلب عرض السعر تحت.",
     "Not specified": "غير محدد",
     '16" Ultra-Slim AI Laptop | 3K OLED | 1.1cm Thin | 6-Speaker Audio': 'حاسوب محمول فائق النحافة 16 بوصة بالذكاء الاصطناعي | OLED بدقة 3K | نحافة 1.1 سم | صوت بستة مكبرات',
     "1080p HD Pro Webcam | Superior Video | Privacy enabled": "كاميرا ويب احترافية HD بدقة 1080p | فيديو فائق | حماية الخصوصية",

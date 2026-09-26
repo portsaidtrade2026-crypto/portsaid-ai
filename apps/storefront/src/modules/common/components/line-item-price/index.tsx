@@ -1,6 +1,7 @@
 import { convertToLocale } from "@/lib/util/money"
 import { HttpTypes } from "@medusajs/types"
 import { clx, Text } from "@medusajs/ui"
+import { useI18n } from "@/lib/i18n/provider"
 
 type LineItemPriceProps = {
   item: HttpTypes.StoreCartLineItem | HttpTypes.StoreOrderLineItem
@@ -15,6 +16,7 @@ const LineItemPrice = ({
   className,
   currencyCode,
 }: LineItemPriceProps) => {
+  const { t } = useI18n()
   const adjustmentsSum = (item.adjustments || []).reduce(
     (acc, adjustment) => adjustment.amount + acc,
     0
@@ -25,6 +27,17 @@ const LineItemPrice = ({
   const currentPrice = item.total ?? 0 / item.quantity - adjustmentsSum
 
   const hasReducedPrice = currentPrice < originalPrice
+
+  // A request-quote item has no real price - Medusa still stores a
+  // resolvable numeric unit_price of 0 for it, which would otherwise render
+  // as a real "€0.00" (and, worse, be payable as free at checkout).
+  if (!item.unit_price) {
+    return (
+      <Text className={clx("text-ui-fg-subtle", className)}>
+        {t("Price on request")}
+      </Text>
+    )
+  }
 
   return (
     <Text

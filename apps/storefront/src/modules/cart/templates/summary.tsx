@@ -38,6 +38,13 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
     (approval) => approval?.status === ApprovalStatusType.PENDING
   )
 
+  // Request-quote items carry no real price (unit_price 0) - checking out
+  // would mean paying nothing for a real product. Route those carts to
+  // "Request Quote" instead; checkout stays available once every line has
+  // an actual price (e.g. after Ahmed prices the product, or for a cart of
+  // priced items only).
+  const hasUnpricedItems = cart.items?.some((item) => !item.unit_price)
+
   return (
     <Container className="flex flex-col gap-y-3">
       <CartTotals />
@@ -54,13 +61,22 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
           </p>
         </div>
       )}
+      {hasUnpricedItems && (
+        <p className="text-ui-fg-subtle text-xs -mt-2">
+          {t("Some items need a quote before you can check out - use Request Quote below.")}
+        </p>
+      )}
       <LocalizedClientLink
         href={checkoutButtonLink}
         data-testid="checkout-button"
+        aria-disabled={hasUnpricedItems}
+        onClick={(e) => {
+          if (hasUnpricedItems) e.preventDefault()
+        }}
       >
         <Button
           className="w-full h-10 rounded-full shadow-none"
-          disabled={spendLimitExceeded}
+          disabled={spendLimitExceeded || hasUnpricedItems}
         >
           {customer
             ? spendLimitExceeded

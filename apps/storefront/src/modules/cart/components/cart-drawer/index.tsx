@@ -106,6 +106,11 @@ const CartDrawer = ({
     close()
   }, [pathname])
 
+  // Request-quote items carry no real price (unit_price 0) - block
+  // checkout for them the same way the full cart page's Summary does, so
+  // there's no path to actually paying nothing for a real product.
+  const hasUnpricedItems = items?.some((item) => !item.unit_price)
+
   const checkoutStep = cart ? getCheckoutStep(cart) : undefined
   const checkoutPath = customer
     ? checkoutStep
@@ -197,11 +202,18 @@ const CartDrawer = ({
                          {t("View Cart")}
                       </Button>
                     </LocalizedClientLink>
-                    <LocalizedClientLink href={checkoutPath}>
+                    <LocalizedClientLink
+                      href={checkoutPath}
+                      onClick={(e) => {
+                        if (hasUnpricedItems) e.preventDefault()
+                      }}
+                    >
                       <Button
                         className="w-full"
                         size="large"
-                        disabled={totalItems === 0 || spendLimitExceeded}
+                        disabled={
+                          totalItems === 0 || spendLimitExceeded || hasUnpricedItems
+                        }
                       >
                         <LockClosedSolidMini />
                         {customer

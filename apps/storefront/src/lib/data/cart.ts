@@ -482,6 +482,19 @@ export async function placeOrder(
     ...(await getAuthHeaders()),
   }
 
+  // Hard server-side guard, not just the disabled checkout button: a
+  // request-quote line item has no real price (unit_price 0), so completing
+  // checkout would mean paying nothing for a real product. The client
+  // already disables "Checkout" for these carts, but that's bypassable
+  // (direct navigation, DOM edits) - this is the actual enforcement point.
+  const currentCart = await retrieveCart(id)
+  const hasUnpricedItems = currentCart?.items?.some((item) => !item.unit_price)
+  if (hasUnpricedItems) {
+    throw new Error(
+      "This cart has items with no set price yet - use Request Quote instead of checkout."
+    )
+  }
+
   const cartsTag = await getCacheTag("carts")
   const ordersTag = await getCacheTag("orders")
   const approvalsTag = await getCacheTag("approvals")
