@@ -16,3 +16,4 @@
 - [Medusa production startup location](medusa-production-start-cwd.md) — start the built backend from its output directory so the admin bundle resolves.
 - [Medusa admin API behind preview](medusa-admin-preview-url.md) — keep API and media origins reachable; only Admin can use root-relative backend media URLs.
 - [Catalog import safeguards](catalog-import-safeguards.md) — verify live Development counts independently; never trust an import log or delete the catalog broadly.
+- [Production catalog media from development](production-catalog-media.md) — a production DB override does not move local uploaded images into the published runtime; verify resulting media URLs separately.
