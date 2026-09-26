@@ -28,9 +28,11 @@
     "import-catalog": "medusa exec ./src/migration-scripts/import-portsaid-catalog.ts",
     "fix-titles": "medusa exec ./src/migration-scripts/fix-cyrillic-family-titles.ts",
     "remove-demo-categories": "medusa exec ./src/migration-scripts/remove-demo-categories.ts",
-    "import-customers": "medusa exec ./src/migration-scripts/import-existing-customers.ts"
+    "import-customers": "medusa exec ./src/migration-scripts/import-existing-customers.ts",
+    "reupload-images": "medusa exec ./src/migration-scripts/reupload-product-images.ts"
   },
   "dependencies": {
+    "@replit/object-storage": "1.0.0",
     "@medusajs/admin-sdk": "2.21.0",
     "@medusajs/cli": "2.21.0",
     "@medusajs/admin-shared": "2.21.0",

@@ -60,6 +60,17 @@ module.exports = defineConfig({
         ],
       },
     },
+    [Modules.FILE]: {
+      resolve: "@medusajs/medusa/file",
+      options: {
+        providers: [
+          {
+            resolve: "./src/modules/replit-storage",
+            id: "replit-storage",
+          },
+        ],
+      },
+    },
     [TOKEN_REVOCATION_MODULE]: {
       resolve: "./modules/token-revocation",
     },
