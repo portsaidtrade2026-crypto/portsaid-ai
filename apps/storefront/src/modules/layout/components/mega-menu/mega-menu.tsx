@@ -102,7 +102,7 @@ const MegaMenu = ({
                   onMouseEnter={() => handleCategoryHover(category.id)}
                   onMouseLeave={handleCategoryLeave}
                 >
-                  {category.name}
+                  {t(category.name)}
                 </LocalizedClientLink>
               ))}
             </div>
@@ -114,7 +114,7 @@ const MegaMenu = ({
                       className="font-medium text-zinc-500 hover:underline"
                       href={`/categories/${category.handle}`}
                     >
-                      {category.name}
+                      {t(category.name)}
                     </LocalizedClientLink>
                     <div className="flex flex-col gap-2">
                       {getSubCategories(category.id).map((subCategory) => (

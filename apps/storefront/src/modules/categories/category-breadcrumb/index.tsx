@@ -40,7 +40,7 @@ const CategoryBreadcrumb = ({
 
     breadcrumbs.unshift(
       <CategoryBreadcrumbItem
-        title={currentCategory.name}
+        title={t(currentCategory.name)}
         handle={currentCategory.handle}
         key={currentCategory.id}
       />
@@ -62,7 +62,7 @@ const CategoryBreadcrumb = ({
 
       breadcrumbs.unshift(
         <CategoryBreadcrumbItem
-          title={currentCategory.name}
+          title={t(currentCategory.name)}
           handle={currentCategory.handle}
           key={currentCategory.id}
         />

@@ -102,7 +102,7 @@ const CategoryList = ({
                 }`}
                 className="flex gap-2 items-center hover:text-neutral-700"
               >
-                {category.name} ({category.products?.length})
+                {t(category.name)} ({category.products?.length})
               </LocalizedClientLink>
             </div>
           ) : (
@@ -113,7 +113,7 @@ const CategoryList = ({
               className="flex gap-2 items-center hover:text-neutral-700 text-start hover:cursor-pointer"
             >
               <Radio checked={isCurrentCategory(category.handle)} />
-              {category.name} ({category.products?.length})
+              {t(category.name)} ({category.products?.length})
             </LocalizedClientLink>
           )}
         </div>

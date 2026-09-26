@@ -6,7 +6,7 @@ import { useI18n } from "@/lib/i18n/provider"
 const SearchInResults = ({ listName }: { listName?: string }) => {
   const { t } = useI18n()
   const placeholder = listName
-    ? t("Search in {listName}", { listName })
+    ? t("Search in {listName}", { listName: t(listName) })
     : t("Search in products")
 
   return (
