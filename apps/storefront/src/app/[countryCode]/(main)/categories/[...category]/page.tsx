@@ -8,6 +8,15 @@ import { translate } from "@/lib/i18n/messages"
 
 export const dynamicParams = true
 
+const decodeCategorySegments = (segments: string[]) =>
+  segments.map((segment) => {
+    try {
+      return decodeURIComponent(segment)
+    } catch {
+      return segment
+    }
+  })
+
 type Props = {
   params: Promise<{ category: string[]; countryCode: string }>
   searchParams: Promise<{
@@ -21,7 +30,9 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const locale = await getRequestLocale()
 
   try {
-    const product_category = await getCategoryByHandle(params.category)
+    const product_category = await getCategoryByHandle(
+      decodeCategorySegments(params.category)
+    )
 
     const title = product_category.name
 
@@ -43,11 +54,12 @@ export default async function CategoryPage(props: Props) {
   const searchParams = await props.searchParams
   const params = await props.params
   const { sortBy, page } = searchParams
+  const handle = decodeCategorySegments(params.category).join("/")
 
   const categories = await listCategories()
 
   const currentCategory = categories.find(
-    (category) => category.handle === params.category.join("/")
+    (category) => category.handle === handle
   )
 
   if (!currentCategory) {
