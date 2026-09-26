@@ -1,11 +1,21 @@
 import { MedusaContainer } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
-import { deleteProductCategoriesWorkflow } from "@medusajs/medusa/core-flows";
+import {
+  deleteProductCategoriesWorkflow,
+  updateProductsWorkflow,
+} from "@medusajs/medusa/core-flows";
 
 // One-off cleanup: the B2B starter template ships 4 demo categories
-// (Laptops, Accessories, Monitors, Phones) with 0 real products, left over
-// from before the real catalog was imported. They were cluttering the
-// category sidebar/breadcrumb with irrelevant electronics categories.
+// (Laptops, Accessories, Monitors, Phones), left over from before the real
+// catalog was imported, cluttering the category sidebar/breadcrumb with
+// irrelevant electronics categories. Ahmed asked for them gone entirely.
+//
+// Their 8 linked demo products have real order-history line items (16
+// confirmed e2e-test orders, buyer-e2e-*@example.invalid - not real
+// customers, but still real rows), so this only detaches them from these
+// categories (category_ids: []) rather than deleting the products - the
+// safe way to empty a category without touching order history or risking
+// a delete blocked/cascaded by those references.
 const DEMO_HANDLES = ["laptops", "accessories", "monitors", "phones"];
 
 export default async function remove_demo_categories({
@@ -25,19 +35,26 @@ export default async function remove_demo_categories({
     DEMO_HANDLES.includes(c.handle)
   );
 
-  const nonEmpty = toDelete.filter((c) => (c.products || []).length > 0);
-  if (nonEmpty.length) {
-    logger.info(
-      `Refusing to delete: these demo-handle categories actually have products: ${nonEmpty
-        .map((c) => `${c.handle} (${c.products.length})`)
-        .join(", ")}`
-    );
-    return;
-  }
-
   if (!toDelete.length) {
     logger.info("No demo categories found - nothing to delete.");
     return;
+  }
+
+  const productIds = Array.from(
+    new Set(
+      toDelete.flatMap((c) => (c.products || []).map((p: any) => p.id))
+    )
+  );
+  if (productIds.length) {
+    await updateProductsWorkflow(container).run({
+      input: {
+        selector: { id: productIds },
+        update: { category_ids: [] },
+      },
+    });
+    logger.info(
+      `Detached ${productIds.length} demo product(s) from their categories (left as uncategorized, untouched otherwise).`
+    );
   }
 
   await deleteProductCategoriesWorkflow(container).run({
@@ -45,7 +62,7 @@ export default async function remove_demo_categories({
   });
 
   logger.info(
-    `Deleted ${toDelete.length} empty demo categories: ${toDelete
+    `Deleted ${toDelete.length} demo categories: ${toDelete
       .map((c) => c.handle)
       .join(", ")}`
   );
