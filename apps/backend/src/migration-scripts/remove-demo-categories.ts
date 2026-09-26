@@ -18,7 +18,7 @@ export default async function remove_demo_categories({
 
   const { data: categories } = await query.graph({
     entity: "product_category",
-    fields: ["id", "title", "handle", "products.id"],
+    fields: ["id", "name", "handle", "products.id"],
   });
 
   const toDelete = (categories as any[]).filter((c) =>
