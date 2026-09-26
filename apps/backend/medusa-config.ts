@@ -63,12 +63,32 @@ module.exports = defineConfig({
     [Modules.FILE]: {
       resolve: "@medusajs/medusa/file",
       options: {
-        providers: [
-          {
-            resolve: "./src/modules/replit-storage",
-            id: "replit-storage",
-          },
-        ],
+        // Replit Autoscale's local disk is wiped on every republish, so the
+        // Replit deployment needs the Object Storage-backed provider. A
+        // persistent server (e.g. our own VPS) just needs a normal local
+        // disk, so FILE_PROVIDER=local switches to Medusa's built-in
+        // provider there - no env var needed to keep Replit's behavior.
+        providers:
+          process.env.FILE_PROVIDER === "local"
+            ? [
+                {
+                  resolve: "@medusajs/file-local",
+                  id: "local",
+                  options: {
+                    // Absolute path on a mounted volume so uploads survive
+                    // container rebuilds/redeploys (unlike the default,
+                    // which resolves relative to the built .medusa/server
+                    // output that gets replaced on every build).
+                    upload_dir: process.env.LOCAL_UPLOAD_DIR || "/uploads",
+                  },
+                },
+              ]
+            : [
+                {
+                  resolve: "./src/modules/replit-storage",
+                  id: "replit-storage",
+                },
+              ],
       },
     },
     [TOKEN_REVOCATION_MODULE]: {
