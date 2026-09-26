@@ -68,6 +68,14 @@ const Login = ({ setCurrentView }: Props) => {
           >
             {t("Register")}
           </Button>
+          <button
+            type="button"
+            onClick={() => setCurrentView(LOGIN_VIEW.CLAIM_ACCOUNT)}
+            className="text-sm text-neutral-600 underline underline-offset-4 mt-2"
+            data-testid="claim-account-link"
+          >
+            {t("Already a customer? Set your password")}
+          </button>
         </div>
       </form>
     </div>

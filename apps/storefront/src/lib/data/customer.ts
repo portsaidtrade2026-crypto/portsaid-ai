@@ -129,6 +129,50 @@ export async function signup(_currentState: unknown, formData: FormData) {
   redirect(`/${countryCode}/account`)
 }
 
+// For a customer bulk-imported from Ahmed's CRM (has_account=false, no
+// password yet): registers a fresh auth identity, then links it to that
+// EXISTING customer record via the custom /store/customers/claim route
+// instead of sdk.store.customer.create(), which would create a brand new,
+// disconnected customer for the same email.
+export async function claimAccount(_currentState: unknown, formData: FormData) {
+  const email = formData.get("email") as string
+  const password = formData.get("password") as string
+  const accountCountryCode = formData.get("account_country_code")
+  const countryCode =
+    typeof accountCountryCode === "string" && /^[a-z]{2}$/.test(accountCountryCode)
+      ? accountCountryCode
+      : null
+  if (!countryCode) {
+    return "Invalid account country code"
+  }
+
+  try {
+    const token = await sdk.auth.register("customer", "emailpass", {
+      email,
+      password,
+    })
+
+    await sdk.client.fetch(`/store/customers/claim`, {
+      method: "POST",
+      body: { email },
+      headers: { authorization: `Bearer ${token}` },
+    })
+
+    const loginToken = await sdk.auth.login("customer", "emailpass", {
+      email,
+      password,
+    })
+
+    await setAuthToken(loginToken as string)
+
+    const cacheTag = await getCacheTag("customers")
+    revalidateTag(cacheTag)
+  } catch (error: any) {
+    return error.toString()
+  }
+  redirect(`/${countryCode}/account`)
+}
+
 export async function login(_currentState: unknown, formData: FormData) {
   const email = formData.get("email") as string
   const password = formData.get("password") as string
