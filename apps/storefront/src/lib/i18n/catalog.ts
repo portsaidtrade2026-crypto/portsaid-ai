@@ -35,11 +35,15 @@ export const localizeProduct = (
   locale: Locale = "en"
 ): HttpTypes.StoreProduct => ({
   ...product,
-  // The imported catalog's per-product translations store the localized
-  // product name under "name" (matching the source JSON's translations.*.name),
-  // not "title" - looking up "title" here always missed, silently falling
-  // back to the raw (Turkish) product.title for every real product.
-  title: translateCatalogValue(product.title, locale, product.metadata, "name"),
+  // NOT translateCatalogValue(..., "name"): metadata.translations.*.name is a
+  // generic per-concept label shared by every sibling family in a category
+  // (e.g. every "Jumbo Streç Film" variant's translations.tr.name is just
+  // "Streç Filmler") - swapping it in here made every product in a category
+  // display the identical title, destroying the distinguishing family_key
+  // detail (color, micron, super-power, ...) that product.title carries.
+  // Real per-family multilingual titles need new translated data, not a
+  // metadata field swap - leaving this as the distinguishing Turkish title.
+  title: product.title,
   subtitle: translateCatalogValue(
     product.subtitle,
     locale,
