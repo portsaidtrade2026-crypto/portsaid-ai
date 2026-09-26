@@ -21776,7 +21776,7 @@
     {
       "parent_id": "family-6ce1556cdef9",
       "category": "Endüstriyel Streç Film",
-      "family_key": "МИКРОНА СТРЕЧ КГ СТАНДАРТНА ШПУЛА",
+      "family_key": "İKRON STREÇ KG STANDART MASURA",
       "translations": {
         "ar": {
           "name": "أفلام الاسترتش",
@@ -21929,7 +21929,7 @@
     {
       "parent_id": "family-3afb4cd7e4a8",
       "category": "Endüstriyel Streç Film",
-      "family_key": "МИКРОНА СТРЕЧ ФОЛИО КГ СТАНДАРТЕН ШПУЛА",
+      "family_key": "İKRON STREÇ FOLYO KG STANDART MASURA",
       "translations": {
         "ar": {
           "name": "أفلام الاسترتش",
@@ -22315,7 +22315,7 @@
     {
       "parent_id": "family-dd39d69c27dd",
       "category": "Endüstriyel Streç Film",
-      "family_key": "МИКРОННА СТРЕЧ СТАНДАРТНА БОБИНА",
+      "family_key": "İKRON STREÇ STANDART MASURA",
       "translations": {
         "ar": {
           "name": "أفلام الاسترتش",
@@ -22443,7 +22443,7 @@
     {
       "parent_id": "family-3f3ec6b506d0",
       "category": "Endüstriyel Streç Film",
-      "family_key": "МИКРОННА СТРЕЧ СУПЕР МОЩНОСТ БОБИНА",
+      "family_key": "İKRON STREÇ SUPER POWER MASURA",
       "translations": {
         "ar": {
           "name": "أفلام الاسترتش",
@@ -25688,7 +25688,7 @@
     {
       "parent_id": "family-6bfc9d5daf93",
       "category": "Endüstriyel Streç Film",
-      "family_key": "МИКРОНА МАШИННО СТРЕЧ ФОЛИО КГ ШПУЛА",
+      "family_key": "İKRON MAKİNE STREÇ FOLYO KG MASURA",
       "translations": {
         "ar": {
           "name": "أفلام الاسترتش",
@@ -25841,7 +25841,7 @@
     {
       "parent_id": "family-7863c3f36e6f",
       "category": "Endüstriyel Streç Film",
-      "family_key": "МИКРОНА СТРЕЧ ФОЛИО КГ ЧЕРЕН ЦВЯТ ШПУЛА",
+      "family_key": "İKRON STREÇ FOLYO KG SİYAH MASURA",
       "translations": {
         "ar": {
           "name": "أفلام الاسترتش",
@@ -26019,7 +26019,7 @@
     {
       "parent_id": "family-79194d87bdac",
       "category": "Endüstriyel Streç Film",
-      "family_key": "МИКРОННА РЪЧНО СТРЕЧ ФОЛИО БОБИНА",
+      "family_key": "İKRON EL STREÇ FOLYO MASURA",
       "translations": {
         "ar": {
           "name": "أفلام الاسترتش",
@@ -26147,7 +26147,7 @@
     {
       "parent_id": "family-56325604f815",
       "category": "Endüstriyel Streç Film",
-      "family_key": "МИКРОННА МАШИНА СТРЕЧ БОБИНА",
+      "family_key": "İKRON MAKİNE STREÇ MASURA",
       "translations": {
         "ar": {
           "name": "أفلام الاسترتش",
@@ -36964,7 +36964,7 @@
     {
       "parent_id": "family-f5a5a193f38d",
       "category": "PP Çember",
-      "family_key": "ЧЕМБЕР ЛЕНТА БЯЛО",
+      "family_key": "ÇEMBER LENTA BEYAZ",
       "translations": {
         "ar": {
           "name": "أشرطة وأدوات التربيط",
@@ -37117,7 +37117,7 @@
     {
       "parent_id": "family-f22857337aef",
       "category": "PP Çember",
-      "family_key": "ЧЕМБЕР ЛЕНТА СИНЬО",
+      "family_key": "ÇEMBER LENTA MAVİ",
       "translations": {
         "ar": {
           "name": "أشرطة وأدوات التربيط",
@@ -37270,7 +37270,7 @@
     {
       "parent_id": "family-c22729121dbe",
       "category": "PP Çember",
-      "family_key": "ЧЕМБЕР ЛЕНТА ЧЕРНО",
+      "family_key": "ÇEMBER LENTA SİYAH",
       "translations": {
         "ar": {
           "name": "أشرطة وأدوات التربيط",
@@ -40236,7 +40236,7 @@
     {
       "parent_id": "family-9d142820b6e2",
       "category": "Hotmelt Koli Bandı",
-      "family_key": "АКРИЛНО ТИКСO38 МИКРОН",
+      "family_key": "AKRİLİK BANT 38 MİKRON",
       "translations": {
         "ar": {
           "name": "أشرطة لاصقة",
@@ -40339,7 +40339,7 @@
     {
       "parent_id": "family-317369ff9a9d",
       "category": "Hotmelt Koli Bandı",
-      "family_key": "ТИКСО АКРИЛНО ЕКО СОЛВЕНТ ПРОЗРАЧНО",
+      "family_key": "AKRİLİK BANT EKO SOLVENT ŞEFFAF",
       "translations": {
         "ar": {
           "name": "أشرطة لاصقة",
@@ -41168,7 +41168,7 @@
     {
       "parent_id": "family-a00758df5070",
       "category": "Hotmelt Koli Bandı",
-      "family_key": "ТИКСО EKO СОЛВЕНТ",
+      "family_key": "BANT EKO SOLVENT",
       "translations": {
         "ar": {
           "name": "أشرطة لاصقة",
@@ -41244,7 +41244,7 @@
     {
       "parent_id": "family-04aa44878708",
       "category": "Hotmelt Koli Bandı",
-      "family_key": "ТИКСО АКРИЛНО ЖЪЛТО ПРОЗРАЧНО",
+      "family_key": "AKRİLİK BANT SARI ŞEFFAF",
       "translations": {
         "ar": {
           "name": "أشرطة لاصقة",
@@ -42140,7 +42140,7 @@
     {
       "parent_id": "family-d3407197e1f6",
       "category": "Hotmelt Koli Bandı",
-      "family_key": "ТИКСО АКРИЛНО ПРОЗРАЧНО",
+      "family_key": "AKRİLİK BANT ŞEFFAF",
       "translations": {
         "ar": {
           "name": "أشرطة لاصقة",
@@ -43104,7 +43104,7 @@
     {
       "parent_id": "family-e75ed3b7ed83",
       "category": "Hotmelt Koli Bandı",
-      "family_key": "ХОТ МЕЛТ ТИКСО МИКРОН",
+      "family_key": "HOTMELT BANT MİKRON",
       "translations": {
         "ar": {
           "name": "أشرطة لاصقة",

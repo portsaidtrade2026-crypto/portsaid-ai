@@ -249,7 +249,9 @@ export default async function import_portsaid_catalog({
   for (const [title, neededValues] of globalOptionValuesByTitle) {
     const existing = globalOptionByTitle.get(title);
     if (!existing) continue;
-    const existingValueStrings = new Set<string>((existing.values || []).map((v: any) => v.value));
+    const existingValueStrings = new Set<string>(
+      (existing.values || []).map((v: any) => String(v.value))
+    );
     const missingValues = [...neededValues].filter((v) => !existingValueStrings.has(v));
     if (!missingValues.length) continue;
     const mergedValues = [...existingValueStrings, ...missingValues];

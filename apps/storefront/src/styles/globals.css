@@ -63,10 +63,8 @@ button, input, select, textarea { font: inherit; }
 .brand-lockup { display: inline-flex; align-items: center; gap: 10px; }
 .brand-plaque {
   display: inline-flex; align-items: center; justify-content: center;
-  padding: 3px 5px; border: 1px solid #333; border-radius: 4px;
-  background: #0d0d0d;
+  padding: 3px 5px;
 }
-.dark .brand-plaque { background: #050505; border-color: #75651c; }
 .brand-lockup img { width: 108px; height: auto; object-fit: contain; }
 .brand-lockup small { color: var(--ps-muted); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; }
 .ps-surface { background: var(--ps-panel); color: var(--ps-ink); }
