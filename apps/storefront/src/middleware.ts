@@ -191,7 +191,13 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|images|assets|png|svg|jpg|jpeg|gif|webp).*)",
+    // /app, /auth and /admin are reverse-proxied straight to the internal
+    // Medusa backend (see app/app, app/auth, app/admin route handlers) so
+    // the Admin dashboard is reachable through the published domain -
+    // this locale/region middleware must never touch them (it was
+    // redirecting bare "/app" to "/dk/app" and 404ing, since only paths
+    // with a literal "." in them were otherwise exempted).
+    "/((?!api|_next/static|_next/image|favicon.ico|images|assets|png|svg|jpg|jpeg|gif|webp|app(?:/|$)|auth(?:/|$)|admin(?:/|$)).*)",
     "/_next/static/chunks/app/:path*",
   ],
 }
