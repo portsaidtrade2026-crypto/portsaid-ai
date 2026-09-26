@@ -3,8 +3,9 @@ RUN corepack enable && corepack prepare pnpm@9.15.0 --activate
 WORKDIR /repo
 
 FROM base AS deps
-COPY pnpm-workspace.yaml package.json pnpm-lock.yaml ./
+COPY pnpm-workspace.yaml package.json pnpm-lock.yaml .npmrc ./
 COPY apps/backend/package.json apps/backend/package.json
+COPY apps/backend/.npmrc apps/backend/.npmrc
 COPY apps/storefront/package.json apps/storefront/package.json
 RUN pnpm install --no-frozen-lockfile
 
