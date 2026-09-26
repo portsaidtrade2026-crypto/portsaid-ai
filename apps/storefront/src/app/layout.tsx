@@ -9,6 +9,7 @@ import { I18nProvider } from "@/lib/i18n/provider"
 import { Locale } from "@/lib/i18n/config"
 import { getRequestTheme } from "@/lib/theme/server"
 import ThemeSync from "@/lib/theme/theme-sync"
+import WhatsAppButton from "@/modules/common/components/whatsapp-button"
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
@@ -22,6 +23,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <ThemeSync />
         <I18nProvider locale={locale as Locale}>
           <main className="relative">{props.children}</main>
+          <WhatsAppButton />
         </I18nProvider>
         <Toaster className="z-[99999]" position="bottom-left" />
         <Analytics />
