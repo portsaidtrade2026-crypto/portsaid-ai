@@ -148,16 +148,25 @@ export default async function import_portsaid_catalog({
   logger.info(`Using sales channel: ${defaultSalesChannel.name} (${defaultSalesChannel.id})`);
 
   // ---- Delete existing placeholder products ----
+  // Skippable via KEEP_EXISTING_PRODUCTS=1 - production has demo products
+  // with real order history attached (even if the orders themselves are
+  // test data), so a first production import must ADD the real catalog
+  // alongside them, not delete-then-recreate like a dev re-run does.
+  const keepExisting = process.env.KEEP_EXISTING_PRODUCTS === "1";
   const { data: existingProducts } = await query.graph({
     entity: "product",
     fields: ["id", "title"],
   });
-  if (existingProducts.length) {
+  if (existingProducts.length && !keepExisting) {
     logger.info(`Deleting ${existingProducts.length} existing (placeholder) products...`);
     await deleteProductsWorkflow(container).run({
       input: { ids: existingProducts.map((p: any) => p.id) },
     });
     logStep({ step: "delete_placeholder_products", count: existingProducts.length });
+  } else if (existingProducts.length) {
+    logger.info(
+      `KEEP_EXISTING_PRODUCTS=1: leaving ${existingProducts.length} existing product(s) in place.`
+    );
   }
 
   // ---- Create categories (Ahmed's 22, from every category referenced in the catalogue) ----
