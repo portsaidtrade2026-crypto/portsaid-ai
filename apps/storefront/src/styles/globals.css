@@ -80,7 +80,7 @@ button, input, select, textarea { font: inherit; }
    those surfaces readable when the storefront theme changes. */
 .dark .bg-white { background-color: var(--ps-panel); }
 .dark .bg-neutral-100, .dark .bg-gray-100 { background-color: var(--ps-paper); }
-.dark .text-neutral-600, .dark .text-neutral-500,
+.dark .text-neutral-700, .dark .text-neutral-600, .dark .text-neutral-500,
 .dark .text-ui-fg-subtle, .dark .text-ui-fg-muted { color: var(--ps-muted); }
 /* text-neutral-900/950 are near-black, hardcoded in several components
    (cart line items, quantity inputs, ...) with no dark: variant - on a dark
