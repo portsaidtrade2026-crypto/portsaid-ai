@@ -5,6 +5,7 @@ import { Text, clx } from "@medusajs/ui"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { getRequestLocale } from "@/lib/i18n/server"
 import { translate } from "@/lib/i18n/messages"
+import { translateCatalogValue } from "@/lib/i18n/catalog"
 
 export default async function Footer() {
   const locale = await getRequestLocale()
@@ -50,7 +51,12 @@ export default async function Footer() {
 
                     const children =
                       c.category_children?.map((child) => ({
-                        name: child.name,
+                        name: translateCatalogValue(
+                          child.name,
+                          locale,
+                          child.metadata,
+                          "name"
+                        ),
                         handle: child.handle,
                         id: child.id,
                       })) || null
@@ -68,7 +74,12 @@ export default async function Footer() {
                           href={`/categories/${c.handle}`}
                           data-testid="category-link"
                         >
-                          {c.name}
+                          {translateCatalogValue(
+                            c.name,
+                            locale,
+                            c.metadata,
+                            "name"
+                          )}
                         </LocalizedClientLink>
                         {children && (
                         <ul className="grid grid-cols-1 ms-3 gap-2">
