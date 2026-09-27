@@ -1,8 +1,29 @@
-/** Catalog copy keyed by the canonical English value stored in Medusa. */
+/** Catalog copy keyed by the canonical Turkish value stored in Medusa. */
 export const catalogTranslations: Record<
-  "tr" | "bg" | "ar",
+  "tr" | "bg" | "ar" | "en",
   Record<string, string>
 > = {
+  en: {
+    "Ambalaj Makineleri": "Packaging Machines",
+    "Endüstriyel Streç Film": "Industrial Stretch Film",
+    "Fabrika ve Depo Malzemeleri": "Factory & Warehouse Supplies",
+    "Gıda Streç Film": "Food Stretch Film",
+    "Balonlu Naylon": "Bubble Wrap",
+    "Pre-Streç Film": "Pre-Stretch Film",
+    "PE Köpük": "PE Foam",
+    "Karton Kutu ve Kağıt Çantalar": "Cardboard Boxes & Paper Bags",
+    "Jumbo Streç Film": "Jumbo Stretch Film",
+    "Hotmelt Koli Bandı": "Hotmelt Packing Tape",
+    "PP Çember": "PP Strapping",
+    "Maskeleme Bandı": "Masking Tape",
+    "Akrilik Koli Bandı": "Acrylic Packing Tape",
+    "Ambalaj Malzemeleri": "Packaging Materials",
+    Makineler: "Machines",
+    "Ofis Kırtasiye": "Office Stationery",
+    "Ofis Mobilya": "Office Furniture",
+    "Ofis Temizlik": "Office Cleaning",
+    "Kartuş ve Toner": "Cartridges & Toner",
+  },
   tr: {
     BRAND: "MARKA",
     From: "Başlangıç",

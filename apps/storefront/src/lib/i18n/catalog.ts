@@ -62,7 +62,7 @@ export const translateCatalogValue = (
   if (!value) return ""
   return (
     fromMetadata(value, metadata, locale, field) ||
-    (locale === "en" ? value : catalogTranslations[locale]?.[value]) ||
+    catalogTranslations[locale]?.[value] ||
     value
   )
 }
