@@ -22,7 +22,7 @@ const Hero = () => {
       <div className="brand-hero-overlay absolute inset-0 z-1 flex flex-col justify-center items-start text-start px-5 xsmall:px-8 small:px-16 medium:px-24 py-10 gap-6">
         <div className="brand-hero-copy min-w-0 w-full max-w-3xl">
           <p className="text-[var(--ps-yellow)] text-xs uppercase tracking-[.24em] font-semibold">
-            PS / PORTSAID
+            PS PORT
           </p>
 
           <Heading

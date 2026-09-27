@@ -153,7 +153,7 @@ export default async function Footer() {
           <Text className="txt-compact-small">
             © {new Date().getFullYear()} Portsaid Plastik. {t("All rights reserved.")}
           </Text>
-          <span className="text-xs uppercase tracking-[.18em] text-[var(--ps-muted)]">PS / PORTSAID</span>
+          <span className="text-xs uppercase tracking-[.18em] text-[var(--ps-muted)]">PS PORT</span>
         </div>
       </div>
     </footer>
