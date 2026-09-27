@@ -80,6 +80,17 @@ module.exports = defineConfig({
                     // which resolves relative to the built .medusa/server
                     // output that gets replaced on every build).
                     upload_dir: process.env.LOCAL_UPLOAD_DIR || "/uploads",
+                    // Default is "http://localhost:9000/static" - fine for
+                    // the storefront (which rewrites it server-side via
+                    // toStorefrontMediaUrl), but the Admin dashboard renders
+                    // this URL directly in the visitor's own browser, where
+                    // "localhost" means the visitor's machine, not the
+                    // server - every image broke in Admin. Point it at the
+                    // real public domain instead (proxied through to this
+                    // same backend by the storefront's /static route).
+                    backend_url: `${
+                      process.env.PUBLIC_BACKEND_URL || "http://localhost:9000"
+                    }/static`,
                   },
                 },
               ]
