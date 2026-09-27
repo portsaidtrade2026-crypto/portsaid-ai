@@ -9,6 +9,7 @@ import { Container, Text } from "@medusajs/ui"
 import { usePathname, useSearchParams } from "next/navigation"
 import { useCallback, useEffect, useState } from "react"
 import { useI18n } from "@/lib/i18n/provider"
+import { translateCatalogValue } from "@/lib/i18n/catalog"
 
 const CategoryList = ({
   categories,
@@ -17,7 +18,9 @@ const CategoryList = ({
   categories: HttpTypes.StoreProductCategory[]
   currentCategory?: HttpTypes.StoreProductCategory
 }) => {
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
+  const categoryName = (category: HttpTypes.StoreProductCategory) =>
+    translateCatalogValue(category.name, locale, category.metadata, "name")
   const getCategoriesToExpand = useCallback(
     (category: HttpTypes.StoreProductCategory) => {
       const categoriesToExpand = [category.id]
@@ -118,7 +121,7 @@ const CategoryList = ({
                 }`}
                 className="flex gap-2 items-center hover:text-neutral-700"
               >
-                {t(category.name)} ({getTotalProductCount(category)})
+                {categoryName(category)} ({getTotalProductCount(category)})
               </LocalizedClientLink>
             </div>
           ) : (
@@ -129,7 +132,7 @@ const CategoryList = ({
               className="flex gap-2 items-center hover:text-neutral-700 text-start hover:cursor-pointer"
             >
               <Radio checked={isCurrentCategory(category.handle)} />
-              {t(category.name)} ({getTotalProductCount(category)})
+              {categoryName(category)} ({getTotalProductCount(category)})
             </LocalizedClientLink>
           )}
         </div>

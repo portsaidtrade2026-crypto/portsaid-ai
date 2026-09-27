@@ -6,6 +6,7 @@ import LocalizedClientLink from "@/modules/common/components/localized-client-li
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import { useI18n } from "@/lib/i18n/provider"
+import { translateCatalogValue } from "@/lib/i18n/catalog"
 
 const MegaMenu = ({
   categories,
@@ -16,7 +17,9 @@ const MegaMenu = ({
   const [selectedCategory, setSelectedCategory] = useState<
     HttpTypes.StoreProductCategory["id"] | null
   >(null)
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
+  const categoryName = (category: HttpTypes.StoreProductCategory) =>
+    translateCatalogValue(category.name, locale, category.metadata, "name")
 
   const pathname = usePathname()
 
@@ -102,7 +105,7 @@ const MegaMenu = ({
                   onMouseEnter={() => handleCategoryHover(category.id)}
                   onMouseLeave={handleCategoryLeave}
                 >
-                  {t(category.name)}
+                  {categoryName(category)}
                 </LocalizedClientLink>
               ))}
             </div>
@@ -114,7 +117,7 @@ const MegaMenu = ({
                       className="font-medium text-zinc-500 dark:text-zinc-300 hover:underline"
                       href={`/categories/${category.handle}`}
                     >
-                      {t(category.name)}
+                      {categoryName(category)}
                     </LocalizedClientLink>
                     <div className="flex flex-col gap-2">
                       {getSubCategories(category.id).map((subCategory) => (
@@ -123,7 +126,7 @@ const MegaMenu = ({
                           className="text-zinc-700 dark:text-zinc-200 hover:underline"
                           href={`/categories/${subCategory.handle}`}
                         >
-                          {subCategory.name}
+                          {categoryName(subCategory)}
                         </LocalizedClientLink>
                       ))}
                     </div>
