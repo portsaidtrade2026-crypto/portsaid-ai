@@ -64,6 +64,22 @@ const CategoryList = ({
     }
   }, [currentCategory, getCategoriesToExpand])
 
+  // A parent category (e.g. "Ambalaj Malzemeleri") typically has no
+  // products assigned directly - they all live on its children (e.g.
+  // "Industrial Stretch Film") - so counting only category.products left
+  // every parent showing "(0)" even when its children had real products.
+  const getTotalProductCount = useCallback(
+    (category: HttpTypes.StoreProductCategory): number => {
+      const ownCount = category.products?.length ?? 0
+      const childrenCount = category.category_children.reduce((sum, ref) => {
+        const child = categories.find((cat) => cat.id === ref.id)
+        return sum + (child ? getTotalProductCount(child) : 0)
+      }, 0)
+      return ownCount + childrenCount
+    },
+    [categories]
+  )
+
   const getCategoryMarginLeft = useCallback(
     (category: HttpTypes.StoreProductCategory) => {
       let level = 0
@@ -102,7 +118,7 @@ const CategoryList = ({
                 }`}
                 className="flex gap-2 items-center hover:text-neutral-700"
               >
-                {t(category.name)} ({category.products?.length})
+                {t(category.name)} ({getTotalProductCount(category)})
               </LocalizedClientLink>
             </div>
           ) : (
@@ -113,7 +129,7 @@ const CategoryList = ({
               className="flex gap-2 items-center hover:text-neutral-700 text-start hover:cursor-pointer"
             >
               <Radio checked={isCurrentCategory(category.handle)} />
-              {t(category.name)} ({category.products?.length})
+              {t(category.name)} ({getTotalProductCount(category)})
             </LocalizedClientLink>
           )}
         </div>

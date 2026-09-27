@@ -111,7 +111,7 @@ const MegaMenu = ({
                 {getSubCategories(selectedCategory).map((category) => (
                   <div key={category.id} className="flex flex-col gap-2">
                     <LocalizedClientLink
-                      className="font-medium text-zinc-500 hover:underline"
+                      className="font-medium text-zinc-500 dark:text-zinc-300 hover:underline"
                       href={`/categories/${category.handle}`}
                     >
                       {t(category.name)}
@@ -120,7 +120,7 @@ const MegaMenu = ({
                       {getSubCategories(category.id).map((subCategory) => (
                         <LocalizedClientLink
                           key={subCategory.id}
-                          className="hover:underline"
+                          className="text-zinc-700 dark:text-zinc-200 hover:underline"
                           href={`/categories/${subCategory.handle}`}
                         >
                           {subCategory.name}
