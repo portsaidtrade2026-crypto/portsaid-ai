@@ -10,6 +10,8 @@ import { HttpTypes } from "@medusajs/types"
 import { Container, Text } from "@medusajs/ui"
 import { notFound } from "next/navigation"
 import { Suspense } from "react"
+import { translateCatalogValue } from "@/lib/i18n/catalog"
+import { Locale } from "@/lib/i18n/config"
 
 export default function CategoryTemplate({
   categories,
@@ -17,17 +19,26 @@ export default function CategoryTemplate({
   sortBy,
   page,
   countryCode,
+  locale,
 }: {
   categories: HttpTypes.StoreProductCategory[]
   currentCategory: HttpTypes.StoreProductCategory
   sortBy?: SortOptions
   page?: string
   countryCode: string
+  locale?: Locale
 }) {
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || "created_at"
 
   if (!currentCategory || !countryCode) notFound()
+
+  const description = translateCatalogValue(
+    currentCategory.description,
+    locale,
+    currentCategory.metadata,
+    "description"
+  )
 
   return (
     <div className="bg-neutral-100">
@@ -39,6 +50,11 @@ export default function CategoryTemplate({
           categories={categories}
           category={currentCategory}
         />
+        {description && (
+          <Text className="text-neutral-600 max-w-3xl text-sm">
+            {description}
+          </Text>
+        )}
         <div className="flex flex-col small:flex-row small:items-start gap-3">
           <RefinementList
             sortBy={sort}

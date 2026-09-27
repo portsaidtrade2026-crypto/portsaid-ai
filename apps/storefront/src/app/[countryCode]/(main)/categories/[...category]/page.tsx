@@ -55,6 +55,7 @@ export default async function CategoryPage(props: Props) {
   const params = await props.params
   const { sortBy, page } = searchParams
   const handle = decodeCategorySegments(params.category).join("/")
+  const locale = await getRequestLocale()
 
   const categories = await listCategories()
 
@@ -73,6 +74,7 @@ export default async function CategoryPage(props: Props) {
       sortBy={sortBy}
       page={page}
       countryCode={params.countryCode}
+      locale={locale}
     />
   )
 }
