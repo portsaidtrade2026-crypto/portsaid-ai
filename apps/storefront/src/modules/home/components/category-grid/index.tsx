@@ -2,6 +2,8 @@
 
 import Image from "next/image"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import { useI18n } from "@/lib/i18n/provider"
+import { translateCatalogValue } from "@/lib/i18n/catalog"
 
 // One tile per business line Ahmed sent as reference photos. `handle` is the
 // Medusa product-category handle for lines that already have live products in
@@ -37,6 +39,7 @@ const CATEGORIES: { image: string; title: string; handle?: string }[] = [
 ]
 
 const CategoryGrid = () => {
+  const { t, locale } = useI18n()
   return (
     <div className="content-container py-10">
       <div className="flex items-end justify-between mb-6">
@@ -45,14 +48,14 @@ const CategoryGrid = () => {
             PS / PORTSAID
           </p>
           <h2 className="display-type text-3xl small:text-4xl font-semibold mt-1">
-            Ürün Kategorileri
+            {t("Product Categories")}
           </h2>
         </div>
         <LocalizedClientLink
           href="/store"
           className="text-sm font-semibold underline underline-offset-4 whitespace-nowrap"
         >
-          Tüm Katalog
+          {t("Full catalog")}
         </LocalizedClientLink>
       </div>
 
@@ -72,7 +75,7 @@ const CategoryGrid = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#111214]/90 via-[#111214]/10 to-transparent" />
             <span className="absolute bottom-0 left-0 right-0 px-3 py-2.5 text-white text-xs xsmall:text-sm font-semibold leading-tight">
-              {cat.title}
+              {translateCatalogValue(cat.title, locale)}
             </span>
             <span className="absolute inset-0 border-2 border-[var(--ps-yellow)] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
           </LocalizedClientLink>
