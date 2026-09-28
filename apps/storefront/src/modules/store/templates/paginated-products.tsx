@@ -17,6 +17,7 @@ type PaginatedProductsParams = {
   id?: string[]
   order?: string
   customer_group_id?: string
+  q?: string
 }
 
 export default async function PaginatedProducts({
@@ -28,6 +29,7 @@ export default async function PaginatedProducts({
   countryCode,
   customer,
   optionValueIds,
+  q,
 }: {
   sortBy?: SortOptions
   page: number
@@ -37,6 +39,7 @@ export default async function PaginatedProducts({
   countryCode: string
   customer?: B2BCustomer | null
   optionValueIds?: string[]
+  q?: string
 }) {
   const queryParams: PaginatedProductsParams = {
     limit: 12,
@@ -54,6 +57,10 @@ export default async function PaginatedProducts({
 
   if (sortBy === "created_at") {
     queryParams["order"] = "created_at"
+  }
+
+  if (q?.trim()) {
+    queryParams["q"] = q.trim()
   }
 
   const region = await getRegion(countryCode)

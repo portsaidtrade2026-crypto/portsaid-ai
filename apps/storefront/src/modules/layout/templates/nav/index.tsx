@@ -12,6 +12,7 @@ import SkeletonCartButton from "@/modules/skeletons/components/skeleton-cart-but
 import SkeletonMegaMenu from "@/modules/skeletons/components/skeleton-mega-menu"
 import { Suspense } from "react"
 import LanguageSwitcher from "@/modules/layout/components/language-switcher"
+import HeaderSearch from "@/modules/layout/components/header-search"
 import { getRequestLocale } from "@/lib/i18n/server"
 import { translate } from "@/lib/i18n/messages"
 import ThemeToggle from "@/modules/layout/components/theme-toggle"
@@ -50,15 +51,7 @@ export async function NavigationHeader() {
             </nav>
           </div>
           <div className="flex w-full small:w-auto justify-between small:justify-end items-center gap-1 small:gap-2 min-w-0 shrink-0">
-            <div className="relative mr-2 hidden small:inline-flex">
-              <input
-                disabled
-                type="text"
-                placeholder={t("Search for products")}
-              className="bg-[var(--ps-paper)] text-[var(--ps-ink)] px-4 py-2 rounded-full pe-10 border border-[var(--ps-line)] hidden small:inline-block hover:cursor-not-allowed"
-                title={t("Install a search provider to enable product search")}
-              />
-            </div>
+            <HeaderSearch />
 
             <div className="h-4 w-px bg-neutral-300" />
             <LanguageSwitcher />

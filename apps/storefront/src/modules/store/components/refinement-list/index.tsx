@@ -36,7 +36,11 @@ const RefinementList = ({
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams)
-      params.set(name, value)
+      if (value) {
+        params.set(name, value)
+      } else {
+        params.delete(name)
+      }
       params.delete("page")
 
       return params.toString()
@@ -58,7 +62,11 @@ const RefinementList = ({
   return (
     <div className="flex flex-col divide-neutral-200 small:w-1/5 w-full gap-3">
       <Container className="flex flex-col divide-y divide-neutral-200 p-0 w-full">
-        <SearchInResults listName={listName} />
+        <SearchInResults
+          listName={listName}
+          defaultValue={searchParams.get("q") || ""}
+          onSearch={(value) => setQueryParams("q", value)}
+        />
         <SortProducts
           sortBy={sortBy}
           setQueryParams={setQueryParams}

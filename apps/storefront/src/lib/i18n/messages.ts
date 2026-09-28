@@ -7,6 +7,7 @@ import { routeTranslations } from "./dictionaries/routes"
 const layoutMessages: Record<Locale, Record<string, string>> = {
   en: {
     Products: "Products", Quote: "Quote", "Search for products": "Search for products",
+    "Search in products": "Search in products", "Search in {listName}": "Search in {listName}",
     "Build your own B2B store with this starter:": "Build your own B2B store with this starter:",
     "Deploy to Medusa Cloud": "Deploy to Medusa Cloud", Categories: "Categories",
     "Product Categories": "Product Categories", "Full catalog": "Full catalog",
@@ -45,6 +46,7 @@ const layoutMessages: Record<Locale, Record<string, string>> = {
   },
   tr: {
     Products: "Ürünler", Quote: "Teklif", "Search for products": "Ürünlerde ara",
+    "Search in products": "Ürünlerde ara", "Search in {listName}": "{listName} içinde ara",
     "Build your own B2B store with this starter:": "Bu başlangıçla kendi B2B mağazanızı oluşturun:",
     "Deploy to Medusa Cloud": "Medusa Cloud'a dağıtın", Categories: "Kategoriler",
     "Product Categories": "Ürün Kategorileri", "Full catalog": "Tüm Katalog",
@@ -70,6 +72,7 @@ const layoutMessages: Record<Locale, Record<string, string>> = {
   },
   bg: {
     Products: "Продукти", Quote: "Оферта", "Search for products": "Търсене на продукти",
+    "Search in products": "Търсене в продуктите", "Search in {listName}": "Търсене в {listName}",
     "Build your own B2B store with this starter:": "Създайте свой B2B магазин с този шаблон:",
     "Deploy to Medusa Cloud": "Публикувайте в Medusa Cloud", Categories: "Категории",
     "Product Categories": "Продуктови категории", "Full catalog": "Целия каталог",
@@ -95,6 +98,7 @@ const layoutMessages: Record<Locale, Record<string, string>> = {
   },
   ar: {
     Products: "المنتجات", Quote: "عرض سعر", "Search for products": "البحث عن المنتجات",
+    "Search in products": "البحث في المنتجات", "Search in {listName}": "البحث في {listName}",
     "Build your own B2B store with this starter:": "أنشئ متجر B2B الخاص بك باستخدام هذا القالب:",
     "Deploy to Medusa Cloud": "النشر على Medusa Cloud", Categories: "الفئات",
     "Product Categories": "فئات المنتجات", "Full catalog": "الكتالوج الكامل",
