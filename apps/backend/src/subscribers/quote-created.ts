@@ -1,6 +1,7 @@
 import type { SubscriberArgs, SubscriberConfig } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import type { Logger, RemoteQueryFunction } from "@medusajs/framework/types";
+import type { QueryQuote } from "../types";
 
 /*
   Notifies the n8n automation of a new quote request so it can send the
@@ -29,8 +30,9 @@ export default async function quoteCreatedHandler({
     fields: ["id", "customer.email", "customer.first_name"],
     filters: { id: data.id },
   });
+  const quoteData = quote as unknown as QueryQuote;
 
-  if (!quote?.customer?.email) {
+  if (!quoteData?.customer?.email) {
     return;
   }
 
@@ -39,13 +41,13 @@ export default async function quoteCreatedHandler({
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        quote_id: quote.id,
-        customer_email: quote.customer.email,
-        customer_name: quote.customer.first_name ?? "",
+        quote_id: quoteData.id,
+        customer_email: quoteData.customer.email,
+        customer_name: quoteData.customer.first_name ?? "",
       }),
     });
   } catch (error) {
-    logger.warn(`Failed to notify n8n of quote ${quote.id}: ${error}`);
+    logger.warn(`Failed to notify n8n of quote ${quoteData.id}: ${error}`);
   }
 }
 
