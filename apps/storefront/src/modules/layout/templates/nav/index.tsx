@@ -41,7 +41,7 @@ export async function NavigationHeader() {
             </LocalizedClientLink>
 
             <nav>
-              <ul className="space-x-4 hidden small:flex">
+              <ul className="space-x-4 flex">
                 <li>
                   <Suspense fallback={<SkeletonMegaMenu />}>
                     <MegaMenuWrapper />
