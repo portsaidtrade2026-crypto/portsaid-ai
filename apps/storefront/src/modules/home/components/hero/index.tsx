@@ -36,7 +36,7 @@ const Hero = () => {
             {t("Automotive and plastic components, sourced with precision and ready for your next production run.")}
           </p>
         </div>
-        <LocalizedClientLink href="/store" className="max-w-full">
+        <LocalizedClientLink href="/katalog" className="max-w-full">
           <Button variant="secondary" className="rounded-2xl">
             {t("Browse catalogue")}
           </Button>

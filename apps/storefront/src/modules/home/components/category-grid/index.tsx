@@ -52,7 +52,7 @@ const CategoryGrid = () => {
           </h2>
         </div>
         <LocalizedClientLink
-          href="/store"
+          href="/katalog"
           className="text-sm font-semibold underline underline-offset-4 whitespace-nowrap"
         >
           {t("Full catalog")}

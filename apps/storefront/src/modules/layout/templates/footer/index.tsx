@@ -136,7 +136,7 @@ export default async function Footer() {
                   <LocalizedClientLink href="/account" className="hover:text-ui-fg-base">{t("Customer account")}</LocalizedClientLink>
                 </li>
                 <li>
-                  <LocalizedClientLink href="/store" className="hover:text-ui-fg-base">
+                  <LocalizedClientLink href="/katalog" className="hover:text-ui-fg-base">
                     {t("Catalogue")}
                   </LocalizedClientLink>
                 </li>
