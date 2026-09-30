@@ -16,7 +16,7 @@ import type {
   StoreProductVariant,
 } from "@medusajs/types"
 import { toast } from "@medusajs/ui"
-import { useParams } from "next/navigation"
+import { useParams, useRouter } from "next/navigation"
 import type { PropsWithChildren } from "react"
 import {
   createContext,
@@ -60,6 +60,7 @@ export function CartProvider({
   cart: B2BCart | null
 }>) {
   const { countryCode } = useParams()
+  const router = useRouter()
 
   const [optimisticCart, setOptimisticCart] = useOptimistic<B2BCart | null>(
     cart
@@ -186,9 +187,16 @@ export function CartProvider({
           }
           setOptimisticCart(prevCart)
         })
+
+        // Header/nav (the quote button, cart badge, etc.) reads a
+        // server-fetched cart snapshot from the root layout, which doesn't
+        // pick up this client-side mutation on its own until something
+        // tells Next to re-render it - without this, the nav can still show
+        // "log in / add items" instructions after a successful add.
+        router.refresh()
       })
     },
-    [setOptimisticCart]
+    [setOptimisticCart, router]
   )
 
   useEffect(() => {
@@ -229,6 +237,7 @@ export function CartProvider({
       toast.error("Failed to delete item")
       setOptimisticCart(prevCart)
     })
+    router.refresh()
   }
 
   const handleUpdateCartQuantity = async (
@@ -290,6 +299,7 @@ export function CartProvider({
         toast.error("Failed to update cart quantity")
         setOptimisticCart(prevCart)
       })
+      router.refresh()
     }
   }
 
@@ -309,6 +319,7 @@ export function CartProvider({
       toast.error("Failed to empty cart")
       setOptimisticCart(prevCart)
     })
+    router.refresh()
   }
 
   const sortedItems = useMemo(() => {
