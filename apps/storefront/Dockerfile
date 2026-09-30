@@ -23,4 +23,9 @@ RUN pnpm --filter @b2b-starter/storefront build
 
 WORKDIR /repo/apps/storefront
 EXPOSE 8000
-CMD ["../../node_modules/.bin/next", "start", "-p", "8000"]
+# /shared-next-static is bind-mounted to a host path Caddy also mounts, so it
+# can serve /_next/static directly (file_server) instead of proxying through
+# Next's own static handler - which 404s on chunk paths for pages nested two
+# dynamic segments deep under a parallel route (parens/@/brackets in the same
+# path), a confirmed Next.js bug unrelated to this app's code.
+CMD sh -c "mkdir -p /shared-next-static && cp -r .next/static/. /shared-next-static/ && exec ../../node_modules/.bin/next start -p 8000"

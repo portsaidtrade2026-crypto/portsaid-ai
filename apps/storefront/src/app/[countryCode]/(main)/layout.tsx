@@ -37,7 +37,7 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
           </span>
 
           <LocalizedClientLink
-            href="/store"
+            href="/katalog"
             className="self-end small:self-auto underline underline-offset-4 hover:opacity-70"
           >
             {translate(locale, "Explore our catalogue")}
