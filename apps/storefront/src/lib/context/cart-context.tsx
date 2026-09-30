@@ -162,10 +162,21 @@ export function CartProvider({
         setIsUpdatingCart(true)
 
         await addToCartBulk({
-          lineItems: payload.lineItems.map((lineItem) => ({
-            variant_id: lineItem.productVariant.id,
-            quantity: lineItem.quantity,
-          })),
+          lineItems: payload.lineItems.map((lineItem) => {
+            const hasPrice =
+              !!lineItem.productVariant.calculated_price?.calculated_amount
+            return {
+              variant_id: lineItem.productVariant.id,
+              quantity: lineItem.quantity,
+              // Medusa's cart workflow rejects the whole bulk request if any
+              // variant has no price configured - this line is genuinely
+              // quote-only (see product-variants-table's handleAddToCart),
+              // so mark it custom-priced at 0 to skip that check instead of
+              // failing to add it at all. Priced variants are untouched;
+              // Medusa still calculates their real price server-side.
+              ...(hasPrice ? {} : { unit_price: 0 }),
+            }
+          }),
           countryCode: countryCode as string,
         }).catch((e) => {
           if (e.message === "Cart is pending approval") {

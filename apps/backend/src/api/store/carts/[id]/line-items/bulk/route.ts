@@ -24,7 +24,10 @@ export async function POST(
 
   const workflowInput = {
     cart_id: cart.id,
-    items: line_items,
+    items: line_items.map((item) => ({
+      ...item,
+      is_custom_price: item.is_custom_price ?? item.unit_price !== undefined,
+    })),
   };
 
   await addToCartWorkflow(req.scope).run({
