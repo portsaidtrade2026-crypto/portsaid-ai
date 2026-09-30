@@ -12,11 +12,11 @@ export default async function AccountPageLayout({
   return (
     <div className="flex flex-col gap-2 p-2">
       <Image
-        src="/account-block.jpg"
-        alt="Login banner background"
+        src="/banners/coming-soon-wide.png"
+        alt="PS PORT - Coming Soon"
         className="object-cover transition-opacity duration-300 w-full h-44"
         width={2000}
-        height={200}
+        height={260}
         quality={100}
         priority
       />

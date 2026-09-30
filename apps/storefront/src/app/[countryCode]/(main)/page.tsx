@@ -1,4 +1,5 @@
 import CategoryGrid from "@/modules/home/components/category-grid"
+import ComingSoonBanner from "@/modules/home/components/coming-soon-banner"
 import FeaturedProducts from "@/modules/home/components/featured-products"
 import Hero from "@/modules/home/components/hero"
 import PromoBanner from "@/modules/home/components/promo-banner"
@@ -22,6 +23,7 @@ export default async function Home(props: {
   return (
     <div className="flex flex-col gap-y-2 m-2">
       <Hero />
+      <ComingSoonBanner />
       <CategoryGrid />
       <PromoBanner />
       <Suspense fallback={<SkeletonFeaturedProducts />}>
