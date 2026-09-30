@@ -34,7 +34,10 @@ export default async function PaginatedProducts({
   sortBy?: SortOptions
   page: number
   collectionId?: string
-  categoryId?: string
+  // A parent category (e.g. "Ambalaj Malzemeleri") has no products of its
+  // own - they all live on its children - so its page passes every
+  // descendant category id here to pull in the whole subtree's products.
+  categoryId?: string | string[]
   productsIds?: string[]
   countryCode: string
   customer?: B2BCustomer | null
@@ -48,7 +51,9 @@ export default async function PaginatedProducts({
   if (collectionId) {
     queryParams["collection_id"] = [collectionId]
   } else if (categoryId) {
-    queryParams["category_id"] = [categoryId]
+    queryParams["category_id"] = Array.isArray(categoryId)
+      ? categoryId
+      : [categoryId]
   }
 
   if (productsIds) {

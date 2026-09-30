@@ -42,6 +42,31 @@ export default function CategoryTemplate({
     "description"
   )
 
+  // A parent category (e.g. "Ambalaj Malzemeleri") has no products directly
+  // assigned to it - they all live on its children (e.g. "Balonlu Naylon")
+  // - so querying by currentCategory.id alone always came back empty for
+  // any parent, even though the sidebar's own recursive count showed it had
+  // products. Collect every descendant id (including its own) so the page
+  // pulls in the whole subtree.
+  const collectCategoryIds = (
+    category: HttpTypes.StoreProductCategory
+  ): string[] => [
+    category.id,
+    ...category.category_children.flatMap((ref) => {
+      const child = categories.find((cat) => cat.id === ref.id)
+      return child ? collectCategoryIds(child) : []
+    }),
+  ]
+
+  const categoryIds = collectCategoryIds(currentCategory)
+
+  const hasAnyProducts = (category: HttpTypes.StoreProductCategory): boolean =>
+    (category.products?.length ?? 0) > 0 ||
+    category.category_children.some((ref) => {
+      const child = categories.find((cat) => cat.id === ref.id)
+      return child ? hasAnyProducts(child) : false
+    })
+
   return (
     <div className="bg-neutral-100">
       <div
@@ -67,7 +92,7 @@ export default function CategoryTemplate({
             hideOptionsPicker
           />
           <div className="w-full">
-            {currentCategory.products?.length === 0 ? (
+            {!hasAnyProducts(currentCategory) ? (
               <Container className="flex flex-col gap-2 justify-center text-center items-center text-sm text-neutral-500">
                 <Text className="font-medium">
                   No products found for this category.
@@ -93,7 +118,7 @@ export default function CategoryTemplate({
                 <PaginatedProducts
                   sortBy={sort}
                   page={pageNumber}
-                  categoryId={currentCategory.id}
+                  categoryId={categoryIds}
                   countryCode={countryCode}
                   q={q}
                 />
