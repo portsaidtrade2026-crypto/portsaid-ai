@@ -32,7 +32,7 @@ const CATEGORIES: { image: string; title: string; handle?: string }[] = [
   { image: "celik-cember.jpg", title: "Çelik Çember" },
   { image: "ambalaj-makineleri.jpg", title: "Ambalaj Makineleri", handle: "ambalaj-makineleri" },
   { image: "ikinci-el-makineleri.jpg", title: "İkinci El Makineleri" },
-  { image: "fabrika-depo.jpg", title: "Fabrika ve Depo Malzemeleri", handle: "fabrika-ve-depo-malzemeleri" },
+  { image: "fabrika-depo.jpg", title: "Masura ve Paletler", handle: "fabrika-ve-depo-malzemeleri" },
   { image: "ofis-kirtasiye.jpg", title: "Ofis Kırtasiye" },
   { image: "ofis-mobilyalari.jpg", title: "Ofis Mobilyaları" },
   { image: "ihracat-lojistik.jpg", title: "İhracat ve Lojistik" },
