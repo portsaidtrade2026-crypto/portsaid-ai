@@ -98,7 +98,10 @@ const OptionsPicker = ({ options }: OptionsPickerProps) => {
                       )}
                       aria-pressed={active}
                     >
-                      {value.value}
+                      {/* These values are measurement codes ("25 Mic", "150 m")
+                          stored LTR - without isolation an RTL ancestor (the
+                          Arabic locale) visually reorders them to "Mic 25". */}
+                      <bdi dir="ltr">{value.value}</bdi>
                     </button>
                   )
                 })}

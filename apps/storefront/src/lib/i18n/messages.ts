@@ -33,7 +33,7 @@ const layoutMessages: Record<Locale, Record<string, string>> = {
     "Install a search provider to enable product search": "Install a search provider to enable product search",
     "Ambalaj Makineleri": "Packaging Machines",
     "Endüstriyel Streç Film": "Industrial Stretch Film",
-    "Fabrika ve Depo Malzemeleri": "Factory & Warehouse Supplies",
+    "Masura ve Paletler": "Spools & Pallets",
     "Gıda Streç Film": "Food Stretch Film",
     "Balonlu Naylon": "Bubble Wrap",
     "Pre-Streç Film": "Pre-Stretch Film",
