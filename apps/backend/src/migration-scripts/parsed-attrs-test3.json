@@ -1,0 +1,35 @@
+[
+  {
+    "productId": "prod_01M3W271J8YKK4M007T21F4FBM",
+    "variantId": "variant_01M3W271RH305KFRWRPW3P9Y7K",
+    "title": "15 MİKRON ŞEFFAF STREÇ - S.POWER 2700 M",
+    "attrs": {
+      "Kalinlik": "15 um",
+      "Uzunluk": "2700 m",
+      "Renk": "Şeffaf"
+    }
+  },
+  {
+    "productId": "prod_01M3W2728VVJN7SZSDFNGHFZB1",
+    "variantId": "variant_01M3W272EC54B0J8TFV45RZWJJ",
+    "title": "15 MİKRON ŞEFFAF STREÇ - STANDART 1,68 ORTALAMA KG - 300 GR MASURA 200 M",
+    "attrs": {
+      "Kalinlik": "15 um",
+      "Uzunluk": "200 m",
+      "Agirlik": "300 gr",
+      "Renk": "Şeffaf"
+    }
+  },
+  {
+    "productId": "prod_01M3W272Z6G4V1C8XFYZW6T3NX",
+    "variantId": "variant_01M3W2732GMC67D7ST4TFR9SG8",
+    "title": "15 MİKRON ŞEFFAF STREÇ - STANDART 1.335 KG - 300 GR MASURA 150 M",
+    "attrs": {
+      "Kalinlik": "15 um",
+      "Uzunluk": "150 m",
+      "Agirlik": "1.335 kg",
+      "MasuraAgirligi": "300 gr",
+      "Renk": "Şeffaf"
+    }
+  }
+]

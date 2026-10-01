@@ -1,1052 +1,170 @@
 [
   {
-    "code": "PMSFSD15-001",
-    "title": "15 MİKRON ŞEFFAF STREÇ - S.POWER 2700 M",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/e2f8821173eb458fb545fd935f4d7175.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/e2f8821173eb458fb545fd935f4d7175.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD15-002",
-    "title": "15 MİKRON ŞEFFAF STREÇ - STANDART 1,68 ORTALAMA KG - 300 GR MASURA 200 M",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/e115169aabb348d190ba008f98785fa9.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/e115169aabb348d190ba008f98785fa9.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD15-003",
-    "title": "15 MİKRON ŞEFFAF STREÇ - STANDART 1.335 KG - 300 GR MASURA 150 M",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/622c7106614b42d0bb3d76407dcd1949.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/622c7106614b42d0bb3d76407dcd1949.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD15-004",
-    "title": "15 MİKRON ŞEFFAF STREÇ - STANDART 2,37 ORTALAMA KG - 270 GR MASURA 300 M",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/00c583d1ec474a75b9b8104ab614b53f.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/00c583d1ec474a75b9b8104ab614b53f.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD15-005",
-    "title": "15 MİKRON ŞEFFAF STREÇ - STANDART 2,37 ORTALAMA KG - 300 GR MASURA 300 M 10 cm",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/cf0c6deb517a40d6a91d9897e91b1648.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/cf0c6deb517a40d6a91d9897e91b1648.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD15-006",
-    "title": "15 MİKRON ŞEFFAF STREÇ - STANDART 300 M 1.185 KG - 300 GR MASURA 300 M 25 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/49ee4ed4a68443048f6073d46afc4841.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/49ee4ed4a68443048f6073d46afc4841.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD15-007",
-    "title": "15 MİKRON ŞEFFAF STREÇ - STANDART JUMBO",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/670e4d2c82684057ac8d15111aefedf8.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/670e4d2c82684057ac8d15111aefedf8.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-001",
-    "title": "17 MİCRON ŞEFFAF STREÇ-STANDART 0,52 KG 300 GR MASURA 230 M 12,5 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/f502b161dfaa4d2eb4608457499bc467.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/f502b161dfaa4d2eb4608457499bc467.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-003",
-    "title": "17 MİCRON ŞEFFAF STREÇ-STANDART 1.05 KG 300GR MASURA 230 M 25 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/8dd0fba355d14702bfcfaf086a0a206a.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/8dd0fba355d14702bfcfaf086a0a206a.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-007",
-    "title": "17 MİCRON ŞEFFAF STREÇ-STANDART 2.0 KG 300GR MASURA",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/11fc18f283b342f9b5c75ec1cf25c658.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/11fc18f283b342f9b5c75ec1cf25c658.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-011",
-    "title": "17 MİCRON ŞEFFAF STREÇ-STANDART 2.10 KG 300GR MASURA 230 M 16,50 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/f62587d7820940a78b4a83b1ced28c5d.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/f62587d7820940a78b4a83b1ced28c5d.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-012",
-    "title": "17 MİCRON ŞEFFAF STREÇ-STANDART 2.10 KG 300GR MASURA 230 M 50 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/ddcbcf1c2a134fd79949b0aae68074d8.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/ddcbcf1c2a134fd79949b0aae68074d8.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-019",
-    "title": "17 MİCRON ŞEFFAF STREÇ-STANDART 5.0 KG 400GR MASURA",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/d6cd0d5dcffc48a486db43726ea85b20.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/d6cd0d5dcffc48a486db43726ea85b20.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-025",
-    "title": "17 MİKRON ŞEFFAF STREÇ - HLL 300 JUMBO",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/e2991f50753a4dd595c1d5489ea4b0d0.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/e2991f50753a4dd595c1d5489ea4b0d0.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-026",
-    "title": "17 MİKRON ŞEFFAF STREÇ - S.POWER 1500 M",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/3869d0e824294e7da8db9b28ebf2ca96.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/3869d0e824294e7da8db9b28ebf2ca96.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-027",
-    "title": "17 MİKRON ŞEFFAF STREÇ - S.POWER 2000 M",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/0cd6a23d6a7446349bed855e5b32ed1f.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/0cd6a23d6a7446349bed855e5b32ed1f.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-028",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 0,34 KG 300 GR MASURA 180 M 10 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/3dfeae7345d84ef1b01e744415eb23db.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/3dfeae7345d84ef1b01e744415eb23db.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-031",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 0,426 KG 300 GR MASURA 180 M 12,50 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/867cf746a4db4011927a0ac62564c2a5.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/867cf746a4db4011927a0ac62564c2a5.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-032",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 0,46KG 300 GR MASURA 200 M 12,50 CIM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/6c8a102cb52943f7b9b04917707b277e.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/6c8a102cb52943f7b9b04917707b277e.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-035",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 0,57 KG 300 GR MASURA 180 M 16,50 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/b0bb8b1510a6493d879d9a5cde362710.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/b0bb8b1510a6493d879d9a5cde362710.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-038",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 0,85 KG 300 GR MASURA 180 M 25 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/c2d887cb1f99440d827db9c8f9092f3e.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/c2d887cb1f99440d827db9c8f9092f3e.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-039",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 0,93KG 300 GR MASURA 200 M 25 CIM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/0bf5a7c9ab3f4c119e89af539124a60a.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/0bf5a7c9ab3f4c119e89af539124a60a.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-041",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 0.62 KG 200 M 300 GR MASURA 16.50 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/48988637a4db44cab3297a7ed88265fe.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/48988637a4db44cab3297a7ed88265fe.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-043",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 0.88 KG 300 M 300 GR MASURA 16.50 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/9603671ca0a247bdb2a6c77e144d8b56.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/9603671ca0a247bdb2a6c77e144d8b56.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-045",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 1,00 KG 400 GR MASURA",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/a0ed0859e55b4f169668f43db841330d.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/a0ed0859e55b4f169668f43db841330d.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-046",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 1,00 KG 400 GR MASURA 25 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/769633e6296047afa2904cda1a1b4482.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/769633e6296047afa2904cda1a1b4482.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-048",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 1,275 KG 300 GR MASURA 125 M",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/acc100a705bc445d8d3c4accbe555315.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/acc100a705bc445d8d3c4accbe555315.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-052",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 1,32 KG 300 GR MASURA 300 M 25 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/515a9757524040bbb012d474554b7881.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/515a9757524040bbb012d474554b7881.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-056",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 1,47 KG 300 GR MASURA 150 M",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/50716a532649419d9562a0dc85a4556e.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/50716a532649419d9562a0dc85a4556e.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-057",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 1,50 KG 300 GR MASURA",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/8249f179a3394906a062451034fc4f7b.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/8249f179a3394906a062451034fc4f7b.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-059",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 1,6 KG 400 GR MASURA ",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/e98d3ea59e63423f8f03c8544c766489.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/e98d3ea59e63423f8f03c8544c766489.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-065",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 1,70 KG 300 GR MASURA 180 M ",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/8d264d89b40749c9b417501d95afafae.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/8d264d89b40749c9b417501d95afafae.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-070",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 1,86KG 300 GR MASURA 200 M",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/47e36a4db5574f63963b17edaa8f0e03.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/47e36a4db5574f63963b17edaa8f0e03.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-077",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 2,0 KG 400 GR MASURA",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/7f14350f8dc64510ba285b78e6d66770.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/7f14350f8dc64510ba285b78e6d66770.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-078",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 2,0 KG 400 GR MASURA 10 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/f0398b1b028341c5b6c7385dafd8421a.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/f0398b1b028341c5b6c7385dafd8421a.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-079",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 2,0 KG 400 GR MASURA 16,50 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/94a8b7614be142d6bb1b139bdab51db0.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/94a8b7614be142d6bb1b139bdab51db0.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-080",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 2,0 KG 400 GR MASURA 25 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/cc9ee85d954f47879405afcb59896318.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/cc9ee85d954f47879405afcb59896318.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-082",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 2,15 KG 400 GR MASURA",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/bffde141d47646f584f6729e055988e3.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/bffde141d47646f584f6729e055988e3.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-085",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 2,30 KG 300 GR MASURA ",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/649db1eee61747d39958b190b8ce162f.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/649db1eee61747d39958b190b8ce162f.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-090",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 2,4 KG 300 GR MASURA",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/5b536476714e4f05984a98a6a246678a.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/5b536476714e4f05984a98a6a246678a.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-094",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 2,6 KG ORTALAMA 300 GR MASURA 300 M",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/bc9361591c0b46b38a4fa369e6027085.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/bc9361591c0b46b38a4fa369e6027085.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-103",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 200 m 10 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/00e973da11914f28b8022da75cb363fe.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/00e973da11914f28b8022da75cb363fe.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-104",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 200 M 16,50 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/4db6b2d1b62542939f6ba7de0ff95d87.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/4db6b2d1b62542939f6ba7de0ff95d87.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-109",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART 300 m  10 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/b3db2b8cb877484ba25fbb03db2ce4ea.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/b3db2b8cb877484ba25fbb03db2ce4ea.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-110",
-    "title": "17 MİKRON ŞEFFAF STREÇ - STANDART JUMBO",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/8115ce6e62dc4583b79967845ee3366f.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/8115ce6e62dc4583b79967845ee3366f.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD17-112",
-    "title": "17 MİKRON ŞEFFAF STREÇ - SUPER POWER 1.4 KG ORTALAMA 300 GR MASURA 140 M",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/b69458b316ed409f9f1722cb40b9fbc7.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/b69458b316ed409f9f1722cb40b9fbc7.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSSSD23-001",
-    "title": "23 MİKRON 1500 MT SİYAH STREÇ",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/0c2ca70579f543ecae11fe519154a327.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/0c2ca70579f543ecae11fe519154a327.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSSSD23-002",
-    "title": "23 MİKRON BEYAZ STREÇ - STANDART JUMBO",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/bfbd6c1677e84f7a893a5fd416dd4c0f.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/bfbd6c1677e84f7a893a5fd416dd4c0f.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSSSD23-003",
-    "title": "23 MİKRON MAVİ STREÇ - STANDART JUMBO",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/380f4550ea8440c189f7b0a949795c5c.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/380f4550ea8440c189f7b0a949795c5c.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSSSD23-004",
-    "title": "23 MİKRON SIYAH STREÇ - STANDART  3,47 KG 300 GR MASURA",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/8ee8b16751c449b4ab5ca212c7bb0094.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/8ee8b16751c449b4ab5ca212c7bb0094.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSSSD23-005",
-    "title": "23 MİKRON SIYAH STREÇ - STANDART 1,0 KG 300 GR MASURA",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/cc4a03b82d8f465fad362fd4b0720757.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/cc4a03b82d8f465fad362fd4b0720757.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSSSD23-008",
-    "title": "23 MİKRON SIYAH STREÇ - STANDART 1,88 KG 300 GR MASURA 150 M",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/22fd9cb806c64eacb347265b9e87245d.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/22fd9cb806c64eacb347265b9e87245d.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSSSD23-011",
-    "title": "23 MİKRON SIYAH STREÇ - STANDART 2,0 KG 400 GR MASURA",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/a2b677f5981141f7bf9b0be83c418204.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/a2b677f5981141f7bf9b0be83c418204.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSSSD23-012",
-    "title": "23 MİKRON SIYAH STREÇ - STANDART 2,0 KG 400 GR MASURA 25 CM",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/1d8d8c3658134d53ba19522b07a62116.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/1d8d8c3658134d53ba19522b07a62116.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSSSD23-023",
-    "title": "23 MİKRON SIYAH STREÇ - STANDART 2.41 KG 300 GR MASURA 200 m",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/d2d758bb4b0e416f9a5292ba425f33e9.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/d2d758bb4b0e416f9a5292ba425f33e9.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSSSD23-025",
-    "title": "23 MİKRON SIYAH STREÇ - STANDART JUMBO",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/43a993a28d944311a0ff5a2bd70b498b.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/43a993a28d944311a0ff5a2bd70b498b.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSSSD23-027",
-    "title": "23 MİKRON SİYAH STREÇ BRÜT; 1.62 KG ORTALAMA 125 M 300 GR MASURA",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/520f5ae0ee4241cfb21bdfacc2842cc6.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/520f5ae0ee4241cfb21bdfacc2842cc6.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD23-001",
-    "title": "23 MİKRON STREÇ - STANDART 2,0 KG 400 GR MASURA",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/9871a4f4a6ec400b9e6814bd5a6cc1e7.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/9871a4f4a6ec400b9e6814bd5a6cc1e7.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD23-002",
-    "title": "23 MİKRON STREÇ - STANDART 2,5 KG 300 GR MASURA",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/dda9d4deb276451086e293d6825bcec3.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/dda9d4deb276451086e293d6825bcec3.jpg\",\"FlCover\":true}]"
-  },
-  {
     "code": "PMSFSD23-022",
     "title": "23 MİKRON STREÇ - STANDART 2,7 KG 400 GR MASURA",
     "category": "STREÇ FİLM",
     "photo": "[]"
   },
   {
-    "code": "PMSFSD23-005",
-    "title": "23 MİKRON STREÇ - STANDART 2.41 KG 300 GR MASURA 200 M",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/e30b6f5997984664988de5ab2cc8c289.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/e30b6f5997984664988de5ab2cc8c289.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD23-007",
-    "title": "23 MİKRON STREÇ - STANDART JUMBO",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/ea6a8ffcaed64e74a8da37a0fbe54cc5.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/ea6a8ffcaed64e74a8da37a0fbe54cc5.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD23-008",
-    "title": "23 MİKRON ŞEFFAF STREÇ - 150 M STANDART 1,88 KG 300 GR MASURA",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/77387a7429c546999d15f6a29df3ad2e.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/77387a7429c546999d15f6a29df3ad2e.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD23-009",
-    "title": "23 MİKRON ŞEFFAF STREÇ - 1500 M",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/49cb73c228ad43649a40bfdc74881f7d.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/49cb73c228ad43649a40bfdc74881f7d.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD23-010",
-    "title": "23 MİKRON ŞEFFAF STREÇ - 1500 M SUPER POWER",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/a7398742d099433bb7b5deb734f2255f.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/a7398742d099433bb7b5deb734f2255f.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD23-012",
-    "title": "23 MİKRON ŞEFFAF STREÇ - 2.6 KG 300 GR MASURA ",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/32a957a4efab4d55b80a71ef953e6339.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/32a957a4efab4d55b80a71ef953e6339.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSFSD23-013",
-    "title": "23 MİKRON ŞEFFAF STREÇ - HLL 300 JUMBO",
-    "category": "STREÇ FİLM",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/f975fbda495c4bc0b0aa1971691ae403.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/f975fbda495c4bc0b0aa1971691ae403.jpg\",\"FlCover\":true}]"
-  },
-  {
     "code": "PMSFSD23-016",
     "title": "23 MİKRON ŞEFFAF STREÇ - STANDART  2,1 KG 300 GR MASURA",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/f09604d8eb51413aa0bc7e6085202486.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/f09604d8eb51413aa0bc7e6085202486.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-017",
     "title": "23 MİKRON ŞEFFAF STREÇ - STANDART  2,75 KG 300 GR MASURA",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/bd8f8cf4513443458e14f27fb71f1aa8.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/bd8f8cf4513443458e14f27fb71f1aa8.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-019",
     "title": "23 MİKRON ŞEFFAF STREÇ - STANDART  3,47 KG 300 GR MASURA",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/ec3f8564549e4ad284cbf52449af80c7.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/ec3f8564549e4ad284cbf52449af80c7.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-028",
     "title": "23 MİKRON ŞEFFAF STREÇ - STANDART 14,0 KG 1700 GR MASURA",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/d916b1bd36254687a5228268e7ea9de1.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/d916b1bd36254687a5228268e7ea9de1.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-030",
     "title": "23 MİKRON ŞEFFAF STREÇ - STANDART 2,0 KG 400 GR MASURA 16,50 CM",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/7ebbf42bdfec414c875d9d3246248947.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/7ebbf42bdfec414c875d9d3246248947.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-031",
     "title": "23 MİKRON ŞEFFAF STREÇ - STANDART 2,0 KG 400 GR MASURA 25 CM",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/9459d14696044ed188f74372f9d78617.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/9459d14696044ed188f74372f9d78617.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-032",
     "title": "23 MİKRON ŞEFFAF STREÇ - STANDART 2,00 KG 400 GR MASURA 152 M 12,50 CM",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/d2ad97ea45ad4f8cab1002f16be7f96f.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/d2ad97ea45ad4f8cab1002f16be7f96f.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-034",
     "title": "23 MİKRON ŞEFFAF STREÇ - STANDART 2,15 KG 400 GR MASURA",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/5a1bcdd1ef1d4336942143e3af3b4af1.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/5a1bcdd1ef1d4336942143e3af3b4af1.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-036",
     "title": "23 MİKRON ŞEFFAF STREÇ - STANDART 2,20 KG 300 GR MASURA 180 M",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/d5e4850e7b104ccda6ad1683a2f0fa70.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/d5e4850e7b104ccda6ad1683a2f0fa70.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-037",
     "title": "23 MİKRON ŞEFFAF STREÇ - STANDART 2,20 KG 300 GR MASURA 180 M 10 CM",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/f8f7a4f624b34ac9a2249f3f3f370b88.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/f8f7a4f624b34ac9a2249f3f3f370b88.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-038",
     "title": "23 MİKRON ŞEFFAF STREÇ - STANDART 2,20 KG 300 GR MASURA 180 M 12,50 CM",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/02699faf56a24ffa916bdc4d908fc719.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/02699faf56a24ffa916bdc4d908fc719.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-039",
     "title": "23 MİKRON ŞEFFAF STREÇ - STANDART 2,20 KG 300 GR MASURA 180 M 25 CM",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/55de5ed519654a47b16658457ba09a2a.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/55de5ed519654a47b16658457ba09a2a.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-051",
     "title": "23 MİKRON ŞEFFAF STREÇ - SUPER POWER 14,50 KG 1800 GR MASURA",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/7edf773c58b04fff9746c01b07d8a9f1.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/7edf773c58b04fff9746c01b07d8a9f1.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-052",
     "title": "23 MİKRON ŞEFFAF STREÇ - Super Power 15 KG Brüt ",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/b5a67a6e42a34ddf86903dfa8abc7fca.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/b5a67a6e42a34ddf86903dfa8abc7fca.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-057",
     "title": "23 MİKRON ŞEFFAF STREÇ Brüt; 1.62 kG ORTALAMA 125 M 300 GR MASURA . ",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/86cd86abd19b4cbdbf066a6414d2a1bd.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/86cd86abd19b4cbdbf066a6414d2a1bd.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-058",
     "title": "23 MİKRON TURUNCU STREÇ - STANDART 2,0 KG 500 GR MASURA ",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/f9a2a65ccf1347699d4ef0e47b3a02a7.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/f9a2a65ccf1347699d4ef0e47b3a02a7.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-059",
     "title": "23 MİKRON TURUNCU STREÇ - STANDART JUMBO",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/13957c0cad0f4de5b842fd5523b48797.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/13957c0cad0f4de5b842fd5523b48797.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD23-060",
     "title": "23 MİKRON YEŞİL STREÇ - STANDART JUMBO",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/f8e69fe711b047cd9e89374be2222865.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/f8e69fe711b047cd9e89374be2222865.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFSD25-001",
     "title": "25 MİKRON ŞEFFAF STREÇ - 1500 M",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/a41eb5f6ed264f8aa6dcae6168f78422.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/a41eb5f6ed264f8aa6dcae6168f78422.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFPR07-001",
     "title": "7 MİC 43CM EL TİPİ PRE STREÇ FİLM ",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/88c1ec3503d94c578307b77c493f94bc.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/88c1ec3503d94c578307b77c493f94bc.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFPR07-002",
     "title": "7 MİC 43CM EL TİPİ PRE STREÇ FİLM 3 KG",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/60921e50e57f42148b77bd0bf214617f.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/60921e50e57f42148b77bd0bf214617f.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFPR07-003",
     "title": "7 MİC 43CM EL TİPİ PRE STREÇ FİLM 3 KG ORTALAMA /ADET",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/3c77e25b4fac42e88cd40588db310cf6.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/3c77e25b4fac42e88cd40588db310cf6.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFPR07-005",
     "title": "7 MİKRON ŞEFFAF STREÇ - MAKİNE PRESTRECH",
     "category": "STREÇ FİLM",
-    "photo": "[]"
-  },
-  {
-    "code": "PMSRPR08-001",
-    "title": "8 MİKRON STREÇ - 30*1500 M",
-    "category": "GIDA STREÇ",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/43923d3c4d2d42938f3d6cc953b7e512.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/43923d3c4d2d42938f3d6cc953b7e512.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSRPR08-002",
-    "title": "8 MİKRON STREÇ - 45*1500 M",
-    "category": "GIDA STREÇ",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/0570bf1158f1479c9a423ad8b4e24526.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/0570bf1158f1479c9a423ad8b4e24526.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSRPR08-003",
-    "title": "8 MİKRON STREÇ - 45*180 M",
-    "category": "GIDA STREÇ",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/1e9b5057a0a042c7bddb5c9ce3b0ed4b.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/1e9b5057a0a042c7bddb5c9ce3b0ed4b.jpg\",\"FlCover\":true}]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/bb26b106658945df908220ab696183d9.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/bb26b106658945df908220ab696183d9.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFPR09-001",
     "title": "9 MİKRON SARI STREÇ - GIDA PRESTRECH 200 M",
     "category": "STREÇ FİLM",
-    "photo": "[]"
-  },
-  {
-    "code": "PMSRPR09-001",
-    "title": "9 MİKRON SARI STREÇ - GIDA PRESTRECH 300 M",
-    "category": "GIDA STREÇ",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/5525a1fcea60439cbc6c967626d64ecb.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/5525a1fcea60439cbc6c967626d64ecb.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMSRPR09-002",
-    "title": "9 MİKRON SARI STREÇ - GIDA PRESTRECH JUMBO BG",
-    "category": "GIDA STREÇ",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/69b75cfe022a4e21b652fbcf27ffd15c.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/69b75cfe022a4e21b652fbcf27ffd15c.jpg\",\"FlCover\":true}]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/fa1ab199ca3941ebb441fc9c1aff9b26.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/fa1ab199ca3941ebb441fc9c1aff9b26.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFPR09-002",
     "title": "9 MİKRON ŞEFFAF STREÇ - PRESTRECH 4200 M",
     "category": "STREÇ FİLM",
-    "photo": "[]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/e25ed3097cea469ebb48cc7e6c5f2d60.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/e25ed3097cea469ebb48cc7e6c5f2d60.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMSFPR09-003",
     "title": "9 MİKRON ŞEFFAF STREÇ - PRESTRECH JUMBO",
     "category": "STREÇ FİLM",
-    "photo": "[]"
-  },
-  {
-    "code": "PMKBF38-001",
-    "title": "AKRİLİK KOLİ BANDI – ŞEFFAF 45 MM X 100 METRE",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/76cc40c8b3e348e0a9f2ef72af8a341a.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/76cc40c8b3e348e0a9f2ef72af8a341a.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBF38-002",
-    "title": "AKRİLİK KOLİ BANDI – ŞEFFAF 45 MM X 100 yard",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/d305c3229c58471bbad9ad0daacac233.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/d305c3229c58471bbad9ad0daacac233.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMBLF-019",
-    "title": "Balonlu Naylon -200CM*100M 65 GR",
-    "category": "pat pat",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/c8234da71dba44ee816d6f00244f66a8.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/c8234da71dba44ee816d6f00244f66a8.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMCT-003",
-    "title": "BUKE TOKASI 16MM 1000 AD",
-    "category": "TOKA",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/fff1833bf690418796b7f35683fa3a20.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/fff1833bf690418796b7f35683fa3a20.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMCT-001",
-    "title": "BUKLE TOKASI 13MM 1000 AD",
-    "category": "TOKA",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/236260df6bfe41ee8f5cd972b29deb37.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/236260df6bfe41ee8f5cd972b29deb37.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMCT-002",
-    "title": "BUKLE TOKASI 19MM 1000 AD",
-    "category": "TOKA",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/ee15ca4f796544c1bfbdcdf8d5ed7d14.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/ee15ca4f796544c1bfbdcdf8d5ed7d14.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMC-001",
-    "title": "ÇEMBER - BRİNCİ KALİTE BEYAZ 08*060 3500 T",
-    "category": "ÇENBER",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/5653f31be670472fb36bfe0540530692.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/5653f31be670472fb36bfe0540530692.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMC-002",
-    "title": "ÇEMBER - ORİJİNAL BEYAZ 08*060 3500 T",
-    "category": "ÇENBER",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/c40b6983fa50444db98d9dc56e1d9505.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/c40b6983fa50444db98d9dc56e1d9505.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMC-003",
-    "title": "ÇEMBER - ORİJİNAL BEYAZ 12*060 2700 T",
-    "category": "ÇENBER",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/f41424caeee348e9a0421a1a51ede0b6.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/f41424caeee348e9a0421a1a51ede0b6.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMC-004",
-    "title": "ÇEMBER - YEŞİL POLYSTER 12*070 1200 T",
-    "category": "ÇENBER",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/1806ab0d79e444c2a352290836f5b747.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/1806ab0d79e444c2a352290836f5b747.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMC-005",
-    "title": "ÇEMBER - YEŞİL POLYSTER 12*070 1750 T",
-    "category": "ÇENBER",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/ef6d7179fc9e440a9e2c9212a9869f31.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/ef6d7179fc9e440a9e2c9212a9869f31.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMC-006",
-    "title": "ÇEMBER - YEŞİL POLYSTER 12*070 2000 T",
-    "category": "ÇENBER",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/ee1ee3fa56614a9188635ea17e3e0a4f.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/ee1ee3fa56614a9188635ea17e3e0a4f.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMC-007",
-    "title": "ÇEMBER - YEŞİL POLYSTER 12*090 2000 T",
-    "category": "ÇENBER",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/915ae7ea26f54cb697611f33137fbeb5.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/915ae7ea26f54cb697611f33137fbeb5.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMC-008",
-    "title": "ÇEMBER BEYAZ - 16 MM KOMPOZIT LIFLI 850 MT",
-    "category": "ÇENBER",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/da64f272c8b642f38823fb4063515526.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/da64f272c8b642f38823fb4063515526.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMC-009",
-    "title": "ÇEMBER BEYAZ - 19 MM KOMPOZIT LIFLI 600 MT",
-    "category": "ÇENBER",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/f1b50243a88b4d4ba14e8ad89c97f737.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/f1b50243a88b4d4ba14e8ad89c97f737.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMC-010",
-    "title": "ÇEMBER SİYAH - 12 MM*080  40 KAŞNAK",
-    "category": "ÇENBER",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/59dda57a482f484396c769613adbe38a.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/59dda57a482f484396c769613adbe38a.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMC-011",
-    "title": "ÇEMBER SİYAH - 12*08 ORJINAL 40 KAŞNAK",
-    "category": "ÇENBER",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/e20b556bb2a5425480f5023e01524d5e.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/e20b556bb2a5425480f5023e01524d5e.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMC-012",
-    "title": "ÇEMBER TAŞIMA ARABASI",
-    "category": "ÇENBER",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/3f71068cf1744bacaccdbbf0c9252ac4.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/3f71068cf1744bacaccdbbf0c9252ac4.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMC-013",
-    "title": "ÇEMBER- YEŞİL POLYESTER 16 X 0,70 MM",
-    "category": "ÇENBER",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/ab59d01b7b3b42cd9884d76f69b73819.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/ab59d01b7b3b42cd9884d76f69b73819.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBC-001",
-    "title": "ÇİFT TARAFLI – FİLMİK 20 MM X 100 METRE",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/15ade2ec01ce4785b95c92e3fd1a563a.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/15ade2ec01ce4785b95c92e3fd1a563a.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBC-002",
-    "title": "ÇİFT TARAFLI – FİLMİK 38 MM X 25 METRE",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/c6cc267db8de4f74bb210e96f2834d61.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/c6cc267db8de4f74bb210e96f2834d61.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBC-003",
-    "title": "ÇİFT TARAFLI – FİLMİK 50 MM X 25  METRE",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/304ebb3cb2a14a32b88828ee18bb2969.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/304ebb3cb2a14a32b88828ee18bb2969.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBC-004",
-    "title": "ÇİFT TARAFLI – FİLMİK 60 MM X 100 METRE",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/927a3bf28e24495ea8da8fc95e47613b.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/927a3bf28e24495ea8da8fc95e47613b.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBV-001",
-    "title": "HOTMELT – KAHVE 60MM*100M 38 MIC",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/004c6d2b49be49cdad8816a1eff8b329.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/004c6d2b49be49cdad8816a1eff8b329.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBV-002",
-    "title": "HOTMELT – KAHVE 67MM*100M 38 MIC",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/e2fdf1f128d34af2a5dbd1cb10f66b61.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/e2fdf1f128d34af2a5dbd1cb10f66b61.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBV-003",
-    "title": "HOTMELT – KAHVE 70MM*100M 38 MIC",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/80c1e26660524931a54cf9f30714a6f2.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/80c1e26660524931a54cf9f30714a6f2.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBV-004",
-    "title": "HOTMELT – KAHVERENGİ  JUMBO 37 MIC",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/a58e34b8ad004fa082cfbd170bf464a4.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/a58e34b8ad004fa082cfbd170bf464a4.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBF-001",
-    "title": "HOTMELT – ŞEFFAF 36MM*600M 37 MİC",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/7cc42763bb0646518e3ba7b195b07ee8.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/7cc42763bb0646518e3ba7b195b07ee8.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBF-002",
-    "title": "HOTMELT – ŞEFFAF 44MM*100M 37 MİC",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/66cfc0394cae436aae211b2a84ceee3f.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/66cfc0394cae436aae211b2a84ceee3f.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBF-003",
-    "title": "HOTMELT – ŞEFFAF 44MM*100M 38 MİC",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/b2db133db8f645f385832ac8c43290fe.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/b2db133db8f645f385832ac8c43290fe.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBF-004",
-    "title": "HOTMELT – ŞEFFAF 44MM*90M 37 MİC",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/8ee2806fa80c4f6d86c423e64565ad03.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/8ee2806fa80c4f6d86c423e64565ad03.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBF-007",
-    "title": "HOTMELT – ŞEFFAF 45MM*1000M 37 MİC",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/e4a8437614234612a447747b9d141407.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/e4a8437614234612a447747b9d141407.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBF-005",
-    "title": "HOTMELT – ŞEFFAF 45MM*100M 40 MİC",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/fc27d856f5eb4083ba41f04ea6ba2dbc.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/fc27d856f5eb4083ba41f04ea6ba2dbc.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBF-006",
-    "title": "HOTMELT – ŞEFFAF 45MM*100M 42 mic",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/ce8e5b4e77424ea4b691898481fa2ee0.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/ce8e5b4e77424ea4b691898481fa2ee0.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBF-008",
-    "title": "HOTMELT – ŞEFFAF 45MM*800M 37 MİC",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/4e6d44d134f540bb8e58b6b6687a11ca.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/4e6d44d134f540bb8e58b6b6687a11ca.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBF-009",
-    "title": "HOTMELT – ŞEFFAF JUMBO 37 MIC",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/ecd71aae08b141078cbb3e06e8b186b6.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/ecd71aae08b141078cbb3e06e8b186b6.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBF-010",
-    "title": "HOTMELT – ŞEFFAF JUMBO 40 MIC",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/f3b5ce75387d448292c3b900521dfc47.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/f3b5ce75387d448292c3b900521dfc47.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBF-011",
-    "title": "HOTMELT – ŞEFFAF JUMBO 42 MIC",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/70e50bd188084e1ebed4f8fca0bc27da.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/70e50bd188084e1ebed4f8fca0bc27da.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBK-001",
-    "title": "KAĞIT BANT 4 CM GENİŞLİĞİNDE 4 cm x 25 mt",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/5be3b39c2f314a23834be86483b2f8d9.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/5be3b39c2f314a23834be86483b2f8d9.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBK-002",
-    "title": "KAĞIT BANT 4 CM GENİŞLİĞİNDE 4 cm x 40 mt",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/ede19e16ecb14fb6be5523514004488f.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/ede19e16ecb14fb6be5523514004488f.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHKO-001",
-    "title": "KARTON KÖŞEBENT 1.0 MT 50*50 5MM",
-    "category": "KÖŞEBANT",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/ca11126e15e24a818e0febee47f3afc9.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/ca11126e15e24a818e0febee47f3afc9.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHKO-002",
-    "title": "KARTON KÖŞEBENT 1000 MM 40*40*3",
-    "category": "KÖŞEBANT",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/08d09667a49e4a42b055b5df1544aa6b.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/08d09667a49e4a42b055b5df1544aa6b.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHKO-003",
-    "title": "KARTON KÖŞEBENT 1100 MM 40*40*3",
-    "category": "KÖŞEBANT",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/8a5ff2aa124e4b249248393b11b6f839.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/8a5ff2aa124e4b249248393b11b6f839.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHKO-004",
-    "title": "KARTON KÖŞEBENT 2 MT 40*40 4MM",
-    "category": "KÖŞEBANT",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/eb0818010b894bfa9350687a91af00ba.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/eb0818010b894bfa9350687a91af00ba.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHKO-005",
-    "title": "KARTON KÖŞEBENT 2,10MT 95*95 5MM",
-    "category": "KÖŞEBANT",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/2f64a7cd2fde41d8a852042cd16a2da4.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/2f64a7cd2fde41d8a852042cd16a2da4.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHKO-006",
-    "title": "KARTON KÖŞEBENT 2.5 MT 40*40 4MM",
-    "category": "KÖŞEBANT",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/4efe400c4a814967b59d23e68c35bc56.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/4efe400c4a814967b59d23e68c35bc56.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHKO-007",
-    "title": "KARTON KÖŞEBENT 3 MT 50*90 4MM",
-    "category": "KÖŞEBANT",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/97a5c2a0896243c4bb9e5cd88de42c84.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/97a5c2a0896243c4bb9e5cd88de42c84.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHK-001",
-    "title": "kırmızı KOLİ",
-    "category": "KOLİ",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/42604833a9aa458a83e9941bec22a5c0.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/42604833a9aa458a83e9941bec22a5c0.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKL5-001",
-    "title": "L5 POLİETİLEN MAVİ KÖŞEBENT",
-    "category": "KÖŞEBANT",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/9ac2cf64a6c64dde8d60dfa9b3863f92.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/9ac2cf64a6c64dde8d60dfa9b3863f92.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBM-001",
-    "title": "MAD WOLF MASKELEME BANDI – BEYAZ 36 MM X 35 METRE",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/0699c6ca96914d49b04ade5718a9f255.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/0699c6ca96914d49b04ade5718a9f255.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMC-014",
-    "title": "MANUEL ÇEMBER GERDİRME MAKİNESİ",
-    "category": "ÇENBER",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/de872527925c4a89a6ca786183fbc1c2.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/de872527925c4a89a6ca786183fbc1c2.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBM-002",
-    "title": "MASKELEME BANDI – BEYAZ 18 MM X 25 METRE",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/af5916bc33164375a1a7d307ea1a9f76.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/af5916bc33164375a1a7d307ea1a9f76.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBM-003",
-    "title": "MASKELEME BANDI – BEYAZ 19 MM X 25 METRE",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/af5462360bb846fe9e9de04e85309d6e.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/af5462360bb846fe9e9de04e85309d6e.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBM-004",
-    "title": "MASKELEME BANDI – BEYAZ 36 MM X 25 METRE",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/0901a480717b4e6fa3be959282624d74.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/0901a480717b4e6fa3be959282624d74.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBM-005",
-    "title": "MASKELEME BANDI – KREM 45 MM X  35 METRE",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/9bc24a0da87041f1b16ce69e7172c8b4.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/9bc24a0da87041f1b16ce69e7172c8b4.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBM-006",
-    "title": "MASKELEME BANDI – KREM 48 MM X 25 METRE",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/0482850b194d496d8017b0b63bfad7b4.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/0482850b194d496d8017b0b63bfad7b4.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMKBM-007",
-    "title": "MASKELEME BANDI – YEŞIL 48 MM X 30 METRE",
-    "category": "koli band",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/a6e838cb5457496191316e00c53c8f45.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/a6e838cb5457496191316e00c53c8f45.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHM-001",
-    "title": "MASURA 1500 GR",
-    "category": "masura",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/0e03d6c8e846474c9faded5f4aee79b1.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/0e03d6c8e846474c9faded5f4aee79b1.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHM-002",
-    "title": "MASURA 200 GR",
-    "category": "masura",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/ccd2e508ee364ba2ad22fdf6018e3b15.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/ccd2e508ee364ba2ad22fdf6018e3b15.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHM-003",
-    "title": "MASURA 280 GR",
-    "category": "masura",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/3cf7434cdf9b4950b617ce7aa42347a4.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/3cf7434cdf9b4950b617ce7aa42347a4.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHM-004",
-    "title": "MASURA 30 CM",
-    "category": "masura",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/31fe814c932540888704946a999e0cc6.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/31fe814c932540888704946a999e0cc6.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHM-005",
-    "title": "masura 300 gr",
-    "category": "masura",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/a6df77161ee84bf792ca218fd9b07349.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/a6df77161ee84bf792ca218fd9b07349.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHM-006",
-    "title": "masura 350 gr",
-    "category": "masura",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/26d92dcb1330427cbd61ee08ad5128b3.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/26d92dcb1330427cbd61ee08ad5128b3.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHM-007",
-    "title": "masura 400 gr",
-    "category": "masura",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/0c3f1ca0d75042a29039548f48c5a193.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/0c3f1ca0d75042a29039548f48c5a193.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHM-008",
-    "title": "MASURA 450 GR",
-    "category": "masura",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/4b5cc2e81e6b4ad38e44c668bb09a4ac.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/4b5cc2e81e6b4ad38e44c668bb09a4ac.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHM-009",
-    "title": "MASURA 500 GR",
-    "category": "masura",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/ff3883719ba549c787f33c764af08eac.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/ff3883719ba549c787f33c764af08eac.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHK-002",
-    "title": "mavi koli",
-    "category": "KOLİ",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/727e3f09320b4a449fbda967752fdfa9.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/727e3f09320b4a449fbda967752fdfa9.jpg\",\"FlCover\":true}]"
+    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/7807131fee8d45bfa57aa57065cb4827.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/7807131fee8d45bfa57aa57065cb4827.jpg\",\"FlCover\":true}]"
   },
   {
     "code": "PMAPLE-001",
     "title": "PALET 80 X 120 METRE",
     "category": "",
     "photo": "[]"
-  },
-  {
-    "code": "PHP-001",
-    "title": "pallet",
-    "category": "Pallet",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/742e561ef2cb44d6aee0f772c6855c29.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/742e561ef2cb44d6aee0f772c6855c29.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHK-003",
-    "title": "SADE KIRMIZI  KOLİ",
-    "category": "KOLİ",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/fc21dc9c9a0649a19e12fd50fb830c74.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/fc21dc9c9a0649a19e12fd50fb830c74.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHK-004",
-    "title": "SADE KOLİ 3 kg",
-    "category": "KOLİ",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/3cbe4606934f49c5a2259bb1c3bb9b49.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/3cbe4606934f49c5a2259bb1c3bb9b49.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHK-005",
-    "title": "SADE SİYAH  KOLİ",
-    "category": "KOLİ",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/da61bb860d904e2abff900466d745cf9.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/da61bb860d904e2abff900466d745cf9.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHK-006",
-    "title": "SADE TURUNCU KOLİ",
-    "category": "KOLİ",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/470693ea0c1e4978a5f544530ab49dec.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/470693ea0c1e4978a5f544530ab49dec.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PHK-007",
-    "title": "siyah KOLİ",
-    "category": "KOLİ",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/d79ad75394004998bad110c06ef49043.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/d79ad75394004998bad110c06ef49043.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "PMS-001",
-    "title": "STRAFOR 100X50X2 CM (Bir paket 25 tane )",
-    "category": "STRAFOR",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/6de480e164a8497281371719dbae37a0.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/6de480e164a8497281371719dbae37a0.jpg\",\"FlCover\":true}]"
-  },
-  {
-    "code": "DGRGDR-015",
-    "title": "STREÇ FİLM DGRGDR-015",
-    "category": "",
-    "photo": null
-  },
-  {
-    "code": "PHK-008",
-    "title": "turuncu KOLİ",
-    "category": "KOLİ",
-    "photo": "[{\"PhotoUrl\":\"https://images.bizimhesap.com/0000217517/69d3228ed7734bf8a95377e969701023.jpg\",\"PhotoUrlOriginal\":\"https://images.bizimhesap.com/0000217517/69d3228ed7734bf8a95377e969701023.jpg\",\"FlCover\":true}]"
   }
 ]

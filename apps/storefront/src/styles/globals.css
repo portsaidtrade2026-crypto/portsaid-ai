@@ -51,6 +51,19 @@ body {
 }
 
 h1, h2, h3, h4, .display-type { font-family: "Barlow Condensed", "DM Sans", sans-serif; }
+
+/* Arabic locale only (html[dir="rtl"]) uses IBM Plex Sans Arabic, chosen by
+   Ahmed from a set of font samples - DM Sans/Barlow Condensed don't cover
+   Arabic glyphs, so without this override Arabic text silently fell back to
+   a generic system font. Every other locale keeps the fonts above untouched. */
+html[dir="rtl"] body,
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] .display-type {
+  font-family: var(--font-arabic), "DM Sans", ui-sans-serif, sans-serif;
+}
 button, input, select, textarea { font: inherit; }
 ::selection { background: var(--ps-yellow); color: #111214; }
 .theme-toggle {
