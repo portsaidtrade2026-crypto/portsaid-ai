@@ -1,7 +1,7 @@
 "use client"
 
 import LineItemPrice from "@/modules/common/components/line-item-price"
-import { translateCatalogValue } from "@/lib/i18n/catalog"
+import { translateProductTitle } from "@/lib/i18n/catalog"
 import { useI18n } from "@/lib/i18n/provider"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import Thumbnail from "@/modules/products/components/thumbnail"
@@ -40,7 +40,7 @@ const ItemPreview = ({ item, showBorders = true, currencyCode }: ItemProps) => {
         <div className="flex flex-col gap-y-2 justify-between min-h-full self-stretch">
           <div className="flex flex-col">
             <span className="txt-medium-plus text-neutral-950">
-              {translateCatalogValue(item.product?.title, locale, item.product?.metadata, "title")}
+              {translateProductTitle(item.product?.title, item.product?.handle, locale)}
             </span>
             <span className="text-neutral-600 text-xs">
               {item.variant?.title}

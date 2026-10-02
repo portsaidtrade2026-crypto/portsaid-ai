@@ -1,5 +1,6 @@
 import { HttpTypes } from "@medusajs/types"
 import { catalogTranslations } from "./dictionaries/catalog"
+import { productTitleTranslations } from "./dictionaries/product-titles"
 import { Locale } from "./config"
 
 type TranslationMetadata = {
@@ -67,6 +68,24 @@ export const translateCatalogValue = (
   )
 }
 
+export const translateProductTitle = (
+  title: string | null | undefined,
+  handle: string | null | undefined,
+  locale: Locale = "en"
+) => {
+  if (!title) return ""
+  if (!handle || locale === "tr") return title
+  let decoded = handle
+  try {
+    decoded = decodeURIComponent(handle)
+  } catch {}
+  return (
+    productTitleTranslations[decoded.normalize("NFC")]?.[
+      locale as "en" | "bg" | "ar"
+    ] || title
+  )
+}
+
 export const localizeProduct = (
   product: HttpTypes.StoreProduct,
   locale: Locale = "en"
@@ -79,14 +98,10 @@ export const localizeProduct = (
       url: toStorefrontMediaUrl(image.url) || image.url,
     })) ?? null,
   // NOT translateCatalogValue(..., "name"): metadata.translations.*.name is a
-  // generic per-concept label shared by every sibling family in a category
-  // (e.g. every "Jumbo Streç Film" variant's translations.tr.name is just
-  // "Streç Filmler") - swapping it in here made every product in a category
-  // display the identical title, destroying the distinguishing family_key
-  // detail (color, micron, super-power, ...) that product.title carries.
-  // Real per-family multilingual titles need new translated data, not a
-  // metadata field swap - leaving this as the distinguishing Turkish title.
-  title: product.title,
+  // generic per-concept label shared by every sibling family in a category, so
+  // swapping it in made every product in a category show the same title.
+  // Per-product titles come from productTitleTranslations (keyed by handle).
+  title: translateProductTitle(product.title, product.handle, locale),
   subtitle: translateCatalogValue(
     product.subtitle,
     locale,

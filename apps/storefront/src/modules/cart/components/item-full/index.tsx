@@ -2,7 +2,7 @@
 
 import { useCart } from "@/lib/context/cart-context"
 import AddNoteButton from "@/modules/cart/components/add-note-button"
-import { translateCatalogValue } from "@/lib/i18n/catalog"
+import { translateProductTitle } from "@/lib/i18n/catalog"
 import { useI18n } from "@/lib/i18n/provider"
 import DeleteButton from "@/modules/common/components/delete-button"
 import LineItemPrice from "@/modules/common/components/line-item-price"
@@ -109,7 +109,7 @@ const ItemFull = ({
             <span className="text-neutral-600 text-[0.6rem]">{t("BRAND")}</span>
 
             <span className="txt-medium-plus text-neutral-950">
-              {translateCatalogValue(item.product?.title, locale, item.product?.metadata, "title")}
+              {translateProductTitle(item.product?.title, item.product?.handle, locale)}
             </span>
             <span className="text-neutral-600 text-xs">
               {item.variant?.title}
