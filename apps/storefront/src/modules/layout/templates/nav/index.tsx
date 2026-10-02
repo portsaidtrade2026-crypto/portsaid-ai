@@ -43,7 +43,7 @@ export async function NavigationHeader() {
             <nav>
               <ul className="space-x-4 flex">
                 <li>
-                  <Suspense fallback={<SkeletonMegaMenu />}>
+                  <Suspense fallback={<SkeletonMegaMenu locale={locale} />}>
                     <MegaMenuWrapper />
                   </Suspense>
                 </li>
@@ -80,7 +80,7 @@ export async function NavigationHeader() {
               <AccountButton customer={customer} locale={locale} />
             </Suspense>
 
-            <Suspense fallback={<SkeletonCartButton />}>
+            <Suspense fallback={<SkeletonCartButton locale={locale} />}>
               <CartButton />
             </Suspense>
           </div>

@@ -11,7 +11,8 @@ import { Container, Text } from "@medusajs/ui"
 import { notFound } from "next/navigation"
 import { Suspense } from "react"
 import { translateCatalogValue } from "@/lib/i18n/catalog"
-import { Locale } from "@/lib/i18n/config"
+import { translate } from "@/lib/i18n/messages"
+import { Locale, defaultLocale } from "@/lib/i18n/config"
 
 export default function CategoryTemplate({
   categories,
@@ -95,14 +96,14 @@ export default function CategoryTemplate({
             {!hasAnyProducts(currentCategory) ? (
               <Container className="flex flex-col gap-2 justify-center text-center items-center text-sm text-neutral-500">
                 <Text className="font-medium">
-                  No products found for this category.
+                  {translate(locale ?? defaultLocale, "No products found for this category.")}
                 </Text>
                 <LocalizedClientLink
                   href="/store"
                   className="flex gap-2 items-center"
                 >
                   <Button variant="secondary">
-                    Back to all products
+                    {translate(locale ?? defaultLocale, "Back to all products")}
                     <ArrowUturnLeft className="w-4 h-4" />
                   </Button>
                 </LocalizedClientLink>
