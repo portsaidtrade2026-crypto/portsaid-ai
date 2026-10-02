@@ -68,6 +68,30 @@ export const translateCatalogValue = (
   )
 }
 
+// Bulgarian uses Cyrillic metric abbreviations, not the Latin ones (Mic/kg/
+// gr/m/cm/mm) this catalog's option values are stored with - a flat
+// catalogTranslations lookup can't cover every "<number> <unit>" combination,
+// so the unit suffix is matched and swapped separately, keeping the number
+// (and its locale-specific decimal formatting as typed by the ERP) intact.
+// English and Arabic keep the Latin abbreviations as-is (both read fine with
+// them in this industry), so only "bg" has an entry here.
+const UNIT_SUFFIX_TRANSLATIONS: Partial<Record<Locale, Record<string, string>>> = {
+  bg: { Mic: "мкм", kg: "кг", gr: "г", mm: "мм", cm: "см", m: "м" },
+}
+const UNIT_SUFFIX_PATTERN = /^([\d.,]+)\s*(Mic|kg|gr|mm|cm|m)$/
+
+export const translateOptionValue = (
+  value: string | null | undefined,
+  locale: Locale = "en"
+) => {
+  if (!value) return ""
+  const dictHit = catalogTranslations[locale]?.[value]
+  if (dictHit) return dictHit
+  const match = value.match(UNIT_SUFFIX_PATTERN)
+  const unit = match && UNIT_SUFFIX_TRANSLATIONS[locale]?.[match[2]]
+  return unit ? `${match![1]} ${unit}` : value
+}
+
 export const translateProductTitle = (
   title: string | null | undefined,
   handle: string | null | undefined,

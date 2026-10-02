@@ -9,13 +9,14 @@ import CirclePlus from "@/modules/common/icons/circle-plus"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useCallback, useMemo } from "react"
 import { useI18n } from "@/lib/i18n/provider"
+import { translateOptionValue } from "@/lib/i18n/catalog"
 
 type OptionsPickerProps = {
   options: HttpTypes.StoreProductOption[]
 }
 
 const OptionsPicker = ({ options }: OptionsPickerProps) => {
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -107,7 +108,7 @@ const OptionsPicker = ({ options }: OptionsPickerProps) => {
                           the value from the surrounding paragraph either
                           way, but lets each value's own script pick its
                           direction instead of forcing LTR on Arabic text. */}
-                      <bdi>{t(value.value)}</bdi>
+                      <bdi>{translateOptionValue(value.value, locale)}</bdi>
                     </button>
                   )
                 })}

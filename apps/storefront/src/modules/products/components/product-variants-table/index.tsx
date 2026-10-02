@@ -8,6 +8,7 @@ import Button from "@/modules/common/components/button"
 import ShoppingBag from "@/modules/common/icons/shopping-bag"
 import { useState } from "react"
 import { useI18n } from "@/lib/i18n/provider"
+import { translateOptionValue } from "@/lib/i18n/catalog"
 import BulkTableQuantity from "../bulk-table-quantity"
 
 const ProductVariantsTable = ({
@@ -17,7 +18,7 @@ const ProductVariantsTable = ({
   product: HttpTypes.StoreProduct
   region: HttpTypes.StoreRegion
 }) => {
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
   const [isAdding, setIsAdding] = useState(false)
   const [lineItemsMap, setLineItemsMap] = useState<
     Map<
@@ -139,13 +140,14 @@ const ProductVariantsTable = ({
                     // in a family don't carry every attribute, and skipping
                     // the cell outright would shift the rest of that row
                     // out of alignment with the header row.
-                    // t() falls back to the original string when there's no
-                    // dictionary entry, so measurement codes ("17 Mic", "300
-                    // gr") pass through unchanged while translatable values
-                    // (color names) resolve per locale.
+                    // translateOptionValue resolves colors via the catalog
+                    // dictionary and swaps measurement units (Mic/kg/gr/...)
+                    // per locale, falling back to the raw value unchanged.
                     return (
                       <Table.Cell key={option.id} className="px-4 border-x">
-                        {value && value !== "Default option value" ? t(value) : ""}
+                        {value && value !== "Default option value"
+                          ? translateOptionValue(value, locale)
+                          : ""}
                       </Table.Cell>
                     )
                   })}
