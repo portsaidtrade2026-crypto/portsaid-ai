@@ -77,6 +77,10 @@ export const translateCatalogValue = (
 // them in this industry), so only "bg" has an entry here.
 const UNIT_SUFFIX_TRANSLATIONS: Partial<Record<Locale, Record<string, string>>> = {
   bg: { Mic: "мкм", kg: "кг", gr: "г", mm: "мм", cm: "см", m: "м" },
+  // "gr" is the ERP's Turkish-style gram abbreviation, not standard English
+  // (where it reads as "grain", an old imperial unit) - the correct SI
+  // abbreviation is "g". Mic/kg/m/cm/mm are already correct English SI.
+  en: { gr: "g" },
 }
 const UNIT_SUFFIX_PATTERN = /^([\d.,]+)\s*(Mic|kg|gr|mm|cm|m)$/
 
