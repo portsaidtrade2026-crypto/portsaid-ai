@@ -98,10 +98,16 @@ const OptionsPicker = ({ options }: OptionsPickerProps) => {
                       )}
                       aria-pressed={active}
                     >
-                      {/* These values are measurement codes ("25 Mic", "150 m")
-                          stored LTR - without isolation an RTL ancestor (the
-                          Arabic locale) visually reorders them to "Mic 25". */}
-                      <bdi dir="ltr">{value.value}</bdi>
+                      {/* Most values are measurement codes ("25 Mic", "150
+                          m") that must stay LTR - an RTL ancestor (the
+                          Arabic locale) would otherwise visually reorder
+                          them to "Mic 25". Translatable values (color names)
+                          resolve to real Arabic/Bulgarian text via t(), so
+                          <bdi> is left on its default dir="auto": it isolates
+                          the value from the surrounding paragraph either
+                          way, but lets each value's own script pick its
+                          direction instead of forcing LTR on Arabic text. */}
+                      <bdi>{t(value.value)}</bdi>
                     </button>
                   )
                 })}

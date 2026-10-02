@@ -139,9 +139,13 @@ const ProductVariantsTable = ({
                     // in a family don't carry every attribute, and skipping
                     // the cell outright would shift the rest of that row
                     // out of alignment with the header row.
+                    // t() falls back to the original string when there's no
+                    // dictionary entry, so measurement codes ("17 Mic", "300
+                    // gr") pass through unchanged while translatable values
+                    // (color names) resolve per locale.
                     return (
                       <Table.Cell key={option.id} className="px-4 border-x">
-                        {value && value !== "Default option value" ? value : ""}
+                        {value && value !== "Default option value" ? t(value) : ""}
                       </Table.Cell>
                     )
                   })}
