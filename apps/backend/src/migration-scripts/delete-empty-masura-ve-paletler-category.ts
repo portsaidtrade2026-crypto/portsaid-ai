@@ -31,7 +31,7 @@ export default async function delete_empty_masura_ve_paletler_category({
   }
 
   await deleteProductCategoriesWorkflow(container).run({
-    input: { ids: [MASURA_VE_PALETLER_ID] },
+    input: [MASURA_VE_PALETLER_ID],
   });
 
   logger.info(`Deleted empty category "Masura ve Paletler" (${MASURA_VE_PALETLER_ID}).`);
