@@ -129,7 +129,12 @@ const layoutMessages: Record<Locale, Record<string, string>> = {
 }
 
 export const messages: Record<Locale, Record<string, string>> = {
-  en: layoutMessages.en,
+  // catalogTranslations is keyed by the canonical Turkish source text even
+  // in its own "en" block (e.g. "Kalınlık" -> "Thickness") - unlike the
+  // other three dictionaries below, whose keys are already English text, so
+  // "en" was previously left unmerged with them and every spec-table/filter
+  // heading silently fell through to the raw Turkish key on the EN locale.
+  en: { ...layoutMessages.en, ...catalogTranslations.en },
   tr: { ...layoutMessages.tr, ...accountCartTranslations.tr, ...catalogTranslations.tr, ...commerceTranslations.tr, ...routeTranslations.tr },
   bg: { ...layoutMessages.bg, ...accountCartTranslations.bg, ...catalogTranslations.bg, ...commerceTranslations.bg, ...routeTranslations.bg },
   ar: { ...layoutMessages.ar, ...accountCartTranslations.ar, ...catalogTranslations.ar, ...commerceTranslations.ar, ...routeTranslations.ar },
