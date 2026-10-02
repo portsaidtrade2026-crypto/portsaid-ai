@@ -74,6 +74,7 @@ export default async function apply_safe_spec_corrections({
       const currentOptions: Record<string, string> = { ...item.current };
 
       const updateInput: any[] = [];
+      const addInput: any[] = [];
       const newOptionValues: Record<string, string> = {};
 
       for (const [key, patch] of Object.entries(item.patch)) {
@@ -85,20 +86,36 @@ export default async function apply_safe_spec_corrections({
         }
         const displayValue = formatValue(patch);
         const existingValue = option.values.find((v: any) => v.value === displayValue);
-        updateInput.push({
-          product_option_id: option.id,
-          add: existingValue ? [existingValue.id] : [{ value: displayValue }],
-        });
+        const alreadyLinked = optionTitle in item.current;
+        if (alreadyLinked) {
+          // update: this product is already linked to the option - add the
+          // (possibly new) value to that existing link.
+          updateInput.push({
+            product_option_id: option.id,
+            add: existingValue ? [existingValue.id] : [{ value: displayValue }],
+          });
+        } else {
+          // add: the option itself isn't linked to this product yet.
+          addInput.push(
+            existingValue
+              ? { id: option.id, value_ids: [existingValue.id] }
+              : { id: option.id, values: [displayValue] }
+          );
+        }
         newOptionValues[optionTitle] = displayValue;
       }
 
-      if (!updateInput.length) {
+      if (!updateInput.length && !addInput.length) {
         logger.info(`Nothing to apply for ${item.handle}`);
         continue;
       }
 
       await createAndLinkProductOptionsToProductWorkflow(container).run({
-        input: { product_id: product.id, update: updateInput },
+        input: {
+          product_id: product.id,
+          ...(addInput.length ? { add: addInput } : {}),
+          ...(updateInput.length ? { update: updateInput } : {}),
+        },
       });
 
       const mergedOptions = { ...currentOptions, ...newOptionValues };
