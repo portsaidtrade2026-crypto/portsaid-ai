@@ -21,7 +21,17 @@ export default function LanguageSwitcher() {
     <label className="flex items-center gap-1" aria-label={t("Language")}>
       <span className="sr-only">{t("Language")}</span>
       <select value={locale} onChange={setLocale} className="bg-transparent border-0 text-xs cursor-pointer" aria-label={t("Language")} data-testid="language-switcher">
-        {locales.map((item) => <option value={item} key={item}>{labels[item]}</option>)}
+        {/* The native dropdown popup can render with a light background
+            regardless of page theme or `color-scheme` (observed on dark
+            mode here) - options inheriting the page's near-white dark-mode
+            text color then become unreadable until hovered. Force a strong,
+            theme-independent dark text color directly on each <option> so
+            all four languages stay legible without hovering. */}
+        {locales.map((item) => (
+          <option value={item} key={item} style={{ color: "#111214" }}>
+            {labels[item]}
+          </option>
+        ))}
       </select>
     </label>
   )
