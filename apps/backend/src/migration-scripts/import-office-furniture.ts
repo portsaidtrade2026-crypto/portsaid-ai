@@ -14,6 +14,7 @@ import {
 // registered separately in product-titles.ts, keyed by the same handle used here.
 const IMAGES_DIR = path.resolve(__dirname, "../../../../office-furniture-images");
 const OFIS_MOBILYA_CATEGORY_ID = "pcat_01M3FP305J0YPYXN2KY0EXWC27";
+const SALES_CHANNEL_ID = "sc_01M3FP02XBFQQZX0Z34EQHV8EC";
 
 type Item = {
   no: number;
@@ -78,6 +79,7 @@ export default async function import_office_furniture({
               title: item.title_tr,
               handle: item.handle,
               category_ids: [OFIS_MOBILYA_CATEGORY_ID],
+              sales_channels: [{ id: SALES_CHANNEL_ID }],
               status: ProductStatus.PUBLISHED,
               images: [{ url: imageUrl }],
               thumbnail: imageUrl,
