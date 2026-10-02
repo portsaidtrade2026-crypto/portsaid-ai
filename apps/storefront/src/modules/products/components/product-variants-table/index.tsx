@@ -119,13 +119,29 @@ const ProductVariantsTable = ({
                   })}
                 >
                   <Table.Cell className="px-4">{variant.sku}</Table.Cell>
-                  {variant.options?.map((option, index) => {
-                    if (option.value === "Default option value") {
+                  {/* Neither product.options (headers) nor variant.options
+                      (values) carries an explicit rank in the database, and
+                      each is fetched via a different join path - their array
+                      order can diverge per product depending on when each
+                      option/value was linked, silently shifting every value
+                      one or more columns from its real header. Look each
+                      value up by option_id and render in product.options'
+                      order instead of zipping the two arrays by index. */}
+                  {product.options?.map((option) => {
+                    if (option.title === "Default option") {
                       return null
                     }
+                    const value = variant.options?.find(
+                      (o) => o.option_id === option.id
+                    )?.value
+                    // Render an empty cell (not a skipped one) when this
+                    // variant has no value for the option - some variants
+                    // in a family don't carry every attribute, and skipping
+                    // the cell outright would shift the rest of that row
+                    // out of alignment with the header row.
                     return (
                       <Table.Cell key={option.id} className="px-4 border-x">
-                        {option.value}
+                        {value && value !== "Default option value" ? value : ""}
                       </Table.Cell>
                     )
                   })}
