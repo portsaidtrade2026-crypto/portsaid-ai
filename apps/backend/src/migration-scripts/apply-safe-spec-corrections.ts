@@ -61,7 +61,7 @@ export default async function apply_safe_spec_corrections({
     try {
       const { data: products } = await query.graph({
         entity: "product",
-        fields: ["id", "title", "variants.id"],
+        fields: ["id", "title", "variants.id", "options.title"],
         filters: { handle: [item.handle] },
       });
       const product = (products as any[])[0];
@@ -72,11 +72,23 @@ export default async function apply_safe_spec_corrections({
       }
       const variant = product.variants[0];
       const currentOptions: Record<string, string> = { ...item.current };
+      // A handful of products still carry a lingering "Default option" link
+      // alongside their real attributes (from early catalog import) -
+      // updateProductVariantsWorkflow requires the variant's option count to
+      // match the product's linked option count exactly, so this has to stay
+      // in the merged map whenever the product still has it.
+      if ((product.options || []).some((o: any) => o.title === "Default option")) {
+        currentOptions["Default option"] = "Default option value";
+      }
 
-      const updateInput: any[] = [];
-      const addInput: any[] = [];
       const newOptionValues: Record<string, string> = {};
 
+      // One createAndLinkProductOptionsToProductWorkflow call per option (not batched
+      // together): batching multiple add/update entries that each create a brand-new
+      // option value in a single call was observed to corrupt the workflow's in-memory
+      // entity references ("Value for ProductOption.title is required, 'undefined'
+      // found" on the second/third entry, after the value row itself was already
+      // created) - processing one at a time, sequentially, avoided it.
       for (const [key, patch] of Object.entries(item.patch)) {
         const optionTitle = KEY_TO_OPTION[key];
         const option = optionByTitle.get(optionTitle);
@@ -87,36 +99,38 @@ export default async function apply_safe_spec_corrections({
         const displayValue = formatValue(patch);
         const existingValue = option.values.find((v: any) => v.value === displayValue);
         const alreadyLinked = optionTitle in item.current;
+
         if (alreadyLinked) {
-          // update: this product is already linked to the option - add the
-          // (possibly new) value to that existing link.
-          updateInput.push({
-            product_option_id: option.id,
-            add: existingValue ? [existingValue.id] : [{ value: displayValue }],
+          await createAndLinkProductOptionsToProductWorkflow(container).run({
+            input: {
+              product_id: product.id,
+              update: [
+                {
+                  product_option_id: option.id,
+                  add: existingValue ? [existingValue.id] : [{ value: displayValue }],
+                },
+              ],
+            },
           });
         } else {
-          // add: the option itself isn't linked to this product yet.
-          addInput.push(
-            existingValue
-              ? { id: option.id, value_ids: [existingValue.id] }
-              : { id: option.id, values: [displayValue] }
-          );
+          await createAndLinkProductOptionsToProductWorkflow(container).run({
+            input: {
+              product_id: product.id,
+              add: [
+                existingValue
+                  ? { id: option.id, value_ids: [existingValue.id] }
+                  : { id: option.id, values: [displayValue] },
+              ],
+            },
+          });
         }
         newOptionValues[optionTitle] = displayValue;
       }
 
-      if (!updateInput.length && !addInput.length) {
+      if (!Object.keys(newOptionValues).length) {
         logger.info(`Nothing to apply for ${item.handle}`);
         continue;
       }
-
-      await createAndLinkProductOptionsToProductWorkflow(container).run({
-        input: {
-          product_id: product.id,
-          ...(addInput.length ? { add: addInput } : {}),
-          ...(updateInput.length ? { update: updateInput } : {}),
-        },
-      });
 
       const mergedOptions = { ...currentOptions, ...newOptionValues };
       await updateProductVariantsWorkflow(container).run({
