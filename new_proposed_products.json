@@ -1,0 +1,72 @@
+[
+  {
+    "sku": "PS-NEW-001",
+    "handle": "solvent-koli-bandi-45-mm-100-m",
+    "category_target": "Solvent Bant",
+    "title_tr": "Solvent Koli Bandı — 45 mm × 100 m",
+    "title_en": "Solvent-Based Carton Sealing Tape — 45 mm × 100 m",
+    "title_bg": "Лепяща лента за кашони с лепило на основата на разтворител — 45 мм × 100 м",
+    "title_ar": "شريط لاصق لإغلاق الكراتين بمادة لاصقة أساسها المذيبات — 45 مم × 100 م",
+    "desc_tr": "Karton kolilerin kapatılması için solvent yapışkanlı ambalaj bandı. Rulo genişliği 45 mm, uzunluğu 100 m. (Temsili görsel)",
+    "desc_en": "Carton sealing tape with solvent-based adhesive. Roll width 45 mm; length 100 m. (Illustrative image)",
+    "desc_bg": "Лента за затваряне на кашони с лепило на основата на разтворител. Широчина 45 мм; дължина 100 м. (Илюстративно изображение)",
+    "desc_ar": "شريط لإغلاق الصناديق الكرتونية بمادة لاصقة أساسها المذيبات. عرض اللفة 45 مم وطولها 100 م. (صورة توضيحية)",
+    "image_file": "solvent-tape.png"
+  },
+  {
+    "sku": "PS-NEW-002",
+    "handle": "celik-cember-16-mm-050-mm-780-m",
+    "category_target": "Çelik Çember",
+    "title_tr": "Çelik Çember — 16 mm × 0,50 mm, 780 m",
+    "title_en": "Steel Strapping — 16 mm × 0.50 mm, 780 m",
+    "title_bg": "Стоманена лента за чембероване — 16 мм × 0,50 мм, 780 м",
+    "title_ar": "شريط تربيط فولاذي — عرض 16 مم، سُمك 0.50 مم، طول 780 م",
+    "desc_tr": "Paletli ve endüstriyel yüklerin bağlanması için çelik çember. Genişlik 16 mm, kalınlık 0,50 mm, bobin uzunluğu 780 m. (Temsili görsel)",
+    "desc_en": "Steel strapping for palletized and industrial loads. Width 16 mm, thickness 0.50 mm, coil length 780 m. (Illustrative image)",
+    "desc_bg": "Стоманена лента за палетизирани и промишлени товари. Широчина 16 мм, дебелина 0,50 мм, дължина на ролката 780 м. (Илюстративно изображение)",
+    "desc_ar": "شريط فولاذي لتربيط الأحمال الصناعية والبالتات. العرض 16 مم والسُمك 0.50 مم وطول اللفة 780 م. (صورة توضيحية)",
+    "image_file": "steel-strapping.png"
+  },
+  {
+    "sku": "PS-NEW-003",
+    "handle": "jumbo-cop-torbasi-80-110-cm-10-adet",
+    "category_target": "Çöp Torbaları",
+    "title_tr": "Jumbo Çöp Torbası — 80 × 110 cm, 10 Adet",
+    "title_en": "Jumbo Refuse Bags — 80 × 110 cm, 10 Bags",
+    "title_bg": "Торби за отпадъци Jumbo — 80 × 110 см, 10 бр.",
+    "title_ar": "أكياس قمامة جامبو — 80 × 110 سم، 10 أكياس",
+    "desc_tr": "İşyeri, depo ve genel temizlik kullanımı için jumbo boy çöp torbası. Ölçü 80 × 110 cm; ruloda 10 adet. (Temsili görsel)",
+    "desc_en": "Jumbo refuse bags for workplaces, warehouses and general cleaning. Size 80 × 110 cm; 10 bags per roll. (Illustrative image)",
+    "desc_bg": "Големи торби за отпадъци за работни помещения, складове и общо почистване. Размер 80 × 110 см; 10 торби на ролка. (Илюстративно изображение)",
+    "desc_ar": "أكياس قمامة كبيرة للاستخدام في أماكن العمل والمخازن والتنظيف العام. المقاس 80 × 110 سم، 10 أكياس باللفة. (صورة توضيحية)",
+    "image_file": "trash-bags.png"
+  },
+  {
+    "sku": "PS-NEW-004",
+    "handle": "a4-fotokopi-kagidi-80-gm2-500-yaprak",
+    "category_target": "Ofis Kırtasiye",
+    "title_tr": "A4 Fotokopi Kâğıdı — 80 g/m², 500 Yaprak",
+    "title_en": "A4 Copier Paper — 80 g/m², 500 Sheets",
+    "title_bg": "Копирна хартия A4 — 80 г/м², 500 листа",
+    "title_ar": "ورق تصوير A4 — 80 غ/م²، 500 ورقة",
+    "desc_tr": "Ofis yazdırma ve fotokopi işlemleri için beyaz A4 kâğıt. Ölçü 210 × 297 mm, gramaj 80 g/m²; pakette 500 yaprak. (Temsili görsel)",
+    "desc_en": "White A4 paper for office printing and copying. Size 210 × 297 mm; grammage 80 g/m²; 500 sheets per ream. (Illustrative image)",
+    "desc_bg": "Бяла хартия A4 за офис печат и копиране. Размер 210 × 297 мм, грамаж 80 г/м²; 500 листа в пакет. (Илюстративно изображение)",
+    "desc_ar": "ورق A4 أبيض للطباعة والتصوير المكتبي. المقاس 210 × 297 مم والوزن المساحي 80 غ/م²، 500 ورقة بالرزمة. (صورة توضيحية)",
+    "image_file": "a4-paper.png"
+  },
+  {
+    "sku": "PS-NEW-005",
+    "handle": "kahverengi-kraft-canta-26-35-12-cm",
+    "category_target": "Karton Kutu ve Kağıt Çantalar",
+    "title_tr": "Kahverengi Kraft Çanta — 26 × 35 × 12 cm",
+    "title_en": "Brown Kraft Paper Bag — 26 × 35 × 12 cm",
+    "title_bg": "Кафява крафт хартиена торба — 26 × 35 × 12 см",
+    "title_ar": "كيس ورقي كرافت بني — 26 × 35 × 12 سم",
+    "desc_tr": "Mağaza ve perakende ambalajı için kahverengi kraft kâğıt çanta. En 26 cm, boy 35 cm, körük 12 cm. (Temsili görsel)",
+    "desc_en": "Brown kraft paper bag for retail packaging. Width 26 cm, height 35 cm, gusset 12 cm. (Illustrative image)",
+    "desc_bg": "Кафява крафт хартиена торба за търговски обекти. Широчина 26 см, височина 35 см, странична гънка 12 см. (Илюстративно изображение)",
+    "desc_ar": "كيس ورقي كرافت بني لتغليف مشتريات المتاجر. العرض 26 سم والارتفاع 35 سم وعمق الجنب 12 سم. (صورة توضيحية)",
+    "image_file": "kraft-bag.png"
+  }
+]

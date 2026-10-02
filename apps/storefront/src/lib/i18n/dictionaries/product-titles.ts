@@ -263,4 +263,9 @@ export const productTitleTranslations: Record<
   "tea-cart-67": { en: "Tea Cart", bg: "Количка за сервиране", ar: "عربة شاي" },
   "decorative-wall-clock-68": { en: "Decorative Wall Clock", bg: "Декоративен часовник", ar: "ساعة حائط ديكور" },
   "lectern-69": { en: "Lectern", bg: "Катедра", ar: "منصة خطابة" },
+  "solvent-koli-bandi-45-mm-100-m": { en: "Solvent-Based Carton Sealing Tape — 45 mm × 100 m", bg: "Лепяща лента за кашони с лепило на основата на разтворител — 45 мм × 100 м", ar: "شريط لاصق لإغلاق الكراتين بمادة لاصقة أساسها المذيبات — 45 مم × 100 م" },
+  "celik-cember-16-mm-050-mm-780-m": { en: "Steel Strapping — 16 mm × 0.50 mm, 780 m", bg: "Стоманена лента за чембероване — 16 мм × 0,50 мм, 780 м", ar: "شريط تربيط فولاذي — عرض 16 مم، سُمك 0.50 مم، طول 780 م" },
+  "jumbo-cop-torbasi-80-110-cm-10-adet": { en: "Jumbo Refuse Bags — 80 × 110 cm, 10 Bags", bg: "Торби за отпадъци Jumbo — 80 × 110 см, 10 бр.", ar: "أكياس قمامة جامبو — 80 × 110 سم، 10 أكياس" },
+  "a4-fotokopi-kagidi-80-gm2-500-yaprak": { en: "A4 Copier Paper — 80 g/m², 500 Sheets", bg: "Копирна хартия A4 — 80 г/м², 500 листа", ar: "ورق تصوير A4 — 80 غ/م²، 500 ورقة" },
+  "kahverengi-kraft-canta-26-35-12-cm": { en: "Brown Kraft Paper Bag — 26 × 35 × 12 cm", bg: "Кафява крафт хартиена торба — 26 × 35 × 12 см", ar: "كيس ورقي كرافت بني — 26 × 35 × 12 سم" },
 }
