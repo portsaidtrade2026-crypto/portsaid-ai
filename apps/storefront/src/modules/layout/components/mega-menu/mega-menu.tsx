@@ -215,14 +215,14 @@ const MegaMenu = ({
           />
           <div className="absolute top-0 left-0 bottom-0 w-[85vw] max-w-sm ps-surface overflow-y-auto">
             <div className="flex items-center justify-between p-4 border-b border-[var(--ps-line)]">
-              <span className="font-medium">{t("Products")}</span>
+              <span className="font-medium text-lg">{t("Categories")}</span>
               <button
                 type="button"
                 onClick={() => setIsMobileOpen(false)}
-                aria-label={t("Close")}
-                className="p-1"
+                className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium hover:bg-neutral-100"
               >
-                <X />
+                {t("Close")}
+                <X size={16} />
               </button>
             </div>
             <div className="flex flex-col p-2">
