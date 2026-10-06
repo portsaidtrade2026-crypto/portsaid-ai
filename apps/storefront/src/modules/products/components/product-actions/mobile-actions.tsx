@@ -55,7 +55,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
   return (
     <>
       <div
-        className={clx("lg:hidden inset-x-0 bottom-0 fixed", {
+        className={clx("small:hidden inset-x-0 bottom-0 fixed", {
           "pointer-events-none": !show,
         })}
       >

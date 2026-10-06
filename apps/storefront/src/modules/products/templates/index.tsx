@@ -28,7 +28,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
   return (
     <div className="flex flex-col gap-y-2 my-2">
       <div
-        className="content-container grid grid-cols-[minmax(0,1fr)] md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-2 w-full h-fit"
+        className="content-container grid grid-cols-[minmax(0,1fr)] small:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-2 w-full h-fit"
         data-testid="product-container"
       >
         <ImageGallery product={product} />

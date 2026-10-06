@@ -82,9 +82,69 @@ const ProductVariantsTable = ({
     setIsAdding(false)
   }
 
+  // Non-"Default option" columns, same filter the table header uses - shared
+  // so the mobile cards list exactly the same attributes in the same order.
+  const visibleOptions = (product.options || []).filter(
+    (option) => option.title !== "Default option"
+  )
+
   return (
     <div className="flex flex-col gap-6 w-full min-w-0">
-      <div className="overflow-x-auto w-full min-w-0 p-px">
+      {/* Mobile: one stacked card per variant instead of a wide table that
+          needs horizontal scrolling to read on a phone - every attribute is
+          its own labelled row, read top to bottom. */}
+      <div className="small:hidden flex flex-col gap-3 w-full">
+        {product.variants?.map((variant) => {
+          const { variantPrice } = getProductPrice({
+            product,
+            variantId: variant.id,
+          })
+          return (
+            <div
+              key={variant.id}
+              className="flex flex-col gap-2 rounded-xl border border-neutral-200 p-4"
+            >
+              <div className="flex items-center justify-between text-sm text-neutral-500">
+                <span>{t("SKU")}</span>
+                <span>{variant.sku}</span>
+              </div>
+              {visibleOptions.map((option) => {
+                const value = variant.options?.find(
+                  (o) => o.option_id === option.id
+                )?.value
+                if (!value || value === "Default option value") return null
+                return (
+                  <div
+                    key={option.id}
+                    className="flex items-center justify-between text-sm"
+                  >
+                    <span className="text-neutral-500">{t(option.title || "")}</span>
+                    <span>{translateOptionValue(value, locale)}</span>
+                  </div>
+                )
+              })}
+              <div className="flex items-center justify-between font-medium">
+                <span>{t("Price")}</span>
+                <span>
+                  {variantPrice?.calculated_price || (
+                    <span className="text-neutral-500 font-normal">
+                      {t("Price on request")}
+                    </span>
+                  )}
+                </span>
+              </div>
+              <div className="pt-1">
+                <BulkTableQuantity
+                  variantId={variant.id}
+                  onChange={handleQuantityChange}
+                />
+              </div>
+            </div>
+          )
+        })}
+      </div>
+
+      <div className="hidden small:block overflow-x-auto w-full min-w-0 p-px">
         <Table className="w-full rounded-xl overflow-hidden shadow-borders-base border-none ">
           <Table.Header className="border-t-0">
             <Table.Row className="bg-neutral-100 border-none hover:!bg-neutral-100">

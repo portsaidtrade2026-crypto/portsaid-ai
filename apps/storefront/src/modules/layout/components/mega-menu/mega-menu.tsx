@@ -4,12 +4,91 @@ import { HttpTypes } from "@medusajs/types"
 import { clx } from "@medusajs/ui"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { usePathname } from "next/navigation"
-import { useEffect, useRef, useState } from "react"
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react"
 import { useI18n } from "@/lib/i18n/provider"
 import { translateCatalogValue } from "@/lib/i18n/catalog"
 import MenuIcon from "@/modules/common/icons/menu"
 import X from "@/modules/common/icons/x"
 import ChevronDown from "@/modules/common/icons/chevron-down"
+
+// One row of the mobile accordion, recursing into its own children when
+// expanded - a category can now nest two levels deep (e.g. Makineler >
+// Ambalaj Makineleri > İkinci), and a flat one-level list can't reach the
+// bottom one. Every level starts closed; toggling a row only touches its
+// own id in the shared expandedIds set, so a parent and child can be open
+// independently of each other.
+const MobileCategoryRow = ({
+  category,
+  depth,
+  getSubCategories,
+  categoryName,
+  expandedIds,
+  setExpandedIds,
+  onNavigate,
+}: {
+  category: HttpTypes.StoreProductCategory
+  depth: number
+  getSubCategories: (id: string) => HttpTypes.StoreProductCategory[]
+  categoryName: (category: HttpTypes.StoreProductCategory) => string
+  expandedIds: Set<string>
+  setExpandedIds: Dispatch<SetStateAction<Set<string>>>
+  onNavigate: () => void
+}) => {
+  const subs = getSubCategories(category.id)
+  const isExpanded = expandedIds.has(category.id)
+  const toggle = () =>
+    setExpandedIds((prev) => {
+      const next = new Set(prev)
+      next.has(category.id) ? next.delete(category.id) : next.add(category.id)
+      return next
+    })
+
+  return (
+    <div className={depth === 0 ? "border-t border-[var(--ps-line)]" : ""}>
+      <div className="flex items-center justify-between">
+        <LocalizedClientLink
+          href={`/categories/${category.handle}`}
+          className={clx("flex-1 py-3", depth === 0 ? "px-3 font-medium" : "ps-6 pe-3 text-sm text-neutral-500 dark:text-neutral-400")}
+          onClick={onNavigate}
+        >
+          {categoryName(category)}
+        </LocalizedClientLink>
+        {subs.length > 0 && (
+          <button
+            type="button"
+            className="p-3"
+            onClick={toggle}
+            aria-expanded={isExpanded}
+            aria-label={categoryName(category)}
+          >
+            <ChevronDown
+              className={clx(
+                "transition-transform",
+                isExpanded && "rotate-180"
+              )}
+            />
+          </button>
+        )}
+      </div>
+      {isExpanded && subs.length > 0 && (
+        <div className="flex flex-col pb-2 ps-4">
+          {subs.map((sub) => (
+            <MobileCategoryRow
+              key={sub.id}
+              category={sub}
+              depth={depth + 1}
+              getSubCategories={getSubCategories}
+              categoryName={categoryName}
+              expandedIds={expandedIds}
+              setExpandedIds={setExpandedIds}
+              onNavigate={onNavigate}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
 
 const MegaMenu = ({
   categories,
@@ -18,9 +97,12 @@ const MegaMenu = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
-  const [expandedCategory, setExpandedCategory] = useState<
-    HttpTypes.StoreProductCategory["id"] | null
-  >(null)
+  // Any number of branches can be open at once, at any depth (a category can
+  // now nest two levels deep, e.g. Makineler > Ambalaj Makineleri > İkinci) -
+  // a single expandedCategory id can't represent that, so this is a set of
+  // every currently-open id instead. Starts empty (closed) every time the
+  // mobile panel opens.
+  const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set())
   const [selectedCategory, setSelectedCategory] = useState<
     HttpTypes.StoreProductCategory["id"] | null
   >(null)
@@ -116,7 +198,10 @@ const MegaMenu = ({
       <button
         type="button"
         className="small:hidden flex items-center justify-center p-2 rounded-full hover:bg-neutral-100"
-        onClick={() => setIsMobileOpen(true)}
+        onClick={() => {
+          setExpandedIds(new Set())
+          setIsMobileOpen(true)
+        }}
         aria-label={t("Menu")}
       >
         <MenuIcon />
@@ -148,59 +233,18 @@ const MegaMenu = ({
               >
                 {t("All products")}
               </LocalizedClientLink>
-              {mainCategories.map((category) => {
-                const subs = getSubCategories(category.id)
-                const isExpanded = expandedCategory === category.id
-                return (
-                  <div
-                    key={category.id}
-                    className="border-t border-[var(--ps-line)]"
-                  >
-                    <div className="flex items-center justify-between">
-                      <LocalizedClientLink
-                        href={`/categories/${category.handle}`}
-                        className="flex-1 px-3 py-3"
-                        onClick={() => setIsMobileOpen(false)}
-                      >
-                        {categoryName(category)}
-                      </LocalizedClientLink>
-                      {subs.length > 0 && (
-                        <button
-                          type="button"
-                          className="p-3"
-                          onClick={() =>
-                            setExpandedCategory(
-                              isExpanded ? null : category.id
-                            )
-                          }
-                          aria-label={categoryName(category)}
-                        >
-                          <ChevronDown
-                            className={clx(
-                              "transition-transform",
-                              isExpanded && "rotate-180"
-                            )}
-                          />
-                        </button>
-                      )}
-                    </div>
-                    {isExpanded && subs.length > 0 && (
-                      <div className="flex flex-col pb-2 pl-4">
-                        {subs.map((subCategory) => (
-                          <LocalizedClientLink
-                            key={subCategory.id}
-                            href={`/categories/${subCategory.handle}`}
-                            className="px-3 py-2 text-sm text-neutral-500 dark:text-neutral-400"
-                            onClick={() => setIsMobileOpen(false)}
-                          >
-                            {categoryName(subCategory)}
-                          </LocalizedClientLink>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                )
-              })}
+              {mainCategories.map((category) => (
+                <MobileCategoryRow
+                  key={category.id}
+                  category={category}
+                  depth={0}
+                  getSubCategories={getSubCategories}
+                  categoryName={categoryName}
+                  expandedIds={expandedIds}
+                  setExpandedIds={setExpandedIds}
+                  onNavigate={() => setIsMobileOpen(false)}
+                />
+              ))}
             </div>
           </div>
         </div>
