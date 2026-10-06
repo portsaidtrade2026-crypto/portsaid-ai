@@ -1,9 +1,8 @@
 "use client"
 
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
-import Radio from "@/modules/common/components/radio"
-import SquareMinus from "@/modules/common/icons/square-minus"
-import SquarePlus from "@/modules/common/icons/square-plus"
+import ChevronDown from "@/modules/common/icons/chevron-down"
+import { clx } from "@medusajs/ui"
 import { HttpTypes } from "@medusajs/types"
 import { Container, Text } from "@medusajs/ui"
 import { usePathname, useSearchParams } from "next/navigation"
@@ -67,82 +66,65 @@ const CategoryList = ({
     }
   }, [currentCategory, getCategoriesToExpand])
 
-  // A parent category (e.g. "Ambalaj Malzemeleri") typically has no
-  // products assigned directly - they all live on its children (e.g.
-  // "Industrial Stretch Film") - so counting only category.products left
-  // every parent showing "(0)" even when its children had real products.
-  const getTotalProductCount = useCallback(
-    (category: HttpTypes.StoreProductCategory): number => {
-      const ownCount = category.products?.length ?? 0
-      const childrenCount = category.category_children.reduce((sum, ref) => {
-        const child = categories.find((cat) => cat.id === ref.id)
-        return sum + (child ? getTotalProductCount(child) : 0)
-      }, 0)
-      return ownCount + childrenCount
-    },
-    [categories]
-  )
-
-  const getCategoryMarginLeft = useCallback(
-    (category: HttpTypes.StoreProductCategory) => {
-      let level = 0
-      let currentCategory = category
-      while (currentCategory.parent_category_id) {
-        level++
-        currentCategory = categories.find(
-          (cat) => cat.id === currentCategory.parent_category_id
-        ) as HttpTypes.StoreProductCategory
-      }
-      return level * 4
-    },
-    [categories]
-  )
-
-  const renderCategory = (category: HttpTypes.StoreProductCategory) => {
+  // Plain name + chevron toggle, no counts and no checkbox/radio markers -
+  // matches the same closed-by-default, tap-to-expand pattern as the mobile
+  // mega-menu (expand shows a "View all X" link first, then the children),
+  // instead of the old flat checkbox-tree-with-counts look.
+  const renderCategory = (category: HttpTypes.StoreProductCategory, depth = 0) => {
     const hasChildren = category.category_children.length > 0
     const isExpanded = expandedCategories.includes(category.id)
-    const paddingLeft = getCategoryMarginLeft(category)
+    const href = `/categories/${category.handle}${
+      searchParams.size ? `?${searchParams.toString()}` : ""
+    }`
 
     return (
       <li key={category.id}>
-        <div className={`flex items-center gap-2 mb-2 pl-${paddingLeft}`}>
-          {hasChildren ? (
-            <div className="flex items-center gap-2 hover:text-neutral-700">
-              <button onClick={() => toggleCategory(category.id)}>
-                {isExpanded ? (
-                  <SquareMinus className="h-3 mx-1" />
-                ) : (
-                  <SquarePlus className="h-3 mx-1" />
-                )}
-              </button>
-              <LocalizedClientLink
-                href={`/categories/${category.handle}${
-                  searchParams.size ? `?${searchParams.toString()}` : ""
-                }`}
-                className="flex gap-2 items-center hover:text-neutral-700"
-              >
-                {categoryName(category)} ({getTotalProductCount(category)})
-              </LocalizedClientLink>
-            </div>
-          ) : (
-            <LocalizedClientLink
-              href={`/categories/${category.handle}${
-                searchParams.size ? `?${searchParams.toString()}` : ""
-              }`}
-              className="flex gap-2 items-center hover:text-neutral-700 text-start hover:cursor-pointer"
+        <div
+          className={clx(
+            "flex items-center justify-between gap-2",
+            depth === 0 ? "py-2" : "py-1.5 ps-4"
+          )}
+        >
+          <LocalizedClientLink
+            href={href}
+            className={clx(
+              "hover:text-neutral-900",
+              isCurrentCategory(category.handle) && "font-medium text-neutral-900"
+            )}
+          >
+            {categoryName(category)}
+          </LocalizedClientLink>
+          {hasChildren && (
+            <button
+              type="button"
+              onClick={() => toggleCategory(category.id)}
+              aria-expanded={isExpanded}
+              aria-label={categoryName(category)}
+              className="p-1 shrink-0"
             >
-              <Radio checked={isCurrentCategory(category.handle)} />
-              {categoryName(category)} ({getTotalProductCount(category)})
-            </LocalizedClientLink>
+              <ChevronDown
+                className={clx("transition-transform", isExpanded && "rotate-180")}
+              />
+            </button>
           )}
         </div>
         {hasChildren && isExpanded && (
-          <ul>
+          <ul className="ps-4">
+            <li>
+              <LocalizedClientLink
+                href={href}
+                className="block py-1.5 text-sm font-medium text-[var(--ps-ink)] hover:underline"
+              >
+                {t("View all {name}", { name: categoryName(category) })} →
+              </LocalizedClientLink>
+            </li>
             {category.category_children.map((childId) => {
               const childCategory = categories.find(
                 (cat) => cat.id === childId.id
               )
-              return childCategory ? renderCategory(childCategory) : null
+              return childCategory
+                ? renderCategory(childCategory, depth + 1)
+                : null
             })}
           </ul>
         )}
@@ -163,10 +145,10 @@ const CategoryList = ({
           </LocalizedClientLink>
         )}
       </div>
-      <ul className="flex flex-col gap-3 text-sm p-3 text-neutral-500">
+      <ul className="flex flex-col text-sm p-3 text-neutral-500">
         {categories
           .filter((cat) => cat.parent_category_id === null)
-          .map(renderCategory)}
+          .map((c) => renderCategory(c))}
       </ul>
     </Container>
   )
