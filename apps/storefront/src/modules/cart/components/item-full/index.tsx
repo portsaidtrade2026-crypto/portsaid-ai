@@ -26,7 +26,7 @@ const ItemFull = ({
   currencyCode,
   disabled,
 }: ItemProps) => {
-  const { locale, t } = useI18n()
+  const { locale } = useI18n()
   const [updating, setUpdating] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -106,14 +106,20 @@ const ItemFull = ({
         </LocalizedClientLink>
         <div className="flex flex-col gap-y-2 justify-between min-h-full self-stretch">
           <div className="flex flex-col">
-            <span className="text-neutral-600 text-[0.6rem]">{t("BRAND")}</span>
-
             <span className="txt-medium-plus text-neutral-950">
               {translateProductTitle(item.product?.title, item.product?.handle, locale)}
             </span>
-            <span className="text-neutral-600 text-xs">
-              {item.variant?.title}
-            </span>
+            {/* This catalog is mostly single-variant products whose
+                variant title is just the product's own raw Turkish title
+                again - showing it unconditionally duplicated the line
+                right under the (already-translated) title above. Only
+                show it when it's actually different information. */}
+            {item.variant?.title &&
+              item.variant.title !== item.product?.title && (
+                <span className="text-neutral-600 text-xs">
+                  {item.variant.title}
+                </span>
+              )}
           </div>
           <div className="flex small:flex-row flex-col gap-2">
             <LineItemPrice

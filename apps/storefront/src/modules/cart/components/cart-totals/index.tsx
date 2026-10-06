@@ -23,6 +23,17 @@ const CartTotals: React.FC = () => {
     gift_card_total,
   } = cart
 
+  // An unpriced line (unit_price 0, pending a real quote) makes every
+  // total genuinely zero, not just small - rendered as a currency-
+  // formatted "TRY 0.00" that reads as "this order is free" rather than
+  // "pricing is pending." Show pending-quote text there instead of a
+  // literal zero whenever any line in the cart carries no real price.
+  const hasUnpricedItems = cart.items?.some((item) => !item.unit_price)
+  const amountOrPending = (amount: number | null | undefined) =>
+    hasUnpricedItems
+      ? t("Pending quote")
+      : convertToLocale({ amount: amount ?? 0, currency_code })
+
   return (
     <div>
       <div className="flex flex-col gap-y-2 txt-medium text-ui-fg-subtle ">
@@ -34,7 +45,7 @@ const CartTotals: React.FC = () => {
             data-testid="cart-item-subtotal"
             data-value={item_subtotal || 0}
           >
-            {convertToLocale({ amount: item_subtotal ?? 0, currency_code })}
+            {amountOrPending(item_subtotal)}
           </Text>
         </div>
         {!!discount_total && (
@@ -53,13 +64,13 @@ const CartTotals: React.FC = () => {
         <div className="flex items-center justify-between">
           <Text>{t("Shipping")}</Text>
           <Text data-testid="cart-shipping" data-value={shipping_total || 0}>
-            {convertToLocale({ amount: shipping_total ?? 0, currency_code })}
+            {amountOrPending(shipping_total)}
           </Text>
         </div>
         <div className="flex justify-between">
           <Text className="flex gap-x-1 items-center ">{t("Taxes")}</Text>
           <Text data-testid="cart-taxes" data-value={tax_total || 0}>
-            {convertToLocale({ amount: tax_total ?? 0, currency_code })}
+            {amountOrPending(tax_total)}
           </Text>
         </div>
         {!!gift_card_total && (
@@ -87,7 +98,7 @@ const CartTotals: React.FC = () => {
             data-testid="cart-total"
             data-value={total || 0}
           >
-            {convertToLocale({ amount: total ?? 0, currency_code })}
+            {amountOrPending(total)}
           </Text>
         )}
       </div>

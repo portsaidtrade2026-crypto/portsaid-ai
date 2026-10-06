@@ -2,6 +2,7 @@ import { useCart } from "@/lib/context/cart-context"
 import { clx } from "@medusajs/ui"
 import Spinner from "@/modules/common/icons/spinner"
 import { useState } from "react"
+import { useI18n } from "@/lib/i18n/provider"
 
 const DeleteButton = ({
   id,
@@ -13,6 +14,7 @@ const DeleteButton = ({
   disabled?: boolean
 }) => {
   const [isDeleting, setIsDeleting] = useState(false)
+  const { t } = useI18n()
 
   const { handleDeleteItem } = useCart()
 
@@ -36,7 +38,7 @@ const DeleteButton = ({
         onClick={() => handleDelete(id)}
         disabled={disabled}
       >
-        {isDeleting ? <Spinner size={12} /> : "Remove"}
+        {isDeleting ? <Spinner size={12} /> : t("Remove")}
       </button>
     </div>
   )

@@ -5,6 +5,7 @@ import LocalizedClientLink from "@/modules/common/components/localized-client-li
 import { clx, Container, Text } from "@medusajs/ui"
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import { useI18n } from "@/lib/i18n/provider"
 
 const BackgroundImage = () => {
   const [imageLoaded, setImageLoaded] = useState(false)
@@ -33,14 +34,15 @@ const BackgroundImage = () => {
 }
 
 const SignInPrompt = () => {
+  const { t } = useI18n()
   return (
     <Container className="flex justify-between self-stretch relative w-full h-28 p-0 overflow-hidden">
       <BackgroundImage />
       <div className="absolute inset-0 z-1 flex justify-between items-center text-center p-4">
         <Text className="small:text-4xl text-lg text-white text-left">
-          Log in for
+          {t("Log in for faster")}
           <br />
-          faster checkout.
+          {t("checkout.")}
         </Text>
         <div className="flex small:flex-row flex-col small:gap-4 gap-2">
           <LocalizedClientLink href="/account?view=register">
@@ -49,7 +51,7 @@ const SignInPrompt = () => {
               className="small:h-10 h-8 small:min-w-36 min-w-24 rounded-full"
               data-testid="sign-in-button"
             >
-              Register
+              {t("Register")}
             </Button>
           </LocalizedClientLink>
           <LocalizedClientLink href="/account?view=log-in">
@@ -58,7 +60,7 @@ const SignInPrompt = () => {
               className="small:h-10 h-8 small:min-w-36 min-w-24 rounded-full"
               data-testid="sign-in-button"
             >
-              Log in
+              {t("Log in")}
             </Button>
           </LocalizedClientLink>
         </div>

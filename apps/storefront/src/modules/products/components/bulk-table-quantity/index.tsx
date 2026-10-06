@@ -1,6 +1,7 @@
 import { MinusMini, PlusMini } from "@medusajs/icons"
 import { IconButton, Input } from "@medusajs/ui"
 import { useEffect, useState } from "react"
+import { useI18n } from "@/lib/i18n/provider"
 
 type BulkTableQuantityProps = {
   variantId: string
@@ -9,6 +10,7 @@ type BulkTableQuantityProps = {
 }
 
 const BulkTableQuantity = ({ variantId, onChange, disabled }: BulkTableQuantityProps) => {
+  const { t } = useI18n()
   const [quantity, setQuantity] = useState("0")
   const [shiftPressed, setShiftPressed] = useState(false)
 
@@ -70,6 +72,7 @@ const BulkTableQuantity = ({ variantId, onChange, disabled }: BulkTableQuantityP
         className="rounded-full hover:bg-neutral-200"
         variant="transparent"
         disabled={disabled}
+        aria-label={t("Decrease quantity")}
       >
         <MinusMini />
       </IconButton>
@@ -79,6 +82,7 @@ const BulkTableQuantity = ({ variantId, onChange, disabled }: BulkTableQuantityP
         onKeyDown={handleKeyDown}
         type="number"
         disabled={disabled}
+        aria-label={t("Quantity")}
         className="max-w-10 text-center items-center justify-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
       />
       <IconButton
@@ -86,6 +90,7 @@ const BulkTableQuantity = ({ variantId, onChange, disabled }: BulkTableQuantityP
         className="rounded-full hover:bg-neutral-200"
         variant="transparent"
         disabled={disabled}
+        aria-label={t("Increase quantity")}
       >
         <PlusMini />
       </IconButton>

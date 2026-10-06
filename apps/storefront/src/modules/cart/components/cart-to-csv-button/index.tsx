@@ -5,6 +5,7 @@ import Button from "@/modules/common/components/button"
 import { B2BCart } from "@/types"
 import { Text } from "@medusajs/ui"
 import { useState } from "react"
+import { useI18n } from "@/lib/i18n/provider"
 
 type CartToCsvButtonProps = {
   cart: B2BCart
@@ -13,6 +14,7 @@ type CartToCsvButtonProps = {
 const CartToCsvButton = ({ cart }: CartToCsvButtonProps) => {
   const [isExportingCart, setIsExportingCart] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const { t } = useI18n()
 
   const handleExportCart = async () => {
     setIsExportingCart(true)
@@ -57,7 +59,7 @@ const CartToCsvButton = ({ cart }: CartToCsvButtonProps) => {
         onClick={handleExportCart}
         isLoading={isExportingCart}
       >
-        Export Cart (.csv)
+        {t("Export Cart (.csv)")}
       </Button>
       {error && <Text className="text-red-500">{error}</Text>}
     </div>
