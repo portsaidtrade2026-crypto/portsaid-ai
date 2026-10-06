@@ -66,6 +66,22 @@ html[dir="rtl"] .display-type {
 }
 button, input, select, textarea { font: inherit; }
 ::selection { background: var(--ps-yellow); color: #111214; }
+
+/* A keyboard user had no way to see where focus was anywhere on the site
+   (outline was suppressed with no replacement) - this is the fallback for
+   every link/button/input that doesn't define its own focus-visible style,
+   using :focus-visible so it only shows for keyboard/assistive nav, never
+   on an ordinary mouse click. */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--ps-ink);
+  outline-offset: 2px;
+}
+:root.dark a:focus-visible, :root.dark button:focus-visible,
+:root.dark input:focus-visible, :root.dark select:focus-visible,
+:root.dark textarea:focus-visible, :root.dark [tabindex]:focus-visible {
+  outline-color: var(--ps-yellow);
+}
 .theme-toggle {
   display: inline-flex; align-items: center; justify-content: center;
   width: 32px; height: 32px; border: 1px solid var(--ps-line);

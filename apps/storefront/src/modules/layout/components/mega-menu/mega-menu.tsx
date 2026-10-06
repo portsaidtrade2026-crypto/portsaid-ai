@@ -254,11 +254,23 @@ const MegaMenu = ({
         ref={triggerRef}
         onMouseEnter={openMenu}
         onMouseLeave={scheduleClose}
+        onFocus={openMenu}
+        onBlur={(e) => {
+          // Keep the panel open while focus moves between its own
+          // contents (tabbing through category buttons/links) - only
+          // close when focus actually leaves this whole block. A plain
+          // mouse-driven close (scheduleClose) would otherwise fire on
+          // every single Tab press inside the panel.
+          if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+            closeNow()
+          }
+        }}
         className="z-50 hidden small:block"
       >
         <LocalizedClientLink
           className={clx(
             "hover:text-ui-fg-base hover:bg-neutral-100 rounded-full px-3 py-2",
+            "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ps-ink)]",
             isHovered && "bg-neutral-100"
           )}
           href="/store"

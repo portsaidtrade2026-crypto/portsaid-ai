@@ -30,7 +30,18 @@ export function I18nProvider({ locale: initialLocale, children }: { locale: Loca
 
 export function persistLocalePreference(next: Locale) {
   document.cookie = `${localeCookie}=${next}; Path=/; Max-Age=31536000; SameSite=Lax`
-  if (window.location.protocol === "https:") {
+  // The partitioned preview cookie is only for Replit's embedded preview
+  // iframe (a genuinely cross-site context, where SameSite=Lax cookies
+  // aren't sent at all) - it used to be set on every HTTPS visit,
+  // including the real, never-embedded production site. There the
+  // SameSite=None + Partitioned write can silently fail or linger stale
+  // in some browsers, and getRequestLocale() prefers it over the regular
+  // cookie whenever it's present - so a stuck old value there kept the
+  // banner on a previous language after switching, until a stale preview
+  // cookie expired or got overwritten by coincidence. Gating on actually
+  // being embedded removes that failure mode outside the one place it's
+  // needed.
+  if (window.location.protocol === "https:" && window.self !== window.top) {
     document.cookie = `${previewLocaleCookie}=${next}; Path=/; Max-Age=31536000; SameSite=None; Secure; Partitioned`
   }
 }
