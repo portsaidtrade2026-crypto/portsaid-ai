@@ -50,14 +50,6 @@ const CartDrawer = ({
     }, 0) || 0
 
   const subtotal = useMemo(() => cart?.item_subtotal ?? 0, [cart])
-  // Same fake-zero problem as the full cart summary: an unpriced
-  // (request-a-quote) line makes the subtotal genuinely 0, which read as
-  // "TRY 0.00" here too - both in the header trigger badge and the
-  // drawer's own subtotal line.
-  const hasUnpricedItems = useMemo(
-    () => items.some((item) => !item.unit_price),
-    [items]
-  )
 
   const spendLimitExceeded = useMemo(
     () => checkSpendingLimit(cart, customer),
@@ -116,7 +108,9 @@ const CartDrawer = ({
 
   // Request-quote items carry no real price (unit_price 0) - block
   // checkout for them the same way the full cart page's Summary does, so
-  // there's no path to actually paying nothing for a real product.
+  // there's no path to actually paying nothing for a real product. Also
+  // used below to swap the trigger badge/subtotal text for a "Pending
+  // quote" label instead of a literal "TRY 0.00" in that case.
   const hasUnpricedItems = items?.some((item) => !item.unit_price)
 
   const checkoutStep = cart ? getCheckoutStep(cart) : undefined
