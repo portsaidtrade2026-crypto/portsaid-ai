@@ -36,7 +36,7 @@ export default async function Footer() {
               {t("Components and supply for the road ahead. Built for businesses that keep moving.")}
             </p>
           </div>
-          <div className="text-small-regular gap-10 md:gap-x-12 grid grid-cols-2 sm:grid-cols-5 w-full sm:w-auto">
+          <div className="text-small-regular gap-10 small:gap-x-12 grid grid-cols-2 xsmall:grid-cols-5 w-full xsmall:w-auto">
             {topLevelCategories.length > 0 && (
               <div className="flex flex-col gap-y-2">
                 <span className="txt-small-plus txt-ui-fg-base">

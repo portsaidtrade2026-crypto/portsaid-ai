@@ -43,8 +43,21 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
 }
 
 const ProductSpecsTab = ({ product }: ProductTabsProps) => {
+  const { t } = useI18n()
+  // A lone "-" fed into react-markdown parses as an empty bullet list
+  // (<ul><li></li></ul>) - nothing renders at all, not even a dash, so an
+  // undescribed product's "Description" tab looked silently broken rather
+  // than empty-on-purpose. Skip Markdown entirely when there's no real
+  // description instead of handing it placeholder text to parse.
+  if (!product.description) {
+    return (
+      <div className="text-small-regular py-8 medium:w-2/3">
+        <Text className="text-neutral-500">{t("No description available")}</Text>
+      </div>
+    )
+  }
   return (
-    <div className="text-small-regular py-8 xl:w-2/3">
+    <div className="text-small-regular py-8 medium:w-2/3">
       <Markdown
         components={{
           p: ({ children }) => (
@@ -60,7 +73,7 @@ const ProductSpecsTab = ({ product }: ProductTabsProps) => {
           ),
         }}
       >
-        {product.description ? product.description : "-"}
+        {product.description}
       </Markdown>
     </div>
   )
@@ -90,26 +103,15 @@ const ProductSpecificationsTab = ({ product }: ProductTabsProps) => {
               </Table.Cell>
             </Table.Row>
           )}
-
-          {product.metadata &&
-            Object.entries(product.metadata)
-              .filter(
-                ([key, value]) =>
-                  key !== "translations" &&
-                  (typeof value === "string" ||
-                    typeof value === "number" ||
-                    typeof value === "boolean")
-              )
-              .map(([key, value]) => (
-              <Table.Row key={key}>
-                <Table.Cell className="border-r">
-                  <span className="font-semibold">{key}</span>
-                </Table.Cell>
-                <Table.Cell className="px-4">
-                  <p>{String(value)}</p>
-                </Table.Cell>
-              </Table.Row>
-              ))}
+          {/* product.metadata is import/ERP-sync bookkeeping only
+              (source, bizimhesap_category, translations, review flags from
+              the various migration-scripts/import-*.ts batches) - there is
+              no customer-facing spec field that lives in metadata, those
+              are the product's options (thickness/width/length/color),
+              rendered separately in the variants table. A previous version
+              of this tab dumped every string/number/boolean metadata entry
+              here, which surfaced things like "source: bizimhesap_sync"
+              as if it were a real specification. */}
         </Table.Body>
       </Table>
     </div>
