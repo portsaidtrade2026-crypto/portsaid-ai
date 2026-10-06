@@ -5,14 +5,18 @@ import { StoreProduct, StoreRegion } from "@medusajs/types"
 import { Button } from "@medusajs/ui"
 import ShoppingBag from "@/modules/common/icons/shopping-bag"
 import { useState } from "react"
+import { useI18n } from "@/lib/i18n/provider"
 
 const PreviewAddToCart = ({
   product,
   region,
+  hasPrice,
 }: {
   product: StoreProduct
   region: StoreRegion
+  hasPrice: boolean
 }) => {
+  const { t } = useI18n()
   const [isAdding, setIsAdding] = useState(false)
 
   // Unpriced variants are addable on purpose: this B2B storefront's
@@ -41,7 +45,7 @@ const PreviewAddToCart = ({
 
   return (
     <Button
-      className="rounded-full p-3 border-none shadow-none"
+      className="w-full rounded-full gap-2 border-none shadow-none"
       onClick={(e) => {
         e.preventDefault()
         handleAddToCart()
@@ -49,6 +53,7 @@ const PreviewAddToCart = ({
       isLoading={isAdding}
     >
       <ShoppingBag fill="#fff" />
+      {hasPrice ? t("Add to cart") : t("Request a quote")}
     </Button>
   )
 }

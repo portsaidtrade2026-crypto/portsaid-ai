@@ -1,6 +1,6 @@
 import { getProductPrice } from "@/lib/util/get-product-price"
 import { HttpTypes } from "@medusajs/types"
-import { Text, clx } from "@medusajs/ui"
+import { Text } from "@medusajs/ui"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import Thumbnail from "../thumbnail"
 import PreviewAddToCart from "./preview-add-to-cart"
@@ -28,16 +28,6 @@ export default async function ProductPreview({
     product,
   })
 
-  const trackedVariants = product.variants?.filter(
-    (variant) => variant.manage_inventory !== false
-  )
-  const knownQuantities = trackedVariants
-    ?.map((variant) => variant.inventory_quantity)
-    .filter((quantity): quantity is number => typeof quantity === "number")
-  const inventoryQuantity = knownQuantities?.length
-    ? knownQuantities.reduce((acc, quantity) => acc + quantity, 0)
-    : null
-
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
       <div
@@ -52,52 +42,22 @@ export default async function ProductPreview({
             isFeatured={isFeatured}
           />
         </div>
-        <div className="flex flex-col txt-compact-medium">
-          <Text className="text-neutral-600 text-xs">{tCatalog("BRAND")}</Text>
-          <Text className="text-ui-fg-base" data-testid="product-title">
-            {product.title}
-          </Text>
-        </div>
-        <div className="flex flex-col gap-0">
-          {cheapestPrice ? (
-            <>
-              <PreviewPrice price={cheapestPrice} />
-              <Text className="text-neutral-600 text-[0.6rem]">
-                {tCatalog("Excl. VAT")}
-              </Text>
-            </>
-          ) : (
-            <Text
-              className="text-neutral-950 font-medium text-lg"
-              data-testid="price-on-request"
-            >
-              {tCatalog("Price on request")}
-            </Text>
-          )}
-        </div>
-        <div className="flex justify-between">
-          <div className="flex flex-row gap-1 items-center">
-            <span
-              className={clx({
-                "text-green-500": inventoryQuantity !== null && inventoryQuantity > 50,
-                "text-orange-500":
-                  inventoryQuantity !== null &&
-                  inventoryQuantity <= 50 &&
-                  inventoryQuantity > 0,
-                "text-red-500": inventoryQuantity === 0,
-              })}
-            >
-              •
-            </span>
-            <Text className="text-neutral-600 text-xs">
-              {inventoryQuantity === null
-                ? tCatalog("Availability on request")
-                : `${inventoryQuantity} ${tCatalog("left")}`}
+        <Text className="text-ui-fg-base txt-compact-medium" data-testid="product-title">
+          {product.title}
+        </Text>
+        {cheapestPrice && (
+          <div className="flex flex-col gap-0">
+            <PreviewPrice price={cheapestPrice} />
+            <Text className="text-neutral-600 text-[0.6rem]">
+              {tCatalog("Excl. VAT")}
             </Text>
           </div>
+        )}
+        <div className="mt-auto">
           <PreviewAddToCart
             product={product}
             region={region}
+            hasPrice={!!cheapestPrice}
           />
         </div>
       </div>
