@@ -50,6 +50,14 @@ const CartDrawer = ({
     }, 0) || 0
 
   const subtotal = useMemo(() => cart?.item_subtotal ?? 0, [cart])
+  // Same fake-zero problem as the full cart summary: an unpriced
+  // (request-a-quote) line makes the subtotal genuinely 0, which read as
+  // "TRY 0.00" here too - both in the header trigger badge and the
+  // drawer's own subtotal line.
+  const hasUnpricedItems = useMemo(
+    () => items.some((item) => !item.unit_price),
+    [items]
+  )
 
   const spendLimitExceeded = useMemo(
     () => checkSpendingLimit(cart, customer),
@@ -135,10 +143,12 @@ const CartDrawer = ({
             <ShoppingBag />
             <span className="text-sm font-normal hidden small:inline-block">
               {cart && items && items.length > 0
-                ? convertToLocale({
-                    amount: subtotal,
-                    currency_code: cart.currency_code,
-                  })
+                ? hasUnpricedItems
+                  ? t("Pending quote")
+                  : convertToLocale({
+                      amount: subtotal,
+                      currency_code: cart.currency_code,
+                    })
                 : t("Cart")}
             </span>
             <div className="bg-blue-500 text-white text-xs px-1.5 py-px rounded-full">
@@ -186,10 +196,12 @@ const CartDrawer = ({
                     <div className="flex justify-between">
                      <Text>{t("Subtotal")}</Text>
                     <Text>
-                      {convertToLocale({
-                        amount: subtotal,
-                        currency_code: cart?.currency_code,
-                      })}
+                      {hasUnpricedItems
+                        ? t("Pending quote")
+                        : convertToLocale({
+                            amount: subtotal,
+                            currency_code: cart?.currency_code,
+                          })}
                     </Text>
                   </div>
                   <div className="flex flex-col gap-y-2">
