@@ -25,7 +25,12 @@ const nextConfig = {
     },
   },
   images: {
-    unoptimized: true,
+    // Product images are same-origin (/static/... via the local file
+    // provider, rewritten by toStorefrontMediaUrl) - Next's optimizer needs
+    // no remotePattern for those. It needs `sharp` installed to actually
+    // run (added to package.json) - without it this would silently fall
+    // back to serving originals unoptimized, same as before.
+    formats: ["image/webp"],
     remotePatterns: [
       {
         protocol: "http",
