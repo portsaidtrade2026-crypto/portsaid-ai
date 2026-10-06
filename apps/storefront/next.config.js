@@ -25,13 +25,26 @@ const nextConfig = {
     },
   },
   images: {
-    // Product images are same-origin (/static/... via the local file
-    // provider, rewritten by toStorefrontMediaUrl) - Next's optimizer needs
-    // no remotePattern for those. It needs `sharp` installed to actually
-    // run (added to package.json) - without it this would silently fall
-    // back to serving originals unoptimized, same as before.
+    // Product image URLs are ABSOLUTE in production (e.g.
+    // https://portsaid.com.tr/static/<file>, from the local file
+    // provider's backend_url - toStorefrontMediaUrl only rewrites the
+    // http://localhost variant used in dev, so the deployed site's own
+    // domain still needs an explicit remotePattern here or every product
+    // image 400s from the optimizer). Derived from NEXT_PUBLIC_BASE_URL so
+    // this doesn't have to be hand-edited per environment (Replit dev vs
+    // this VPS). Needs `sharp` installed to actually run (added to
+    // package.json) - without it this would silently fall back to serving
+    // originals unoptimized, same as before.
     formats: ["image/webp"],
     remotePatterns: [
+      ...(() => {
+        try {
+          const u = new URL(process.env.NEXT_PUBLIC_BASE_URL || "")
+          return [{ protocol: u.protocol.replace(":", ""), hostname: u.hostname }]
+        } catch {
+          return []
+        }
+      })(),
       {
         protocol: "http",
         hostname: "localhost",
