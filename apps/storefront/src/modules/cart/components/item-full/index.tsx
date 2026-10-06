@@ -107,7 +107,7 @@ const ItemFull = ({
         <div className="flex flex-col gap-y-2 justify-between min-h-full self-stretch">
           <div className="flex flex-col">
             <span className="txt-medium-plus text-neutral-950">
-              {translateProductTitle(item.product?.title, item.product?.handle, locale)}
+              {translateProductTitle(item.product?.title, item.product?.handle, locale, item.product?.metadata)}
             </span>
             {/* This catalog is mostly single-variant products whose
                 variant title is just the product's own raw Turkish title

@@ -99,19 +99,43 @@ export const translateOptionValue = (
 export const translateProductTitle = (
   title: string | null | undefined,
   handle: string | null | undefined,
-  locale: Locale = "en"
+  locale: Locale = "en",
+  metadata?: unknown
 ) => {
   if (!title) return ""
-  if (!handle || locale === "tr") return title
-  let decoded = handle
-  try {
-    decoded = decodeURIComponent(handle)
-  } catch {}
-  return (
-    productTitleTranslations[decoded.normalize("NFC")]?.[
-      locale as "en" | "bg" | "ar"
-    ] || title
-  )
+  if (locale === "tr") return title
+
+  if (handle) {
+    let decoded = handle
+    try {
+      decoded = decodeURIComponent(handle)
+    } catch {}
+    const reviewed =
+      productTitleTranslations[decoded.normalize("NFC")]?.[
+        locale as "en" | "bg" | "ar"
+      ]
+    if (reviewed) return reviewed
+  }
+
+  // Several later import batches (stationery/kartustoner/furniture-v2) wrote
+  // a real per-product title translation straight into
+  // metadata.translations - just never wired up to the title here (only
+  // subtitle/description read it, via fromMetadata). Two different shapes
+  // exist depending on which script wrote it: stationery/kartustoner nest
+  // it as translations[locale].title (same shape fromMetadata expects for
+  // subtitle/description); the furniture-v2 batch stored the title string
+  // directly as translations[locale]. Try both before giving up to raw
+  // Turkish - that fallback is now only the genuine gap (the original
+  // streç/packaging catalog entries never hand-reviewed into
+  // productTitleTranslations, and the older 69-item furniture batch that
+  // predates this metadata convention entirely).
+  const translations = (metadata as TranslationMetadata | null)?.translations
+  const localeEntry = translations?.[locale]
+  if (typeof localeEntry === "string" && localeEntry) return localeEntry
+  const nestedTitle = (localeEntry as { title?: string } | undefined)?.title
+  if (nestedTitle) return nestedTitle
+
+  return title
 }
 
 export const localizeProduct = (
@@ -129,7 +153,7 @@ export const localizeProduct = (
   // generic per-concept label shared by every sibling family in a category, so
   // swapping it in made every product in a category show the same title.
   // Per-product titles come from productTitleTranslations (keyed by handle).
-  title: translateProductTitle(product.title, product.handle, locale),
+  title: translateProductTitle(product.title, product.handle, locale, product.metadata),
   subtitle: translateCatalogValue(
     product.subtitle,
     locale,
