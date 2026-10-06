@@ -90,10 +90,13 @@ const ProductVariantsTable = ({
 
   return (
     <div className="flex flex-col gap-6 w-full min-w-0">
-      {/* Mobile: one stacked card per variant instead of a wide table that
-          needs horizontal scrolling to read on a phone - every attribute is
-          its own labelled row, read top to bottom. */}
-      <div className="small:hidden flex flex-col gap-3 w-full">
+      {/* Stacked cards instead of a wide table below "medium" (1280px) - not
+          just on phones. At "small" (1024px) the two-column product layout
+          only leaves ~310px for this column, but the table needs 500px+ and
+          was overflowing straight past the visible page with no visual cue
+          it could even scroll - the quantity input and add-to-cart button
+          ended up off-screen. Cards don't need that width. */}
+      <div className="medium:hidden flex flex-col gap-3 w-full">
         {product.variants?.map((variant) => {
           const { variantPrice } = getProductPrice({
             product,
@@ -144,7 +147,7 @@ const ProductVariantsTable = ({
         })}
       </div>
 
-      <div className="hidden small:block overflow-x-auto w-full min-w-0 p-px">
+      <div className="hidden medium:block overflow-x-auto w-full min-w-0 p-px">
         <Table className="w-full rounded-xl overflow-hidden shadow-borders-base border-none ">
           <Table.Header className="border-t-0">
             <Table.Row className="bg-neutral-100 border-none hover:!bg-neutral-100">

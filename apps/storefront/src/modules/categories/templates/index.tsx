@@ -91,8 +91,9 @@ export default function CategoryTemplate({
             listName={currentCategory.name}
             data-testid="sort-by-container"
             hideOptionsPicker
+            className="order-2 small:order-1"
           />
-          <div className="w-full">
+          <div className="w-full order-1 small:order-2">
             {!hasAnyProducts(currentCategory) ? (
               <Container className="flex flex-col gap-2 justify-center text-center items-center text-sm text-neutral-500">
                 <Text className="font-medium">

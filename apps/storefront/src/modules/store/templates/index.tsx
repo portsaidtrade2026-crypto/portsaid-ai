@@ -28,8 +28,14 @@ const StoreTemplate = ({
       >
         <StoreBreadcrumb />
         <div className="flex flex-col small:flex-row small:items-start gap-3">
-          <RefinementList sortBy={sort} categories={categories} />
-          <div className="w-full">
+          {/* On mobile the filter column (category tree, search, sort,
+              spec filters) used to sit above the grid in document order -
+              a shopper had to scroll past all of it before seeing a single
+              product. Visual order only (order-*), not DOM order, so
+              keyboard/screen-reader users still reach filters before
+              results, matching how they're laid out on desktop. */}
+          <RefinementList sortBy={sort} categories={categories} className="order-2 small:order-1" />
+          <div className="w-full order-1 small:order-2">
             <Suspense fallback={<SkeletonProductGrid />}>
               <PaginatedProducts
                 sortBy={sort}

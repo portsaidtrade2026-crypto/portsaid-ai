@@ -32,7 +32,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         data-testid="product-container"
       >
         <ImageGallery product={product} />
-        <div className="flex flex-col bg-neutral-100 w-full min-w-0 gap-6 items-start justify-center small:p-20 p-6 h-full">
+        <div className="flex flex-col bg-neutral-100 w-full min-w-0 gap-6 items-start justify-center p-6 small:p-10 large:p-20 h-full">
           <ProductInfo product={product} />
           <Suspense
             fallback={<ProductActions product={product} region={region} />}

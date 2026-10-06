@@ -4,7 +4,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useCallback } from "react"
 
 import SortProducts, { SortOptions } from "./sort-products"
-import { Container } from "@medusajs/ui"
+import { Container, clx } from "@medusajs/ui"
 import SearchInResults from "./search-in-results"
 import { HttpTypes } from "@medusajs/types"
 import CategoryList from "./category-list"
@@ -18,6 +18,7 @@ type RefinementListProps = {
   currentCategory?: HttpTypes.StoreProductCategory
   productOptions?: HttpTypes.StoreProductOption[]
   hideOptionsPicker?: boolean
+  className?: string
 }
 
 const RefinementList = ({
@@ -28,6 +29,7 @@ const RefinementList = ({
   currentCategory,
   productOptions,
   hideOptionsPicker,
+  className,
 }: RefinementListProps) => {
   const router = useRouter()
   const pathname = usePathname()
@@ -60,7 +62,7 @@ const RefinementList = ({
   }
 
   return (
-    <div className="flex flex-col divide-neutral-200 small:w-1/5 w-full gap-3">
+    <div className={clx("flex flex-col divide-neutral-200 small:w-1/5 w-full gap-3", className)}>
       <Container className="flex flex-col divide-y divide-neutral-200 p-0 w-full">
         <SearchInResults
           listName={listName}
