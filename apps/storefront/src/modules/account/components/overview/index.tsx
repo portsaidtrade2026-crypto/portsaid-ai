@@ -11,9 +11,13 @@ type OverviewProps = {
   customer: B2BCustomer | null
   orders: HttpTypes.StoreOrder[] | null
   region?: HttpTypes.StoreRegion | null
+  // order.id -> this customer's own order number (see
+  // buildCustomerOrderNumberMap). Plain object, not a Map - Map can't
+  // cross the server/client component prop boundary.
+  orderNumbers?: Record<string, number>
 }
 
-const Overview = ({ customer, orders }: OverviewProps) => {
+const Overview = ({ customer, orders, orderNumbers }: OverviewProps) => {
   const { t } = useI18n()
   return (
     <div data-testid="overview-page-wrapper">
@@ -82,7 +86,13 @@ const Overview = ({ customer, orders }: OverviewProps) => {
                 {orders && orders.length > 0 ? (
                   orders
                     .slice(0, 5)
-                    .map((order) => <OrderCard order={order} key={order.id} />)
+                    .map((order) => (
+                      <OrderCard
+                        order={order}
+                        customerOrderNumber={orderNumbers?.[order.id]}
+                        key={order.id}
+                      />
+                    ))
                 ) : (
                   <span data-testid="no-orders-message">{t("No recent orders")}</span>
                 )}

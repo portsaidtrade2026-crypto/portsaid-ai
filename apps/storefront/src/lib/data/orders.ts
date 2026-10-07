@@ -57,3 +57,30 @@ export const listOrders = async (
     .then(({ orders }) => orders)
     .catch((err) => medusaError(err))
 }
+
+// Just enough to rank every one of this customer's orders chronologically
+// (see buildCustomerOrderNumberMap) - deliberately not the full listOrders
+// field set, since a numbering pass has no use for items/variants/etc and
+// a customer's full order history could be large.
+export const listOrderIdsForNumbering = async () => {
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
+  const next = {
+    ...(await getCacheOptions("orders")),
+  }
+
+  return sdk.client
+    .fetch<HttpTypes.StoreOrderListResponse>(`/store/orders`, {
+      method: "GET",
+      query: {
+        limit: 1000,
+        fields: "id,created_at",
+      },
+      headers,
+      next,
+    })
+    .then(({ orders }) => orders)
+    .catch(() => [])
+}

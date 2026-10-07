@@ -9,9 +9,14 @@ import { useMemo } from "react"
 
 type OrderCardProps = {
   order: HttpTypes.StoreOrder
+  // This customer's own order number (1st, 2nd, ...), not Medusa's
+  // store-wide display_id - falls back to display_id if the caller
+  // hasn't computed it (shouldn't normally happen; see
+  // buildCustomerOrderNumberMap).
+  customerOrderNumber?: number
 }
 
-const OrderCard = ({ order }: OrderCardProps) => {
+const OrderCard = ({ order, customerOrderNumber }: OrderCardProps) => {
   const createdAt = new Date(order.created_at)
   const numberOfLines = useMemo(() => {
     return (
@@ -77,7 +82,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
 
           <div className="flex items-center text-small-regular">
             <DocumentIcon className="inline-block mr-1" />
-            <span data-testid="order-display-id">#{order.display_id}</span>
+            <span data-testid="order-display-id">#{customerOrderNumber ?? order.display_id}</span>
           </div>
         </div>
 
