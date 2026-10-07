@@ -1,4 +1,4 @@
-import { useRemoteQueryStep } from "@medusajs/core-flows";
+import { emitEventStep, useRemoteQueryStep } from "@medusajs/core-flows";
 import { createWorkflow } from "@medusajs/framework/workflows-sdk";
 import { updateQuotesWorkflow } from "./update-quote";
 
@@ -27,6 +27,11 @@ export const merchantSendQuoteWorkflow = createWorkflow(
           status: "pending_customer",
         },
       ],
+    });
+
+    emitEventStep({
+      eventName: "quote.merchant_sent",
+      data: { id: input.quote_id },
     });
   }
 );
