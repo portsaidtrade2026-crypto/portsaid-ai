@@ -8,6 +8,7 @@ import ShoppingBag from "@/modules/common/icons/shopping-bag"
 import { useState } from "react"
 import { useI18n } from "@/lib/i18n/provider"
 import { translateOptionValue } from "@/lib/i18n/catalog"
+import { getStretchFilmCartonQty } from "@/lib/util/stretch-film-moq"
 import BulkTableQuantity from "../bulk-table-quantity"
 
 const ProductVariantsTable = ({
@@ -137,10 +138,23 @@ const ProductVariantsTable = ({
                 </span>
               </div>
               <div className="pt-1">
-                <BulkTableQuantity
-                  variantId={variant.id}
-                  onChange={handleQuantityChange}
-                />
+                {(() => {
+                  const cartonQty = getStretchFilmCartonQty(variant.title)
+                  return (
+                    <>
+                      {cartonQty > 1 && (
+                        <p className="text-xs text-neutral-500 mb-1">
+                          {t("Sold by the carton: {count} per carton", { count: cartonQty })}
+                        </p>
+                      )}
+                      <BulkTableQuantity
+                        variantId={variant.id}
+                        onChange={handleQuantityChange}
+                        minQuantity={cartonQty}
+                      />
+                    </>
+                  )
+                })()}
               </div>
             </div>
           )

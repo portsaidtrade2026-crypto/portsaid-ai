@@ -12,6 +12,7 @@ import Thumbnail from "@/modules/products/components/thumbnail"
 import { HttpTypes } from "@medusajs/types"
 import { clx, Container, Input } from "@medusajs/ui"
 import { startTransition, useEffect, useState } from "react"
+import { clampToCartonMinimum, getStretchFilmCartonQty } from "@/lib/util/stretch-film-moq"
 
 type ItemProps = {
   item: HttpTypes.StoreCartLineItem
@@ -34,15 +35,47 @@ const ItemFull = ({
 
   const { handleDeleteItem, handleUpdateCartQuantity } = useCart()
 
-  const changeQuantity = async (newQuantity: number) => {
+  // Same carton-size floor as the product page's quantity picker (see
+  // stretch-film-moq) - the cart's own +/- shouldn't let a customer drop
+  // a stretch-film line into a partial-carton quantity it was never
+  // orderable at in the first place.
+  const cartonQty = getStretchFilmCartonQty(item.variant?.title ?? item.product_title)
+
+  // The +/- buttons step by whole units but must never land between 1 and
+  // cartonQty-1: going up from 0 jumps straight to a full carton, and
+  // going down out of the carton minimum drops straight to 0 (not a
+  // partial carton) rather than bouncing back up to the minimum the way
+  // changeQuantity's own clamp would for typed input.
+  const stepQuantity = (direction: 1 | -1) => {
+    const current = item.quantity
+    if (direction === 1) {
+      changeQuantity(current === 0 && cartonQty > 1 ? cartonQty : current + 1)
+    } else {
+      const next = current - 1
+      changeQuantity(next < cartonQty ? 0 : next)
+    }
+  }
+
+  const changeQuantity = async (requestedQuantity: number) => {
+    const newQuantity = clampToCartonMinimum(requestedQuantity, cartonQty)
     setError(null)
-    // setUpdating(true)
+    // Blocks the +/-/input controls for the duration of the request - was
+    // previously commented out, which let rapid clicks fire several
+    // concurrent update requests for the same line item. Medusa processes
+    // them out of order (each one recalculates the cart from whatever
+    // state it reads at that moment), so the last response to land can
+    // silently undo an earlier click, or two overlapping writes can
+    // conflict and surface as "Failed to update cart quantity" - matching
+    // exactly what Ahmed saw (sometimes an error, sometimes the click is
+    // just lost).
+    setUpdating(true)
 
     startTransition(() => {
       setQuantity(newQuantity.toString())
     })
 
     await handleUpdateCartQuantity(item.id, Number(newQuantity))
+    setUpdating(false)
   }
 
   useEffect(() => {
@@ -132,10 +165,10 @@ const ItemFull = ({
                 <button
                   className={clx(
                     "w-4 h-4 flex items-center justify-center text-neutral-600 hover:bg-neutral-100 rounded-full text-md",
-                    disabled ? "opacity-50 pointer-events-none" : "opacity-100"
+                    disabled || updating ? "opacity-50 pointer-events-none" : "opacity-100"
                   )}
-                  onClick={() => changeQuantity(item.quantity - 1)}
-                  disabled={item.quantity <= 1 || disabled}
+                  onClick={() => stepQuantity(-1)}
+                  disabled={item.quantity <= 1 || disabled || updating}
                 >
                   -
                 </button>
@@ -166,10 +199,10 @@ const ItemFull = ({
                 <button
                   className={clx(
                     "w-4 h-4 flex items-center justify-center text-neutral-600 hover:bg-neutral-100 rounded-full text-md",
-                    disabled ? "opacity-50 pointer-events-none" : "opacity-100"
+                    disabled || updating ? "opacity-50 pointer-events-none" : "opacity-100"
                   )}
-                  onClick={() => changeQuantity(item.quantity + 1)}
-                  disabled={item.quantity >= maxQuantity || disabled}
+                  onClick={() => stepQuantity(1)}
+                  disabled={item.quantity >= maxQuantity || disabled || updating}
                 >
                   +
                 </button>
