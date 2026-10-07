@@ -56,10 +56,12 @@ const ItemsTemplate = ({
           <div className="flex items-start justify-between h-full self-stretch">
             <Text>{t("Total: {count} items", { count: totalQuantity || 0 })}</Text>
             <Text>
-              {convertToLocale({
-                amount: cart?.item_total,
-                currency_code: cart?.currency_code,
-              })}
+              {cart?.items?.some((item) => !item.unit_price)
+                ? t("Pending quote")
+                : convertToLocale({
+                    amount: cart?.item_total,
+                    currency_code: cart?.currency_code,
+                  })}
             </Text>
           </div>
         </Container>
