@@ -68,7 +68,7 @@ export async function NavigationHeader() {
                 </button>
               </RequestQuoteConfirmation>
             ) : (
-              <RequestQuotePrompt>
+              <RequestQuotePrompt isLoggedIn={!!customer}>
                 <button className="flex gap-1.5 items-center rounded-2xl bg-none shadow-none border-none hover:bg-neutral-100 px-2 py-1">
                   <FilePlus />
                   <span className="hidden small:inline-block">{t("Quote")}</span>

@@ -7,8 +7,16 @@ import * as Dialog from "@radix-ui/react-dialog"
 
 export const RequestQuotePrompt = ({
   children,
+  isLoggedIn = false,
 }: {
   children: React.ReactNode
+  // nav/index.tsx falls back to this prompt for a logged-in customer whose
+  // cart just happens to be empty (its own condition requires BOTH a
+  // customer AND cart items before switching to RequestQuoteConfirmation) -
+  // telling an already-authenticated visitor to "log in or create an
+  // account" read as a real bug report, not a quirk. Step 1 only applies
+  // to someone who isn't signed in yet.
+  isLoggedIn?: boolean
 }) => {
   const { t } = useI18n()
   return (
@@ -27,25 +35,27 @@ export const RequestQuotePrompt = ({
 
         <div className="p-1">
           <ol className="list-decimal ml-8 my-5">
-            <li>
-              <Dialog.Close asChild>
-                <LocalizedClientLink
-                  className="text-blue-500 cursor-pointer"
-                  href="/account"
-                >
-                  {t("Log in")}
-                </LocalizedClientLink>
-              </Dialog.Close>
-               {` ${t("or")} `}
-              <Dialog.Close>
-                <LocalizedClientLink
-                  className="text-blue-500 cursor-pointer"
-                  href="/account"
-                >
-                  {t("create an account")}
-                </LocalizedClientLink>
-              </Dialog.Close>
-            </li>
+            {!isLoggedIn && (
+              <li>
+                <Dialog.Close asChild>
+                  <LocalizedClientLink
+                    className="text-blue-500 cursor-pointer"
+                    href="/account"
+                  >
+                    {t("Log in")}
+                  </LocalizedClientLink>
+                </Dialog.Close>
+                 {` ${t("or")} `}
+                <Dialog.Close>
+                  <LocalizedClientLink
+                    className="text-blue-500 cursor-pointer"
+                    href="/account"
+                  >
+                    {t("create an account")}
+                  </LocalizedClientLink>
+                </Dialog.Close>
+              </li>
+            )}
             <li>{t("Add products to your cart")}</li>
             <li>
                {t('Open cart & click "Request a quote"')}
