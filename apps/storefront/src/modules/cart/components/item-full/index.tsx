@@ -70,6 +70,22 @@ const ItemFull = ({
     // just lost).
     setUpdating(true)
 
+    // 0 means "remove this line" - Medusa's line-item UPDATE endpoint
+    // rejects a quantity of 0 (a cart line can't exist at zero; removal is
+    // its own DELETE call), so routing a clamped-to-zero result through
+    // handleUpdateCartQuantity instead of handleDeleteItem surfaced as
+    // "Failed to update cart quantity" on a real cart - caught live by
+    // Ahmed stepping a 25cm stretch-film line down below its carton
+    // minimum (10cm -> 30/carton, stepping "-" from 2 clamps to 0).
+    if (newQuantity <= 0) {
+      startTransition(() => {
+        setQuantity("0")
+      })
+      await handleDeleteItem(item.id)
+      setUpdating(false)
+      return
+    }
+
     startTransition(() => {
       setQuantity(newQuantity.toString())
     })
@@ -89,14 +105,12 @@ const ItemFull = ({
 
     if (value > maxQuantity) {
       changeQuantity(maxQuantity)
+      return
     }
 
-    if (value < 1) {
-      setUpdating(true)
-      handleDeleteItem(item.id)
-      setUpdating(false)
-    }
-
+    // changeQuantity's own clamp already routes anything <= 0 to a real
+    // delete - no need for a separate handleDeleteItem call here (the
+    // previous version called both, unconditionally, for every blur).
     changeQuantity(value)
   }
 
