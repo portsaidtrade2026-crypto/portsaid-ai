@@ -7,5 +7,8 @@ export async function getRequestTheme(): Promise<Theme> {
   if (isTheme(previewTheme)) return previewTheme
 
   const savedTheme = requestCookies.get(themeCookie)?.value
-  return isTheme(savedTheme) ? savedTheme : "dark"
+  // Ahmed: the site's default should be light mode on every device, until
+  // the visitor explicitly flips the toggle - this previously defaulted
+  // every first-time visitor (desktop and phone alike) to dark mode.
+  return isTheme(savedTheme) ? savedTheme : "light"
 }
