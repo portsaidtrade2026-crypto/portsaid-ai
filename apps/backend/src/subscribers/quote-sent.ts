@@ -1,6 +1,10 @@
 import type { SubscriberArgs, SubscriberConfig } from "@medusajs/framework";
-import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
-import type { Logger, RemoteQueryFunction } from "@medusajs/framework/types";
+import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils";
+import type {
+  IOrderModuleService,
+  Logger,
+  RemoteQueryFunction,
+} from "@medusajs/framework/types";
 import type { QueryQuote } from "../types/quote/query";
 
 /*
@@ -30,10 +34,10 @@ export default async function quoteSentHandler({
     entity: "quote",
     fields: [
       "id",
+      "draft_order_id",
       "customer.email",
       "customer.first_name",
       "customer.phone",
-      "draft_order.total",
       "draft_order.currency_code",
     ],
     filters: { id: data.id },
@@ -44,6 +48,20 @@ export default async function quoteSentHandler({
     return;
   }
 
+  // draft_order.total is the ORIGINAL order total from before the merchant's pricing
+  // edit - it stays at its pre-edit value (often 0 for a brand-new draft order) until the
+  // edit is later confirmed, which doesn't happen at send time. Found live this session: a
+  // real sent quote reported total:0 here despite being freshly priced, because the edit
+  // was still pending. previewOrderChange is the same call the admin quote page and the
+  // customer-facing quote page both already use for their own totals - this now reads the
+  // same pending/current total they show, not the stale original one.
+  const orderModuleService: IOrderModuleService = container.resolve(
+    Modules.ORDER
+  );
+  const preview = await orderModuleService.previewOrderChange(
+    quoteData.draft_order_id
+  );
+
   try {
     await fetch(webhookUrl, {
       method: "POST",
@@ -53,7 +71,7 @@ export default async function quoteSentHandler({
         customer_email: quoteData.customer.email,
         customer_name: quoteData.customer.first_name ?? "",
         customer_phone: quoteData.customer.phone ?? "",
-        total: quoteData.draft_order?.total ?? null,
+        total: preview.total ?? null,
         currency_code: quoteData.draft_order?.currency_code ?? null,
       }),
     });
