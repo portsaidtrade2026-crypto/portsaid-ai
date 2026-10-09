@@ -35,9 +35,16 @@ const BulkTableQuantity = ({ variantId, onChange, disabled, minQuantity = 1 }: B
     commit(Number(quantity) || 0)
   }
 
+  // A carton product can only ever sit on a whole-carton quantity (see
+  // clampToCartonMinimum), so +/- must step by a full carton too - +1 from
+  // 6 landed on 7, which commit() used to leave alone instead of rounding
+  // up to the next carton (Ahmed's report: a 6-per-carton product must
+  // only ever show 6, 12, 18, ... never 5 or 7). Shift steps 5 cartons at
+  // once instead of 10 loose units.
+  const step = minQuantity > 1 ? minQuantity * (shiftPressed ? 5 : 1) : (shiftPressed ? 10 : 1)
+
   const handleAdd = () => {
     const current = Number(quantity) || 0
-    const step = shiftPressed ? 10 : 1
     // From 0, the first click should land on a full carton, not 1 unit
     // into it.
     const next = current === 0 && minQuantity > 1 ? minQuantity : current + step
@@ -46,7 +53,6 @@ const BulkTableQuantity = ({ variantId, onChange, disabled, minQuantity = 1 }: B
 
   const handleSubtract = () => {
     const current = Number(quantity) || 0
-    const step = shiftPressed ? 10 : 1
     const next = current - step
     // Stepping down out of the carton minimum goes straight to 0 (not
     // ordering it) rather than landing on a partial-carton quantity.

@@ -41,17 +41,20 @@ const ItemFull = ({
   // orderable at in the first place.
   const cartonQty = getStretchFilmCartonQty(item.variant?.title ?? item.product_title)
 
-  // The +/- buttons step by whole units but must never land between 1 and
-  // cartonQty-1: going up from 0 jumps straight to a full carton, and
-  // going down out of the carton minimum drops straight to 0 (not a
-  // partial carton) rather than bouncing back up to the minimum the way
+  // The +/- buttons must step by a full carton (not 1 unit) so they can
+  // never land on a partial-carton quantity like 7 out of a 6-per-carton
+  // product (Ahmed's report: a carton of 6 must only ever be ordered as
+  // 6, 12, 18, ... never 5 or 7) - going up from 0 jumps straight to a
+  // full carton, and going down out of the carton minimum drops straight
+  // to 0 rather than bouncing back up to the minimum the way
   // changeQuantity's own clamp would for typed input.
   const stepQuantity = (direction: 1 | -1) => {
     const current = item.quantity
+    const step = cartonQty > 1 ? cartonQty : 1
     if (direction === 1) {
-      changeQuantity(current === 0 && cartonQty > 1 ? cartonQty : current + 1)
+      changeQuantity(current === 0 && cartonQty > 1 ? cartonQty : current + step)
     } else {
-      const next = current - 1
+      const next = current - step
       changeQuantity(next < cartonQty ? 0 : next)
     }
   }

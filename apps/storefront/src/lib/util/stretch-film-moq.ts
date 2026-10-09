@@ -31,12 +31,16 @@ export function getStretchFilmCartonQty(
   return WIDTH_CM_TO_CARTON_QTY[width] ?? 1
 }
 
-// Snaps a requested quantity to the nearest valid value for this minimum:
-// 0 stays 0 (not ordering it), anything below the carton minimum jumps up
-// to it, anything at or above it is left alone (ordering extra loose units
-// past the first carton is allowed - only the floor is enforced).
-export function clampToCartonMinimum(quantity: number, minQty: number): number {
+// Snaps a requested quantity to the nearest valid WHOLE-CARTON multiple:
+// 0 stays 0 (not ordering it), anything else rounds UP to the next
+// multiple of cartonQty - never down (a customer typing 35 against a
+// 30-per-carton product gets 60, not 30 - they asked for at least 35 and
+// can only buy whole cartons) and never left sitting on a partial-carton
+// value like 35 itself (Ahmed's report: "6/12/18 ... 5 مش بينفع" - a carton
+// of 6 must only ever be ordered as 6, 12, 18, ... never 5 or 7).
+export function clampToCartonMinimum(quantity: number, cartonQty: number): number {
   if (quantity <= 0) return 0
-  if (quantity < minQty) return minQty
-  return quantity
+  if (cartonQty <= 1) return Math.round(quantity)
+  const cartons = Math.max(Math.ceil(quantity / cartonQty), 1)
+  return cartons * cartonQty
 }
