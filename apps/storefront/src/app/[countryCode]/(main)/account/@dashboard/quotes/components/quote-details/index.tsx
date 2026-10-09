@@ -102,6 +102,43 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
                 </span>
               </div>
 
+              {/* Ahmed: the customer must see the 20% KDV called out as its own line, not
+                  folded silently into the total. Summed from each line's own post-edit
+                  subtotal/tax_total (same source the admin-side QuoteTotal component reads),
+                  not order.total/preview.total divided back out - robust even if a future
+                  product ever gets a different tax rule. */}
+              <div className="flex items-center justify-between mb-2 px-6">
+                <span className="txt-small text-ui-fg-subtle">
+                  {t("Subtotal (excl. VAT)")}
+                </span>
+
+                <span className="txt-small text-ui-fg-subtle">
+                  {formatAmount(
+                    (preview.items ?? []).reduce(
+                      (sum, item) => sum + item.subtotal,
+                      0
+                    ),
+                    order.currency_code
+                  )}
+                </span>
+              </div>
+
+              <div className="flex items-center justify-between mb-2 px-6">
+                <span className="txt-small text-ui-fg-subtle">
+                  {t("VAT (20%)")}
+                </span>
+
+                <span className="txt-small text-ui-fg-subtle">
+                  {formatAmount(
+                    (preview.items ?? []).reduce(
+                      (sum, item) => sum + item.tax_total,
+                      0
+                    ),
+                    order.currency_code
+                  )}
+                </span>
+              </div>
+
               <div className="flex items-center justify-between px-6">
                 <span className="txt-small text-ui-fg-subtle font-semibold">
                   {t("New Total")}
