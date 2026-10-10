@@ -57,6 +57,7 @@ const ProductVariantsTable = ({
   }
 
   const handleAddToCart = async () => {
+    if (isAdding) return
     setIsAdding(true)
 
     // Unpriced variants are NOT filtered out here: this B2B storefront's
@@ -74,7 +75,11 @@ const ProductVariantsTable = ({
       })
     )
 
-    addToCartEventBus.emitCartAdd({
+    // Awaited (was fire-and-forget) so the button's own loading state tracks the real
+    // request instead of clearing before it even went out - found live this session: with
+    // no visible feedback, a click looked like it did nothing, so a second click followed
+    // and could race a brand-new cart into existence (see getOrSetCart in cart.ts).
+    await addToCartEventBus.emitCartAdd({
       lineItems,
       regionId: region.id,
     })
@@ -165,7 +170,7 @@ const ProductVariantsTable = ({
         variant="primary"
         className="w-full h-10"
         isLoading={isAdding}
-        disabled={totalQuantity === 0}
+        disabled={totalQuantity === 0 || isAdding}
         data-testid="add-product-button"
       >
         <ShoppingBag

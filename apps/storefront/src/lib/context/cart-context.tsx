@@ -87,7 +87,12 @@ export function CartProvider({
         return
       }
 
-      startTransition(async () => {
+      // setOptimisticCart alone is wrapped in startTransition (required - useOptimistic's
+      // setter must run inside one); the real request below is NOT, so this whole function
+      // stays a genuine promise the caller (the "Add to cart" button) can await to know when
+      // the request has actually finished, instead of the old shape where everything lived
+      // inside startTransition and the caller had no way to observe completion at all.
+      startTransition(() => {
         setOptimisticCart((prev) => {
           prevCart = structuredClone(prev) as B2BCart
 
@@ -159,42 +164,42 @@ export function CartProvider({
             items: newItems,
           } as B2BCart
         })
-
-        setIsUpdatingCart(true)
-
-        await addToCartBulk({
-          lineItems: payload.lineItems.map((lineItem) => {
-            const hasPrice =
-              !!lineItem.productVariant.calculated_price?.calculated_amount
-            return {
-              variant_id: lineItem.productVariant.id,
-              quantity: lineItem.quantity,
-              // Medusa's cart workflow rejects the whole bulk request if any
-              // variant has no price configured - this line is genuinely
-              // quote-only (see product-variants-table's handleAddToCart),
-              // so mark it custom-priced at 0 to skip that check instead of
-              // failing to add it at all. Priced variants are untouched;
-              // Medusa still calculates their real price server-side.
-              ...(hasPrice ? {} : { unit_price: 0 }),
-            }
-          }),
-          countryCode: countryCode as string,
-        }).catch((e) => {
-          if (e.message === "Cart is pending approval") {
-            toast.error("Cart is locked for approval.")
-          } else {
-            toast.error("Failed to add to cart")
-          }
-          setOptimisticCart(prevCart)
-        })
-
-        // Header/nav (the quote button, cart badge, etc.) reads a
-        // server-fetched cart snapshot from the root layout, which doesn't
-        // pick up this client-side mutation on its own until something
-        // tells Next to re-render it - without this, the nav can still show
-        // "log in / add items" instructions after a successful add.
-        router.refresh()
       })
+
+      setIsUpdatingCart(true)
+
+      await addToCartBulk({
+        lineItems: payload.lineItems.map((lineItem) => {
+          const hasPrice =
+            !!lineItem.productVariant.calculated_price?.calculated_amount
+          return {
+            variant_id: lineItem.productVariant.id,
+            quantity: lineItem.quantity,
+            // Medusa's cart workflow rejects the whole bulk request if any
+            // variant has no price configured - this line is genuinely
+            // quote-only (see product-variants-table's handleAddToCart),
+            // so mark it custom-priced at 0 to skip that check instead of
+            // failing to add it at all. Priced variants are untouched;
+            // Medusa still calculates their real price server-side.
+            ...(hasPrice ? {} : { unit_price: 0 }),
+          }
+        }),
+        countryCode: countryCode as string,
+      }).catch((e) => {
+        if (e.message === "Cart is pending approval") {
+          toast.error("Cart is locked for approval.")
+        } else {
+          toast.error("Failed to add to cart")
+        }
+        startTransition(() => setOptimisticCart(prevCart))
+      })
+
+      // Header/nav (the quote button, cart badge, etc.) reads a
+      // server-fetched cart snapshot from the root layout, which doesn't
+      // pick up this client-side mutation on its own until something
+      // tells Next to re-render it - without this, the nav can still show
+      // "log in / add items" instructions after a successful add.
+      router.refresh()
     },
     [setOptimisticCart, router]
   )

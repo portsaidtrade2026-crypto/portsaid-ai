@@ -11,17 +11,21 @@ export type AddToCartEventPayload = {
   regionId: string
 }
 
-type CartAddEventHandler = (payload: AddToCartEventPayload) => void
+type CartAddEventHandler = (payload: AddToCartEventPayload) => void | Promise<void>
 
 type CartAddEventBus = {
-  emitCartAdd: (payload: AddToCartEventPayload) => void
+  emitCartAdd: (payload: AddToCartEventPayload) => Promise<void>
   handler: CartAddEventHandler
   registerCartAddHandler: (handler: CartAddEventHandler) => void
 }
 
 export const addToCartEventBus: CartAddEventBus = {
-  emitCartAdd(payload: AddToCartEventPayload) {
-    this.handler(payload)
+  // Awaited now (was fire-and-forget) - the caller's "Add to cart" button needs the real
+  // request's completion to clear its own loading state, not just this call returning
+  // synchronously before the network request has even gone out. Found live this session:
+  // the button looked instantly done, so a user would click again mid-request.
+  async emitCartAdd(payload: AddToCartEventPayload) {
+    await this.handler(payload)
 
     for (const lineItem of payload.lineItems) {
       track("add_to_cart", {

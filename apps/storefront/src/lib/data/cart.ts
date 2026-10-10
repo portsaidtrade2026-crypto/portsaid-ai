@@ -54,9 +54,14 @@ export async function retrieveCart(id?: string) {
 }
 
 export async function getOrSetCart(countryCode: string) {
-  let cart = await retrieveCart()
-  const region = await getRegion(countryCode)
-  const customer = await retrieveCustomer()
+  // These three don't depend on each other - fired sequentially before, stacking their
+  // latencies on every single add-to-cart click (found live this session, reported as the
+  // whole operation feeling slow/delayed).
+  let [cart, region, customer] = await Promise.all([
+    retrieveCart(),
+    getRegion(countryCode),
+    retrieveCustomer(),
+  ])
 
   if (!region) {
     throw new Error(`Region not found for country code: ${countryCode}`)

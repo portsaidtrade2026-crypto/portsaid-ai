@@ -23,11 +23,12 @@ const PreviewAddToCart = ({
   // request-a-quote flow depends on being able to add unpriced items to the
   // cart, then converting that cart to a quote (see RequestQuotePrompt).
   const handleAddToCart = async () => {
-    if (!product?.variants?.[0]?.id) return null
+    if (!product?.variants?.[0]?.id || isAdding) return null
 
     setIsAdding(true)
 
-    addToCartEventBus.emitCartAdd({
+    // Awaited (was fire-and-forget) - see product-variants-table's handleAddToCart for why.
+    await addToCartEventBus.emitCartAdd({
       lineItems: [
         {
           productVariant: {
@@ -51,6 +52,7 @@ const PreviewAddToCart = ({
         handleAddToCart()
       }}
       isLoading={isAdding}
+      disabled={isAdding}
     >
       <ShoppingBag fill="#fff" />
       {hasPrice ? t("Add to cart") : t("Request a quote")}
