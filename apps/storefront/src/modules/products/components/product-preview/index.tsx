@@ -29,10 +29,20 @@ export default async function ProductPreview({
   })
 
   return (
-    <LocalizedClientLink href={`/products/${product.handle}`} className="group">
-      <div
-        data-testid="product-wrapper"
-        className="flex flex-col gap-4 relative aspect-[3/5] w-full overflow-hidden p-4 bg-white shadow-borders-base rounded-lg group-hover:shadow-[0_0_0_4px_rgba(0,0,0,0.1)] transition-shadow ease-in-out duration-150"
+    // PreviewAddToCart is a sibling, NOT nested inside the Link below - a <button> inside an
+    // <a> is invalid HTML (interactive content can't nest) and browsers resolve a click near
+    // the boundary inconsistently, more so on touch than a precise mouse click. Found live
+    // this session: an imprecise click on the button could trigger the card's own navigation
+    // instead of adding to cart, which from a user's perspective looks exactly like "nothing
+    // happened, so I click again" - the same symptom the loading-state fix already addressed
+    // for the request itself, but this covers the click never reaching the button at all.
+    <div
+      data-testid="product-wrapper"
+      className="group flex flex-col gap-4 relative aspect-[3/5] w-full overflow-hidden p-4 bg-white shadow-borders-base rounded-lg hover:shadow-[0_0_0_4px_rgba(0,0,0,0.1)] transition-shadow ease-in-out duration-150"
+    >
+      <LocalizedClientLink
+        href={`/products/${product.handle}`}
+        className="flex flex-col gap-4 flex-1 min-h-0"
       >
         <div className="w-full h-full p-10">
           <Thumbnail
@@ -53,14 +63,12 @@ export default async function ProductPreview({
             </Text>
           </div>
         )}
-        <div className="mt-auto">
-          <PreviewAddToCart
-            product={product}
-            region={region}
-            hasPrice={!!cheapestPrice}
-          />
-        </div>
-      </div>
-    </LocalizedClientLink>
+      </LocalizedClientLink>
+      <PreviewAddToCart
+        product={product}
+        region={region}
+        hasPrice={!!cheapestPrice}
+      />
+    </div>
   )
 }
