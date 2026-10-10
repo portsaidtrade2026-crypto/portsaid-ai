@@ -62,6 +62,14 @@ export default async function quoteSentHandler({
     quoteData.draft_order_id
   );
 
+  // Website-sourced quotes are priced entirely in Medusa, so this is the only place that
+  // ever sees their real line items - without it the n8n Quote Inbox dashboard (and the
+  // factory Telegram message it triggers on approval) has no way to show what's actually
+  // being delivered, only a price.
+  const itemsSummary = (preview.items ?? [])
+    .map((item) => `${item.title} x${item.quantity}`)
+    .join(", ");
+
   try {
     await fetch(webhookUrl, {
       method: "POST",
@@ -73,6 +81,7 @@ export default async function quoteSentHandler({
         customer_phone: quoteData.customer.phone ?? "",
         total: preview.total ?? null,
         currency_code: quoteData.draft_order?.currency_code ?? null,
+        items_summary: itemsSummary,
       }),
     });
   } catch (error) {
