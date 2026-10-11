@@ -66,25 +66,27 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
           {t("Some items need a quote before you can check out - use Request Quote below.")}
         </p>
       )}
-      <LocalizedClientLink
-        href={checkoutButtonLink}
-        data-testid="checkout-button"
-        aria-disabled={hasUnpricedItems}
-        onClick={(e) => {
-          if (hasUnpricedItems) e.preventDefault()
-        }}
-      >
-        <Button
-          className="w-full h-10 rounded-full shadow-none"
-          disabled={spendLimitExceeded || hasUnpricedItems}
+      {/* Ahmed: a disabled "Log in to Checkout" button sitting next to the real,
+          already-functional guest CTA ("Request Quote", which opens a login/register
+          prompt on its own via RequestQuotePrompt below) read as two competing, half-broken
+          actions instead of one clear path - a guest has nothing to check out yet anyway. */}
+      {!!customer && (
+        <LocalizedClientLink
+          href={checkoutButtonLink}
+          data-testid="checkout-button"
+          aria-disabled={hasUnpricedItems}
+          onClick={(e) => {
+            if (hasUnpricedItems) e.preventDefault()
+          }}
         >
-          {customer
-            ? spendLimitExceeded
-              ? t("Spending Limit Exceeded")
-              : t("Checkout")
-            : t("Log in to Checkout")}
-        </Button>
-      </LocalizedClientLink>
+          <Button
+            className="w-full h-10 rounded-full shadow-none"
+            disabled={spendLimitExceeded || hasUnpricedItems}
+          >
+            {spendLimitExceeded ? t("Spending Limit Exceeded") : t("Checkout")}
+          </Button>
+        </LocalizedClientLink>
+      )}
       {!!customer && (
         <RequestQuoteConfirmation>
           <Button

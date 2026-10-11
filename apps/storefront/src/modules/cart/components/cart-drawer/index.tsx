@@ -11,6 +11,8 @@ import Button from "@/modules/common/components/button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import ShoppingBag from "@/modules/common/icons/shopping-bag"
 import FreeShippingPriceNudge from "@/modules/shipping/components/free-shipping-price-nudge"
+import { RequestQuoteConfirmation } from "@/modules/quotes/components/request-quote-confirmation"
+import { RequestQuotePrompt } from "@/modules/quotes/components/request-quote-prompt"
 import { B2BCustomer } from "@/types"
 import { StoreFreeShippingPrice } from "@/types/shipping-option/http"
 import { ExclamationCircle, LockClosedSolidMini } from "@medusajs/icons"
@@ -208,27 +210,37 @@ const CartDrawer = ({
                          {t("View Cart")}
                       </Button>
                     </LocalizedClientLink>
-                    <LocalizedClientLink
-                      href={checkoutPath}
-                      onClick={(e) => {
-                        if (hasUnpricedItems) e.preventDefault()
-                      }}
-                    >
-                      <Button
-                        className="w-full"
-                        size="large"
-                        disabled={
-                          totalItems === 0 || spendLimitExceeded || hasUnpricedItems
-                        }
-                      >
-                        <LockClosedSolidMini />
-                        {customer
-                          ? spendLimitExceeded
+                    {/* Ahmed: a header with a separate "Quote" button right next to this
+                        drawer's own badge (which already reads "Pending quote" once the
+                        cart has unpriced items) looked like two competing cart/quote
+                        entry points - this drawer is now the one place that action lives,
+                        same logic as the full cart page's Summary. */}
+                    {customer && !hasUnpricedItems ? (
+                      <LocalizedClientLink href={checkoutPath}>
+                        <Button
+                          className="w-full"
+                          size="large"
+                          disabled={totalItems === 0 || spendLimitExceeded}
+                        >
+                          <LockClosedSolidMini />
+                          {spendLimitExceeded
                             ? t("Spending Limit Exceeded")
-                            : t("Secure Checkout")
-                          : t("Log in to checkout")}
-                      </Button>
-                    </LocalizedClientLink>
+                            : t("Secure Checkout")}
+                        </Button>
+                      </LocalizedClientLink>
+                    ) : customer ? (
+                      <RequestQuoteConfirmation>
+                        <Button className="w-full" size="large">
+                          {t("Request Quote")}
+                        </Button>
+                      </RequestQuoteConfirmation>
+                    ) : (
+                      <RequestQuotePrompt>
+                        <Button className="w-full" size="large">
+                          {t("Request Quote")}
+                        </Button>
+                      </RequestQuotePrompt>
+                    )}
                     {spendLimitExceeded && (
                       <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
                         <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />
