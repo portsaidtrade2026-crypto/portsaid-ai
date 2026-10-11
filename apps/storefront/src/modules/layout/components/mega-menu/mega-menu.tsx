@@ -95,7 +95,6 @@ const MegaMenu = ({
 }: {
   categories: HttpTypes.StoreProductCategory[]
 }) => {
-  const [isHovered, setIsHovered] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   // Any number of branches can be open at once, at any depth (a category can
   // now nest two levels deep, e.g. Makineler > Ambalaj Makineleri > İkinci) -
@@ -103,9 +102,11 @@ const MegaMenu = ({
   // every currently-open id instead. Starts empty (closed) every time the
   // mobile panel opens.
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set())
-  const [selectedCategory, setSelectedCategory] = useState<
-    HttpTypes.StoreProductCategory["id"] | null
-  >(null)
+  // Which top-level TAB's panel is open, if any - replaces the old single
+  // isHovered boolean now that there are several independent tabs in a row
+  // (Hepsiburada-style) instead of one "Products" trigger with an internal
+  // category list. null means no panel is open.
+  const [openTab, setOpenTab] = useState<string | null>(null)
   const { t, locale } = useI18n()
   const categoryName = (category: HttpTypes.StoreProductCategory) =>
     translateCatalogValue(category.name, locale, category.metadata, "name")
@@ -122,69 +123,61 @@ const MegaMenu = ({
     )
   }
 
-  const triggerRef = useRef<HTMLDivElement>(null)
+  const rowRef = useRef<HTMLDivElement>(null)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const selectTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const [panelTop, setPanelTop] = useState(60)
   const [openGroups, setOpenGroups] = useState<string[]>([])
 
-  // Sub-groups start collapsed every time the panel opens or the main category changes.
+  // Sub-groups start collapsed every time a different tab's panel opens.
   useEffect(() => {
     setOpenGroups([])
-  }, [isHovered, selectedCategory])
+  }, [openTab])
 
-  // The first category that actually has children is pre-selected so the panel
-  // is never opened empty.
-  const defaultCategory =
-    mainCategories.find((c) => getSubCategories(c.id).length > 0) ??
-    mainCategories[0]
-  const activeCategory =
-    mainCategories.find((c) => c.id === selectedCategory) ?? defaultCategory
-
-  const openMenu = () => {
+  const openPanel = (categoryId: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current)
-    const header = triggerRef.current?.closest("header")?.parentElement
-    if (header) setPanelTop(Math.round(header.getBoundingClientRect().bottom))
-    setIsHovered(true)
+    if (openTimer.current) clearTimeout(openTimer.current)
+    // A short intent delay avoids flashing a panel open while the pointer
+    // just passes over a tab on its way to a different one.
+    openTimer.current = setTimeout(() => {
+      const header = rowRef.current?.closest("header")?.parentElement
+      if (header) setPanelTop(Math.round(header.getBoundingClientRect().bottom))
+      setOpenTab(categoryId)
+    }, 90)
   }
 
   const scheduleClose = () => {
-    if (selectTimer.current) clearTimeout(selectTimer.current)
-    closeTimer.current = setTimeout(() => setIsHovered(false), 250)
+    if (openTimer.current) clearTimeout(openTimer.current)
+    closeTimer.current = setTimeout(() => setOpenTab(null), 250)
   }
 
   const closeNow = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current)
-    setIsHovered(false)
-  }
-
-  // A short intent delay stops the right-hand panel from flickering while the
-  // pointer travels diagonally from the list into the panel.
-  const previewCategory = (categoryId: string) => {
-    if (selectTimer.current) clearTimeout(selectTimer.current)
-    selectTimer.current = setTimeout(() => setSelectedCategory(categoryId), 90)
+    if (openTimer.current) clearTimeout(openTimer.current)
+    setOpenTab(null)
   }
 
   useEffect(() => {
-    setIsHovered(false)
+    setOpenTab(null)
     setIsMobileOpen(false)
   }, [pathname])
 
   useEffect(() => {
-    if (!isHovered) return
+    if (!openTab) return
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && closeNow()
     window.addEventListener("keydown", onKey)
     return () => window.removeEventListener("keydown", onKey)
-  }, [isHovered])
+  }, [openTab])
 
   useEffect(
     () => () => {
       if (closeTimer.current) clearTimeout(closeTimer.current)
-      if (selectTimer.current) clearTimeout(selectTimer.current)
+      if (openTimer.current) clearTimeout(openTimer.current)
     },
     []
   )
 
+  const activeCategory = mainCategories.find((c) => c.id === openTab) ?? null
   const activeSubs = activeCategory ? getSubCategories(activeCategory.id) : []
   const groupedSubs = activeSubs.filter(
     (sub) => getSubCategories(sub.id).length > 0
@@ -250,183 +243,176 @@ const MegaMenu = ({
         </div>
       )}
 
+      {/* Desktop: a horizontal row of tabs (one per top-level category), Hepsiburada-style -
+          Ahmed's explicit ask, replacing the old single "Products" trigger whose own flyout
+          held a vertical category list. Most tabs here have no children at all (4 of this
+          store's 6 top-level categories do today) and just navigate directly; only a tab
+          with real subcategories opens a dropdown panel under itself on hover. */}
       <div
-        ref={triggerRef}
-        onMouseEnter={openMenu}
+        ref={rowRef}
         onMouseLeave={scheduleClose}
-        onFocus={openMenu}
-        onBlur={(e) => {
-          // Keep the panel open while focus moves between its own
-          // contents (tabbing through category buttons/links) - only
-          // close when focus actually leaves this whole block. A plain
-          // mouse-driven close (scheduleClose) would otherwise fire on
-          // every single Tab press inside the panel.
-          if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
-            closeNow()
-          }
-        }}
-        className="z-50 hidden small:block"
+        className="z-50 hidden small:flex items-center gap-1"
       >
-        <LocalizedClientLink
-          className={clx(
-            "hover:text-ui-fg-base hover:bg-neutral-100 rounded-full px-3 py-2",
+        {mainCategories.map((category) => {
+          const hasSubs = getSubCategories(category.id).length > 0
+          const isOpen = openTab === category.id
+          const tabClass = clx(
+            "relative flex items-center gap-1 rounded-full px-3 py-2 font-medium transition-colors",
+            "hover:text-ui-fg-base hover:bg-neutral-100",
             "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ps-ink)]",
-            isHovered && "bg-neutral-100"
-          )}
-          href="/store"
-          aria-expanded={isHovered}
-          aria-haspopup="true"
+            isOpen && "bg-neutral-100",
+            // The accent underline is the "color" half of Ahmed's ask - shown on
+            // hover/open, matching the yellow accent already used for links elsewhere.
+            "after:absolute after:inset-x-3 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-[var(--ps-yellow)] after:scale-x-0 after:transition-transform",
+            isOpen && "after:scale-x-100"
+          )
+          return (
+            <div
+              key={category.id}
+              onMouseEnter={() => hasSubs && openPanel(category.id)}
+              onFocus={() => hasSubs && openPanel(category.id)}
+            >
+              <LocalizedClientLink
+                className={tabClass}
+                href={`/categories/${category.handle}`}
+                aria-expanded={hasSubs ? isOpen : undefined}
+                aria-haspopup={hasSubs ? "true" : undefined}
+                onClick={(e) => {
+                  // A tab with a panel is a hover target first - clicking it should
+                  // open the panel (same as hover) rather than navigate straight to a
+                  // category page that then hides everything underneath it.
+                  if (hasSubs && !isOpen) {
+                    e.preventDefault()
+                    openPanel(category.id)
+                  }
+                }}
+              >
+                {categoryName(category)}
+                {hasSubs && (
+                  <ChevronDown
+                    className={clx(
+                      "shrink-0 transition-transform",
+                      isOpen && "rotate-180"
+                    )}
+                  />
+                )}
+              </LocalizedClientLink>
+            </div>
+          )
+        })}
+      </div>
+
+      {activeCategory && (
+        <div
+          onMouseEnter={() => {
+            if (closeTimer.current) clearTimeout(closeTimer.current)
+          }}
+          onMouseLeave={scheduleClose}
+          className="fixed inset-x-0 z-50 ps-surface border-b border-[var(--ps-line)] shadow-2xl hidden small:block"
+          style={{
+            top: panelTop,
+            maxHeight: `min(560px, calc(100vh - ${panelTop}px - 24px))`,
+          }}
         >
-          {t("Products")}
-        </LocalizedClientLink>
-        {isHovered && activeCategory && (
-          <div
-            className="fixed inset-x-0 z-50 ps-surface border-b border-[var(--ps-line)] shadow-2xl flex"
-            style={{
-              top: panelTop,
-              height: `min(640px, calc(100vh - ${panelTop}px - 24px))`,
-            }}
-          >
-            <div className="mx-auto flex w-full max-w-[1440px] min-h-0">
-              <ul className="w-72 shrink-0 overflow-y-auto border-e border-[var(--ps-line)] py-6 px-4 flex flex-col gap-1">
-                {mainCategories.map((category) => {
-                  const hasSubs = getSubCategories(category.id).length > 0
-                  const isActive = activeCategory.id === category.id
-                  const rowClass = clx(
-                    "flex w-full items-center justify-between gap-3 rounded-lg px-4 py-3 text-start font-medium transition-colors",
-                    "hover:bg-[color-mix(in_srgb,var(--ps-yellow)_30%,transparent)]",
-                    isActive &&
-                      "bg-[color-mix(in_srgb,var(--ps-yellow)_30%,transparent)]"
-                  )
-                  return (
-                    <li key={category.id}>
-                      {hasSubs ? (
-                        <button
-                          type="button"
-                          className={rowClass}
-                          onMouseEnter={() => previewCategory(category.id)}
-                          onFocus={() => setSelectedCategory(category.id)}
-                          onClick={() => setSelectedCategory(category.id)}
-                          aria-current={isActive}
-                        >
-                          <span>{categoryName(category)}</span>
-                          <ChevronDown className="-rotate-90 rtl:rotate-90 shrink-0" />
-                        </button>
-                      ) : (
+          <div className="relative mx-auto w-full max-w-[1440px] overflow-y-auto p-8" style={{ maxHeight: "inherit" }}>
+            <button
+              type="button"
+              onClick={closeNow}
+              className="absolute top-4 end-6 flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium hover:bg-neutral-100"
+            >
+              {t("Close")}
+              <X size={16} />
+            </button>
+
+            <LocalizedClientLink
+              href={`/categories/${activeCategory.handle}`}
+              className="inline-block font-semibold underline decoration-[var(--ps-yellow)] decoration-2 underline-offset-4 hover:opacity-80"
+            >
+              {t("View all {name}", {
+                name: categoryName(activeCategory),
+              })}
+            </LocalizedClientLink>
+
+            <div className="mt-8 grid grid-cols-2 medium:grid-cols-3 large:grid-cols-4 gap-x-10 gap-y-10">
+              {leafSubs.length > 0 && (
+                <div className="col-span-full">
+                  <h3 className="mb-3 font-semibold">
+                    {groupedSubs.length > 0
+                      ? t("Categories")
+                      : categoryName(activeCategory)}
+                  </h3>
+                  <ul className="columns-2 medium:columns-3 large:columns-4 gap-x-10">
+                    {leafSubs.map((sub) => (
+                      <li key={sub.id} className="break-inside-avoid">
                         <LocalizedClientLink
-                          href={`/categories/${category.handle}`}
-                          className={rowClass}
-                          onMouseEnter={() => previewCategory(category.id)}
+                          href={`/categories/${sub.handle}`}
+                          className="block py-1.5 text-[var(--ps-muted)] hover:text-[var(--ps-ink)] hover:underline"
                         >
-                          <span>{categoryName(category)}</span>
+                          {categoryName(sub)}
                         </LocalizedClientLink>
-                      )}
-                    </li>
-                  )
-                })}
-              </ul>
-
-              <div className="relative flex-1 min-w-0 overflow-y-auto p-8">
-                <button
-                  type="button"
-                  onClick={closeNow}
-                  className="absolute top-4 end-6 flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium hover:bg-neutral-100"
-                >
-                  {t("Close")}
-                  <X size={16} />
-                </button>
-
-                <LocalizedClientLink
-                  href={`/categories/${activeCategory.handle}`}
-                  className="inline-block font-semibold underline decoration-[var(--ps-yellow)] decoration-2 underline-offset-4 hover:opacity-80"
-                >
-                  {t("View all {name}", {
-                    name: categoryName(activeCategory),
-                  })}
-                </LocalizedClientLink>
-
-                <div className="mt-8 grid grid-cols-2 medium:grid-cols-3 large:grid-cols-4 gap-x-10 gap-y-10">
-                  {leafSubs.length > 0 && (
-                    <div className="col-span-full">
-                      <h3 className="mb-3 font-semibold">
-                        {groupedSubs.length > 0
-                          ? t("Categories")
-                          : categoryName(activeCategory)}
-                      </h3>
-                      <ul className="columns-2 medium:columns-3 large:columns-4 gap-x-10">
-                        {leafSubs.map((sub) => (
-                          <li key={sub.id} className="break-inside-avoid">
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {groupedSubs.map((sub) => {
+                const isOpen = openGroups.includes(sub.id)
+                return (
+                  <div key={sub.id} className="min-w-0 self-start">
+                    <button
+                      type="button"
+                      aria-expanded={isOpen}
+                      onClick={() =>
+                        setOpenGroups((prev) =>
+                          prev.includes(sub.id)
+                            ? prev.filter((id) => id !== sub.id)
+                            : [...prev, sub.id]
+                        )
+                      }
+                      className="flex w-full items-center justify-between gap-3 border-b border-[var(--ps-line)] pb-2 text-start font-semibold hover:opacity-80"
+                    >
+                      <span>{categoryName(sub)}</span>
+                      <ChevronDown
+                        className={clx(
+                          "shrink-0 transition-transform",
+                          isOpen && "rotate-180"
+                        )}
+                      />
+                    </button>
+                    {isOpen && (
+                      <ul className="mt-2 flex flex-col">
+                        <li>
+                          <LocalizedClientLink
+                            href={`/categories/${sub.handle}`}
+                            className="block py-1.5 font-medium underline decoration-[var(--ps-yellow)] decoration-2 underline-offset-4 hover:opacity-80"
+                          >
+                            {t("View all {name}", {
+                              name: categoryName(sub),
+                            })}
+                          </LocalizedClientLink>
+                        </li>
+                        {getSubCategories(sub.id).map((leaf) => (
+                          <li key={leaf.id}>
                             <LocalizedClientLink
-                              href={`/categories/${sub.handle}`}
+                              href={`/categories/${leaf.handle}`}
                               className="block py-1.5 text-[var(--ps-muted)] hover:text-[var(--ps-ink)] hover:underline"
                             >
-                              {categoryName(sub)}
+                              {categoryName(leaf)}
                             </LocalizedClientLink>
                           </li>
                         ))}
                       </ul>
-                    </div>
-                  )}
-                  {groupedSubs.map((sub) => {
-                    const isOpen = openGroups.includes(sub.id)
-                    return (
-                      <div key={sub.id} className="min-w-0 self-start">
-                        <button
-                          type="button"
-                          aria-expanded={isOpen}
-                          onClick={() =>
-                            setOpenGroups((prev) =>
-                              prev.includes(sub.id)
-                                ? prev.filter((id) => id !== sub.id)
-                                : [...prev, sub.id]
-                            )
-                          }
-                          className="flex w-full items-center justify-between gap-3 border-b border-[var(--ps-line)] pb-2 text-start font-semibold hover:opacity-80"
-                        >
-                          <span>{categoryName(sub)}</span>
-                          <ChevronDown
-                            className={clx(
-                              "shrink-0 transition-transform",
-                              isOpen && "rotate-180"
-                            )}
-                          />
-                        </button>
-                        {isOpen && (
-                          <ul className="mt-2 flex flex-col">
-                            <li>
-                              <LocalizedClientLink
-                                href={`/categories/${sub.handle}`}
-                                className="block py-1.5 font-medium underline decoration-[var(--ps-yellow)] decoration-2 underline-offset-4 hover:opacity-80"
-                              >
-                                {t("View all {name}", {
-                                  name: categoryName(sub),
-                                })}
-                              </LocalizedClientLink>
-                            </li>
-                            {getSubCategories(sub.id).map((leaf) => (
-                              <li key={leaf.id}>
-                                <LocalizedClientLink
-                                  href={`/categories/${leaf.handle}`}
-                                  className="block py-1.5 text-[var(--ps-muted)] hover:text-[var(--ps-ink)] hover:underline"
-                                >
-                                  {categoryName(leaf)}
-                                </LocalizedClientLink>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
+                    )}
+                  </div>
+                )
+              })}
             </div>
           </div>
-        )}
-      </div>
-      {isHovered && (
+        </div>
+      )}
+      {activeCategory && (
         <div
-          className="fixed inset-x-0 bottom-0 z-40 bg-black/30"
+          className="fixed inset-x-0 bottom-0 z-40 bg-black/30 hidden small:block"
           style={{ top: panelTop }}
           onClick={closeNow}
         />
