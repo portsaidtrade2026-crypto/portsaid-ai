@@ -36,7 +36,7 @@ export default async function add_bulgaria_region({
 
   const { data: stores } = await query.graph({
     entity: "store",
-    fields: ["id", "supported_currencies.currency_code"],
+    fields: ["id", "supported_currencies.currency_code", "supported_currencies.is_default"],
   });
   const store = stores[0] as any;
   const currentCodes = new Set(
