@@ -8,10 +8,9 @@ import { translateCatalogValue } from "@/lib/i18n/catalog"
 // One tile per business line Ahmed sent as reference photos. `handles` lists
 // the Medusa product-category handles (Medusa slugifies the title, keeping
 // Turkish letters) that hold this line's products, in priority order. A tile
-// links to the first handle that exists in the live catalogue AND has at least
-// one product in its subtree; if none qualifies it sends the visitor to the
-// full catalogue instead of an empty or 404 category page. Lines whose
-// products are not loaded yet therefore start working the moment products are
+// shows only if one of its handles exists in the live catalogue AND has at least
+// one product in its subtree, and links to the first such handle. Lines without
+// products yet are hidden and appear on their own the moment products are
 // added, with no code change.
 const CATEGORIES: { image: string; title: string; handles?: string[] }[] = [
   { image: "endustriyel-strec-film.jpg", title: "Endüstriyel Streç Film", handles: ["endüstriyel-streç-film"] },
@@ -51,10 +50,11 @@ const CategoryGrid = ({
 }) => {
   const { t, locale } = useI18n()
   const available = availableHandles && new Set(availableHandles.map(norm))
-  const hrefFor = (handles?: string[]) => {
-    const handle = handles?.find((h) => !available || available.has(norm(h)))
-    return handle ? `/categories/${handle}` : "/store"
-  }
+  const tiles = CATEGORIES.flatMap((cat) => {
+    const handle = cat.handles?.find((h) => !available || available.has(norm(h)))
+    return handle ? [{ ...cat, href: `/categories/${handle}` }] : []
+  })
+
   return (
     <div className="content-container py-10">
       <div className="flex items-end justify-between mb-6">
@@ -75,10 +75,10 @@ const CategoryGrid = ({
       </div>
 
       <div className="grid grid-cols-2 xsmall:grid-cols-3 small:grid-cols-4 medium:grid-cols-6 gap-3">
-        {CATEGORIES.map((cat) => (
+        {tiles.map((cat) => (
           <LocalizedClientLink
             key={cat.image}
-            href={hrefFor(cat.handles)}
+            href={cat.href}
             className="group relative block aspect-square overflow-hidden rounded-xl border border-[var(--ps-line)]"
           >
             <Image
