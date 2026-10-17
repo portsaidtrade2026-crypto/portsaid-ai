@@ -5,36 +5,24 @@ import LocalizedClientLink from "@/modules/common/components/localized-client-li
 import { useI18n } from "@/lib/i18n/provider"
 import { translateCatalogValue } from "@/lib/i18n/catalog"
 
-// One tile per business line Ahmed sent as reference photos. `handles` lists
-// the Medusa product-category handles (Medusa slugifies the title, keeping
-// Turkish letters) that hold this line's products, in priority order. A tile
-// shows only if one of its handles exists in the live catalogue AND has at least
-// one product in its subtree, and links to the first such handle. Lines without
-// products yet are hidden and appear on their own the moment products are
-// added, with no code change.
+// One tile per product line, each linking to the Medusa category (handle - Medusa
+// slugifies the title, keeping Turkish letters) that holds it. `handles` lists
+// candidates in priority order; a tile shows only if one of them exists in the
+// live catalogue AND has at least one product in its subtree, so empty lines
+// stay hidden and appear on their own once products are added. Parent
+// categories (streç-film, bant, çember, makineler) include their children.
+// Images are clean studio photos from catalog-import/portsaid-assets/images/masters.
 const CATEGORIES: { image: string; title: string; handles?: string[] }[] = [
-  { image: "endustriyel-strec-film.jpg", title: "Endüstriyel Streç Film", handles: ["endüstriyel-streç-film"] },
-  { image: "jumbo-strec-film.jpg", title: "Jumbo Streç Film", handles: ["jumbo-streç-film"] },
-  { image: "pre-strec-film.jpg", title: "Pre-Streç Film", handles: ["pre-streç-film"] },
-  { image: "gida-strec-film.jpg", title: "Gıda Streç Film", handles: ["gıda-streç-film"] },
-  { image: "balonlu-naylon.jpg", title: "Balonlu Naylon", handles: ["balonlu-naylon"] },
-  { image: "karton-kutu.jpg", title: "Karton Kutu", handles: ["karton-kutu"] },
-  { image: "alisveris-posetleri.jpg", title: "Alışveriş Poşetleri" },
-  { image: "plastik-posetler.jpg", title: "Plastik Poşetler" },
-  { image: "cop-torbalari.jpg", title: "Çöp Torbaları", handles: ["çöp-torbaları"] },
-  { image: "hotmelt-koli-bandi.jpg", title: "Hotmelt Koli Bandı", handles: ["hotmelt-koli-bandı"] },
-  { image: "akrilik-koli-bandi.jpg", title: "Akrilik Koli Bandı", handles: ["akrilik-koli-bandı"] },
-  { image: "maskeleme-bandi.jpg", title: "Maskeleme Bandı", handles: ["maskeleme-bandı"] },
-  { image: "solvent-bant.jpg", title: "Solvent Bant", handles: ["solvent-bant"] },
-  { image: "pp-cember.jpg", title: "PP Çember", handles: ["pp-çember"] },
-  { image: "pet-cember.jpg", title: "PET Çember", handles: ["pet-çember"] },
-  { image: "celik-cember.jpg", title: "Çelik Çember", handles: ["çelik-çember"] },
-  { image: "ambalaj-makineleri.jpg", title: "Ambalaj Makineleri", handles: ["ambalaj-makineleri"] },
-  { image: "ikinci-el-makineleri.jpg", title: "İkinci El Makineleri" },
-  { image: "fabrika-depo.jpg", title: "Masura ve Paletler", handles: ["masura", "palet"] },
-  { image: "ofis-kirtasiye.jpg", title: "Ofis Kırtasiye", handles: ["ofis-kırtasiye"] },
-  { image: "ofis-mobilyalari.jpg", title: "Ofis Mobilyaları", handles: ["ofis-mobilya"] },
-  { image: "ihracat-lojistik.jpg", title: "İhracat ve Lojistik" },
+  { image: "photo/strec-film.jpg", title: "Streç Film", handles: ["streç-film"] },
+  { image: "photo/bant.jpg", title: "Bant", handles: ["bant"] },
+  { image: "photo/cember.jpg", title: "Çember", handles: ["çember"] },
+  { image: "photo/kosebent.jpg", title: "Köşebent", handles: ["köşebent"] },
+  { image: "photo/masura.jpg", title: "Masura", handles: ["masura"] },
+  { image: "photo/balonlu-naylon.jpg", title: "Balonlu Naylon", handles: ["balonlu-naylon"] },
+  { image: "photo/karton-kutu.jpg", title: "Karton Kutu", handles: ["karton-kutu"] },
+  { image: "photo/makineler.jpg", title: "Makineler", handles: ["makineler"] },
+  { image: "photo/kirtasiye.jpg", title: "Ofis Kırtasiye", handles: ["ofis-kırtasiye"] },
+  { image: "photo/mobilya.jpg", title: "Ofis Mobilya", handles: ["ofis-mobilya"] },
 ]
 
 const norm = (handle: string) => handle.normalize("NFC")
@@ -72,7 +60,7 @@ const CategoryGrid = ({
         </LocalizedClientLink>
       </div>
 
-      <div className="grid grid-cols-2 xsmall:grid-cols-3 small:grid-cols-4 medium:grid-cols-6 gap-3">
+      <div className="grid grid-cols-2 xsmall:grid-cols-3 small:grid-cols-4 medium:grid-cols-5 gap-3">
         {tiles.map((cat) => (
           <LocalizedClientLink
             key={cat.image}
