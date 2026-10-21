@@ -98,7 +98,7 @@ const MachinesShowcase = async () => {
                       </span>
                     </p>
                   )}
-                  <span className="mt-auto inline-flex w-fit items-center rounded-2xl bg-[var(--ps-yellow)] px-5 py-2.5 text-sm font-semibold text-[#111214] transition-[filter] group-hover:brightness-95">
+                  <span className="mt-auto inline-flex w-fit items-center rounded-2xl bg-[#111214] px-5 py-2.5 text-sm font-semibold text-white transition-colors group-hover:bg-[#2b2c2f]">
                     {t("View details")}
                   </span>
                 </div>

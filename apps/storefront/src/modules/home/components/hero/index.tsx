@@ -4,13 +4,12 @@ import Image from "next/image"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { useI18n } from "@/lib/i18n/provider"
 
-// Launch banner for the new plastic pallets (DPP 1208 NS / DPP 11608 NS) in the
-// brand palette: off-white page, black ink, brand yellow (--ps-yellow). Colours
-// are fixed hex values, not theme variables, so the banner looks the same in
-// dark mode. The pallet photos have white backgrounds, so they use
-// mix-blend-mode: multiply to sit directly on the yellow panel with no box.
+// Launch banner for the new plastic pallets (DPP 1208 NS / DPP 11608 NS) in a neutral
+// palette: off-white page, black ink, light-grey photo panel. No yellow: it clashed with
+// the photos. Colours are fixed hex values, not theme variables, so the banner looks the
+// same in dark mode. The pallet photos have white backgrounds, so they use
+// mix-blend-mode: multiply to sit directly on the grey panel with no box.
 // -mx-2/-mt-2 cancel the home page wrapper's m-2 so the banner runs edge to edge.
-const YELLOW = "#f4e900"
 const INK = "#111214"
 const STAR =
   "50,0 58.4,7.8 69.1,3.8 73.9,14.2 85.4,14.6 85.8,26.1 96.2,30.9 92.2,41.6 100,50 92.2,58.4 96.2,69.1 85.8,73.9 85.4,85.4 73.9,85.8 69.1,96.2 58.4,92.2 50,100 41.6,92.2 30.9,96.2 26.1,85.8 14.6,85.4 14.2,73.9 3.8,69.1 7.8,58.4 0,50 7.8,41.6 3.8,30.9 14.2,26.1 14.6,14.6 26.1,14.2 30.9,3.8 41.6,7.8"
@@ -30,8 +29,8 @@ const Hero = () => {
       <div className="mx-auto grid max-w-[1600px] items-center gap-10 px-5 xsmall:px-8 small:px-16 medium:px-24 py-10 small:py-14 small:grid-cols-[1fr_1.05fr] min-h-[480px]">
         <div className="min-w-0">
           <span
-            className="inline-block px-4 py-1.5 text-sm font-bold uppercase tracking-[.18em]"
-            style={{ background: INK, color: YELLOW }}
+            className="inline-block px-4 py-1.5 text-sm font-bold uppercase tracking-[.18em] text-white"
+            style={{ background: INK }}
           >
             {t("New product")}
           </span>
@@ -39,7 +38,7 @@ const Hero = () => {
           <h1 className="display-type mt-6 text-5xl xsmall:text-6xl small:text-7xl font-semibold leading-[1.02] tracking-[-.02em]">
             {t("Plastic pallets")}
           </h1>
-          <div className="mt-3 flex w-fit max-w-full flex-wrap gap-x-6 gap-y-1 pb-2 text-xl font-bold border-b-4" style={{ borderColor: YELLOW }}>
+          <div className="mt-3 flex w-fit max-w-full flex-wrap gap-x-6 gap-y-1 border-b-2 border-[#111214] pb-2 text-xl font-bold">
             {MODELS.map((m) => (
               <span key={m.code} dir="ltr">
                 {m.code}
@@ -67,8 +66,8 @@ const Hero = () => {
           <div className="mt-8 flex flex-wrap gap-3">
             <LocalizedClientLink
               href="/categories/palet"
-              className="inline-flex items-center rounded-2xl px-6 py-3 font-semibold transition-colors hover:brightness-95"
-              style={{ background: YELLOW, color: INK }}
+              className="inline-flex items-center rounded-2xl px-6 py-3 font-semibold text-white transition-colors hover:bg-[#2b2c2f]"
+              style={{ background: INK }}
             >
               {t("View pallets")}
             </LocalizedClientLink>
@@ -86,7 +85,7 @@ const Hero = () => {
             className="relative overflow-hidden rounded-3xl p-5 xsmall:p-8 shadow-lg"
             style={{
               background:
-                "radial-gradient(ellipse 70% 60% at 50% 38%, #fff95a 0%, #f4e900 62%, #e8dc00 100%)",
+                "radial-gradient(ellipse 70% 60% at 50% 38%, #ffffff 0%, #ecebe5 62%, #deddd6 100%)",
             }}
           >
             <div className="flex flex-col gap-6">
@@ -125,8 +124,7 @@ const Hero = () => {
             <polygon points={STAR} fill={INK} />
           </svg>
           <span
-            className="absolute -top-5 end-3 z-10 flex h-24 w-24 small:h-28 small:w-28 items-center justify-center text-xl small:text-2xl font-extrabold uppercase"
-            style={{ color: YELLOW }}
+            className="absolute -top-5 end-3 z-10 flex h-24 w-24 small:h-28 small:w-28 items-center justify-center text-xl small:text-2xl font-extrabold uppercase text-white"
             aria-hidden
           >
             {t("New")}
