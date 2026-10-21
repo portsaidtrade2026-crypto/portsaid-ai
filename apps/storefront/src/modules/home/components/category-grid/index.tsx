@@ -45,7 +45,7 @@ const CategoryGrid = ({
     <div className="content-container py-10">
       <div className="flex items-end justify-between mb-6">
         <div>
-          <p className="text-[var(--ps-yellow)] text-xs uppercase tracking-[.24em] font-semibold">
+          <p className="text-[var(--ps-muted)] text-xs uppercase tracking-[.24em] font-semibold">
             PS PORT
           </p>
           <h2 className="display-type text-3xl small:text-4xl font-semibold mt-1">

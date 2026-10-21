@@ -75,7 +75,7 @@ const MachinesShowcase = async () => {
                 href={`/products/${product.handle}`}
                 className="group flex w-full flex-col overflow-hidden rounded-2xl border border-[var(--ps-line)] bg-[var(--ps-panel)] transition-shadow hover:shadow-lg"
               >
-                <div className="bg-white p-6 border-b border-[var(--ps-line)]">
+                <div className="bg-[#f4f4f0] p-6 border-b border-[var(--ps-line)]">
                   <Thumbnail
                     thumbnail={product.thumbnail}
                     images={product.images}
@@ -98,7 +98,7 @@ const MachinesShowcase = async () => {
                       </span>
                     </p>
                   )}
-                  <span className="mt-auto inline-flex w-fit items-center rounded-2xl bg-[#111214] px-5 py-2.5 text-sm font-semibold text-white transition-colors group-hover:bg-[#2b2c2f]">
+                  <span className="mt-auto inline-flex w-fit items-center rounded-2xl bg-[var(--ps-ink)] px-5 py-2.5 text-sm font-semibold text-[var(--ps-paper)] transition-opacity group-hover:opacity-85">
                     {t("View details")}
                   </span>
                 </div>

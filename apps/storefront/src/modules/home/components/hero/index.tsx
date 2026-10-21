@@ -4,13 +4,12 @@ import Image from "next/image"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { useI18n } from "@/lib/i18n/provider"
 
-// Launch banner for the new plastic pallets (DPP 1208 NS / DPP 11608 NS) in a neutral
-// palette: off-white page, black ink, light-grey photo panel. No yellow: it clashed with
-// the photos. Colours are fixed hex values, not theme variables, so the banner looks the
-// same in dark mode. The pallet photos have white backgrounds, so they use
-// mix-blend-mode: multiply to sit directly on the grey panel with no box.
+// Launch banner for the new plastic pallets (DPP 1208 NS / DPP 11608 NS). Page chrome follows
+// the site theme (--ps-* variables) so it matches the rest of the home page in light and
+// dark mode. The photo plate stays light in both modes on purpose: the pallets are black
+// and their photos have white backgrounds, so they only read clearly on a light plate
+// (mix-blend-mode: multiply removes the photo's white box on it).
 // -mx-2/-mt-2 cancel the home page wrapper's m-2 so the banner runs edge to edge.
-const INK = "#111214"
 const STAR =
   "50,0 58.4,7.8 69.1,3.8 73.9,14.2 85.4,14.6 85.8,26.1 96.2,30.9 92.2,41.6 100,50 92.2,58.4 96.2,69.1 85.8,73.9 85.4,85.4 73.9,85.8 69.1,96.2 58.4,92.2 50,100 41.6,92.2 30.9,96.2 26.1,85.8 14.6,85.4 14.2,73.9 3.8,69.1 7.8,58.4 0,50 7.8,41.6 3.8,30.9 14.2,26.1 14.6,14.6 26.1,14.2 30.9,3.8 41.6,7.8"
 
@@ -23,14 +22,13 @@ const Hero = () => {
   const { t } = useI18n()
   return (
     <section
-      className="relative -mx-2 -mt-2 w-[calc(100%+1rem)] overflow-hidden border-b border-[#d9d9d2] text-[#111214]"
-      style={{ background: "linear-gradient(120deg, #fbfaf5 0%, #f1efe6 100%)" }}
+      className="relative -mx-2 -mt-2 w-[calc(100%+1rem)] overflow-hidden border-b border-[var(--ps-line)] text-[var(--ps-ink)]"
+      style={{ background: "linear-gradient(120deg, var(--ps-panel) 0%, var(--ps-paper) 100%)" }}
     >
       <div className="mx-auto grid max-w-[1600px] items-center gap-10 px-5 xsmall:px-8 small:px-16 medium:px-24 py-10 small:py-14 small:grid-cols-[1fr_1.05fr] min-h-[480px]">
         <div className="min-w-0">
           <span
-            className="inline-block px-4 py-1.5 text-sm font-bold uppercase tracking-[.18em] text-white"
-            style={{ background: INK }}
+            className="inline-block px-4 py-1.5 text-sm font-bold uppercase tracking-[.18em] bg-[var(--ps-ink)] text-[var(--ps-paper)]"
           >
             {t("New product")}
           </span>
@@ -38,7 +36,7 @@ const Hero = () => {
           <h1 className="display-type mt-6 text-5xl xsmall:text-6xl small:text-7xl font-semibold leading-[1.02] tracking-[-.02em]">
             {t("Plastic pallets")}
           </h1>
-          <div className="mt-3 flex w-fit max-w-full flex-wrap gap-x-6 gap-y-1 border-b-2 border-[#111214] pb-2 text-xl font-bold">
+          <div className="mt-3 flex w-fit max-w-full flex-wrap gap-x-6 gap-y-1 border-b-2 border-[var(--ps-ink)] pb-2 text-xl font-bold">
             {MODELS.map((m) => (
               <span key={m.code} dir="ltr">
                 {m.code}
@@ -46,7 +44,7 @@ const Hero = () => {
             ))}
           </div>
 
-          <p className="mt-6 max-w-lg text-lg leading-7 text-[#4a4b46]">
+          <p className="mt-6 max-w-lg text-lg leading-7 text-[var(--ps-muted)]">
             {t("PE plastic pallets in two sizes: 1200 x 800 and 1160 x 800 mm.")}
           </p>
 
@@ -55,7 +53,7 @@ const Hero = () => {
               (chip) => (
                 <li
                   key={chip}
-                  className="rounded-full border border-[#111214] bg-white px-3 py-1"
+                  className="rounded-full border border-[var(--ps-ink)] bg-[var(--ps-panel)] px-3 py-1"
                 >
                   {t(chip)}
                 </li>
@@ -66,14 +64,13 @@ const Hero = () => {
           <div className="mt-8 flex flex-wrap gap-3">
             <LocalizedClientLink
               href="/categories/palet"
-              className="inline-flex items-center rounded-2xl px-6 py-3 font-semibold text-white transition-colors hover:bg-[#2b2c2f]"
-              style={{ background: INK }}
+              className="inline-flex items-center rounded-2xl px-6 py-3 font-semibold bg-[var(--ps-ink)] text-[var(--ps-paper)] transition-opacity hover:opacity-85"
             >
               {t("View pallets")}
             </LocalizedClientLink>
             <LocalizedClientLink
               href="/katalog"
-              className="inline-flex items-center rounded-2xl border border-[#111214] px-6 py-3 font-semibold transition-colors hover:bg-[#111214] hover:text-white"
+              className="inline-flex items-center rounded-2xl border border-[var(--ps-ink)] px-6 py-3 font-semibold transition-colors hover:bg-[var(--ps-ink)] hover:text-[var(--ps-paper)]"
             >
               {t("Browse catalogue")}
             </LocalizedClientLink>
@@ -104,7 +101,7 @@ const Hero = () => {
                     className="h-auto w-full mix-blend-multiply"
                   />
                   <figcaption
-                    className="mt-1 flex flex-wrap items-baseline gap-x-3 text-sm"
+                    className="mt-1 flex flex-wrap items-baseline gap-x-3 text-sm text-[#111214]"
                     dir="ltr"
                   >
                     <b>{m.code}</b>
@@ -121,10 +118,10 @@ const Hero = () => {
             className="absolute -top-5 end-3 z-10 w-24 small:w-28 drop-shadow-md"
             aria-hidden
           >
-            <polygon points={STAR} fill={INK} />
+            <polygon points={STAR} fill="var(--ps-ink)" />
           </svg>
           <span
-            className="absolute -top-5 end-3 z-10 flex h-24 w-24 small:h-28 small:w-28 items-center justify-center text-xl small:text-2xl font-extrabold uppercase text-white"
+            className="absolute -top-5 end-3 z-10 flex h-24 w-24 small:h-28 small:w-28 items-center justify-center text-xl small:text-2xl font-extrabold uppercase text-[var(--ps-paper)]"
             aria-hidden
           >
             {t("New")}

@@ -44,7 +44,7 @@ export default async function ProductPreview({
         href={`/products/${product.handle}`}
         className="flex flex-col gap-4 flex-1 min-h-0"
       >
-        <div className="w-full h-full p-10">
+        <div className="w-full h-full p-10 bg-[#ffffff] rounded-md">
           <Thumbnail
             thumbnail={product.thumbnail}
             images={product.images}
