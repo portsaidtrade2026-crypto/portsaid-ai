@@ -12,13 +12,17 @@ export default async function AccountButton({
   locale: Locale
 }) {
   return (
-    <LocalizedClientLink className="hover:text-ui-fg-base" href="/account">
-      <button className="flex gap-1.5 items-center rounded-2xl bg-none shadow-none border-none hover:bg-neutral-100 px-2 py-1">
+    <LocalizedClientLink
+      className="hover:text-ui-fg-base"
+      href="/account"
+      aria-label={customer?.first_name || translate(locale, "Log in")}
+    >
+      <span className="flex gap-1.5 items-center rounded-2xl hover:bg-neutral-100 px-2 py-1">
         <User />
         <span className="hidden small:inline-block">
           {customer ? customer.first_name : translate(locale, "Log in")}
         </span>
-      </button>
+      </span>
     </LocalizedClientLink>
   )
 }

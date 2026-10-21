@@ -14,7 +14,7 @@ export default function CheckoutLayout({
           <LocalizedClientLink className="hover:text-ui-fg-base" href="/">
             <h1 className="brand-lockup">
               <span className="brand-plaque">
-                <img src="/portsaid-logo.png" alt="Portsaid Plastik" />
+                <img src="/portsaid-logo.webp" alt="Portsaid Plastik" width={324} height={147} />
               </span>
             </h1>
           </LocalizedClientLink>
