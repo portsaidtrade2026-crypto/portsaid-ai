@@ -16,8 +16,8 @@ const STAR =
   "50,0 58.4,7.8 69.1,3.8 73.9,14.2 85.4,14.6 85.8,26.1 96.2,30.9 92.2,41.6 100,50 92.2,58.4 96.2,69.1 85.8,73.9 85.4,85.4 73.9,85.8 69.1,96.2 58.4,92.2 50,100 41.6,92.2 30.9,96.2 26.1,85.8 14.6,85.4 14.2,73.9 3.8,69.1 7.8,58.4 0,50 7.8,41.6 3.8,30.9 14.2,26.1 14.6,14.6 26.1,14.2 30.9,3.8 41.6,7.8"
 
 const MODELS = [
-  { code: "DPP 1208 NS", size: "1200 × 800 × 140 mm", weight: "5.1 kg", image: "/promo/dpp-1208-ns.webp", w: 1668, h: 740 },
-  { code: "DPP 11608 NS", size: "1160 × 800 × 140 mm", weight: "5 kg", image: "/promo/dpp-11608-ns.webp", w: 1656, h: 764 },
+  { code: "DPP 1208 NS", size: "1200 × 800 × 140 mm", weight: "5.1 kg", image: "/promo/dogan-dpp-1208-ns.webp", w: 1201, h: 526 },
+  { code: "DPP 11608 NS", size: "1160 × 800 × 140 mm", weight: "5 kg", image: "/promo/dogan-dpp-11608-ns.webp", w: 1199, h: 534 },
 ]
 
 const Hero = () => {
@@ -27,11 +27,6 @@ const Hero = () => {
       className="relative -mx-2 -mt-2 w-[calc(100%+1rem)] overflow-hidden border-b border-[#d9d9d2] text-[#111214]"
       style={{ background: "linear-gradient(120deg, #fbfaf5 0%, #f1efe6 100%)" }}
     >
-      <div
-        className="absolute inset-y-0 start-0 w-2 small:w-3"
-        style={{ background: YELLOW }}
-        aria-hidden
-      />
       <div className="mx-auto grid max-w-[1600px] items-center gap-10 px-5 xsmall:px-8 small:px-16 medium:px-24 py-10 small:py-14 small:grid-cols-[1fr_1.05fr] min-h-[480px]">
         <div className="min-w-0">
           <span
@@ -57,7 +52,7 @@ const Hero = () => {
           </p>
 
           <ul className="mt-5 flex flex-wrap gap-2 text-sm font-semibold">
-            {["2000 kg static load", "1000 kg dynamic load", "9-foot open deck"].map(
+            {["2000 kg static load", "1000 kg dynamic load", "9-foot open deck", "Nestable"].map(
               (chip) => (
                 <li
                   key={chip}
