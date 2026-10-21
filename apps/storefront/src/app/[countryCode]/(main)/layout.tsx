@@ -9,6 +9,7 @@ import FreeShippingPriceNudge from "@/modules/shipping/components/free-shipping-
 import { StoreFreeShippingPrice } from "@/types/shipping-option/http"
 import { StoreCart } from "@medusajs/types"
 import { Metadata } from "next"
+import { notFound } from "next/navigation"
 import { getRequestLocale } from "@/lib/i18n/server"
 import { translate } from "@/lib/i18n/messages"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
@@ -17,7 +18,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
 }
 
-export default async function PageLayout(props: { children: React.ReactNode }) {
+export default async function PageLayout(props: { children: React.ReactNode; params: Promise<{ countryCode: string }> }) {
+  // The first URL segment is a region code ("tr", "bg"). Anything not even shaped like one ("robots.txt", "auth.md") used to
+  // render the whole home page with status 200 (a soft 404 that crawlers and agents fetched at 3.6 MB each).
+  const { countryCode } = await props.params
+  if (!/^[a-z]{2}$/i.test(countryCode)) notFound()
   const locale = await getRequestLocale()
   const customer = await retrieveCustomer().catch(() => null)
   const cart = await retrieveCart()

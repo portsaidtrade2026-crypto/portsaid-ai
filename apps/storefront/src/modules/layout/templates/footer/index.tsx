@@ -1,4 +1,5 @@
 import { listCategories } from "@/lib/data/categories"
+import { LIGHT_CATEGORY_FIELDS } from "@/lib/util/category-fields"
 import { Text } from "@medusajs/ui"
 
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
@@ -15,10 +16,11 @@ export default async function Footer() {
   const product_categories = await listCategories({
     offset: 0,
     limit: 50,
+    fields: LIGHT_CATEGORY_FIELDS,
   })
 
   const topLevelCategories = (product_categories || []).filter(
-    (c) => !c.parent_category
+    (c) => !c.parent_category_id
   )
 
   return (

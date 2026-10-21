@@ -1,4 +1,5 @@
 import { listCategories } from "@/lib/data/categories"
+import { LIGHT_CATEGORY_TREE_FIELDS } from "@/lib/util/category-fields"
 import { retrieveCustomer } from "@/lib/data/customer"
 import { listGlobalProductOptions } from "@/lib/data/product-options"
 import { parseOptionValueIds } from "@/lib/util/option-value-query"
@@ -44,7 +45,7 @@ export default async function StorePage(props: Params) {
   const optionValueIds = parseOptionValueIds(searchParams)
 
   const [categories, customer, productOptions] = await Promise.all([
-    listCategories(),
+    listCategories({ fields: LIGHT_CATEGORY_TREE_FIELDS }),
     retrieveCustomer(),
     listGlobalProductOptions(),
   ])

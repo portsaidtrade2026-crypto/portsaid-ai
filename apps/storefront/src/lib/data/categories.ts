@@ -5,6 +5,7 @@ import { HttpTypes } from "@medusajs/types"
 import { getCacheOptions } from "./cookies"
 import { getRequestLocale } from "@/lib/i18n/server"
 import { localizeCategory } from "@/lib/i18n/catalog"
+import { LIGHT_CATEGORY_FIELDS } from "@/lib/util/category-fields"
 
 export const listCategories = async (
   query?: Record<string, any>,
@@ -63,4 +64,30 @@ export const getCategoryByHandle = async (
     .then(({ product_categories }) => {
       return product_categories[0] && localizeCategory(product_categories[0], locale)
     })
+}
+
+// Handles of categories that hold at least one product, sub-categories counted (a parent with a non-empty child counts).
+// One small count request per category instead of embedding every product of every category (see lib/util/category-fields.ts).
+export const listCategoryHandlesWithProducts = async (): Promise<string[]> => {
+  const categories = await listCategories({ fields: LIGHT_CATEGORY_FIELDS }, { localize: false })
+  const direct = await Promise.all(
+    categories.map((c) =>
+      sdk.client
+        .fetch<{ count?: number }>("/store/products", {
+          query: { limit: 1, fields: "id", category_id: c.id },
+          next: { revalidate: 300 },
+        })
+        .then((r) => (r.count ?? 0) > 0)
+    )
+  )
+  const byId = new Map(categories.map((c, i) => [c.id, { c, has: direct[i] }]))
+  const filled = new Set<string>()
+  byId.forEach(({ has }, id) => {
+    if (!has) return
+    for (let cur: string | null | undefined = id, n = 0; cur && n < 10; n++) {
+      filled.add(cur)
+      cur = byId.get(cur)?.c.parent_category_id
+    }
+  })
+  return categories.filter((c) => filled.has(c.id)).map((c) => c.handle)
 }

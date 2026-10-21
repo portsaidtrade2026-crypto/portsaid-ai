@@ -14,6 +14,14 @@ import { translateCatalogValue } from "@/lib/i18n/catalog"
 import { translate } from "@/lib/i18n/messages"
 import { Locale, defaultLocale } from "@/lib/i18n/config"
 
+// The sidebar is a client component: whatever it receives is also written into the page HTML. Hand it names and links, not
+// every product of every category (3.1 MB of the 3.7 MB category page).
+// (the children carry their own products too, so it recurses)
+const forClient = (c: HttpTypes.StoreProductCategory): HttpTypes.StoreProductCategory => {
+  const { products, parent_category, category_children, ...rest } = c
+  return { ...rest, category_children: category_children?.map(forClient) } as HttpTypes.StoreProductCategory
+}
+
 export default function CategoryTemplate({
   categories,
   currentCategory,
@@ -75,8 +83,8 @@ export default function CategoryTemplate({
         data-testid="category-container"
       >
         <CategoryBreadcrumb
-          categories={categories}
-          category={currentCategory}
+          categories={categories.map(forClient)}
+          category={forClient(currentCategory)}
         />
         {description && (
           <Text className="text-neutral-600 max-w-3xl text-sm">
@@ -86,8 +94,8 @@ export default function CategoryTemplate({
         <div className="flex flex-col small:flex-row small:items-start gap-3">
           <RefinementList
             sortBy={sort}
-            categories={categories}
-            currentCategory={currentCategory}
+            categories={categories.map(forClient)}
+            currentCategory={forClient(currentCategory)}
             listName={currentCategory.name}
             data-testid="sort-by-container"
             hideOptionsPicker

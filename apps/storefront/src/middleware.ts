@@ -1,6 +1,8 @@
 import { HttpTypes } from "@medusajs/types"
 import { NextRequest, NextResponse } from "next/server"
 import { localeFromCountry } from "@/lib/i18n/config"
+import { homeLinkHeader, isHomePath } from "@/lib/agent-discovery/link-headers"
+import { wantsMarkdown } from "@/lib/agent-discovery/markdown"
 
 const BACKEND_URL =
   process.env.MEDUSA_BACKEND_URL ||
@@ -121,6 +123,10 @@ function attachCacheId(request: NextRequest, response: NextResponse, cacheId: st
   return response
 }
 
+// Public catalogue pages an agent may ask for as Markdown (/<region>, store, katalog, categories, collections, products,
+// bilgi). Cart, checkout, account and order pages are private and stay HTML-only.
+const MARKDOWN_PATH = /^\/[a-z]{2}(?:\/(?:store|katalog)|\/(?:categories|collections|products|bilgi)\/.+)?\/?$/i
+
 /**
  * Middleware to handle region selection and cache id.
  */
@@ -179,6 +185,31 @@ export async function middleware(request: NextRequest) {
     response = NextResponse.redirect(`${redirectUrl}`, 307)
   }
 
+  // RFC 8288 Link headers on the home page (also on the redirect from "/", so a client that stops there still gets them)
+  if (request.method === "GET" && isHomePath(request.nextUrl.pathname, countryCode)) {
+    response.headers.set("Link", homeLinkHeader())
+  }
+
+  // Markdown for Agents: `Accept: text/markdown` on a public catalogue page returns the page as Markdown. HTML stays the
+  // default, so the same URL answers differently by Accept: caches must key on it.
+  if (request.method === "GET" && urlHasCountryCode && MARKDOWN_PATH.test(request.nextUrl.pathname)) {
+    if (
+      !request.headers.has("x-agent-markdown") &&
+      response.headers.get("x-middleware-next") === "1" &&
+      wantsMarkdown(request.headers.get("accept"))
+    ) {
+      // A route handler still sees the ORIGINAL url after a rewrite (the query we would add here is lost), so the
+      // page to render travels in a request header.
+      const url = request.nextUrl.clone()
+      url.pathname = "/api/markdown"
+      url.search = ""
+      const headers = new Headers(request.headers)
+      headers.set("x-agent-md-path", request.nextUrl.pathname + request.nextUrl.search)
+      response = NextResponse.rewrite(url, { request: { headers } })
+    }
+    response.headers.append("Vary", "Accept")
+  }
+
   // If a cart_id is in the params, we set it as a cookie and redirect to the address step.
   if (cartId && !checkoutStep && !cartIdCookie) {
     redirectUrl = `${redirectUrl}&step=address`
@@ -197,7 +228,8 @@ export const config = {
     // this locale/region middleware must never touch them (it was
     // redirecting bare "/app" to "/dk/app" and 404ing, since only paths
     // with a literal "." in them were otherwise exempted).
-    "/((?!api|_next/static|_next/image|favicon.ico|images|assets|png|svg|jpg|jpeg|gif|webp|app(?:/|$)|auth(?:/|$)|admin(?:/|$)).*)",
+    // /mcp is the public MCP endpoint (app/mcp): a JSON API that must not get a locale prefix either.
+    "/((?!api|_next/static|_next/image|favicon.ico|images|assets|png|svg|jpg|jpeg|gif|webp|app(?:/|$)|auth(?:/|$)|admin(?:/|$)|mcp(?:/|$)).*)",
     "/_next/static/chunks/app/:path*",
   ],
 }
