@@ -193,7 +193,13 @@ export async function addToCartBulk({
       body: JSON.stringify({ line_items: lineItems }),
     }
   )
-    .then(async () => {
+    .then(async (res) => {
+      // fetch() resolves on 4xx/5xx; without this a rejected add looked successful and the
+      // optimistic item silently vanished on the next refresh with no error shown.
+      if (!res.ok) {
+        const body = await res.json().catch(() => null)
+        throw new Error(body?.message || `Add to cart failed (${res.status})`)
+      }
       const fullfillmentCacheTag = await getCacheTag("fulfillment")
       revalidateTag(fullfillmentCacheTag)
       const cartCacheTag = await getCacheTag("carts")

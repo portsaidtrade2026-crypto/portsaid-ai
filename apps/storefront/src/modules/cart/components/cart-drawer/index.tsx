@@ -38,8 +38,17 @@ const CartDrawer = ({
   const [isOpen, setIsOpen] = useState(false)
   const { t } = useI18n()
 
+  const [quoteDialog, setQuoteDialog] = useState<"confirm" | "prompt" | null>(null)
+
   const open = () => setIsOpen(true)
   const close = () => setIsOpen(false)
+
+  // Close the drawer first (releases its focus trap and scroll lock), then open the dialog.
+  const openQuoteDialog = (kind: "confirm" | "prompt") => {
+    if (activeTimer) clearTimeout(activeTimer)
+    setIsOpen(false)
+    setTimeout(() => setQuoteDialog(kind), 150)
+  }
 
   const { cart } = useCart()
 
@@ -228,18 +237,14 @@ const CartDrawer = ({
                             : t("Secure Checkout")}
                         </Button>
                       </LocalizedClientLink>
-                    ) : customer ? (
-                      <RequestQuoteConfirmation>
-                        <Button className="w-full" size="large">
-                          {t("Request Quote")}
-                        </Button>
-                      </RequestQuoteConfirmation>
                     ) : (
-                      <RequestQuotePrompt>
-                        <Button className="w-full" size="large">
-                          {t("Request Quote")}
-                        </Button>
-                      </RequestQuotePrompt>
+                      <Button
+                        className="w-full"
+                        size="large"
+                        onClick={() => openQuoteDialog(customer ? "confirm" : "prompt")}
+                      >
+                        {t("Request Quote")}
+                      </Button>
                     )}
                     {spendLimitExceeded && (
                       <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
@@ -256,6 +261,16 @@ const CartDrawer = ({
           </div>
         </Drawer.Content>
       </Drawer>
+      {/* Rendered outside the Drawer: nested inside it, the drawer's focus trap stole focus from
+          the quote form (Medusa UI bundles its own Radix copy), so nothing could be typed. */}
+      <RequestQuoteConfirmation
+        open={quoteDialog === "confirm"}
+        onOpenChange={(value) => !value && setQuoteDialog(null)}
+      />
+      <RequestQuotePrompt
+        open={quoteDialog === "prompt"}
+        onOpenChange={(value) => !value && setQuoteDialog(null)}
+      />
     </>
   )
 }

@@ -9,6 +9,7 @@ import { track } from "@vercel/analytics/server"
 import { revalidateTag } from "next/cache"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
+import { requestEmailVerification } from "@/lib/email-verify"
 import { retrieveCart, updateCart } from "./cart"
 import { createCompany } from "./companies"
 import {
@@ -99,6 +100,7 @@ export async function quickSignup(_currentState: unknown, formData: FormData) {
     revalidateTag(cacheTag)
 
     await transferCart()
+    await requestEmailVerification(email)
   } catch (error: any) {
     return error.toString()
   }
@@ -242,6 +244,7 @@ export async function signup(_currentState: unknown, formData: FormData) {
     revalidateTag(cacheTag)
 
     await transferCart()
+    await requestEmailVerification(customerForm.email, customerForm.first_name)
 
   } catch (error: any) {
     console.log("error", error)
@@ -288,6 +291,7 @@ export async function claimAccount(_currentState: unknown, formData: FormData) {
 
     const cacheTag = await getCacheTag("customers")
     revalidateTag(cacheTag)
+    await requestEmailVerification(email)
   } catch (error: any) {
     return error.toString()
   }

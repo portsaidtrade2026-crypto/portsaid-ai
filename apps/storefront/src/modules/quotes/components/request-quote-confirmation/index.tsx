@@ -15,12 +15,23 @@ type Status = Awaited<ReturnType<typeof getProfileStatus>>
 
 export const RequestQuoteConfirmation = ({
   children,
+  open: controlledOpen,
+  onOpenChange,
 }: {
-  children: React.ReactNode
+  children?: React.ReactNode
+  // The cart drawer renders this dialog OUTSIDE itself, controlled: a Radix dialog nested in
+  // the drawer trapped focus in the drawer, so the form fields could not be typed into.
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
 }) => {
   const { t } = useI18n()
   const [requesting, setRequesting] = useState(false)
-  const [open, setOpen] = useState(false)
+  const [innerOpen, setInnerOpen] = useState(false)
+  const open = controlledOpen ?? innerOpen
+  const setOpen = (value: boolean) => {
+    setInnerOpen(value)
+    onOpenChange?.(value)
+  }
   const [status, setStatus] = useState<Status | undefined>(undefined)
   const [error, setError] = useState<string | null>(null)
   const { countryCode } = useParams<{ countryCode: string }>()
@@ -67,7 +78,7 @@ export const RequestQuoteConfirmation = ({
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger asChild>{children}</Dialog.Trigger>
+      {children && <Dialog.Trigger asChild>{children}</Dialog.Trigger>}
 
       <Dialog.Portal>
         <Dialog.Overlay className="bg-black/50 data-[state=open]:animate-overlayShow fixed inset-0 z-[75]" />

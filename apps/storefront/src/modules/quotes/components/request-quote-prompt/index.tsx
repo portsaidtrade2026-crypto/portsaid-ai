@@ -9,8 +9,13 @@ import { useParams } from "next/navigation"
 export const RequestQuotePrompt = ({
   children,
   isLoggedIn = false,
+  open,
+  onOpenChange,
 }: {
-  children: React.ReactNode
+  children?: React.ReactNode
+  // controlled use: the cart drawer renders this outside itself (see RequestQuoteConfirmation)
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
   // nav/index.tsx falls back to this prompt for a logged-in customer whose
   // cart just happens to be empty (its own condition requires BOTH a
   // customer AND cart items before switching to RequestQuoteConfirmation) -
@@ -24,8 +29,8 @@ export const RequestQuotePrompt = ({
   // After logging in the visitor comes back to the cart, where the quote button is.
   const accountHref = "/account?next=" + encodeURIComponent("/" + countryCode + "/cart")
   return (
-  <Dialog.Root>
-    <Dialog.Trigger asChild>{children}</Dialog.Trigger>
+  <Dialog.Root open={open} onOpenChange={onOpenChange}>
+    {children && <Dialog.Trigger asChild>{children}</Dialog.Trigger>}
 
     <Dialog.Portal>
       <Dialog.Overlay className="bg-black/50 data-[state=open]:animate-overlayShow fixed inset-0 z-[75]" />

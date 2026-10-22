@@ -1,0 +1,689 @@
+[
+  {
+    "handle": "15-mikron-şeffaf-streç-standart-168-ortalama-kg-300-gr-masura-200-m",
+    "patch": {
+      "weight_basis": "average_weight"
+    },
+    "current": {
+      "Ağırlık": "1.68 kg",
+      "Kalınlık": "15 Mic",
+      "Masura Ağırlığı": "300 gr",
+      "Renk": "Şeffaf",
+      "Uzunluk": "200 m"
+    }
+  },
+  {
+    "handle": "15-mikron-şeffaf-streç-standart-237-ortalama-kg-270-gr-masura-300-m",
+    "patch": {
+      "weight_basis": "average_weight"
+    },
+    "current": {
+      "Ağırlık": "2.37 kg",
+      "Kalınlık": "15 Mic",
+      "Masura Ağırlığı": "270 gr",
+      "Renk": "Şeffaf",
+      "Uzunluk": "300 m"
+    }
+  },
+  {
+    "handle": "15-mikron-şeffaf-streç-standart-237-ortalama-kg-300-gr-masura-300-m-10-cm",
+    "patch": {
+      "weight_basis": "average_weight"
+    },
+    "current": {
+      "Ağırlık": "2.37 kg",
+      "Genişlik": "10 cm",
+      "Kalınlık": "15 Mic",
+      "Masura Ağırlığı": "300 gr",
+      "Renk": "Şeffaf",
+      "Uzunluk": "300 m"
+    }
+  },
+  {
+    "handle": "17-mikron-şeffaf-streç-standart-26-kg-ortalama-300-gr-masura-300-m",
+    "patch": {
+      "weight_basis": "average_weight"
+    },
+    "current": {
+      "Ağırlık": "2.6 kg",
+      "Kalınlık": "17 Mic",
+      "Masura Ağırlığı": "300 gr",
+      "Renk": "Şeffaf",
+      "Uzunluk": "300 m"
+    }
+  },
+  {
+    "handle": "17-mikron-şeffaf-streç-super-power-14-kg-ortalama-300-gr-masura-140-m",
+    "patch": {
+      "weight_basis": "average_weight"
+    },
+    "current": {
+      "Ağırlık": "1.4 kg",
+      "Kalınlık": "17 Mic",
+      "Masura Ağırlığı": "300 gr",
+      "Renk": "Şeffaf",
+      "Uzunluk": "140 m"
+    }
+  },
+  {
+    "handle": "23-mikron-siyah-streç-brüt-162-kg-ortalama-125-m-300-gr-masura",
+    "patch": {
+      "weight_basis": "average_gross_weight"
+    },
+    "current": {
+      "Ağırlık": "1.62 kg",
+      "Kalınlık": "23 Mic",
+      "Masura Ağırlığı": "300 gr",
+      "Renk": "Siyah",
+      "Uzunluk": "125 m"
+    }
+  },
+  {
+    "handle": "23-mikron-şeffaf-streç-super-power-15-kg-brüt",
+    "patch": {
+      "weight_basis": "gross_weight"
+    },
+    "current": {
+      "Ağırlık": "15 kg",
+      "Kalınlık": "23 Mic",
+      "Renk": "Şeffaf"
+    }
+  },
+  {
+    "handle": "23-mikron-şeffaf-streç-brüt-162-kg-ortalama-125-m-300-gr-masura",
+    "patch": {
+      "weight_basis": "average_gross_weight"
+    },
+    "current": {
+      "Ağırlık": "1.62 kg",
+      "Kalınlık": "23 Mic",
+      "Masura Ağırlığı": "300 gr",
+      "Renk": "Şeffaf",
+      "Uzunluk": "125 m"
+    }
+  },
+  {
+    "handle": "7-mic-43cm-el-tipi-pre-streç-film-3-kg-ortalama-adet",
+    "patch": {
+      "weight_basis": "average_weight_per_roll"
+    },
+    "current": {
+      "Ağırlık": "3 kg",
+      "Genişlik": "43 cm",
+      "Kalınlık": "7 Mic"
+    }
+  },
+  {
+    "handle": "buke-tokasi-16mm-1000-ad",
+    "patch": {
+      "width": null,
+      "compatible_strap_width": {
+        "value": 16.0,
+        "unit": "mm"
+      },
+      "pack_quantity": {
+        "value": 1000,
+        "unit": "pcs"
+      }
+    },
+    "current": {
+      "Genişlik": "16 mm"
+    }
+  },
+  {
+    "handle": "bukle-tokasi-13mm-1000-ad",
+    "patch": {
+      "width": null,
+      "compatible_strap_width": {
+        "value": 13.0,
+        "unit": "mm"
+      },
+      "pack_quantity": {
+        "value": 1000,
+        "unit": "pcs"
+      }
+    },
+    "current": {
+      "Genişlik": "13 mm"
+    }
+  },
+  {
+    "handle": "bukle-tokasi-19mm-1000-ad",
+    "patch": {
+      "width": null,
+      "compatible_strap_width": {
+        "value": 19.0,
+        "unit": "mm"
+      },
+      "pack_quantity": {
+        "value": 1000,
+        "unit": "pcs"
+      }
+    },
+    "current": {
+      "Genişlik": "19 mm"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm100m-30-gr",
+    "patch": {
+      "unclassified_grade": "30 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "30 gr",
+      "Genişlik": "100 cm",
+      "Uzunluk": "100 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm100m-40-gr",
+    "patch": {
+      "unclassified_grade": "40 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "40 gr",
+      "Genişlik": "100 cm",
+      "Uzunluk": "100 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm100m-50-gr",
+    "patch": {
+      "unclassified_grade": "50 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "50 gr",
+      "Genişlik": "100 cm",
+      "Uzunluk": "100 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm100m-60-gr",
+    "patch": {
+      "unclassified_grade": "60 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "60 gr",
+      "Genişlik": "100 cm",
+      "Uzunluk": "100 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm50m-30gr",
+    "patch": {
+      "unclassified_grade": "30 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "30 gr",
+      "Genişlik": "100 cm",
+      "Uzunluk": "50 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm50m-35-gr",
+    "patch": {
+      "unclassified_grade": "35 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "35 gr",
+      "Genişlik": "100 cm",
+      "Uzunluk": "50 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm50m-40-gr",
+    "patch": {
+      "unclassified_grade": "40 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "40 gr",
+      "Genişlik": "100 cm",
+      "Uzunluk": "50 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm50m-50-gr",
+    "patch": {
+      "unclassified_grade": "50 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "50 gr",
+      "Genişlik": "100 cm",
+      "Uzunluk": "50 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm50m-60-gr",
+    "patch": {
+      "unclassified_grade": "60 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "60 gr",
+      "Genişlik": "100 cm",
+      "Uzunluk": "50 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm100m-30-gr",
+    "patch": {
+      "unclassified_grade": "30 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "30 gr",
+      "Genişlik": "150 cm",
+      "Uzunluk": "100 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm100m-40-gr",
+    "patch": {
+      "unclassified_grade": "40 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "40 gr",
+      "Genişlik": "150 cm",
+      "Uzunluk": "100 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm100m-50-gr",
+    "patch": {
+      "unclassified_grade": "50 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "50 gr",
+      "Genişlik": "150 cm",
+      "Uzunluk": "100 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm100m-60-gr",
+    "patch": {
+      "unclassified_grade": "60 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "60 gr",
+      "Genişlik": "150 cm",
+      "Uzunluk": "100 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm50m-140-gr",
+    "patch": {
+      "unclassified_grade": "140 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "140 gr",
+      "Genişlik": "150 cm",
+      "Uzunluk": "50 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm50m-30-gr",
+    "patch": {
+      "unclassified_grade": "30 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "30 gr",
+      "Genişlik": "150 cm",
+      "Uzunluk": "50 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm50m-40-gr",
+    "patch": {
+      "unclassified_grade": "40 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "40 gr",
+      "Genişlik": "150 cm",
+      "Uzunluk": "50 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm50m-60-gr",
+    "patch": {
+      "unclassified_grade": "60 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "60 gr",
+      "Genişlik": "150 cm",
+      "Uzunluk": "50 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm50m-65-gr",
+    "patch": {
+      "unclassified_grade": "65 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "65 gr",
+      "Genişlik": "150 cm",
+      "Uzunluk": "50 m"
+    }
+  },
+  {
+    "handle": "balonlu-naylon-200cm100m-65-gr",
+    "patch": {
+      "unclassified_grade": "65 gr",
+      "weight": null
+    },
+    "current": {
+      "Ağırlık": "65 gr",
+      "Genişlik": "200 cm",
+      "Uzunluk": "100 m"
+    }
+  },
+  {
+    "handle": "karton-köşebent-10-mt-5050-5mm",
+    "patch": {
+      "length": {
+        "value": 1.0,
+        "unit": "m"
+      },
+      "width": null,
+      "thickness": {
+        "value": 5.0,
+        "unit": "mm"
+      }
+    },
+    "current": {
+      "Genişlik": "5 mm",
+      "Uzunluk": "1.0 m"
+    }
+  },
+  {
+    "handle": "karton-köşebent-1000-mm-40403",
+    "patch": {
+      "length": {
+        "value": 1000.0,
+        "unit": "mm"
+      },
+      "width": null,
+      "unparsed_section": "40 × 40 × 3"
+    },
+    "current": {
+      "Genişlik": "1000 mm"
+    }
+  },
+  {
+    "handle": "karton-köşebent-1100-mm-40403",
+    "patch": {
+      "length": {
+        "value": 1100.0,
+        "unit": "mm"
+      },
+      "width": null,
+      "unparsed_section": "40 × 40 × 3"
+    },
+    "current": {
+      "Genişlik": "1100 mm"
+    }
+  },
+  {
+    "handle": "karton-köşebent-2-mt-4040-4mm",
+    "patch": {
+      "length": {
+        "value": 2.0,
+        "unit": "m"
+      },
+      "width": null,
+      "thickness": {
+        "value": 4.0,
+        "unit": "mm"
+      }
+    },
+    "current": {
+      "Genişlik": "4 mm",
+      "Uzunluk": "2 m"
+    }
+  },
+  {
+    "handle": "karton-köşebent-210mt-9595-5mm",
+    "patch": {
+      "length": {
+        "value": 2.1,
+        "unit": "m"
+      },
+      "width": null,
+      "thickness": {
+        "value": 5.0,
+        "unit": "mm"
+      }
+    },
+    "current": {
+      "Genişlik": "5 mm",
+      "Uzunluk": "2.10 m"
+    }
+  },
+  {
+    "handle": "karton-köşebent-25-mt-4040-4mm",
+    "patch": {
+      "length": {
+        "value": 2.5,
+        "unit": "m"
+      },
+      "width": null,
+      "thickness": {
+        "value": 4.0,
+        "unit": "mm"
+      }
+    },
+    "current": {
+      "Genişlik": "4 mm",
+      "Uzunluk": "2.5 m"
+    }
+  },
+  {
+    "handle": "karton-köşebent-3-mt-5090-4mm",
+    "patch": {
+      "length": {
+        "value": 3.0,
+        "unit": "m"
+      },
+      "width": null,
+      "thickness": {
+        "value": 4.0,
+        "unit": "mm"
+      }
+    },
+    "current": {
+      "Genişlik": "4 mm",
+      "Uzunluk": "3 m"
+    }
+  },
+  {
+    "handle": "masura-30-cm",
+    "patch": {
+      "width": null,
+      "unclassified_size": {
+        "value": 30.0,
+        "unit": "cm"
+      }
+    },
+    "current": {
+      "Genişlik": "30 cm"
+    }
+  },
+  {
+    "handle": "sade-koli-3-kg",
+    "patch": {
+      "weight": null,
+      "unclassified_source_designation": "3 kg"
+    },
+    "current": {
+      "Ağırlık": "3 kg"
+    }
+  },
+  {
+    "handle": "strafor-100x50x2-cm-bir-paket-25-tane",
+    "patch": {
+      "material": "EPS",
+      "length": {
+        "value": 100,
+        "unit": "cm"
+      },
+      "width": {
+        "value": 50,
+        "unit": "cm"
+      },
+      "thickness": {
+        "value": 2,
+        "unit": "cm"
+      },
+      "pack_quantity": {
+        "value": 25,
+        "unit": "pcs"
+      }
+    },
+    "current": {
+      "Genişlik": "2 cm"
+    }
+  },
+  {
+    "handle": "çember-brinci-kalite-beyaz-08060-3500-t",
+    "patch": {
+      "unparsed_source_code": "08 × 060 — 3500 T"
+    },
+    "current": {
+      "Renk": "Beyaz"
+    }
+  },
+  {
+    "handle": "çember-orijinal-beyaz-08060-3500-t",
+    "patch": {
+      "unparsed_source_code": "08 × 060 — 3500 T"
+    },
+    "current": {
+      "Renk": "Beyaz"
+    }
+  },
+  {
+    "handle": "çember-orijinal-beyaz-12060-2700-t",
+    "patch": {
+      "unparsed_source_code": "12 × 060 — 2700 T"
+    },
+    "current": {
+      "Renk": "Beyaz"
+    }
+  },
+  {
+    "handle": "çember-yeşil-polyster-12070-1200-t",
+    "patch": {
+      "material": "polyester",
+      "unparsed_source_code": "12 × 070 — 1200 T"
+    },
+    "current": {
+      "Renk": "Yeşil"
+    }
+  },
+  {
+    "handle": "çember-yeşil-polyster-12070-1750-t",
+    "patch": {
+      "material": "polyester",
+      "unparsed_source_code": "12 × 070 — 1750 T"
+    },
+    "current": {
+      "Renk": "Yeşil"
+    }
+  },
+  {
+    "handle": "çember-yeşil-polyster-12070-2000-t",
+    "patch": {
+      "material": "polyester",
+      "unparsed_source_code": "12 × 070 — 2000 T"
+    },
+    "current": {
+      "Renk": "Yeşil"
+    }
+  },
+  {
+    "handle": "çember-yeşil-polyster-12090-2000-t",
+    "patch": {
+      "material": "polyester",
+      "unparsed_source_code": "12 × 090 — 2000 T"
+    },
+    "current": {
+      "Renk": "Yeşil"
+    }
+  },
+  {
+    "handle": "çember-beyaz-16-mm-kompozit-lifli-850-mt",
+    "patch": {
+      "product_type": "composite_fiber_reinforced_strapping",
+      "material": "composite (fiber-reinforced; composition not specified)"
+    },
+    "current": {
+      "Genişlik": "16 mm",
+      "Renk": "Beyaz",
+      "Uzunluk": "850 m"
+    }
+  },
+  {
+    "handle": "çember-beyaz-19-mm-kompozit-lifli-600-mt",
+    "patch": {
+      "product_type": "composite_fiber_reinforced_strapping",
+      "material": "composite (fiber-reinforced; composition not specified)"
+    },
+    "current": {
+      "Genişlik": "19 mm",
+      "Renk": "Beyaz",
+      "Uzunluk": "600 m"
+    }
+  },
+  {
+    "handle": "çember-siyah-12-mm080-40-kaşnak",
+    "patch": {
+      "unparsed_source_code": "12 MM × 080 — 40 KAŞNAK"
+    },
+    "current": {
+      "Genişlik": "12 mm",
+      "Renk": "Siyah"
+    }
+  },
+  {
+    "handle": "çember-siyah-1208-orjinal-40-kaşnak",
+    "patch": {
+      "unparsed_source_code": "12 × 08 — 40 KAŞNAK"
+    },
+    "current": {
+      "Renk": "Siyah"
+    }
+  },
+  {
+    "handle": "çember-yeşil-polyester-16-x-070-mm",
+    "patch": {
+      "material": "polyester",
+      "width": {
+        "value": 16.0,
+        "unit": "mm"
+      },
+      "thickness": {
+        "value": 0.7,
+        "unit": "mm"
+      }
+    },
+    "current": {
+      "Genişlik": "70 mm",
+      "Renk": "Yeşil"
+    }
+  }
+]
