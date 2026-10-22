@@ -7,6 +7,7 @@ import { B2BCustomer } from "@/types/global"
 import { HttpTypes } from "@medusajs/types"
 import { track } from "@vercel/analytics/server"
 import { revalidateTag } from "next/cache"
+import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 import { retrieveCart, updateCart } from "./cart"
 import { createCompany } from "./companies"
@@ -61,6 +62,126 @@ export const updateCustomer = async (body: HttpTypes.StoreUpdateCustomer) => {
   revalidateTag(cacheTag)
 
   return updateRes
+}
+
+// Safe in-site redirect target: only a relative path, never an absolute/external URL.
+const safeNext = (value: FormDataEntryValue | null, countryCode: string) =>
+  typeof value === "string" && /^\/[a-z]{2}\/[A-Za-z0-9\-_/]*$/.test(value)
+    ? value
+    : `/${countryCode}/account`
+
+// Simplest possible sign-up: email + password. Name, phone and company are asked for
+// later (see saveContactDetails), when the customer sends their first quote request.
+export async function quickSignup(_currentState: unknown, formData: FormData) {
+  const email = String(formData.get("email") ?? "").trim()
+  const password = String(formData.get("password") ?? "")
+  const accountCountryCode = formData.get("account_country_code")
+  const countryCode =
+    typeof accountCountryCode === "string" && /^[a-z]{2}$/.test(accountCountryCode)
+      ? accountCountryCode
+      : null
+  if (!countryCode) {
+    return "Invalid account country code"
+  }
+  if (!email || password.length < 8) {
+    return "Password must be at least 8 characters."
+  }
+
+  try {
+    const token = await sdk.auth.register("customer", "emailpass", { email, password })
+
+    await sdk.store.customer.create({ email }, {}, { authorization: `Bearer ${token}` })
+
+    const loginToken = await sdk.auth.login("customer", "emailpass", { email, password })
+    await setAuthToken(loginToken as string)
+
+    const cacheTag = await getCacheTag("customers")
+    revalidateTag(cacheTag)
+
+    await transferCart()
+  } catch (error: any) {
+    return error.toString()
+  }
+  redirect(safeNext(formData.get("next"), countryCode))
+}
+
+// What the quote dialog still needs from this customer. Null when not signed in.
+export async function getProfileStatus() {
+  const customer = await retrieveCustomer()
+  if (!customer) return null
+  return {
+    complete: !!(
+      customer.first_name &&
+      customer.last_name &&
+      customer.phone &&
+      customer.employee?.company_id
+    ),
+    first_name: customer.first_name ?? "",
+    last_name: customer.last_name ?? "",
+    phone: customer.phone ?? "",
+    has_company: !!customer.employee?.company_id,
+  }
+}
+
+// Collects the details a quote needs: personal name + phone, and a minimal company record
+// (name only - address etc. can be added later from the account page).
+export async function saveContactDetails(formData: FormData) {
+  const first_name = String(formData.get("first_name") ?? "").trim()
+  const last_name = String(formData.get("last_name") ?? "").trim()
+  const phone = String(formData.get("phone") ?? "").trim()
+  const company_name = String(formData.get("company_name") ?? "").trim()
+  const accountCountryCode = String(formData.get("account_country_code") ?? "")
+
+  if (!first_name || !last_name || !phone || !company_name) {
+    return { ok: false as const, error: "Please fill in all fields." }
+  }
+
+  try {
+    const customer = await retrieveCustomer()
+    if (!customer) return { ok: false as const, error: "Please log in first." }
+
+    await updateCustomer({ first_name, last_name, phone, company_name })
+
+    if (!customer.employee?.company_id) {
+      await createCompany({
+        name: company_name,
+        email: customer.email,
+        phone,
+        currency_code: accountCountryCode === "bg" ? "eur" : "try",
+      })
+    }
+
+    const cacheTag = await getCacheTag("customers")
+    revalidateTag(cacheTag)
+    return { ok: true as const }
+  } catch (error: any) {
+    return { ok: false as const, error: error?.message ?? String(error) }
+  }
+}
+
+// Which social sign-in providers are configured (set in the storefront container env).
+export async function getSocialProviders() {
+  return {
+    google: process.env.GOOGLE_LOGIN_ENABLED === "1",
+    apple: process.env.APPLE_LOGIN_ENABLED === "1",
+  }
+}
+
+// Starts the Google OAuth redirect through Medusa's auth provider.
+export async function startGoogleLogin(next?: string) {
+  const result = await sdk.auth.login("customer", "google", {})
+  if (typeof result === "object" && result.location) {
+    const jar = await cookies()
+    jar.set("ps_oauth_next", typeof next === "string" && next.startsWith("/") ? next : "", {
+      maxAge: 600,
+      httpOnly: true,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+      path: "/",
+    })
+    redirect(result.location)
+  }
+  return "Google sign-in is not available right now."
 }
 
 export async function signup(_currentState: unknown, formData: FormData) {
@@ -216,6 +337,12 @@ export async function login(_currentState: unknown, formData: FormData) {
     await transferCart()
   } catch (error: any) {
     return error.toString()
+  }
+
+  // Back to the page that sent the visitor to log in (e.g. the cart before a quote).
+  const next = formData.get("next")
+  if (typeof next === "string" && /^\/[a-z]{2}\/[A-Za-z0-9\-_/]*$/.test(next)) {
+    redirect(next)
   }
 }
 

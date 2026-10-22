@@ -2,12 +2,10 @@
 
 import ClaimAccount from "@/modules/account/components/claim-account"
 import Login from "@/modules/account/components/login"
+import LoginAd from "@/modules/account/components/login-ad"
 import Register from "@/modules/account/components/register"
-import { clx } from "@medusajs/ui"
-import Image from "next/image"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
-import { useI18n } from "@/lib/i18n/provider"
 
 export enum LOGIN_VIEW {
   LOG_IN = "log-in",
@@ -15,13 +13,18 @@ export enum LOGIN_VIEW {
   CLAIM_ACCOUNT = "claim-account",
 }
 
-const LoginTemplate = () => {
+type Props = {
+  // Providers whose sign-in is configured on the server (see getSocialProviders).
+  google?: boolean
+  // In-store path to return to after logging in, e.g. the cart a visitor came from.
+  next?: string
+}
+
+const LoginTemplate = ({ google = false, next }: Props) => {
   const route = usePathname()
   const searchParams = useSearchParams()
   const router = useRouter()
-  const { t } = useI18n()
 
-  const [imageLoaded, setImageLoaded] = useState(false)
   const [currentView, setCurrentView] = useState<LOGIN_VIEW>(() => {
     const viewFromUrl = searchParams.get("view") as LOGIN_VIEW
     return viewFromUrl && Object.values(LOGIN_VIEW).includes(viewFromUrl)
@@ -40,48 +43,23 @@ const LoginTemplate = () => {
     }
   }, [searchParams, route, router])
 
-  useEffect(() => {
-    const image = new window.Image()
-    image.src = "/account-block.jpg"
-    image.onload = () => {
-      setImageLoaded(true)
-    }
-  }, [])
-
   const updateView = (view: LOGIN_VIEW) => {
     setCurrentView(view)
-    router.push(`/account?view=${view}`)
+    router.push(`/account?view=${view}${next ? `&next=${encodeURIComponent(next)}` : ""}`)
   }
 
   return (
-    <div className="grid grid-cols-1 small:grid-cols-2 gap-2 m-2 min-h-[80vh]">
-      <div className="flex justify-center items-center ps-surface p-6 small:p-0 h-full border border-[var(--ps-line)]">
+    <div className="grid grid-cols-1 small:grid-cols-2 gap-6 m-2 small:m-6 min-h-[80vh]">
+      <div className="flex justify-center items-center px-4 py-10 small:px-10">
         {currentView === LOGIN_VIEW.LOG_IN ? (
-          <Login setCurrentView={updateView} />
+          <Login setCurrentView={updateView} google={google} next={next} />
         ) : currentView === LOGIN_VIEW.CLAIM_ACCOUNT ? (
           <ClaimAccount setCurrentView={updateView} />
         ) : (
-          <Register setCurrentView={updateView} />
+          <Register setCurrentView={updateView} google={google} next={next} />
         )}
       </div>
-
-      <div className="relative min-h-[320px] overflow-hidden bg-[#111214]">
-        <div className="absolute z-10 inset-0 flex flex-col justify-end p-8 text-white bg-gradient-to-t from-[#111214]/85 to-transparent">
-          <img src="/logo-portsaid.png" alt="Portsaid Plastik" className="w-44 mb-4" />
-          <p className="max-w-xs text-sm text-white/75">{t("Your supply line, made dependable.")}</p>
-        </div>
-        <Image
-          src="/account-block.jpg"
-          alt="Login banner background"
-          className={clx(
-            "object-cover transition-opacity duration-300 w-full h-full",
-            imageLoaded ? "opacity-100" : "opacity-0"
-          )}
-          fill
-          quality={100}
-          priority
-        />
-      </div>
+      <LoginAd />
     </div>
   )
 }

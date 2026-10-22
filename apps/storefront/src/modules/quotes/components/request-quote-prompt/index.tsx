@@ -4,6 +4,7 @@ import { useI18n } from "@/lib/i18n/provider"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { XCircle } from "@medusajs/icons"
 import * as Dialog from "@radix-ui/react-dialog"
+import { useParams } from "next/navigation"
 
 export const RequestQuotePrompt = ({
   children,
@@ -19,6 +20,9 @@ export const RequestQuotePrompt = ({
   isLoggedIn?: boolean
 }) => {
   const { t } = useI18n()
+  const { countryCode } = useParams<{ countryCode: string }>()
+  // After logging in the visitor comes back to the cart, where the quote button is.
+  const accountHref = "/account?next=" + encodeURIComponent("/" + countryCode + "/cart")
   return (
   <Dialog.Root>
     <Dialog.Trigger asChild>{children}</Dialog.Trigger>
@@ -40,7 +44,7 @@ export const RequestQuotePrompt = ({
                 <Dialog.Close asChild>
                   <LocalizedClientLink
                     className="text-blue-500 cursor-pointer"
-                    href="/account"
+                    href={accountHref}
                   >
                     {t("Log in")}
                   </LocalizedClientLink>
@@ -49,7 +53,7 @@ export const RequestQuotePrompt = ({
                 <Dialog.Close>
                   <LocalizedClientLink
                     className="text-blue-500 cursor-pointer"
-                    href="/account"
+                    href={accountHref}
                   >
                     {t("create an account")}
                   </LocalizedClientLink>

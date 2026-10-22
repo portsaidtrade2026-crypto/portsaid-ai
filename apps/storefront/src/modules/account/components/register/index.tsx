@@ -1,118 +1,51 @@
 "use client"
 
-import { currencySymbolMap } from "@/lib/constants"
-import { signup } from "@/lib/data/customer"
+import { quickSignup } from "@/lib/data/customer"
 import { LOGIN_VIEW } from "@/modules/account/templates/login-template"
+import SocialButtons from "@/modules/account/components/social-buttons"
 import ErrorMessage from "@/modules/checkout/components/error-message"
 import { SubmitButton } from "@/modules/checkout/components/submit-button"
 import Input from "@/modules/common/components/input"
-import { Checkbox, Label, Select, Text } from "@medusajs/ui"
-import { ChangeEvent, useActionState, useState } from "react"
+import { Checkbox, Label, Text } from "@medusajs/ui"
+import { useActionState, useState } from "react"
 import { useParams } from "next/navigation"
 import { useI18n } from "@/lib/i18n/provider"
-import CompanyLocationFields from "./company-location-fields"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void
+  google: boolean
+  next?: string
 }
 
-interface FormData {
-  email: string
-  first_name: string
-  last_name: string
-  company_name: string
-  password: string
-  company_address: string
-  company_city: string
-  company_state: string
-  company_zip: string
-  company_country: string
-  currency_code: string
-}
-
-const initialFormData: FormData = {
-  email: "",
-  first_name: "",
-  last_name: "",
-  company_name: "",
-  password: "",
-  company_address: "",
-  company_city: "",
-  company_state: "",
-  company_zip: "",
-  company_country: "",
-  currency_code: "",
-}
-
-const placeholder = ({
-  placeholder,
-  required,
-}: {
-  placeholder: string
-  required: boolean
-}) => {
-  return (
-    <span className="text-ui-fg-muted">
-      {placeholder}
-      {required && <span className="text-ui-fg-error">*</span>}
-    </span>
-  )
-}
-
-const Register = ({ setCurrentView }: Props) => {
+// Sign-up is only an email and a password. Name, phone and company are collected
+// later, in the quote dialog, so nobody is stopped at the door by a long form.
+const Register = ({ setCurrentView, google, next }: Props) => {
   const { t } = useI18n()
   const { countryCode } = useParams<{ countryCode: string }>()
-  const [message, formAction] = useActionState(signup, null)
+  const [message, formAction] = useActionState(quickSignup, null)
   const [termsAccepted, setTermsAccepted] = useState(false)
-  const [formData, setFormData] = useState<FormData>(initialFormData)
-  const [locationReady, setLocationReady] = useState(false)
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
-
-  const handleSelectChange = (name: keyof FormData) => (value: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
-
-  const isValid =
-    termsAccepted &&
-    locationReady &&
-    !!formData.email &&
-    !!formData.first_name &&
-    !!formData.last_name &&
-    !!formData.company_name &&
-    !!formData.password &&
-    !!formData.company_address &&
-    !!formData.company_city &&
-    !!formData.company_zip &&
-    !!formData.company_country &&
-    !!formData.currency_code
-
-  const currencies = ["try", "usd", "eur"]
+  const isValid = termsAccepted && !!email && password.length >= 8
 
   return (
     <div
-      className="max-w-sm flex flex-col items-start gap-2 my-8"
+      className="max-w-sm w-full h-full flex flex-col justify-center gap-6 my-auto"
       data-testid="register-page"
     >
-      <Text className="text-4xl text-neutral-950 text-left mb-4">
-        {t("Create your")}
-        <br />
-        {t("company account.")}
-      </Text>
+      <div className="flex flex-col gap-2 text-center">
+        <Text className="text-4xl text-neutral-950 font-medium">
+          {t("Create your free account")}
+        </Text>
+        <Text className="text-neutral-600">
+          {t("Just your email and a password. We'll ask for the rest when you send your first quote request.")}
+        </Text>
+      </div>
       <form className="w-full flex flex-col" action={formAction}>
         <input type="hidden" name="account_country_code" value={countryCode} />
-        <div className="flex flex-col w-full gap-y-4">
+        {next && <input type="hidden" name="next" value={next} />}
+        <div className="flex flex-col w-full gap-y-3">
           <Input
             label={t("Email")}
             name="email"
@@ -120,110 +53,31 @@ const Register = ({ setCurrentView }: Props) => {
             type="email"
             autoComplete="email"
             data-testid="email-input"
-            className="bg-white"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          <Input
-            label={t("First name")}
-            name="first_name"
-            required
-            autoComplete="given-name"
-            data-testid="first-name-input"
-            className="bg-white"
-            value={formData.first_name}
-            onChange={handleChange}
-          />
-          <Input
-            label={t("Last name")}
-            name="last_name"
-            required
-            autoComplete="family-name"
-            data-testid="last-name-input"
-            className="bg-white"
-            value={formData.last_name}
-            onChange={handleChange}
-          />
-          <Input
-            label={t("Company name")}
-            name="company_name"
-            required
-            autoComplete="organization"
-            data-testid="company-name-input"
-            className="bg-white"
-            value={formData.company_name}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <Input
             label={t("Password")}
             name="password"
             required
             type="password"
+            minLength={8}
             autoComplete="new-password"
             data-testid="password-input"
-            className="bg-white"
-            value={formData.password}
-            onChange={handleChange}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
-          <Input
-            label={t("Company address")}
-            name="company_address"
-            required
-            autoComplete="address"
-            data-testid="company-address-input"
-            className="bg-white"
-            value={formData.company_address}
-            onChange={handleChange}
-          />
-          <CompanyLocationFields
-            onChange={(values) => setFormData((prev) => ({ ...prev, ...values }))}
-            onReadyChange={setLocationReady}
-          />
-          <Input
-            label={t("Company zip")}
-            name="company_zip"
-            required
-            autoComplete="postal-code"
-            data-testid="company-zip-input"
-            className="bg-white"
-            value={formData.company_zip}
-            onChange={handleChange}
-          />
-          <Select
-            name="currency_code"
-            required
-            autoComplete="currency"
-            data-testid="company-currency-input"
-            value={formData.currency_code}
-            onValueChange={handleSelectChange("currency_code")}
-          >
-            <Select.Trigger data-testid="company-currency-trigger" className="rounded-full h-10 px-4">
-              <Select.Value
-                placeholder={placeholder({
-                  placeholder: t("Select a currency"),
-                  required: true,
-                })}
-              />
-            </Select.Trigger>
-            <Select.Content>
-              {currencies.map((currency) => (
-                <Select.Item key={currency} value={currency}>
-                  {currency.toUpperCase()} ({currencySymbolMap[currency]})
-                </Select.Item>
-              ))}
-            </Select.Content>
-          </Select>
+          <p className="text-xs text-[var(--ps-muted)] px-2">{t("At least 8 characters.")}</p>
         </div>
-        <div className="border-b border-neutral-200 my-6" />
         <ErrorMessage error={message} data-testid="register-error" />
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 mt-4">
           <Checkbox
             name="terms"
             id="terms-checkbox"
             data-testid="terms-checkbox"
             checked={termsAccepted}
             onCheckedChange={(checked) => setTermsAccepted(!!checked)}
-          ></Checkbox>
+          />
           <Label
             id="terms-label"
             className="flex items-center text-ui-fg-base !text-xs hover:cursor-pointer !transform-none"
@@ -234,23 +88,24 @@ const Register = ({ setCurrentView }: Props) => {
           </Label>
         </div>
         <SubmitButton
-          className="w-full mt-6"
+          className="w-full mt-5 h-11"
           data-testid="register-button"
           disabled={!isValid}
         >
-          {t("Register")}
+          {t("Create a free account")}
         </SubmitButton>
       </form>
-      <span className="text-center text-ui-fg-base text-small-regular mt-6">
+      <SocialButtons google={google} next={next} />
+      <p className="text-center text-sm text-[var(--ps-muted)] border-t border-[var(--ps-line)] pt-5">
         {t("Already a member?")}{" "}
         <button
+          type="button"
           onClick={() => setCurrentView(LOGIN_VIEW.LOG_IN)}
-          className="underline"
+          className="font-semibold text-neutral-950 hover:underline"
         >
           {t("Log in")}
         </button>
-        .
-      </span>
+      </p>
     </div>
   )
 }

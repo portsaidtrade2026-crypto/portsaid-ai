@@ -57,6 +57,24 @@ module.exports = defineConfig({
             resolve: "@medusajs/medusa/auth-emailpass",
             id: "emailpass",
           },
+          // Google sign-in is enabled only once its OAuth credentials exist (created
+          // by Ahmed in Google Cloud Console); GOOGLE_CALLBACK_URL is the storefront
+          // page that finishes the login, e.g. https://portsaid.com.tr/tr/auth/google/callback
+          ...(process.env.GOOGLE_CLIENT_ID &&
+          process.env.GOOGLE_CLIENT_SECRET &&
+          process.env.GOOGLE_CALLBACK_URL
+            ? [
+                {
+                  resolve: "@medusajs/medusa/auth-google",
+                  id: "google",
+                  options: {
+                    clientId: process.env.GOOGLE_CLIENT_ID,
+                    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+                    callbackUrl: process.env.GOOGLE_CALLBACK_URL,
+                  },
+                },
+              ]
+            : []),
         ],
       },
     },

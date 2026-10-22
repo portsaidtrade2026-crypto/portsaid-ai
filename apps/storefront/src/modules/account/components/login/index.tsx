@@ -2,34 +2,35 @@
 
 import { login } from "@/lib/data/customer"
 import { LOGIN_VIEW } from "@/modules/account/templates/login-template"
+import SocialButtons from "@/modules/account/components/social-buttons"
 import ErrorMessage from "@/modules/checkout/components/error-message"
 import { SubmitButton } from "@/modules/checkout/components/submit-button"
-import Button from "@/modules/common/components/button"
 import Input from "@/modules/common/components/input"
-import { Checkbox, Text } from "@medusajs/ui"
+import { Text } from "@medusajs/ui"
 import { useActionState } from "react"
 import { useI18n } from "@/lib/i18n/provider"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void
+  google: boolean
+  next?: string
 }
 
-const Login = ({ setCurrentView }: Props) => {
+const Login = ({ setCurrentView, google, next }: Props) => {
   const { t } = useI18n()
   const [message, formAction] = useActionState(login, null)
 
   return (
     <div
-      className="max-w-sm w-full h-full flex flex-col justify-center gap-6 my-auto"
+      className="max-w-sm w-full h-full flex flex-col justify-center gap-7 my-auto"
       data-testid="login-page"
     >
-      <Text className="text-4xl text-neutral-950 text-left">
-        {t("Log in for faster")}
-        <br />
-        {t("checkout.")}
+      <Text className="text-4xl text-neutral-950 text-center font-medium">
+        {t("Welcome back!")}
       </Text>
       <form className="w-full" action={formAction}>
-        <div className="flex flex-col w-full gap-y-2">
+        {next && <input type="hidden" name="next" value={next} />}
+        <div className="flex flex-col w-full gap-y-3">
           <Input
             label={t("Email")}
             name="email"
@@ -47,37 +48,34 @@ const Login = ({ setCurrentView }: Props) => {
             required
             data-testid="password-input"
           />
-          <div className="flex flex-col gap-2 w-full border-b border-neutral-200 my-6" />
-          <div className="flex items-center gap-2">
-            <Checkbox name="remember_me" data-testid="remember-me-checkbox" />
-            <Text className="text-neutral-950 text-base-regular">
-              {t("Remember me")}
-            </Text>
-          </div>
         </div>
-        <ErrorMessage error={message} data-testid="login-error-message" />
-        <div className="flex flex-col gap-2">
-          <SubmitButton data-testid="sign-in-button" className="w-full mt-6">
-            {t("Log in")}
-          </SubmitButton>
-          <Button
-            variant="secondary"
-            onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
-            className="w-full h-10"
-            data-testid="register-button"
-          >
-            {t("Register")}
-          </Button>
+        <div className="flex justify-end mt-3">
           <button
             type="button"
             onClick={() => setCurrentView(LOGIN_VIEW.CLAIM_ACCOUNT)}
-            className="text-sm text-neutral-600 underline underline-offset-4 mt-2"
+            className="text-sm font-medium text-neutral-950 hover:underline"
             data-testid="claim-account-link"
           >
             {t("Already a customer? Set your password")}
           </button>
         </div>
+        <ErrorMessage error={message} data-testid="login-error-message" />
+        <SubmitButton data-testid="sign-in-button" className="w-full mt-5 h-11">
+          {t("Log in")}
+        </SubmitButton>
       </form>
+      <SocialButtons google={google} next={next} />
+      <p className="text-center text-sm text-[var(--ps-muted)] border-t border-[var(--ps-line)] pt-5">
+        {t("Don't have an account?")}{" "}
+        <button
+          type="button"
+          onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
+          className="font-semibold text-neutral-950 hover:underline"
+          data-testid="register-button"
+        >
+          {t("Create a free account")}
+        </button>
+      </p>
     </div>
   )
 }
