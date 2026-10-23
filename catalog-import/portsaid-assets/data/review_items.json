@@ -1,0 +1,218 @@
+[
+  {
+    "product_id": "ps-32bea90ac5e54b35a2f9509d9f869c43",
+    "row": 6,
+    "original_name": "Bant Makinası",
+    "issue": "Exact machine function/model unspecified; category illustration only"
+  },
+  {
+    "product_id": "ps-e6f6113e8bcf44bdbd4ba700b55e5d39",
+    "row": 13,
+    "original_name": "PALET 80 X 120 METRE",
+    "issue": "PALET 80 X 120 METRE has implausible units; dimensions withheld pending confirmation"
+  },
+  {
+    "product_id": "ps-a476afe22c7048ffab4a1f4cae51b574",
+    "row": 16,
+    "original_name": "STREÇ MAKİNASI + MÜŞTERİ (BG)",
+    "issue": "Exact machine function/model unspecified; category illustration only"
+  },
+  {
+    "product_id": "ps-9d29c653c02c41a6846e6793b1eda63b",
+    "row": 18,
+    "original_name": "TOOLS",
+    "issue": "TOOLS does not identify individual tools; general supply entry"
+  },
+  {
+    "product_id": "ps-d62a3c0539664211a52eafa6936c1a6d",
+    "row": 26,
+    "original_name": "8 MİKRON STREÇ - 30*1500 M",
+    "issue": "Leading width value has no explicit unit; not normalized"
+  },
+  {
+    "product_id": "ps-a676045a405d4ef197376d0c6e8d4d31",
+    "row": 27,
+    "original_name": "8 MİKRON STREÇ - 45*1500 M",
+    "issue": "Leading width value has no explicit unit; not normalized"
+  },
+  {
+    "product_id": "ps-63485d02e0e948a597d10565c9a1b532",
+    "row": 28,
+    "original_name": "8 MİKRON STREÇ - 45*180 M",
+    "issue": "Leading width value has no explicit unit; not normalized"
+  },
+  {
+    "product_id": "ps-30abe473e0a34f98a1ad000348c1022b",
+    "row": 31,
+    "original_name": "KARTON KÖŞEBENT 2,10MT 50*50 5MM",
+    "issue": "Cross-section units not fully explicit; dimension expression preserved without adding units"
+  },
+  {
+    "product_id": "ps-f2dac388b996433893f13b5cf3ae8f2e",
+    "row": 32,
+    "original_name": "KARTON KÖŞEBENT 900 MM 40*40*3",
+    "issue": "Cross-section units not fully explicit; dimension expression preserved without adding units"
+  },
+  {
+    "product_id": "ps-816e903f236f44898b0f5bcfcfb1133b",
+    "row": 44,
+    "original_name": "KARTON KÖŞEBENT 1.0 MT 50*50 5MM",
+    "issue": "Cross-section units not fully explicit; dimension expression preserved without adding units"
+  },
+  {
+    "product_id": "ps-65c8c74d677547f3a6c87f9196e82913",
+    "row": 45,
+    "original_name": "KARTON KÖŞEBENT 1000 MM 40*40*3",
+    "issue": "Cross-section units not fully explicit; dimension expression preserved without adding units"
+  },
+  {
+    "product_id": "ps-2679411184a44b4bbf0e604174d7befe",
+    "row": 46,
+    "original_name": "KARTON KÖŞEBENT 1100 MM 40*40*3",
+    "issue": "Cross-section units not fully explicit; dimension expression preserved without adding units"
+  },
+  {
+    "product_id": "ps-604f592c7f5240f986f5e0558df7455a",
+    "row": 47,
+    "original_name": "KARTON KÖŞEBENT 2 MT 40*40 4MM",
+    "issue": "Cross-section units not fully explicit; dimension expression preserved without adding units"
+  },
+  {
+    "product_id": "ps-e44fa762d06f466f807f9372a8290114",
+    "row": 48,
+    "original_name": "KARTON KÖŞEBENT 2,10MT 95*95 5MM",
+    "issue": "Cross-section units not fully explicit; dimension expression preserved without adding units"
+  },
+  {
+    "product_id": "ps-75824aa161134c1f8df7c4f1de1355f2",
+    "row": 49,
+    "original_name": "KARTON KÖŞEBENT 2.5 MT 40*40 4MM",
+    "issue": "Cross-section units not fully explicit; dimension expression preserved without adding units"
+  },
+  {
+    "product_id": "ps-1a76d130716846e8abbe274a539852bf",
+    "row": 50,
+    "original_name": "KARTON KÖŞEBENT 3 MT 50*90 4MM",
+    "issue": "Cross-section units not fully explicit; dimension expression preserved without adding units"
+  },
+  {
+    "product_id": "ps-a41d4e600b7b459f8ebaa8f0df81dcbf",
+    "row": 53,
+    "original_name": "STRAFOR 100X50X2 CM (Bir paket 25 tane )",
+    "issue": "width_mm=20 is not sheet width; dimensions retained from name"
+  },
+  {
+    "product_id": "ps-1cb18d8bd9ab43cb8434ab4ff2f794d2",
+    "row": 264,
+    "original_name": "23 MİKRON ŞEFFAF STREÇ - SİYAH JUMBO poyrazlar",
+    "issue": "Conflicting colours in source name: clear, black"
+  },
+  {
+    "product_id": "ps-5a4ec6998c4e43db9acfbdcb09db4a26",
+    "row": 275,
+    "original_name": "7 MİC. 500-600 METRE PRE STREÇ 42 CM k.g",
+    "issue": "Length is a 500–600 m range, not a single value"
+  },
+  {
+    "product_id": "ps-77a5dfe5d4b14d7d984ecb769b0ba805",
+    "row": 298,
+    "original_name": "HOTMELT KOLİ BANDI – KAHVE 60 MM X 100 ME",
+    "issue": "Length abbreviation ME is not explicit; value withheld pending unit confirmation"
+  },
+  {
+    "product_id": "ps-719d9d66d573491595a6f240af1df1e1",
+    "row": 299,
+    "original_name": "HOTMELT KOLİ BANDI – KAHVE 60 MM X 80 ME",
+    "issue": "Length abbreviation ME is not explicit; value withheld pending unit confirmation"
+  },
+  {
+    "product_id": "ps-170aa1213f8d426788053452981d2990",
+    "row": 300,
+    "original_name": "HOTMELT KOLİ BANDI – KAHVE 67 MM X 100 ME",
+    "issue": "Length abbreviation ME is not explicit; value withheld pending unit confirmation"
+  },
+  {
+    "product_id": "ps-f43e7930dc5d40358b5477283ef9941c",
+    "row": 301,
+    "original_name": "HOTMELT KOLİ BANDI – KAHVE 70 MM X 100 ME",
+    "issue": "Length abbreviation ME is not explicit; value withheld pending unit confirmation"
+  },
+  {
+    "product_id": "ps-177bd093d2e744e8bcce4de2e6cb411b",
+    "row": 348,
+    "original_name": "Тиксо 48/100 45 Eko солвент",
+    "issue": "Unitless tape size expression retained in source; width/length not inferred"
+  },
+  {
+    "product_id": "ps-6e854ca2d6724876b873c2a08627ee38",
+    "row": 349,
+    "original_name": "Тиксо 48/60 Eko солвент",
+    "issue": "Unitless tape size expression retained in source; width/length not inferred"
+  },
+  {
+    "product_id": "ps-367454945ad64c4c92316b58ba85e5bf",
+    "row": 381,
+    "original_name": "MASURA 30 CM",
+    "issue": "Workbook width field represents core length; normalized as length"
+  },
+  {
+    "product_id": "ps-f87356d4811c4904b30921babbf1242f",
+    "row": 382,
+    "original_name": "MASURA 300 GR 25 cm",
+    "issue": "Workbook width field represents core length; normalized as length"
+  },
+  {
+    "product_id": "ps-39c11f87410541f588fb431e150271ef",
+    "row": 389,
+    "original_name": "BALONLU NAYLON 2MT*100MT - 65 gr",
+    "issue": "Source length_m=2 conflicts with 2MT*100MT; interpreted as width 2 m and length 100 m from name"
+  },
+  {
+    "product_id": "ps-4d3b16b0c290450fa4ce2444bd83d086",
+    "row": 422,
+    "original_name": "ÇEMBER - BRİNCİ KALİTE BEYAZ 08*060 3500 T",
+    "issue": "Length suffix T is ambiguous; do not interpret as metres"
+  },
+  {
+    "product_id": "ps-1b3445ffbf2d454d830860ff2c1111da",
+    "row": 423,
+    "original_name": "ÇEMBER - ORİJİNAL BEYAZ 08*060 3500 T",
+    "issue": "Length suffix T is ambiguous; do not interpret as metres"
+  },
+  {
+    "product_id": "ps-445d239892b9413f9eda2703e0d189ec",
+    "row": 424,
+    "original_name": "ÇEMBER - ORİJİNAL BEYAZ 12*060 2700 T",
+    "issue": "Length suffix T is ambiguous; do not interpret as metres"
+  },
+  {
+    "product_id": "ps-f43accf46a1e48b4b28639736f4d7e80",
+    "row": 425,
+    "original_name": "ÇEMBER - YEŞİL POLYSTER 12*070 1200 T",
+    "issue": "Length suffix T is ambiguous; do not interpret as metres"
+  },
+  {
+    "product_id": "ps-fab00e7c54c5411ea696b5fbffba375b",
+    "row": 426,
+    "original_name": "ÇEMBER - YEŞİL POLYSTER 12*070 1750 T",
+    "issue": "Length suffix T is ambiguous; do not interpret as metres"
+  },
+  {
+    "product_id": "ps-ea31caf6e01c4b10a403aa6c42fb7f9a",
+    "row": 427,
+    "original_name": "ÇEMBER - YEŞİL POLYSTER 12*070 2000 T",
+    "issue": "Length suffix T is ambiguous; do not interpret as metres"
+  },
+  {
+    "product_id": "ps-f3e2aa9f6b0043699fdc0db03197a426",
+    "row": 428,
+    "original_name": "ÇEMBER - YEŞİL POLYSTER 12*090 2000 T",
+    "issue": "Length suffix T is ambiguous; do not interpret as metres"
+  },
+  {
+    "product_id": "ps-5ae57f30de0348dcaa35c2eead759b90",
+    "row": 434,
+    "original_name": "ÇEMBER- YEŞİL POLYESTER 16 X 0,70 MM",
+    "issue": "width_mm=0.7 is thickness in name; normalized width=16 mm, thickness=0.70 mm"
+  }
+]

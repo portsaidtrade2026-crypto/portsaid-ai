@@ -1,0 +1,155 @@
+Thank you. The discovery response is useful, and I approve the proposed responsibility split only as a working hypothesis for the audit.
+
+However, you have not yet provided the requested complete current-state audit.
+
+You provided a proposed architecture, sitemap, data model, and implementation plan. I now need evidence-based answers about the application that currently exists.
+
+Continue with a read-only audit.
+
+Do not:
+
+- Modify code.
+- Create migrations.
+- Apply migrations.
+- Change data.
+- Connect credentials.
+- Change webhooks.
+- Send messages.
+- Write to Bizim Hesap.
+- Deploy or publish anything.
+- Begin Phase 1 implementation.
+
+You are authorized to inspect the repository, configuration names, database schema, existing migrations, routes, tests, and deployment state using safe read-only methods.
+
+For this response, do not repeat the proposed architecture or future implementation plan.
+
+Produce the missing current-state report.
+
+For every major requirement, provide a table containing:
+
+| Requirement | Status | Evidence | Development | Production | Missing Work | Risk |
+
+Use only these statuses:
+
+- COMPLETE AND VERIFIED
+- COMPLETE BUT UNVERIFIED
+- PARTIAL
+- DEMO OR MOCK ONLY
+- NOT STARTED
+- BLOCKED
+- DEVELOPMENT ONLY
+- UNKNOWN
+
+Evidence must include, where applicable:
+
+- Exact file paths.
+- Route paths.
+- API endpoint paths.
+- Database entity or table names.
+- Migration filenames.
+- Test names.
+- Latest test results.
+- Relevant configuration-variable names without values.
+- Whether data is persistent.
+- Whether authorization is enforced on the server.
+- Whether the feature was directly tested.
+
+Audit the current state of:
+
+1. Public pages and catalog.
+2. Product administration.
+3. Product specifications, documents, certifications, packaging, and images.
+4. Search, filtering, comparison, and quotation selection.
+5. Customer registration, login, verification, password reset, and logout.
+6. Company and employee accounts.
+7. Server-side roles and tenant isolation.
+8. Manual customer management.
+9. Quotation lifecycle.
+10. Arabic, Turkish, English, and Bulgarian support.
+11. Arabic RTL.
+12. Country-based language detection.
+13. n8n and chatbot integration.
+14. Meta WhatsApp integration.
+15. Bizim Hesap integration.
+16. Email integration.
+17. Telegram integration.
+18. Anonymous visitor sessions.
+19. Consent-controlled analytics.
+20. Lead creation, qualification, scoring, and customer linking.
+21. Customer timelines and dashboard reporting.
+22. PWA, installation, service worker, manifest, and offline behavior.
+23. Mobile responsiveness.
+24. SEO and accessibility.
+25. Security controls.
+26. Automated and manual tests.
+27. Development and production differences.
+28. Deployment and migration readiness.
+
+For existing functionality, do not describe it as complete based only on the presence of UI components.
+
+Confirm that each completed feature has:
+
+- A working frontend.
+- A working backend.
+- Persistent storage where required.
+- Validation.
+- Server-side authorization.
+- Error handling.
+- Tests or direct verification.
+
+Create a separate section titled:
+
+EXTERNAL INTEGRATION REALITY CHECK
+
+For n8n, Meta WhatsApp, Bizim Hesap, email, and Telegram, state:
+
+- Whether integration code exists.
+- Whether configuration-variable names exist.
+- Whether credentials are configured, without showing their values.
+- Whether a real test has been executed.
+- Whether the integration is development-only or production-active.
+- Whether any UI is currently simulated or mocked.
+- Exactly what is required to activate it safely.
+
+Create another section titled:
+
+DEVELOPMENT VERSUS PRODUCTION
+
+List every known difference between development and production, including:
+
+- Code version.
+- Database schema.
+- Applied migrations.
+- Environment configuration.
+- External integrations.
+- test data.
+- security behavior.
+- background jobs.
+- deployment state.
+
+For JWT logout and revocation, answer these questions explicitly:
+
+1. What exact code implements revocation?
+2. What is the migration filename?
+3. Is it committed?
+4. Is the migration applied in development?
+5. Is it applied in production?
+6. Does the production database currently contain the required table?
+7. Is the fix published?
+8. What happens in current production after logout?
+9. What exact steps remain before safe publication?
+10. What rollback procedure will preserve production data?
+
+Finish with:
+
+A. What is genuinely complete now.  
+B. What is partial.  
+C. What is mock or demo only.  
+D. What has not started.  
+E. What is blocked by external access.  
+F. Critical production blockers.  
+G. The smallest safe next step.
+
+Do not perform that next step yet.
+
+If any item cannot be verified, mark it UNKNOWN. Do not infer or guess.

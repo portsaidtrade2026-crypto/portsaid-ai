@@ -1,0 +1,293 @@
+[
+  {
+    "handle": "17-mikron-şeffaf-streç-standart-200-m-10-cm",
+    "patch": {
+      "length": {
+        "value": 200.0,
+        "unit": "m"
+      }
+    }
+  },
+  {
+    "handle": "17-mikron-şeffaf-streç-standart-300-m-10-cm",
+    "patch": {
+      "length": {
+        "value": 300.0,
+        "unit": "m"
+      }
+    }
+  },
+  {
+    "handle": "23-mikron-siyah-streç-standart-241-kg-300-gr-masura-200-m",
+    "patch": {
+      "length": {
+        "value": 200.0,
+        "unit": "m"
+      }
+    }
+  },
+  {
+    "handle": "buke-tokasi-16mm-1000-ad",
+    "patch": {
+      "width": null
+    }
+  },
+  {
+    "handle": "bukle-tokasi-13mm-1000-ad",
+    "patch": {
+      "width": null
+    }
+  },
+  {
+    "handle": "bukle-tokasi-19mm-1000-ad",
+    "patch": {
+      "width": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm100m-30-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm100m-40-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm100m-50-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm100m-60-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm50m-30gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm50m-35-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm50m-40-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm50m-50-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-100cm50m-60-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm100m-30-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm100m-40-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm100m-50-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm100m-60-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm50m-140-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm50m-30-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm50m-40-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm50m-60-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-150cm50m-65-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "balonlu-naylon-200cm100m-65-gr",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "karton-köşebent-10-mt-5050-5mm",
+    "patch": {
+      "length": {
+        "value": 1.0,
+        "unit": "m"
+      },
+      "width": null,
+      "thickness": {
+        "value": 5.0,
+        "unit": "mm"
+      }
+    }
+  },
+  {
+    "handle": "karton-köşebent-1000-mm-40403",
+    "patch": {
+      "length": {
+        "value": 1000.0,
+        "unit": "mm"
+      },
+      "width": null
+    }
+  },
+  {
+    "handle": "karton-köşebent-1100-mm-40403",
+    "patch": {
+      "length": {
+        "value": 1100.0,
+        "unit": "mm"
+      },
+      "width": null
+    }
+  },
+  {
+    "handle": "karton-köşebent-2-mt-4040-4mm",
+    "patch": {
+      "length": {
+        "value": 2.0,
+        "unit": "m"
+      },
+      "width": null,
+      "thickness": {
+        "value": 4.0,
+        "unit": "mm"
+      }
+    }
+  },
+  {
+    "handle": "karton-köşebent-210mt-9595-5mm",
+    "patch": {
+      "length": {
+        "value": 2.1,
+        "unit": "m"
+      },
+      "width": null,
+      "thickness": {
+        "value": 5.0,
+        "unit": "mm"
+      }
+    }
+  },
+  {
+    "handle": "karton-köşebent-25-mt-4040-4mm",
+    "patch": {
+      "length": {
+        "value": 2.5,
+        "unit": "m"
+      },
+      "width": null,
+      "thickness": {
+        "value": 4.0,
+        "unit": "mm"
+      }
+    }
+  },
+  {
+    "handle": "karton-köşebent-3-mt-5090-4mm",
+    "patch": {
+      "length": {
+        "value": 3.0,
+        "unit": "m"
+      },
+      "width": null,
+      "thickness": {
+        "value": 4.0,
+        "unit": "mm"
+      }
+    }
+  },
+  {
+    "handle": "masura-30-cm",
+    "patch": {
+      "width": null
+    }
+  },
+  {
+    "handle": "sade-koli-3-kg",
+    "patch": {
+      "weight": null
+    }
+  },
+  {
+    "handle": "strafor-100x50x2-cm-bir-paket-25-tane",
+    "patch": {
+      "length": {
+        "value": 100,
+        "unit": "cm"
+      },
+      "width": {
+        "value": 50,
+        "unit": "cm"
+      },
+      "thickness": {
+        "value": 2,
+        "unit": "cm"
+      }
+    }
+  },
+  {
+    "handle": "çember-yeşil-polyester-16-x-070-mm",
+    "patch": {
+      "width": {
+        "value": 16.0,
+        "unit": "mm"
+      },
+      "thickness": {
+        "value": 0.7,
+        "unit": "mm"
+      }
+    }
+  }
+]

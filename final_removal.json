@@ -1,0 +1,188 @@
+[
+  {
+    "handle": "buke-tokasi-16mm-1000-ad",
+    "remove_keys": [
+      "width"
+    ]
+  },
+  {
+    "handle": "bukle-tokasi-13mm-1000-ad",
+    "remove_keys": [
+      "width"
+    ]
+  },
+  {
+    "handle": "bukle-tokasi-19mm-1000-ad",
+    "remove_keys": [
+      "width"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-100cm100m-30-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-100cm100m-40-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-100cm100m-50-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-100cm100m-60-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-100cm50m-30gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-100cm50m-35-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-100cm50m-40-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-100cm50m-50-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-100cm50m-60-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-150cm100m-30-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-150cm100m-40-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-150cm100m-50-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-150cm100m-60-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-150cm50m-140-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-150cm50m-30-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-150cm50m-40-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-150cm50m-60-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-150cm50m-65-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "balonlu-naylon-200cm100m-65-gr",
+    "remove_keys": [
+      "weight"
+    ]
+  },
+  {
+    "handle": "karton-köşebent-10-mt-5050-5mm",
+    "remove_keys": [
+      "width"
+    ]
+  },
+  {
+    "handle": "karton-köşebent-1000-mm-40403",
+    "remove_keys": [
+      "width"
+    ]
+  },
+  {
+    "handle": "karton-köşebent-1100-mm-40403",
+    "remove_keys": [
+      "width"
+    ]
+  },
+  {
+    "handle": "karton-köşebent-2-mt-4040-4mm",
+    "remove_keys": [
+      "width"
+    ]
+  },
+  {
+    "handle": "karton-köşebent-210mt-9595-5mm",
+    "remove_keys": [
+      "width"
+    ]
+  },
+  {
+    "handle": "karton-köşebent-25-mt-4040-4mm",
+    "remove_keys": [
+      "width"
+    ]
+  },
+  {
+    "handle": "karton-köşebent-3-mt-5090-4mm",
+    "remove_keys": [
+      "width"
+    ]
+  },
+  {
+    "handle": "masura-30-cm",
+    "remove_keys": [
+      "width"
+    ]
+  },
+  {
+    "handle": "sade-koli-3-kg",
+    "remove_keys": [
+      "weight"
+    ]
+  }
+]

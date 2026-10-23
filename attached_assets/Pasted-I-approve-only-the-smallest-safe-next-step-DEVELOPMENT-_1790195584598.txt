@@ -1,0 +1,121 @@
+I approve only the smallest safe next step:
+
+DEVELOPMENT-ONLY REMEDIATION OF PER-QUOTE CUSTOMER AUTHORIZATION
+
+Do not begin any other feature or integration.
+
+Do not:
+
+- Deploy or publish.
+- Modify the production database.
+- Apply production migrations.
+- Connect n8n.
+- Connect Meta WhatsApp.
+- Connect Bizim Hesap.
+- Connect email or Telegram.
+- Activate visitor analytics.
+- Change production webhooks or credentials.
+- Modify the JWT revocation migration or production release state.
+- Perform tests against production.
+- Refactor unrelated code.
+
+SCOPE
+
+Fix customer ownership authorization for every customer-facing operation that accepts a quote ID, including:
+
+- GET /store/quotes/:id
+- GET /store/quotes/:id/preview
+- POST /store/quotes/:id/accept
+- POST /store/quotes/:id/reject
+- POST /store/quotes/:id/messages
+
+Also inspect all other customer-facing quote routes for the same class of vulnerability.
+
+AUTHORIZATION REQUIREMENTS
+
+For every customer-facing quote operation:
+
+1. Obtain the authenticated customer ID only from the trusted authentication context.
+2. Never trust a customer ID supplied in the URL, request body, query parameters, headers, or frontend state.
+3. Load or select the quotation using both:
+   - Quote ID.
+   - Authenticated customer ID.
+4. If the quotation does not belong to the authenticated customer:
+   - Do not return quotation information.
+   - Do not change its status.
+   - Do not create a message.
+   - Do not generate or disclose a preview.
+   - Return a safe 404 response unless the existing security conventions require another non-disclosing response.
+5. Preserve legitimate employee and administrator access through their separate authorized admin routes.
+6. Preserve the existing valid customer quotation journey.
+7. Avoid creating a separate inconsistent authorization implementation for each route. Use a shared, testable ownership-enforcement method where appropriate.
+8. Ensure that ownership is enforced in the backend workflow or service boundary, not only in the frontend or route UI.
+
+REQUIRED SECURITY TESTS
+
+Create two different customers:
+
+- Customer A.
+- Customer B.
+
+Create a quotation belonging to Customer B.
+
+Verify that Customer A cannot:
+
+- Read Customer B’s quotation.
+- Preview Customer B’s quotation.
+- Accept Customer B’s quotation.
+- Reject Customer B’s quotation.
+- Send a message to Customer B’s quotation.
+- Discover sensitive information through different error responses.
+
+After every denied request, verify directly that:
+
+- The quotation status did not change.
+- No message was created.
+- No acceptance or rejection record was created.
+- No preview data was disclosed.
+- No unrelated record changed.
+
+Also verify that Customer B can still:
+
+- Read their quotation.
+- Preview it.
+- Send a message.
+- Accept or reject it according to the valid lifecycle rules.
+
+REGRESSION TESTS
+
+Run:
+
+- The new cross-customer quotation authorization tests.
+- Existing buyer quotation tests.
+- Existing company and employee tenant-isolation tests.
+- Existing authentication tests relevant to these routes.
+- A production-mode build.
+- An isolated production-mode startup against development/test data only.
+
+Do not describe a test as passing if it has no executed assertions or only a TAP header.
+
+REPORT REQUIRED
+
+After completing the development-only remediation, report:
+
+1. Root cause.
+2. Exact files changed.
+3. Exact authorization rule implemented.
+4. Whether a shared authorization helper or workflow guard was used.
+5. Tests added.
+6. Number of assertions executed.
+7. Complete test results.
+8. Build result.
+9. Isolated startup result.
+10. Confirmation that no production system was accessed or changed.
+11. Confirmation that no production deployment occurred.
+12. Any remaining quote-authorization risks.
+13. Git commit identifier, if committed.
+14. A concise code-diff summary.
+
+Stop after reporting.
+
+Do not proceed to production migration, publishing, JWT deployment, or external integrations without separate approval.

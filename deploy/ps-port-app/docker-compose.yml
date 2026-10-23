@@ -1,0 +1,32 @@
+# PS PORT mobile app (PWA) - runs next to the website on the Hetzner box.
+# Lives in /opt/ps-port-app on the server (NOT inside /opt/portsaid or /opt/n8n, so a mistake here cannot touch the
+# website or n8n). Joins the existing Docker network n8n_default, the same one Caddy and Medusa use.
+# No ports are published: only Caddy reaches the app, by service name (ps-port-app:3000).
+#
+# NOT DEPLOYED YET - prepared 2026-10-18, see DEPLOY.md.
+name: ps-port-app
+
+networks:
+  default:
+    name: n8n_default
+    external: true
+
+services:
+  ps-port-app:
+    image: ps-port-app:${APP_TAG:-latest}   # built off the server and loaded with `docker load` (see DEPLOY.md)
+    container_name: ps-port-app
+    restart: unless-stopped
+    env_file: .env                            # copy of .env.example with the real values; never committed
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+    # the box has 3.8 GB RAM and 2 vCPU shared with Medusa, Postgres, Redis, n8n: keep the app small
+    mem_limit: 384m
+    cpus: 0.5
+    # the image ships its own HEALTHCHECK (node /app/healthcheck.mjs -> GET /healthz), so none is repeated here
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

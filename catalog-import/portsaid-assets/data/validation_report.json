@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "catalog_records": 431,
+  "retained_workbook_records": 419,
+  "excluded_workbook_records": 17,
+  "additional_requested_lines": 12,
+  "product_image_files": 431,
+  "distinct_master_images": 62,
+  "locales": [
+    "ar",
+    "tr",
+    "en",
+    "bg"
+  ],
+  "review_records": 36,
+  "checks": [
+    "Required catalogue fields, enums, locale structure and slug format",
+    "Unique IDs, slugs and individual image paths",
+    "All image paths exist and files decode",
+    "Four complete locales per record",
+    "Locale exports agree with canonical catalogue",
+    "All 436 source rows accounted for exactly once",
+    "Missing price, currency and stock preserved as null",
+    "Offline preview JavaScript syntax parsed successfully with Node.js"
+  ],
+  "visual_review": "All 62 master images inspected on four contact sheets. White studio style consistent; no visible text, logos or price overlays in product images. Illustrative geometry and materials are not exact SKU certification.",
+  "preview_browser_test": "Not performed: local file URL blocked by browser security policy. No bypass attempted."
+}

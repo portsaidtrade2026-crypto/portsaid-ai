@@ -1,0 +1,42 @@
+import { getBaseURL } from "@/lib/util/env"
+import { Toaster } from "@medusajs/ui"
+import { Analytics } from "@vercel/analytics/next"
+import { GeistSans } from "geist/font/sans"
+import { IBM_Plex_Sans_Arabic } from "next/font/google"
+import { Metadata } from "next"
+import "@/styles/globals.css"
+import { getRequestLocale } from "@/lib/i18n/server"
+import { I18nProvider } from "@/lib/i18n/provider"
+import { Locale } from "@/lib/i18n/config"
+import { getRequestTheme } from "@/lib/theme/server"
+import ThemeSync from "@/lib/theme/theme-sync"
+import WhatsAppButton from "@/modules/common/components/whatsapp-button"
+import WebMcp from "@/modules/common/components/webmcp"
+
+export const metadata: Metadata = {
+  metadataBase: new URL(getBaseURL()),
+}
+
+const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
+  subsets: ["arabic"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-arabic",
+})
+
+export default async function RootLayout(props: { children: React.ReactNode }) {
+  const [locale, theme] = await Promise.all([getRequestLocale(), getRequestTheme()])
+  return (
+    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"} data-mode={theme} className={`${GeistSans.variable} ${ibmPlexSansArabic.variable} ${theme === "dark" ? "dark" : ""}`} suppressHydrationWarning>
+      <body>
+        <ThemeSync />
+        <I18nProvider locale={locale as Locale}>
+          <main className="relative">{props.children}</main>
+          <WhatsAppButton />
+          <WebMcp />
+        </I18nProvider>
+        <Toaster className="z-[99999]" position="bottom-left" />
+        <Analytics />
+      </body>
+    </html>
+  )
+}

@@ -1,0 +1,307 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Self-hosted Google fonts (latin + latin-ext covers Turkish, English). Replaces the render-blocking @import from fonts.googleapis.com. */
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/barlow-condensed-500-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/barlow-condensed-500-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/barlow-condensed-600-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/barlow-condensed-600-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/barlow-condensed-700-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/barlow-condensed-700-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(/fonts/dm-sans-400-700-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(/fonts/dm-sans-400-700-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  --ps-yellow: #f4e900;
+  --ps-ink: #111214;
+  --ps-paper: #f6f6f2;
+  --ps-muted: #6d6e68;
+  --ps-line: #d9d9d2;
+  --ps-panel: #ffffff;
+  --ui-bg-base: 249 248 244;
+  --ui-bg-subtle: 239 237 229;
+  --ui-bg-component: 255 254 250;
+  --ui-fg-base: 18 18 18;
+  --ui-fg-subtle: 91 89 82;
+  --ui-fg-muted: 125 121 110;
+  --ui-border-base: 218 215 205;
+  --ui-border-interactive: 166 132 13;
+  --ui-button: 18 18 18;
+  --ui-button-text: 255 254 250;
+  color-scheme: light;
+}
+
+:root.dark {
+  --ps-paper: #151616;
+  --ps-panel: #202121;
+  --ps-ink: #f3f3ed;
+  --ps-muted: #aaa99f;
+  --ps-line: #3a3b38;
+  color-scheme: dark;
+  --ui-bg-base: 25 25 23;
+  --ui-bg-subtle: 35 35 32;
+  --ui-bg-component: 44 43 40;
+  --ui-fg-base: 244 242 234;
+  --ui-fg-subtle: 188 184 171;
+  --ui-fg-muted: 145 141 129;
+  --ui-border-base: 76 74 66;
+  --ui-border-interactive: 229 193 38;
+  --ui-button: 229 193 38;
+  --ui-button-text: 18 18 18;
+}
+
+html { background: var(--ps-paper); }
+body {
+  background: var(--ps-paper);
+  color: var(--ps-ink);
+  transition: background-color .25s ease, color .25s ease;
+  font-family: "DM Sans", ui-sans-serif, sans-serif;
+}
+
+h1, h2, h3, h4, .display-type { font-family: "Barlow Condensed", "DM Sans", sans-serif; }
+
+/* Arabic locale only (html[dir="rtl"]) uses IBM Plex Sans Arabic, chosen by
+   Ahmed from a set of font samples - DM Sans/Barlow Condensed don't cover
+   Arabic glyphs, so without this override Arabic text silently fell back to
+   a generic system font. Every other locale keeps the fonts above untouched. */
+html[dir="rtl"] body,
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] .display-type {
+  font-family: var(--font-arabic), "DM Sans", ui-sans-serif, sans-serif;
+}
+button, input, select, textarea { font: inherit; }
+::selection { background: var(--ps-yellow); color: #111214; }
+
+/* A keyboard user had no way to see where focus was anywhere on the site
+   (outline was suppressed with no replacement) - this is the fallback for
+   every link/button/input that doesn't define its own focus-visible style,
+   using :focus-visible so it only shows for keyboard/assistive nav, never
+   on an ordinary mouse click. */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--ps-ink);
+  outline-offset: 2px;
+}
+:root.dark a:focus-visible, :root.dark button:focus-visible,
+:root.dark input:focus-visible, :root.dark select:focus-visible,
+:root.dark textarea:focus-visible, :root.dark [tabindex]:focus-visible {
+  outline-color: var(--ps-yellow);
+}
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border: 1px solid var(--ps-line);
+  border-radius: 999px; color: var(--ps-ink); background: var(--ps-panel);
+  transition: transform .2s ease, background-color .2s ease;
+}
+.theme-toggle:hover { transform: rotate(12deg); background: var(--ps-yellow); color: #111214; }
+.brand-lockup { display: inline-flex; align-items: center; gap: 10px; }
+/* Some browsers only honor color-scheme for native form controls (like the
+   language <select>'s dropdown popup) when it's set directly on the control
+   itself, not just inherited from :root - without this the popup list still
+   renders with the OS's light-theme colors even on an otherwise dark page. */
+.dark select { color-scheme: dark; }
+
+.brand-plaque {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 3px 5px;
+}
+.brand-lockup img { width: 108px; height: auto; object-fit: contain; }
+.brand-lockup small { color: var(--ps-muted); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; }
+.ps-surface { background: var(--ps-panel); color: var(--ps-ink); }
+.ps-yellow-band { background: var(--ps-yellow); color: #111214; }
+
+/* Existing commerce pages use Medusa's neutral utility backgrounds. Keep
+   those surfaces readable when the storefront theme changes. */
+.dark .bg-white { background-color: var(--ps-panel); }
+.dark .bg-neutral-100, .dark .bg-gray-100 { background-color: var(--ps-paper); }
+.dark .text-neutral-700, .dark .text-neutral-600, .dark .text-neutral-500,
+.dark .text-ui-fg-subtle, .dark .text-ui-fg-muted { color: var(--ps-muted); }
+/* text-neutral-900/950 are near-black, hardcoded in several components
+   (cart line items, quantity inputs, ...) with no dark: variant - on a dark
+   background that's nearly invisible text, not just low-contrast. */
+.dark .text-neutral-950, .dark .text-neutral-900 { color: var(--ps-ink); }
+.dark .text-ui-fg-base, .dark .txt-ui-fg-base { color: var(--ps-ink); }
+/* Medusa's muted grey is ~3.9:1 on the page background (fails WCAG AA); the theme muted colour is 4.9:1+ in both modes. */
+.text-ui-fg-muted { color: var(--ps-muted); }
+.dark .brand-header svg path[fill="#52525B"] { fill: var(--ps-ink); }
+.dark .brand-header .hover\:bg-neutral-100:hover { background-color: var(--ps-line); }
+[dir="rtl"] .brand-hero-overlay {
+  background-image: linear-gradient(to left, rgba(17, 18, 20, .8), rgba(17, 18, 20, .35), transparent);
+}
+[dir="rtl"] .brand-hero-overlay h1 {
+  letter-spacing: normal;
+  line-height: 1.24;
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  input:focus ~ label,
+  input:not(:placeholder-shown) ~ label {
+    @apply -translate-y-2 text-xsmall-regular;
+  }
+
+  input:focus ~ label {
+    @apply left-0;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: 1px solid #212121;
+    -webkit-text-fill-color: #212121;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
+}
+
+@layer components {
+  .content-container {
+    @apply max-w-[1440px] w-full mx-auto px-4 small:px-8;
+  }
+
+  .contrast-btn {
+    @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
+  }
+
+  .text-xsmall-regular {
+    @apply text-[10px] leading-4 font-normal;
+  }
+
+  .text-small-regular {
+    @apply text-xs leading-5 font-normal;
+  }
+
+  .text-small-semi {
+    @apply text-xs leading-5 font-semibold;
+  }
+
+  .text-base-regular {
+    @apply text-sm leading-6 font-normal;
+  }
+
+  .text-base-semi {
+    @apply text-sm leading-6 font-semibold;
+  }
+
+  .text-large-regular {
+    @apply text-base leading-6 font-normal;
+  }
+
+  .text-large-semi {
+    @apply text-base leading-6 font-semibold;
+  }
+
+  .text-xl-regular {
+    @apply text-2xl leading-[36px] font-normal;
+  }
+
+  .text-xl-semi {
+    @apply text-2xl leading-[36px] font-semibold;
+  }
+
+  .text-2xl-regular {
+    @apply text-[30px] leading-[48px] font-normal;
+  }
+
+  .text-2xl-semi {
+    @apply text-[30px] leading-[48px] font-semibold;
+  }
+
+  .text-3xl-regular {
+    @apply text-[32px] leading-[44px] font-normal;
+  }
+
+  .text-3xl-semi {
+    @apply text-[32px] leading-[44px] font-semibold;
+  }
+}
+
+@media (max-width: 639px) {
+  .brand-lockup img { width: 92px; }
+}

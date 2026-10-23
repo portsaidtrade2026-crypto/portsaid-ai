@@ -1,0 +1,13 @@
+{
+  "reviewed_on": "2026-09-24",
+  "policy": "The workbook is the primary SKU source. Old-site pages confirm product lines; their general specifications are not applied to individual workbook records. No old-site stock, certification or environmental claims were imported.",
+  "pages": [
+    {"url":"https://portsaid.com.tr/","status":"read","use":"Confirmed stretch film, machine film, pre-stretch, hotmelt, acrylic and masking tape lines."},
+    {"url":"https://portsaid.com.tr/urun-detay-Strec-Film.html","status":"read","use":"Hand-wrap product-line context only. Specific workbook variants retain their own dimensions."},
+    {"url":"https://portsaid.com.tr/urun-detay-Makine-Strec-Filmleri.html","status":"read","use":"Machine-film context; website explicitly calls for testing on the wrapping equipment."},
+    {"url":"https://portsaid.com.tr/urun-detay-Pre-Strec---On-Gerdirmeli-Strec-Film.html","status":"read","use":"Confirmed pre-stretched product line. Workbook widths may differ from the general website width."},
+    {"url":"https://portsaid.com.tr/urun-detay-Koli-Bandi---Hotmelt-Bant.html","status":"read","use":"Confirmed hotmelt carton-sealing application. General film thickness not assigned to other tapes."},
+    {"url":"https://portsaid.com.tr/urun-detay-Akrilik-Bantlar.html","status":"fetch_failed","use":"Product line confirmed by homepage and workbook; no details taken from unavailable page."},
+    {"url":"https://portsaid.com.tr/urun-detay-Maskeleme-Bantlari.html","status":"fetch_failed","use":"Product line confirmed by homepage and workbook; no details taken from unavailable page."}
+  ]
+}

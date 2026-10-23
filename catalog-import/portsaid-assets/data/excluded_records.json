@@ -1,0 +1,104 @@
+[
+  {
+    "row": 5,
+    "erp_id": "73A78BF5D07E4509ABB33408FD61E59D",
+    "original_name": "ARAÇ SATIŞ",
+    "reason": "Vehicle sale outside requested catalogue"
+  },
+  {
+    "row": 7,
+    "erp_id": "82B1F6B483474FC18500C8EEB125C7EA",
+    "original_name": "Buzuk Mal",
+    "reason": "Damaged goods accounting record"
+  },
+  {
+    "row": 8,
+    "erp_id": "1FA82BFF7979455D93CC46F8F6A19FEE",
+    "original_name": "FARK PARA",
+    "reason": "Price difference"
+  },
+  {
+    "row": 9,
+    "erp_id": "0E410C80F002458E9A3D8C5242C08BEB",
+    "original_name": "KOLİ VE MASURA BEDELİ",
+    "reason": "Carton/core charge"
+  },
+  {
+    "row": 10,
+    "erp_id": "659A8EE40BEB464685A8EC80133A8F1D",
+    "original_name": "Kur Farkı",
+    "reason": "Exchange-rate difference"
+  },
+  {
+    "row": 11,
+    "erp_id": "6668324FD71B45E5A8A5E873D1F642AF",
+    "original_name": "MASARIF BG",
+    "reason": "Expense record"
+  },
+  {
+    "row": 12,
+    "erp_id": "4DFED37914CD48D4878C0580FEFE3691",
+    "original_name": "NAVLUN BEDELİ",
+    "reason": "Freight charge"
+  },
+  {
+    "row": 14,
+    "erp_id": "9A4FA84D51A54D5BACEDF8DC71CA1959",
+    "original_name": "SGK IADE",
+    "reason": "Refund record"
+  },
+  {
+    "row": 17,
+    "erp_id": "943F839B8D98423EB4ED041F7AC24CD1",
+    "original_name": "STREÇ İMALAT",
+    "reason": "Production accounting record"
+  },
+  {
+    "row": 19,
+    "erp_id": "F91D147A3FDB491D9F06D2E9684EB766",
+    "original_name": "YANSITMA VE DİĞER GELİRLER 602.01.01.0011",
+    "reason": "Other income"
+  },
+  {
+    "row": 20,
+    "erp_id": "5294919279F34B118816AD24017A811E",
+    "original_name": "YURTİÇİ KARA NAKLİYESİ",
+    "reason": "Transport service"
+  },
+  {
+    "row": 22,
+    "erp_id": "E4B1213F70F44BBF873ADF15FC6F9B16",
+    "original_name": "fiyat farkı",
+    "reason": "Price difference"
+  },
+  {
+    "row": 23,
+    "erp_id": "36B74BDA4115404888D67F7857CE34AC",
+    "original_name": "iŞLİK",
+    "reason": "Labour/service record"
+  },
+  {
+    "row": 24,
+    "erp_id": "7554D9FFC6784442ABD87B060047A5C0",
+    "original_name": "lojistik",
+    "reason": "Logistics service"
+  },
+  {
+    "row": 286,
+    "erp_id": "A29AFC69386A48E0A02102E8EC4E28CA",
+    "original_name": "STREÇ HURDA",
+    "reason": "Stretch film scrap"
+  },
+  {
+    "row": 287,
+    "erp_id": "5D3EE2EF5EDF40468DF4C3077EC317B2",
+    "original_name": "karışık mal",
+    "reason": "Unspecified mixed goods"
+  },
+  {
+    "row": 295,
+    "erp_id": "B4134DCD981040988359DD779B016BE5",
+    "original_name": "BOZUK BAND",
+    "reason": "Defective tape"
+  }
+]

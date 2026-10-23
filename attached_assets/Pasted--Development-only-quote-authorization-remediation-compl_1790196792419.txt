@@ -1,0 +1,39 @@
+## Development-only quote authorization remediation complete
+
+**Root cause:** The quote detail route checked the authenticated customer’s ownership, but preview, accept, reject, and message operations could act on a quote selected by ID alone. Their customer workflows did not consistently enforce ownership before side effects.
+
+**Rule implemented:** Each of the five quote-ID store routes now selects the quote by **quote ID and customer ID from the trusted authentication context**. A missing or another customer’s quote returns the same non-disclosing 404. Accept, reject, and customer-message workflows also use a shared ownership guard before mutation. Admin routes retain their separate access path. I inspected the other customer-facing quote routes: listing and creation use the authenticated customer ID and do not accept an existing quote ID.
+
+**Files changed:**
+- `apps/backend/src/utils/customer-quote.ts`
+- `apps/backend/src/workflows/quote/steps/require-customer-quote.ts`
+- `apps/backend/src/workflows/quote/workflows/customer-accept-quote.ts`
+- `apps/backend/src/workflows/quote/workflows/customer-reject-quote.ts`
+- `apps/backend/src/workflows/quote/workflows/create-quote-message.ts`
+- `apps/backend/src/api/store/quotes/[id]/route.ts`
+- `apps/backend/src/api/store/quotes/[id]/preview/route.ts`
+- `apps/backend/src/api/store/quotes/[id]/accept/route.ts`
+- `apps/backend/src/api/store/quotes/[id]/reject/route.ts`
+- `apps/backend/src/api/store/quotes/[id]/messages/route.ts`
+- `apps/backend/integration-tests/http/quotes/quotes.spec.ts`
+- `apps/backend/integration-tests/live/quote-cross-customer-authorization.test.mjs`
+- `.agents/memory/MEMORY.md`
+- `.agents/memory/medusa-production-start-cwd.md` — records a local build-startup constraint encountered during verification.
+
+**Tests added and results:** The new two-customer test executed **127 counted assertions** and passed **1/1**. For each of Customer A’s five denied operations on Customer B’s quote, it compared the response with a missing quote and directly verified unchanged scoped quote, message, order, and order-change records. It also verified Customer B’s read, preview, message, accept, and reject journeys.
+
+| Regression | Result |
+|---|---:|
+| Existing live buyer journey | 7/7 passed |
+| Company and employee isolation | 15/15 passed |
+| Relevant JWT authentication/revocation | 1/1 passed |
+| HTTP quote, buyer-journey, and company suites | 20/20 passed |
+| Admin quote-message HTTP suite | 1/1 passed |
+
+The existing suites report test counts, not individual assertion counts; **127 is the measured count for the new test, not a claimed total across all suites**. Type-check and `git diff --check` passed.
+
+**Build and isolated startup:** Backend and storefront production-mode builds passed; the backend build reported 12 warnings and no errors. The first local backend start used the source directory and failed to locate the built admin page. Starting from the generated server directory succeeded: backend health returned 200, and the locally started storefront returned 200 at `/dk`. Those isolated processes were stopped, and both development workflows were restored.
+
+**Boundaries and remaining risk:** During this remediation, no project production app or database was accessed or changed, no production test or migration ran, and nothing was deployed or published. The JWT migration and release state were untouched. No customer-route quote-ID gap remains in the routes inspected; future quote-ID routes or new internal customer workflow callers must use the same guard. The guard does not transactionally lock a quote against an out-of-band ownership change between authorization and mutation.
+
+**Git commit:** None.

@@ -1,0 +1,223 @@
+[
+  {
+    "slug": "stretch-film",
+    "translations": {
+      "ar": {
+        "name": "أفلام الاسترتش"
+      },
+      "tr": {
+        "name": "Streç filmler"
+      },
+      "en": {
+        "name": "Stretch films"
+      },
+      "bg": {
+        "name": "Стреч фолиа"
+      }
+    }
+  },
+  {
+    "slug": "food-film",
+    "translations": {
+      "ar": {
+        "name": "تغليف غذائي"
+      },
+      "tr": {
+        "name": "Gıda ambalajı"
+      },
+      "en": {
+        "name": "Food wrapping"
+      },
+      "bg": {
+        "name": "Опаковки за храни"
+      }
+    }
+  },
+  {
+    "slug": "adhesive-tapes",
+    "translations": {
+      "ar": {
+        "name": "أشرطة لاصقة"
+      },
+      "tr": {
+        "name": "Yapışkan bantlar"
+      },
+      "en": {
+        "name": "Adhesive tapes"
+      },
+      "bg": {
+        "name": "Лепящи ленти"
+      }
+    }
+  },
+  {
+    "slug": "strapping",
+    "translations": {
+      "ar": {
+        "name": "أشرطة وأدوات التربيط"
+      },
+      "tr": {
+        "name": "Çember ve ekipmanları"
+      },
+      "en": {
+        "name": "Strapping and accessories"
+      },
+      "bg": {
+        "name": "Чембер и принадлежности"
+      }
+    }
+  },
+  {
+    "slug": "protective-packaging",
+    "translations": {
+      "ar": {
+        "name": "مواد حماية"
+      },
+      "tr": {
+        "name": "Koruyucu ambalaj"
+      },
+      "en": {
+        "name": "Protective packaging"
+      },
+      "bg": {
+        "name": "Защитни опаковки"
+      }
+    }
+  },
+  {
+    "slug": "cartons-paper",
+    "translations": {
+      "ar": {
+        "name": "الكرتون والأكياس الورقية"
+      },
+      "tr": {
+        "name": "Karton ve kâğıt ambalaj"
+      },
+      "en": {
+        "name": "Cardboard and paper packaging"
+      },
+      "bg": {
+        "name": "Картонени и хартиени опаковки"
+      }
+    }
+  },
+  {
+    "slug": "bags",
+    "translations": {
+      "ar": {
+        "name": "أكياس بلاستيكية"
+      },
+      "tr": {
+        "name": "Plastik poşetler"
+      },
+      "en": {
+        "name": "Plastic bags"
+      },
+      "bg": {
+        "name": "Пластмасови торбички"
+      }
+    }
+  },
+  {
+    "slug": "winding-cores",
+    "translations": {
+      "ar": {
+        "name": "قلوب الرولات"
+      },
+      "tr": {
+        "name": "Masuralar"
+      },
+      "en": {
+        "name": "Winding cores"
+      },
+      "bg": {
+        "name": "Шпули"
+      }
+    }
+  },
+  {
+    "slug": "office-supplies",
+    "translations": {
+      "ar": {
+        "name": "مستلزمات مكتبية"
+      },
+      "tr": {
+        "name": "Ofis malzemeleri"
+      },
+      "en": {
+        "name": "Office supplies"
+      },
+      "bg": {
+        "name": "Офис материали"
+      }
+    }
+  },
+  {
+    "slug": "office-furniture",
+    "translations": {
+      "ar": {
+        "name": "أثاث مكتبي"
+      },
+      "tr": {
+        "name": "Ofis mobilyaları"
+      },
+      "en": {
+        "name": "Office furniture"
+      },
+      "bg": {
+        "name": "Офис мебели"
+      }
+    }
+  },
+  {
+    "slug": "factory-warehouse",
+    "translations": {
+      "ar": {
+        "name": "مستلزمات المصانع والمخازن"
+      },
+      "tr": {
+        "name": "Fabrika ve depo"
+      },
+      "en": {
+        "name": "Factory and warehouse"
+      },
+      "bg": {
+        "name": "Фабрики и складове"
+      }
+    }
+  },
+  {
+    "slug": "machinery",
+    "translations": {
+      "ar": {
+        "name": "ماكينات ومعدات"
+      },
+      "tr": {
+        "name": "Makine ve ekipman"
+      },
+      "en": {
+        "name": "Machinery and equipment"
+      },
+      "bg": {
+        "name": "Машини и оборудване"
+      }
+    }
+  },
+  {
+    "slug": "used-machinery-export",
+    "translations": {
+      "ar": {
+        "name": "ماكينات مستعملة للتصدير"
+      },
+      "tr": {
+        "name": "İkinci el makine ihracatı"
+      },
+      "en": {
+        "name": "Used machinery export"
+      },
+      "bg": {
+        "name": "Износ на употребявани машини"
+      }
+    }
+  }
+]

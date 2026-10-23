@@ -1,0 +1,83 @@
+import { listCategories } from "@/lib/data/categories"
+import { LIGHT_CATEGORY_TREE_FIELDS } from "@/lib/util/category-fields"
+import { retrieveCustomer } from "@/lib/data/customer"
+import { listGlobalProductOptions } from "@/lib/data/product-options"
+import { parseOptionValueIds } from "@/lib/util/option-value-query"
+import SkeletonProductGrid from "@/modules/skeletons/templates/skeleton-product-grid"
+import RefinementList from "@/modules/store/components/refinement-list"
+import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
+import StoreBreadcrumb from "@/modules/store/components/store-breadcrumb"
+import PaginatedProducts from "@/modules/store/templates/paginated-products"
+import { Metadata } from "next"
+import { Suspense } from "react"
+import { getRequestLocale } from "@/lib/i18n/server"
+import { translate } from "@/lib/i18n/messages"
+
+export const dynamicParams = true
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getRequestLocale()
+  return {
+    title: translate(locale, "Store"),
+    description: translate(locale, "Explore all of our products."),
+  }
+}
+
+type Params = {
+  searchParams: Promise<{
+    sortBy?: SortOptions
+    page?: string
+    optionValueIds?: string | string[]
+    q?: string
+  }>
+  params: Promise<{
+    countryCode: string
+  }>
+}
+
+export default async function StorePage(props: Params) {
+  const params = await props.params
+  const searchParams = await props.searchParams
+  const { sortBy, page, q } = searchParams
+
+  const sort = sortBy || "created_at"
+  const pageNumber = page ? parseInt(page) : 1
+  const optionValueIds = parseOptionValueIds(searchParams)
+
+  const [categories, customer, productOptions] = await Promise.all([
+    listCategories({ fields: LIGHT_CATEGORY_TREE_FIELDS }),
+    retrieveCustomer(),
+    listGlobalProductOptions(),
+  ])
+
+  return (
+    <div className="bg-neutral-100">
+      <div
+        className="flex flex-col py-6 content-container gap-4"
+        data-testid="category-container"
+      >
+        <StoreBreadcrumb />
+        <div className="flex flex-col small:flex-row small:items-start gap-3">
+          <RefinementList
+            sortBy={sort}
+            categories={categories}
+            productOptions={productOptions}
+          />
+          <div className="w-full">
+            <Suspense fallback={<SkeletonProductGrid />}>
+              <PaginatedProducts
+                sortBy={sort}
+                page={pageNumber}
+                countryCode={params.countryCode}
+                customer={customer}
+                optionValueIds={optionValueIds}
+                q={q}
+              />
+            </Suspense>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+;``

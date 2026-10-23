@@ -1,0 +1,11 @@
+# Block to ADD at the end of /opt/n8n/Caddyfile (the Caddy that serves portsaid.com.tr, admin. and n8n.).
+# Needs the DNS record first: app.portsaid.com.tr  A  46.224.178.184  (Caddy then gets the HTTPS certificate by itself).
+# Append with `cat >>` (keeps the file the container has mounted). Do NOT use `sed -i` or an editor that replaces the file.
+app.portsaid.com.tr {
+    encode zstd gzip
+    header Strict-Transport-Security "max-age=31536000"
+    # the app streams the logout response (cookie cleared first, server revocation second): never buffer it
+    reverse_proxy ps-port-app:3000 {
+        flush_interval -1
+    }
+}

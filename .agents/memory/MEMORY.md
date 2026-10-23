@@ -1,0 +1,19 @@
+- [Medusa managed database constraint](test-runner-database.md) — avoid running isolated HTTP tests against the managed development PostgreSQL endpoint.
+- [Medusa HTTP test database](medusa-http-test-database.md) — the integration runner creates temporary PostgreSQL databases and treats non-local DB_HOST as SSL.
+- [Replit Next.js Server Actions proxy](next-server-action-origin.md) — the preview can send an Origin with :5000 while the forwarded host omits it.
+- [Unicode catalog handles](next-unicode-product-handles.md) — decode percent-escaped route handles before Medusa queries and category comparisons to avoid false 404s.
+- [Company signup geography](company-signup-geography.md) — company address and preferred currency are independent of the store's checkout regions.
+- [Storefront visitor geography](storefront-visitor-geography.md) — local country ranges avoid runtime TLS failures; keep language selection separate from checkout regions.
+- [Embedded preview locale cookies](embedded-preview-locale-cookies.md) — partitioned cookies support preview; a valid country route must not self-redirect to set its cache cookie.
+- [PORTSAID logo selection](portsaid-logo-selection.md) — prefer the lossless transparent mark over padded JPEG variants for reusable storefront branding.
+- [pnpm version mismatch](pnpm-version-mismatch.md) — workspace dependencies use pnpm 10's store despite the root manifest pinning pnpm 9; avoid mixing stores.
+- [Radix Select empty-value submission](radix-select-empty-value.md) — a cleared select can serialize its first option; use an explicit controlled hidden value for dependent form fields.
+- [Locale refresh verification](locale-refresh-verification.md) — a client locale change can precede the refreshed server-rendered interface; verify both before asserting language consistency.
+- [Replit private service ports](replit-private-service-ports.md) — keep internal services listed by localPort without externalPort; removing a live port block entirely can make Replit rediscover it.
+- [Next build isolation during smoke tests](next-production-build-isolation.md) — stop the development storefront before building and starting production locally; both modes share build output.
+- [Headless browser clicks](headless-browser-clicks.md) — CDP mouse events do not scroll offscreen targets; scroll visible elements into view before clicking in tests.
+- [Medusa revocation middleware matching](medusa-revocation-middleware.md) — prefer string namespace matchers and the original URL for logout exceptions; test on protected built-in routes.
+- [Medusa production startup location](medusa-production-start-cwd.md) — start the built backend from its output directory so the admin bundle resolves.
+- [Medusa admin API behind preview](medusa-admin-preview-url.md) — keep API and media origins reachable; only Admin can use root-relative backend media URLs.
+- [Catalog import safeguards](catalog-import-safeguards.md) — verify live Development counts independently; never trust an import log or delete the catalog broadly.
+- [Production catalog media from development](production-catalog-media.md) — a production DB override does not move local uploaded images into the published runtime; verify resulting media URLs separately.

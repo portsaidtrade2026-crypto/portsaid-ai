@@ -1,0 +1,638 @@
+{
+  "summary": {
+    "products_attempted": 122,
+    "products_created": 2,
+    "products_skipped_existing": 120,
+    "variants_created": 4,
+    "images_uploaded": 4,
+    "images_failed": 0,
+    "product_errors": []
+  },
+  "steps": [
+    {
+      "at": "2026-09-26T12:00:20.912Z",
+      "step": "create_categories",
+      "created": 0,
+      "reused": 13
+    },
+    {
+      "at": "2026-09-26T12:00:21.434Z",
+      "step": "create_global_options",
+      "created": 0
+    },
+    {
+      "at": "2026-09-26T12:00:21.435Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-2adbaddc5d42"
+    },
+    {
+      "at": "2026-09-26T12:00:21.435Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-bd26d115e950"
+    },
+    {
+      "at": "2026-09-26T12:00:21.435Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-045c883799b1"
+    },
+    {
+      "at": "2026-09-26T12:00:21.435Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-88a7253470c2"
+    },
+    {
+      "at": "2026-09-26T12:00:21.435Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-25d0acb87aa7"
+    },
+    {
+      "at": "2026-09-26T12:00:21.435Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-8a3cf1c4e07e"
+    },
+    {
+      "at": "2026-09-26T12:00:21.436Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-85b9e42908ab"
+    },
+    {
+      "at": "2026-09-26T12:00:21.436Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-303b2c88cd2e"
+    },
+    {
+      "at": "2026-09-26T12:00:21.436Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-a88c6ed79116"
+    },
+    {
+      "at": "2026-09-26T12:00:21.436Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-4924d1861b10"
+    },
+    {
+      "at": "2026-09-26T12:00:21.436Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-871c2745de91"
+    },
+    {
+      "at": "2026-09-26T12:00:21.436Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-56ff10a16b9a"
+    },
+    {
+      "at": "2026-09-26T12:00:21.436Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-ea40915e2289"
+    },
+    {
+      "at": "2026-09-26T12:00:21.436Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-cc8b29adcbbf"
+    },
+    {
+      "at": "2026-09-26T12:00:21.436Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-b88fa7b7111d"
+    },
+    {
+      "at": "2026-09-26T12:00:21.436Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-9e35bd9f1858"
+    },
+    {
+      "at": "2026-09-26T12:00:21.436Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-a62bf8a9f06c"
+    },
+    {
+      "at": "2026-09-26T12:00:21.437Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-56bbd7c7b279"
+    },
+    {
+      "at": "2026-09-26T12:00:21.437Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-e29cb0e83b3b"
+    },
+    {
+      "at": "2026-09-26T12:00:21.437Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-6ce1556cdef9"
+    },
+    {
+      "at": "2026-09-26T12:00:21.437Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-3afb4cd7e4a8"
+    },
+    {
+      "at": "2026-09-26T12:00:34.418Z",
+      "step": "product_created",
+      "parent_id": "family-dd39d69c27dd",
+      "category": "Endüstriyel Streç Film",
+      "variants": 1
+    },
+    {
+      "at": "2026-09-26T12:00:34.418Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-3f3ec6b506d0"
+    },
+    {
+      "at": "2026-09-26T12:00:34.418Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-808ee5fe11b9"
+    },
+    {
+      "at": "2026-09-26T12:00:34.418Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-a8286fde2e00"
+    },
+    {
+      "at": "2026-09-26T12:00:34.418Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-1db6f7d47579"
+    },
+    {
+      "at": "2026-09-26T12:00:34.418Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-4d95d23d52b8"
+    },
+    {
+      "at": "2026-09-26T12:00:34.419Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-aed7d19e0e99"
+    },
+    {
+      "at": "2026-09-26T12:00:34.419Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-cf17f629c742"
+    },
+    {
+      "at": "2026-09-26T12:00:34.419Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-997a84c5cdfc"
+    },
+    {
+      "at": "2026-09-26T12:00:34.419Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-9a9aa91a1af4"
+    },
+    {
+      "at": "2026-09-26T12:00:34.419Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-49f36f2a94a0"
+    },
+    {
+      "at": "2026-09-26T12:00:47.857Z",
+      "step": "product_created",
+      "parent_id": "family-76c3ec8cccba",
+      "category": "Endüstriyel Streç Film",
+      "variants": 3
+    },
+    {
+      "at": "2026-09-26T12:00:47.857Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-944d055b0d04"
+    },
+    {
+      "at": "2026-09-26T12:00:47.857Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-77e21e6cad47"
+    },
+    {
+      "at": "2026-09-26T12:00:47.858Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-218cf34d8c4c"
+    },
+    {
+      "at": "2026-09-26T12:00:47.858Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-05eaac2f1844"
+    },
+    {
+      "at": "2026-09-26T12:00:47.858Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-6bfc9d5daf93"
+    },
+    {
+      "at": "2026-09-26T12:00:47.858Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-7863c3f36e6f"
+    },
+    {
+      "at": "2026-09-26T12:00:47.858Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-79194d87bdac"
+    },
+    {
+      "at": "2026-09-26T12:00:47.858Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-56325604f815"
+    },
+    {
+      "at": "2026-09-26T12:00:47.858Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-129c20524cb9"
+    },
+    {
+      "at": "2026-09-26T12:00:47.858Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-cc829ae90c62"
+    },
+    {
+      "at": "2026-09-26T12:00:47.858Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-2ccf0f4d7c74"
+    },
+    {
+      "at": "2026-09-26T12:00:47.858Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-3df562f9aab0"
+    },
+    {
+      "at": "2026-09-26T12:00:47.858Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-a9c9a4258552"
+    },
+    {
+      "at": "2026-09-26T12:00:47.858Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-8236b119f79f"
+    },
+    {
+      "at": "2026-09-26T12:00:47.858Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-5aa377472748"
+    },
+    {
+      "at": "2026-09-26T12:00:47.859Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-9906337f2625"
+    },
+    {
+      "at": "2026-09-26T12:00:47.859Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-856d8143baa1"
+    },
+    {
+      "at": "2026-09-26T12:00:47.859Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-b819f8c19bcb"
+    },
+    {
+      "at": "2026-09-26T12:00:47.859Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-dec4e8dfcdd3"
+    },
+    {
+      "at": "2026-09-26T12:00:47.859Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-0c19612afa15"
+    },
+    {
+      "at": "2026-09-26T12:00:47.859Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-311a4a8ba92b"
+    },
+    {
+      "at": "2026-09-26T12:00:47.859Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-c6b8ae7b28dd"
+    },
+    {
+      "at": "2026-09-26T12:00:47.859Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-542364b1ba7a"
+    },
+    {
+      "at": "2026-09-26T12:00:47.859Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-d03c336c112e"
+    },
+    {
+      "at": "2026-09-26T12:00:47.859Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-a245d0ce8bb2"
+    },
+    {
+      "at": "2026-09-26T12:00:47.859Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-57e240bae301"
+    },
+    {
+      "at": "2026-09-26T12:00:47.859Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-ab69c28d15dc"
+    },
+    {
+      "at": "2026-09-26T12:00:47.859Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-59a90e22dbb3"
+    },
+    {
+      "at": "2026-09-26T12:00:47.859Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-c5b9055f7e12"
+    },
+    {
+      "at": "2026-09-26T12:00:47.860Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-1a02920bcf9e"
+    },
+    {
+      "at": "2026-09-26T12:00:47.860Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-57bcc79ad025"
+    },
+    {
+      "at": "2026-09-26T12:00:47.860Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-96a8eba89333"
+    },
+    {
+      "at": "2026-09-26T12:00:47.860Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-321aa45a8757"
+    },
+    {
+      "at": "2026-09-26T12:00:47.860Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-06767ab4c5cd"
+    },
+    {
+      "at": "2026-09-26T12:00:47.860Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-fddc960c7251"
+    },
+    {
+      "at": "2026-09-26T12:00:47.860Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-b07ba2aafedf"
+    },
+    {
+      "at": "2026-09-26T12:00:47.860Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-d5e0266bfb0e"
+    },
+    {
+      "at": "2026-09-26T12:00:47.860Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-2eb7e351ed53"
+    },
+    {
+      "at": "2026-09-26T12:00:47.860Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-6783abf49f2f"
+    },
+    {
+      "at": "2026-09-26T12:00:47.860Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-8ea925cac8a5"
+    },
+    {
+      "at": "2026-09-26T12:00:47.860Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-721eef8ef750"
+    },
+    {
+      "at": "2026-09-26T12:00:47.860Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-ce6d2f7e3f41"
+    },
+    {
+      "at": "2026-09-26T12:00:47.860Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-aa3b4f35875d"
+    },
+    {
+      "at": "2026-09-26T12:00:47.861Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-783164c2d53a"
+    },
+    {
+      "at": "2026-09-26T12:00:47.861Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-7507d35542ed"
+    },
+    {
+      "at": "2026-09-26T12:00:47.861Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-e3e200d90e84"
+    },
+    {
+      "at": "2026-09-26T12:00:47.861Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-73fd837252f5"
+    },
+    {
+      "at": "2026-09-26T12:00:47.861Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-f71df6f84079"
+    },
+    {
+      "at": "2026-09-26T12:00:47.861Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-c1e89296930d"
+    },
+    {
+      "at": "2026-09-26T12:00:47.861Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-6d47616fc2f4"
+    },
+    {
+      "at": "2026-09-26T12:00:47.861Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-6e12029d5a3e"
+    },
+    {
+      "at": "2026-09-26T12:00:47.861Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-bd6c204c181f"
+    },
+    {
+      "at": "2026-09-26T12:00:47.861Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-283afe41cb26"
+    },
+    {
+      "at": "2026-09-26T12:00:47.861Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-506ff5d0fee0"
+    },
+    {
+      "at": "2026-09-26T12:00:47.861Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-5d79df0d1b5a"
+    },
+    {
+      "at": "2026-09-26T12:00:47.861Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-bd5af0cee349"
+    },
+    {
+      "at": "2026-09-26T12:00:47.862Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-b90d85479696"
+    },
+    {
+      "at": "2026-09-26T12:00:47.862Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-84e4ae496e78"
+    },
+    {
+      "at": "2026-09-26T12:00:47.862Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-94d673053878"
+    },
+    {
+      "at": "2026-09-26T12:00:47.862Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-ac837dc8d51f"
+    },
+    {
+      "at": "2026-09-26T12:00:47.862Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-8a4f0f9189d6"
+    },
+    {
+      "at": "2026-09-26T12:00:47.862Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-0d52566f3da1"
+    },
+    {
+      "at": "2026-09-26T12:00:47.862Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-716fa739f9e5"
+    },
+    {
+      "at": "2026-09-26T12:00:47.862Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-68ad9ef1b3a0"
+    },
+    {
+      "at": "2026-09-26T12:00:47.862Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-f5a5a193f38d"
+    },
+    {
+      "at": "2026-09-26T12:00:47.862Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-f22857337aef"
+    },
+    {
+      "at": "2026-09-26T12:00:47.862Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-c22729121dbe"
+    },
+    {
+      "at": "2026-09-26T12:00:47.862Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-0c5cdc61ac75"
+    },
+    {
+      "at": "2026-09-26T12:00:47.862Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-c3a34918c087"
+    },
+    {
+      "at": "2026-09-26T12:00:47.863Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-754285e3169d"
+    },
+    {
+      "at": "2026-09-26T12:00:47.863Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-19d39be61383"
+    },
+    {
+      "at": "2026-09-26T12:00:47.863Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-bcf95c08b637"
+    },
+    {
+      "at": "2026-09-26T12:00:47.863Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-99fdcb967310"
+    },
+    {
+      "at": "2026-09-26T12:00:47.863Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-b7896cf2dcdc"
+    },
+    {
+      "at": "2026-09-26T12:00:47.863Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-e883975d3b00"
+    },
+    {
+      "at": "2026-09-26T12:00:47.863Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-58dcc048e308"
+    },
+    {
+      "at": "2026-09-26T12:00:47.863Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-9d142820b6e2"
+    },
+    {
+      "at": "2026-09-26T12:00:47.863Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-317369ff9a9d"
+    },
+    {
+      "at": "2026-09-26T12:00:47.863Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-a00758df5070"
+    },
+    {
+      "at": "2026-09-26T12:00:47.863Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-04aa44878708"
+    },
+    {
+      "at": "2026-09-26T12:00:47.864Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-d3407197e1f6"
+    },
+    {
+      "at": "2026-09-26T12:00:47.864Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-e75ed3b7ed83"
+    },
+    {
+      "at": "2026-09-26T12:00:47.864Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-15955346236c"
+    },
+    {
+      "at": "2026-09-26T12:00:47.864Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-7a622ebfeeae"
+    },
+    {
+      "at": "2026-09-26T12:00:47.864Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-f0bad2e3e770"
+    },
+    {
+      "at": "2026-09-26T12:00:47.864Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-9807c82f5495"
+    },
+    {
+      "at": "2026-09-26T12:00:47.864Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-0db5b5d12c6a"
+    },
+    {
+      "at": "2026-09-26T12:00:47.864Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-94466bcae57e"
+    },
+    {
+      "at": "2026-09-26T12:00:47.864Z",
+      "step": "product_skipped_existing",
+      "parent_id": "family-574f31c8872e"
+    }
+  ]
+}

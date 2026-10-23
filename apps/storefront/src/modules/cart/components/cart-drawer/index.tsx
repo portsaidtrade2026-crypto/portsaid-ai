@@ -1,0 +1,278 @@
+"use client"
+
+import { useCart } from "@/lib/context/cart-context"
+import { checkSpendingLimit } from "@/lib/util/check-spending-limit"
+import { getCheckoutStep } from "@/lib/util/get-checkout-step"
+import { convertToLocale } from "@/lib/util/money"
+import AppliedPromotions from "@/modules/cart/components/applied-promotions"
+import ApprovalStatusBanner from "@/modules/cart/components/approval-status-banner"
+import ItemsTemplate from "@/modules/cart/templates/items"
+import Button from "@/modules/common/components/button"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import ShoppingBag from "@/modules/common/icons/shopping-bag"
+import FreeShippingPriceNudge from "@/modules/shipping/components/free-shipping-price-nudge"
+import { RequestQuoteConfirmation } from "@/modules/quotes/components/request-quote-confirmation"
+import { RequestQuotePrompt } from "@/modules/quotes/components/request-quote-prompt"
+import { B2BCustomer } from "@/types"
+import { StoreFreeShippingPrice } from "@/types/shipping-option/http"
+import { ExclamationCircle, LockClosedSolidMini } from "@medusajs/icons"
+import { StoreCart } from "@medusajs/types"
+import { Drawer, Text } from "@medusajs/ui"
+import { usePathname } from "next/navigation"
+import { useEffect, useMemo, useRef, useState } from "react"
+import { useI18n } from "@/lib/i18n/provider"
+
+type CartDrawerProps = {
+  customer: B2BCustomer | null
+  freeShippingPrices: StoreFreeShippingPrice[]
+}
+
+const CartDrawer = ({
+  customer,
+  freeShippingPrices,
+  ...props
+}: CartDrawerProps) => {
+  const [activeTimer, setActiveTimer] = useState<ReturnType<typeof setTimeout> | undefined>(
+    undefined
+  )
+  const [isOpen, setIsOpen] = useState(false)
+  const { t } = useI18n()
+
+  const [quoteDialog, setQuoteDialog] = useState<"confirm" | "prompt" | null>(null)
+
+  const open = () => setIsOpen(true)
+  const close = () => setIsOpen(false)
+
+  // Close the drawer first (releases its focus trap and scroll lock), then open the dialog.
+  const openQuoteDialog = (kind: "confirm" | "prompt") => {
+    if (activeTimer) clearTimeout(activeTimer)
+    setIsOpen(false)
+    setTimeout(() => setQuoteDialog(kind), 150)
+  }
+
+  const { cart } = useCart()
+
+  const items = cart?.items || []
+  const promotions = cart?.promotions || []
+
+  const totalItems =
+    items?.reduce((acc, item) => {
+      return acc + item.quantity
+    }, 0) || 0
+
+  const subtotal = useMemo(() => cart?.item_subtotal ?? 0, [cart])
+
+  const spendLimitExceeded = useMemo(
+    () => checkSpendingLimit(cart, customer),
+    [cart, customer]
+  )
+
+  const itemRef = useRef<number>(totalItems || 0)
+
+  const timedOpen = () => {
+    if (isOpen) {
+      return
+    }
+
+    open()
+
+    const timer = setTimeout(close, 5000)
+
+    setActiveTimer(timer)
+  }
+
+  // Clean up the timer when the component unmounts
+  useEffect(() => {
+    return () => {
+      if (activeTimer) {
+        clearTimeout(activeTimer)
+      }
+    }
+  }, [activeTimer])
+
+  const pathname = usePathname()
+
+  const cancelTimer = () => {
+    if (activeTimer) {
+      clearTimeout(activeTimer)
+    }
+  }
+
+  // open cart dropdown when modifying the cart items, but only if we're not on the cart page
+  useEffect(() => {
+    if (
+      itemRef.current !== totalItems &&
+      !pathname.includes("/cart") &&
+      !pathname.includes("/account")
+    ) {
+      timedOpen()
+      return
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [totalItems, itemRef.current])
+
+  //close cart drawer when navigating to a different page
+  useEffect(() => {
+    cancelTimer()
+    close()
+  }, [pathname])
+
+  // Request-quote items carry no real price (unit_price 0) - block
+  // checkout for them the same way the full cart page's Summary does, so
+  // there's no path to actually paying nothing for a real product. Also
+  // used below to swap the trigger badge/subtotal text for a "Pending
+  // quote" label instead of a literal "TRY 0.00" in that case.
+  const hasUnpricedItems = items?.some((item) => !item.unit_price)
+
+  const checkoutStep = cart ? getCheckoutStep(cart) : undefined
+  const checkoutPath = customer
+    ? checkoutStep
+      ? `/checkout?step=${checkoutStep}`
+      : "/checkout"
+    : "/account"
+
+  return (
+    <>
+      {isOpen && (
+        <div className="fixed inset-[-2rem] z-10 backdrop-blur-sm p-0" />
+      )}
+      <Drawer
+        onMouseEnter={cancelTimer}
+        className="rounded-none m-0 p-0 bg-none z-50"
+        open={isOpen}
+        onOpenChange={setIsOpen}
+        {...(props as any)}
+      >
+        <Drawer.Trigger asChild>
+          <button className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none txt-compact-small-plus gap-x-1.5 px-3 py-1.5 rounded-full hover:bg-neutral-100">
+            <ShoppingBag />
+            <span className="text-sm font-normal hidden small:inline-block">
+              {cart && items && items.length > 0
+                ? hasUnpricedItems
+                  ? t("Pending quote")
+                  : convertToLocale({
+                      amount: subtotal,
+                      currency_code: cart.currency_code,
+                    })
+                : t("Cart")}
+            </span>
+            <div className="bg-blue-500 text-white text-xs px-1.5 py-px rounded-full">
+              {totalItems}
+            </div>
+          </button>
+        </Drawer.Trigger>
+        <Drawer.Content
+          className="z-50 rounded-none m-0 p-0 inset-y-0 small:right-0"
+          onMouseEnter={cancelTimer}
+        >
+          <Drawer.Header className="flex self-center">
+            <Drawer.Title>
+              {totalItems > 0
+                ? t("You have {count} items in your cart", { count: totalItems })
+                : t("Your cart is empty")}
+            </Drawer.Title>
+          </Drawer.Header>
+          {cart?.approvals && cart.approvals.length > 0 && (
+            <div className="p-4">
+              <ApprovalStatusBanner cart={cart} />
+            </div>
+          )}
+          {promotions.length > 0 && (
+            <div className="p-4">
+              <AppliedPromotions promotions={promotions} />
+            </div>
+          )}
+          <div className="flex flex-col gap-y-4 h-full self-stretch justify-between overflow-auto">
+            {cart && cart.items && (
+              <>
+                <ItemsTemplate
+                  cart={cart}
+                  showBorders={false}
+                  showTotal={false}
+                />
+                <div className="flex flex-col gap-y-3 w-full p-4">
+                  {cart && freeShippingPrices && (
+                    <FreeShippingPriceNudge
+                      variant="inline"
+                      cart={cart as StoreCart}
+                      freeShippingPrices={freeShippingPrices}
+                    />
+                  )}
+                    <div className="flex justify-between">
+                     <Text>{t("Subtotal")}</Text>
+                    <Text>
+                      {hasUnpricedItems
+                        ? t("Pending quote")
+                        : convertToLocale({
+                            amount: subtotal,
+                            currency_code: cart?.currency_code,
+                          })}
+                    </Text>
+                  </div>
+                  <div className="flex flex-col gap-y-2">
+                    <LocalizedClientLink href="/cart">
+                      <Button
+                        variant="secondary"
+                        className="w-full"
+                        size="large"
+                      >
+                         {t("View Cart")}
+                      </Button>
+                    </LocalizedClientLink>
+                    {/* Ahmed: a header with a separate "Quote" button right next to this
+                        drawer's own badge (which already reads "Pending quote" once the
+                        cart has unpriced items) looked like two competing cart/quote
+                        entry points - this drawer is now the one place that action lives,
+                        same logic as the full cart page's Summary. */}
+                    {customer && !hasUnpricedItems ? (
+                      <LocalizedClientLink href={checkoutPath}>
+                        <Button
+                          className="w-full"
+                          size="large"
+                          disabled={totalItems === 0 || spendLimitExceeded}
+                        >
+                          <LockClosedSolidMini />
+                          {spendLimitExceeded
+                            ? t("Spending Limit Exceeded")
+                            : t("Secure Checkout")}
+                        </Button>
+                      </LocalizedClientLink>
+                    ) : (
+                      <Button
+                        className="w-full"
+                        size="large"
+                        onClick={() => openQuoteDialog(customer ? "confirm" : "prompt")}
+                      >
+                        {t("Request Quote")}
+                      </Button>
+                    )}
+                    {spendLimitExceeded && (
+                      <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
+                        <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />
+                        <p className="text-neutral-950 text-xs">
+                          {t("This order exceeds your spending limit. Please contact your manager for approval.")}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+        </Drawer.Content>
+      </Drawer>
+      {/* Rendered outside the Drawer: nested inside it, the drawer's focus trap stole focus from
+          the quote form (Medusa UI bundles its own Radix copy), so nothing could be typed. */}
+      <RequestQuoteConfirmation
+        open={quoteDialog === "confirm"}
+        onOpenChange={(value) => !value && setQuoteDialog(null)}
+      />
+      <RequestQuotePrompt
+        open={quoteDialog === "prompt"}
+        onOpenChange={(value) => !value && setQuoteDialog(null)}
+      />
+    </>
+  )
+}
+
+export default CartDrawer

@@ -1,0 +1,148 @@
+[
+  {
+    "handle": "karton-köşebent-10-mt-5050-5mm",
+    "patch": {
+      "length": {
+        "value": 1.0,
+        "unit": "m"
+      },
+      "thickness": {
+        "value": 5.0,
+        "unit": "mm"
+      }
+    },
+    "current": {
+      "Genişlik": "5 mm",
+      "Uzunluk": "1.0 m"
+    }
+  },
+  {
+    "handle": "karton-köşebent-1000-mm-40403",
+    "patch": {
+      "length": {
+        "value": 1000.0,
+        "unit": "mm"
+      }
+    },
+    "current": {
+      "Genişlik": "1000 mm"
+    }
+  },
+  {
+    "handle": "karton-köşebent-1100-mm-40403",
+    "patch": {
+      "length": {
+        "value": 1100.0,
+        "unit": "mm"
+      }
+    },
+    "current": {
+      "Genişlik": "1100 mm"
+    }
+  },
+  {
+    "handle": "karton-köşebent-2-mt-4040-4mm",
+    "patch": {
+      "length": {
+        "value": 2.0,
+        "unit": "m"
+      },
+      "thickness": {
+        "value": 4.0,
+        "unit": "mm"
+      }
+    },
+    "current": {
+      "Genişlik": "4 mm",
+      "Uzunluk": "2 m"
+    }
+  },
+  {
+    "handle": "karton-köşebent-210mt-9595-5mm",
+    "patch": {
+      "length": {
+        "value": 2.1,
+        "unit": "m"
+      },
+      "thickness": {
+        "value": 5.0,
+        "unit": "mm"
+      }
+    },
+    "current": {
+      "Genişlik": "5 mm",
+      "Uzunluk": "2.10 m"
+    }
+  },
+  {
+    "handle": "karton-köşebent-25-mt-4040-4mm",
+    "patch": {
+      "length": {
+        "value": 2.5,
+        "unit": "m"
+      },
+      "thickness": {
+        "value": 4.0,
+        "unit": "mm"
+      }
+    },
+    "current": {
+      "Genişlik": "4 mm",
+      "Uzunluk": "2.5 m"
+    }
+  },
+  {
+    "handle": "karton-köşebent-3-mt-5090-4mm",
+    "patch": {
+      "length": {
+        "value": 3.0,
+        "unit": "m"
+      },
+      "thickness": {
+        "value": 4.0,
+        "unit": "mm"
+      }
+    },
+    "current": {
+      "Genişlik": "4 mm",
+      "Uzunluk": "3 m"
+    }
+  },
+  {
+    "handle": "strafor-100x50x2-cm-bir-paket-25-tane",
+    "patch": {
+      "length": {
+        "value": 100,
+        "unit": "cm"
+      },
+      "width": {
+        "value": 50,
+        "unit": "cm"
+      },
+      "thickness": {
+        "value": 2,
+        "unit": "cm"
+      }
+    },
+    "current": {
+      "Genişlik": "2 cm"
+    }
+  },
+  {
+    "handle": "çember-yeşil-polyester-16-x-070-mm",
+    "patch": {
+      "width": {
+        "value": 16.0,
+        "unit": "mm"
+      },
+      "thickness": {
+        "value": 0.7,
+        "unit": "mm"
+      }
+    },
+    "current": {
+      "Genişlik": "70 mm",
+      "Renk": "Yeşil"
+    }
+  }
+]

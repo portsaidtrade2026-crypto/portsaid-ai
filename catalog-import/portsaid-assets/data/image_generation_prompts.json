@@ -1,0 +1,330 @@
+{
+  "mode": "built-in image_gen",
+  "first_image": {
+    "asset_id": "stretch-clear",
+    "reference": "PORTSAİD PLASTİK.jpg",
+    "prompt": "Two clear industrial stretch film rolls, plain cores, white studio background, neutral soft light, no text, logo or price."
+  },
+  "records": [
+    {
+      "asset_id": "stretch-black",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two opaque black industrial stretch wrap rolls on plain kraft cores, one upright one lying. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "stretch-narrow",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two narrow clear mini stretch wrap rolls on plain kraft cores, short cylinders without handles. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "stretch-orange",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two orange industrial stretch wrap rolls on plain kraft cores. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "machine-stretch-black",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One large-diameter opaque black machine pallet stretch film roll on a plain kraft core, upright. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "machine-stretch",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One large-diameter transparent machine pallet stretch film roll on a plain kraft core, thick winding, upright. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "jumbo-clear",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One very large diameter transparent industrial jumbo mother roll of stretch film, wide cylindrical roll lying on its curved side, kraft core visible. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "jumbo-black",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One very large diameter black industrial jumbo mother roll of stretch film, wide cylindrical roll lying on its curved side, kraft core visible. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "jumbo-white",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One very large diameter white industrial jumbo mother roll of stretch film, wide cylindrical roll lying on its curved side, kraft core visible. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "jumbo-blue",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One very large diameter blue industrial jumbo mother roll of stretch film, wide cylindrical roll lying on its curved side, kraft core visible. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "jumbo-orange",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One very large diameter orange industrial jumbo mother roll of stretch film, wide cylindrical roll lying on its curved side, kraft core visible. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "jumbo-green",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One very large diameter green industrial jumbo mother roll of stretch film, wide cylindrical roll lying on its curved side, kraft core visible. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "food-stretch",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two transparent slightly warm-tinted food cling film rolls on plain cardboard cores, one partly unrolled. Product rolls only, no food. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "food-pre-stretch",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two yellow-tinted translucent food pre-stretched film rolls on plain cardboard cores. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "food-jumbo",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One large diameter yellow-tinted translucent food cling film jumbo roll on cardboard core. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "pre-stretch",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two clear pre-stretched pallet wrap rolls with subtly folded edges on plain cardboard cores. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "pre-stretch-jumbo",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One large diameter clear pre-stretched film jumbo roll, subtly folded film edge, plain cardboard core. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "hotmelt-clear",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two clear light amber transparent carton sealing adhesive tape rolls, plain unprinted cardboard cores, one standing tilted. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "hotmelt-brown",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two opaque brown carton sealing adhesive tape rolls, plain unprinted cardboard cores. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "tape-jumbo-clear",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One very broad jumbo parent roll of translucent clear adhesive packing tape film, large diameter cardboard core. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "tape-jumbo-brown",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One very broad jumbo parent roll of opaque brown adhesive packing tape film, large diameter cardboard core. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "acrylic-clear",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two crystal clear acrylic carton sealing tape rolls, plain cardboard cores. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "acrylic-yellow",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two yellow-tinted transparent acrylic packing tape rolls, plain cardboard cores. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "eco-solvent-tape",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two transparent carton sealing tape rolls, pale translucent winding, plain cardboard cores. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "masking-cream",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two cream crepe-paper masking tape rolls, plain cardboard cores. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "solvent-tape",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two clear carton sealing tape rolls, plain cardboard cores, close product photography. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "masking-green",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two green paper masking tape rolls, plain cardboard cores. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "masking-white",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two white crepe-paper masking tape rolls, plain cardboard cores. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "paper-tape",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two natural light brown paper adhesive tape rolls, plain cardboard cores. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "double-sided-tape",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two double-sided thin film adhesive tape rolls with white release liner, a small peeled liner edge. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "stationery-tape",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Three small narrow transparent stationery adhesive tape rolls, unprinted cores. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "cardboard-cores",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Three empty kraft cardboard winding cores of varied lengths, plain unprinted cylinders. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "jumbo-core",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One large heavy-wall empty kraft cardboard cylindrical winding core. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "box-brown",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One plain natural kraft brown corrugated cardboard shipping carton, open top flaps revealing empty interior, absolutely unprinted. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "box-red",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One plain red cardboard shipping carton, open top flaps revealing empty interior, absolutely unprinted. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "box-black",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One plain black cardboard shipping carton, open top flaps revealing empty interior, absolutely unprinted. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "box-orange",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One plain orange cardboard shipping carton, open top flaps revealing empty interior, absolutely unprinted. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "box-blue",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One plain blue cardboard shipping carton, open top flaps revealing empty interior, absolutely unprinted. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "cardboard-edge",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: A neat bundle of natural kraft laminated cardboard L-shaped edge protectors, several lengths showing right-angle cross section. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "cardboard-sheet",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Neat stack of flat kraft corrugated cardboard sheets, close view of corrugated edges. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "foam-edge",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Three blue polyethylene foam L-shaped corner protection profiles, soft foam surface and L cross-section clearly visible. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "bubble-wrap",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One transparent bubble wrap roll with short unrolled sheet, clearly defined round air bubbles, cardboard core. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "eps-sheets",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: A neat stack of white expanded polystyrene protective foam rectangular sheets, fine bead texture visible. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "strap-white",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One coil of flat white plastic packaging strapping, on plain cardboard core, short loose end. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "pallet",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One plain unmarked wooden warehouse pallet seen in three-quarter view. No certification marks. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "strap-black",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One coil of flat black plastic packaging strapping, on plain cardboard core, short loose end. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "strap-blue",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One coil of flat blue plastic packaging strapping, on plain cardboard core, short loose end. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "strap-steel",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One coil of dark steel packaging strapping with subtle metallic sheen, safely secured, short flat strip visible. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "strap-buckles",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Small orderly group of galvanized wire strapping buckles with correct bent rectangular wire loops. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "strap-green",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One coil of green polyester PET packaging strapping, on plain cardboard core, short loose end. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "strap-composite",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One coil of white composite cord strapping, visible longitudinal polyester fibers, short loose end. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "strap-tensioner",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One generic manual strapping tensioner tool, black steel body and black hand levers, no branding. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "strap-trolley",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One generic black metal strapping dispenser trolley with two wheels, central circular reel holder and small tray, empty. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "stretch-machine",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One generic industrial pallet stretch wrapping machine, black circular turntable, tall grey mast and yellow carriage. No pallet. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "tape-machine",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One generic compact industrial carton taping machine, grey metal frame, black conveyor rollers, yellow guards. Conceptual equipment illustration, no model identifiers. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "tape-slitter",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One generic industrial adhesive tape slitting rewinding machine, steel rollers and shafts, grey frame, yellow safety guards. No specific manufacturer or model. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "plastic-bags",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: A small orderly stack of plain transparent polyethylene packaging bags with one bag slightly open. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "shopping-bags",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two plain white plastic shopping carrier bags with loop handles, one upright one folded, no print. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "garbage-bags",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One roll of black garbage bags and one partly opened black refuse bag. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "paper-bags",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Two plain natural kraft paper carrier bags with twisted paper handles, no printing. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "office-furniture",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One contemporary office desk with white top and black frame, paired with a black mesh swivel chair. Category illustration, no room setting. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "warehouse-supplies",
+      "status": "failed",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One generic yellow manual pallet jack and a black metal warehouse shelf with two plain brown boxes. Category illustration. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "used-machinery",
+      "status": "failed",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One generic used industrial metal lathe, grey body with restrained yellow guards, mild realistic wear, no labels, no brand or model. Illustrative used machinery export category, not a specific machine for sale. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "pe-foam",
+      "status": "failed",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: One white polyethylene protective foam roll with short smooth unrolled sheet. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    },
+    {
+      "asset_id": "office-supplies",
+      "status": "complete",
+      "prompt": "Create ONE square professional photorealistic B2B ecommerce catalog product photo. SUBJECT: Neat small arrangement of generic office supplies: black stapler, black pen, yellow pencil without writing, white blank notebook, paper clips. Category illustration. Consistent PORTSAID catalog art direction: seamless pure white studio floor and background, soft neutral studio lighting, subtle natural grey contact shadow, three-quarter view, centered entire object filling 70-78% of frame with ample whitespace, crisp realistic materials. Preserve actual product color. Absolutely NO text, lettering, numbers, logos, labels, watermark, captions, borders, collage or people. One standalone finished product image."
+    }
+  ]
+}
