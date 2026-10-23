@@ -1,0 +1,4156 @@
+{
+  "site": "https://portsaid.com.tr",
+  "source_file": "2026_09_10_Fiyat listesi.xlsx",
+  "source_sha256": "ea80183dff254f7473e91bb6f80658d0d1e287376be74bfb3ab41cfd64173f8a",
+  "product_count": 72,
+  "source_workbook_modified": false,
+  "locales": [
+    "tr",
+    "en",
+    "bg",
+    "ar"
+  ],
+  "price_data_included": false,
+  "implementation_rules": [
+    "Use only this workbook-derived package for these 72 furniture products; do not substitute generated images from the previous packaging-product proposal.",
+    "Workbook price column E, bank information and logo are intentionally excluded. Do not derive or publish a price. Do not enable zero-price checkout.",
+    "Match images using the exact supplied product reference; do not pair by similar product titles. Image anchors for four entries start in the preceding row but physically occupy the correct row.",
+    "Correct the image-description conflicts explicitly listed, and preserve source_description_tr in a private migration audit. Do not infer material, coating, stock, dimensions or pack quantity from a photograph.",
+    "Dimensions without an explicit unit remain raw source notation; do not silently assume cm. First/second axis order is not confirmed.",
+    "Images with multiple views/colours show supplier catalogue alternatives, not necessarily a bundle. Props, decor, plants and other room furniture are not included unless confirmed.",
+    "Reuse suitable current website categories, especially office furniture; do not put garden furniture, mirrors or decorative clocks into packaging categories.",
+    "Reconcile existing site products before creating records, to prevent duplicates. import_reference is a package key, not a supplier SKU. Preserve existing prices and inventory privately if matching existing products; hide price in this requested display scope.",
+    "Upload images to website asset storage and replace local paths with public asset URLs. Use object-fit:contain, preserve aspect ratio and full frame. Do not upscale low-resolution originals or claim HD detail.",
+    "Use these four-locale titles and source-backed specifications. Leave absent specifications blank or omit them publicly. For multiple generic titles, the 001-072 suffix is only a catalogue reference, not an official model.",
+    "Create the records and preview in draft state with prices hidden; no availability or guaranteed delivery claim before supplier confirmation.",
+    "Back up before modifying a project; validate all 72 image links, four locale titles, mobile layout and Arabic RTL. Report before/after matches and unresolved source conflicts."
+  ],
+  "products": [
+    {
+      "import_reference": "furniture-001",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 10,
+        "product_number": 1,
+        "description_cell": "D10",
+        "dimension_cell": null,
+        "image_anchor_row": 10,
+        "image_index": 70
+      },
+      "source_description_tr": "Askılık",
+      "titles": {
+        "tr": "Ayaklı Askılık — 001",
+        "en": "Freestanding Coat Rack — 001",
+        "bg": "Стояща закачалка за дрехи — 001",
+        "ar": "شماعة ملابس أرضية — 001"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Ayaklı Askılık",
+          "en": "Freestanding Coat Rack",
+          "bg": "Стояща закачалка за дрехи",
+          "ar": "شماعة ملابس أرضية"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-001.webp",
+        "original_path": "original-images/furniture-001.png",
+        "width": 143,
+        "height": 441,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Ayaklı Askılık — 001",
+          "en": "Freestanding Coat Rack — 001",
+          "bg": "Стояща закачалка за дрехи — 001",
+          "ar": "شماعة ملابس أرضية — 001"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-002",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 11,
+        "product_number": 2,
+        "description_cell": "D11",
+        "dimension_cell": null,
+        "image_anchor_row": 11,
+        "image_index": 1
+      },
+      "source_description_tr": "Askılık",
+      "titles": {
+        "tr": "Ayaklı Askılık — 002",
+        "en": "Freestanding Coat Rack — 002",
+        "bg": "Стояща закачалка за дрехи — 002",
+        "ar": "شماعة ملابس أرضية — 002"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Ayaklı Askılık",
+          "en": "Freestanding Coat Rack",
+          "bg": "Стояща закачалка за дрехи",
+          "ar": "شماعة ملابس أرضية"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-002.webp",
+        "original_path": "original-images/furniture-002.png",
+        "width": 145,
+        "height": 431,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Ayaklı Askılık — 002",
+          "en": "Freestanding Coat Rack — 002",
+          "bg": "Стояща закачалка за дрехи — 002",
+          "ar": "شماعة ملابس أرضية — 002"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-003",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 12,
+        "product_number": 3,
+        "description_cell": "D12",
+        "dimension_cell": "C12",
+        "image_anchor_row": 12,
+        "image_index": 2
+      },
+      "source_description_tr": "Çift tepeli dilsiz uşak",
+      "titles": {
+        "tr": "Çift Tepeli Dilsiz Uşak — 50 × 130 × 35",
+        "en": "Double-Hanger Valet Stand — 50 × 130 × 35",
+        "bg": "Стойка за костюм с двойна закачалка — 50 × 130 × 35",
+        "ar": "حامل بدلات بشماعتين علويتين — 50 × 130 × 35"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Çift Tepeli Dilsiz Uşak",
+          "en": "Double-Hanger Valet Stand",
+          "bg": "Стойка за костюм с двойна закачалка",
+          "ar": "حامل بدلات بشماعتين علويتين"
+        },
+        "dimensions_as_written": "50*130*35",
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-003.webp",
+        "original_path": "original-images/furniture-003.png",
+        "width": 168,
+        "height": 428,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Çift Tepeli Dilsiz Uşak — 50 × 130 × 35",
+          "en": "Double-Hanger Valet Stand — 50 × 130 × 35",
+          "bg": "Стойка за костюм с двойна закачалка — 50 × 130 × 35",
+          "ar": "حامل بدلات بشماعتين علويتين — 50 × 130 × 35"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-004",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 13,
+        "product_number": 4,
+        "description_cell": "D13",
+        "dimension_cell": "C13",
+        "image_anchor_row": 13,
+        "image_index": 7
+      },
+      "source_description_tr": "Çiftli dilsiz uşak",
+      "titles": {
+        "tr": "Çiftli Dilsiz Uşak — 50 × 130 × 35",
+        "en": "Double Valet Stand — 50 × 130 × 35",
+        "bg": "Двойна стойка за костюм — 50 × 130 × 35",
+        "ar": "حامل بدلات مزدوج — 50 × 130 × 35"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Çiftli Dilsiz Uşak",
+          "en": "Double Valet Stand",
+          "bg": "Двойна стойка за костюм",
+          "ar": "حامل بدلات مزدوج"
+        },
+        "dimensions_as_written": "50*130*35",
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-004.webp",
+        "original_path": "original-images/furniture-004.png",
+        "width": 174,
+        "height": 429,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Çiftli Dilsiz Uşak — 50 × 130 × 35",
+          "en": "Double Valet Stand — 50 × 130 × 35",
+          "bg": "Двойна стойка за костюм — 50 × 130 × 35",
+          "ar": "حامل بدلات مزدوج — 50 × 130 × 35"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-005",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 14,
+        "product_number": 5,
+        "description_cell": "D14",
+        "dimension_cell": "C14",
+        "image_anchor_row": 14,
+        "image_index": 8
+      },
+      "source_description_tr": "Tekli dilsiz uşak",
+      "titles": {
+        "tr": "Tekli Dilsiz Uşak — 50 × 130 × 35",
+        "en": "Single Valet Stand — 50 × 130 × 35",
+        "bg": "Единична стойка за костюм — 50 × 130 × 35",
+        "ar": "حامل بدلات مفرد — 50 × 130 × 35"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Tekli Dilsiz Uşak",
+          "en": "Single Valet Stand",
+          "bg": "Единична стойка за костюм",
+          "ar": "حامل بدلات مفرد"
+        },
+        "dimensions_as_written": "50*130*35",
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-005.webp",
+        "original_path": "original-images/furniture-005.png",
+        "width": 172,
+        "height": 429,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Tekli Dilsiz Uşak — 50 × 130 × 35",
+          "en": "Single Valet Stand — 50 × 130 × 35",
+          "bg": "Единична стойка за костюм — 50 × 130 × 35",
+          "ar": "حامل بدلات مفرد — 50 × 130 × 35"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-006",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 15,
+        "product_number": 6,
+        "description_cell": "D15",
+        "dimension_cell": "C15",
+        "image_anchor_row": 15,
+        "image_index": 9
+      },
+      "source_description_tr": "Demonte dilsiz uşak",
+      "titles": {
+        "tr": "Demonte Dilsiz Uşak — 51 × 116 × 29",
+        "en": "Flat-Pack Valet Stand — 51 × 116 × 29",
+        "bg": "Разглобяема стойка за костюм — 51 × 116 × 29",
+        "ar": "حامل بدلات قابل للفك — 51 × 116 × 29"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Demonte Dilsiz Uşak",
+          "en": "Flat-Pack Valet Stand",
+          "bg": "Разглобяема стойка за костюм",
+          "ar": "حامل بدلات قابل للفك"
+        },
+        "dimensions_as_written": "51*116*29",
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-006.webp",
+        "original_path": "original-images/furniture-006.png",
+        "width": 195,
+        "height": 429,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Demonte Dilsiz Uşak — 51 × 116 × 29",
+          "en": "Flat-Pack Valet Stand — 51 × 116 × 29",
+          "bg": "Разглобяема стойка за костюм — 51 × 116 × 29",
+          "ar": "حامل بدلات قابل للفك — 51 × 116 × 29"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-007",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 16,
+        "product_number": 7,
+        "description_cell": "D16",
+        "dimension_cell": "C16",
+        "image_anchor_row": 16,
+        "image_index": 3
+      },
+      "source_description_tr": "Askılık",
+      "titles": {
+        "tr": "Ayaklı Askılık — 178 cm",
+        "en": "Freestanding Coat Rack — 178 cm",
+        "bg": "Стояща закачалка за дрехи — 178 cm",
+        "ar": "شماعة ملابس أرضية — 178 cm"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Ayaklı Askılık",
+          "en": "Freestanding Coat Rack",
+          "bg": "Стояща закачалка за дрехи",
+          "ar": "شماعة ملابس أرضية"
+        },
+        "dimensions_as_written": "178 cm",
+        "dimension_unit": "cm",
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-007.webp",
+        "original_path": "original-images/furniture-007.png",
+        "width": 296,
+        "height": 377,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Ayaklı Askılık — 178 cm",
+          "en": "Freestanding Coat Rack — 178 cm",
+          "bg": "Стояща закачалка за дрехи — 178 cm",
+          "ar": "شماعة ملابس أرضية — 178 cm"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-008",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 17,
+        "product_number": 8,
+        "description_cell": "D17",
+        "dimension_cell": null,
+        "image_anchor_row": 17,
+        "image_index": 4
+      },
+      "source_description_tr": "AMORTİSÖR KROM",
+      "titles": {
+        "tr": "Krom Koltuk Amortisörü — 008",
+        "en": "Chrome Office Chair Gas Lift — 008",
+        "bg": "Хромиран газов амортисьор за офис стол — 008",
+        "ar": "أسطوانة رفع لكرسي مكتب بطلاء كروم — 008"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Krom Koltuk Amortisörü",
+          "en": "Chrome Office Chair Gas Lift",
+          "bg": "Хромиран газов амортисьор за офис стол",
+          "ar": "أسطوانة رفع لكرسي مكتب بطلاء كروم"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "finish_as_written": "chrome"
+      },
+      "image": {
+        "path": "images/furniture-008.webp",
+        "original_path": "original-images/furniture-008.png",
+        "width": 113,
+        "height": 271,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Krom Koltuk Amortisörü — 008",
+          "en": "Chrome Office Chair Gas Lift — 008",
+          "bg": "Хромиран газов амортисьор за офис стол — 008",
+          "ar": "أسطوانة رفع لكرسي مكتب بطلاء كروم — 008"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "chair compatibility and sale quantity; multiple views do not establish pack count"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-009",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 18,
+        "product_number": 9,
+        "description_cell": "D18",
+        "dimension_cell": null,
+        "image_anchor_row": 18,
+        "image_index": 10
+      },
+      "source_description_tr": "AMORTİSÖR SİYAH",
+      "titles": {
+        "tr": "Siyah Koltuk Amortisörü — 009",
+        "en": "Black Office Chair Gas Lift — 009",
+        "bg": "Черен газов амортисьор за офис стол — 009",
+        "ar": "أسطوانة رفع سوداء لكرسي مكتب — 009"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Siyah Koltuk Amortisörü",
+          "en": "Black Office Chair Gas Lift",
+          "bg": "Черен газов амортисьор за офис стол",
+          "ar": "أسطوانة رفع سوداء لكرسي مكتب"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "finish_as_written": "black"
+      },
+      "image": {
+        "path": "images/furniture-009.webp",
+        "original_path": "original-images/furniture-009.png",
+        "width": 113,
+        "height": 271,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Siyah Koltuk Amortisörü — 009",
+          "en": "Black Office Chair Gas Lift — 009",
+          "bg": "Черен газов амортисьор за офис стол — 009",
+          "ar": "أسطوانة رفع سوداء لكرسي مكتب — 009"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "chair compatibility and sale quantity; multiple views do not establish pack count"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-010",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 19,
+        "product_number": 10,
+        "description_cell": "D19",
+        "dimension_cell": null,
+        "image_anchor_row": 19,
+        "image_index": 5
+      },
+      "source_description_tr": "AYARLI KOL TAKIM",
+      "titles": {
+        "tr": "Ayarlı Kol Takımı — 010",
+        "en": "Adjustable Chair Armrest Set — 010",
+        "bg": "Комплект регулируеми подлакътници за стол — 010",
+        "ar": "طقم مساند ذراع قابلة للتعديل للكرسي — 010"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Ayarlı Kol Takımı",
+          "en": "Adjustable Chair Armrest Set",
+          "bg": "Комплект регулируеми подлакътници за стол",
+          "ar": "طقم مساند ذراع قابلة للتعديل للكرسي"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-010.webp",
+        "original_path": "original-images/furniture-010.png",
+        "width": 244,
+        "height": 236,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Ayarlı Kol Takımı — 010",
+          "en": "Adjustable Chair Armrest Set — 010",
+          "bg": "Комплект регулируеми подлакътници за стол — 010",
+          "ar": "طقم مساند ذراع قابلة للتعديل للكرسي — 010"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "chair compatibility and sale quantity; multiple views do not establish pack count"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-011",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 20,
+        "product_number": 11,
+        "description_cell": "D20",
+        "dimension_cell": null,
+        "image_anchor_row": 20,
+        "image_index": 6
+      },
+      "source_description_tr": "SİLİKON TEKERLEK",
+      "titles": {
+        "tr": "Silikon Tekerlek — 011",
+        "en": "Silicone Chair Caster — 011",
+        "bg": "Силиконово колелце за стол — 011",
+        "ar": "عجلة سيليكون للكرسي — 011"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Silikon Tekerlek",
+          "en": "Silicone Chair Caster",
+          "bg": "Силиконово колелце за стол",
+          "ar": "عجلة سيليكون للكرسي"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "material_as_written": "silicone (supplier wording; composition not independently verified)"
+      },
+      "image": {
+        "path": "images/furniture-011.webp",
+        "original_path": "original-images/furniture-011.png",
+        "width": 373,
+        "height": 150,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Silikon Tekerlek — 011",
+          "en": "Silicone Chair Caster — 011",
+          "bg": "Силиконово колелце за стол — 011",
+          "ar": "عجلة سيليكون للكرسي — 011"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "chair compatibility and sale quantity; multiple views do not establish pack count"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-012",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 21,
+        "product_number": 12,
+        "description_cell": "D21",
+        "dimension_cell": null,
+        "image_anchor_row": 21,
+        "image_index": 11
+      },
+      "source_description_tr": "ÇİFT KOLLU MÜDÜR MEKANİZMA",
+      "titles": {
+        "tr": "Çift Kollu Müdür Koltuğu Mekanizması — 012",
+        "en": "Two-Lever Executive Chair Mechanism — 012",
+        "bg": "Механизъм с два лоста за директорски стол — 012",
+        "ar": "آلية كرسي مدير بذراعَي تحكم — 012"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Çift Kollu Müdür Koltuğu Mekanizması",
+          "en": "Two-Lever Executive Chair Mechanism",
+          "bg": "Механизъм с два лоста за директорски стол",
+          "ar": "آلية كرسي مدير بذراعَي تحكم"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-012.webp",
+        "original_path": "original-images/furniture-012.png",
+        "width": 411,
+        "height": 226,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Çift Kollu Müdür Koltuğu Mekanizması — 012",
+          "en": "Two-Lever Executive Chair Mechanism — 012",
+          "bg": "Механизъм с два лоста за директорски стол — 012",
+          "ar": "آلية كرسي مدير بذراعَي تحكم — 012"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "chair compatibility and sale quantity; multiple views do not establish pack count"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-013",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 22,
+        "product_number": 13,
+        "description_cell": "D22",
+        "dimension_cell": null,
+        "image_anchor_row": 22,
+        "image_index": 12
+      },
+      "source_description_tr": "ÇİFT KOLLU KUYRUKLU MEKANİZMA",
+      "titles": {
+        "tr": "Çift Kollu Kuyruklu Koltuk Mekanizması — 013",
+        "en": "Two-Lever Chair Mechanism with Rear Extension — 013",
+        "bg": "Механизъм за стол с два лоста и задно удължение — 013",
+        "ar": "آلية كرسي بذراعَي تحكم وامتداد خلفي — 013"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Çift Kollu Kuyruklu Koltuk Mekanizması",
+          "en": "Two-Lever Chair Mechanism with Rear Extension",
+          "bg": "Механизъм за стол с два лоста и задно удължение",
+          "ar": "آلية كرسي بذراعَي تحكم وامتداد خلفي"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-013.webp",
+        "original_path": "original-images/furniture-013.png",
+        "width": 411,
+        "height": 226,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Çift Kollu Kuyruklu Koltuk Mekanizması — 013",
+          "en": "Two-Lever Chair Mechanism with Rear Extension — 013",
+          "bg": "Механизъм за стол с два лоста и задно удължение — 013",
+          "ar": "آلية كرسي بذراعَي تحكم وامتداد خلفي — 013"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "chair compatibility and sale quantity; multiple views do not establish pack count"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-014",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 23,
+        "product_number": 14,
+        "description_cell": "D23",
+        "dimension_cell": null,
+        "image_anchor_row": 23,
+        "image_index": 13
+      },
+      "source_description_tr": "KONİK YILDIZ KROM (TEKERLEKSİZ)",
+      "titles": {
+        "tr": "Konik Yıldız Krom Ayak — Tekerleksiz — 014",
+        "en": "Chrome Five-Star Chair Base — Without Casters — 014",
+        "bg": "Хромирана петлъчева основа за стол — без колелца — 014",
+        "ar": "قاعدة كرسي خماسية مخروطية بطلاء كروم — دون عجلات — 014"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Konik Yıldız Krom Ayak — Tekerleksiz",
+          "en": "Chrome Five-Star Chair Base — Without Casters",
+          "bg": "Хромирана петлъчева основа за стол — без колелца",
+          "ar": "قاعدة كرسي خماسية مخروطية بطلاء كروم — دون عجلات"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "casters_included": false
+      },
+      "image": {
+        "path": "images/furniture-014.webp",
+        "original_path": "original-images/furniture-014.png",
+        "width": 317,
+        "height": 212,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Konik Yıldız Krom Ayak — Tekerleksiz — 014",
+          "en": "Chrome Five-Star Chair Base — Without Casters — 014",
+          "bg": "Хромирана петлъчева основа за стол — без колелца — 014",
+          "ar": "قاعدة كرسي خماسية مخروطية بطلاء كروم — دون عجلات — 014"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "chair compatibility and sale quantity; multiple views do not establish pack count"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-015",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 24,
+        "product_number": 15,
+        "description_cell": "D24",
+        "dimension_cell": "C24",
+        "image_anchor_row": 24,
+        "image_index": 14
+      },
+      "source_description_tr": "Toplantı masası",
+      "titles": {
+        "tr": "Toplantı Masası — 120 × 75 cm",
+        "en": "Meeting Table — 120 × 75 cm",
+        "bg": "Маса за срещи — 120 × 75 cm",
+        "ar": "طاولة اجتماعات — 120 × 75 cm"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Toplantı Masası",
+          "en": "Meeting Table",
+          "bg": "Маса за срещи",
+          "ar": "طاولة اجتماعات"
+        },
+        "dimensions_as_written": "120*75 cm",
+        "dimension_unit": "cm",
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-015.webp",
+        "original_path": "original-images/furniture-015.jpeg",
+        "width": 805,
+        "height": 507,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Toplantı Masası — 120 × 75 cm",
+          "en": "Meeting Table — 120 × 75 cm",
+          "bg": "Маса за срещи — 120 × 75 cm",
+          "ar": "طاولة اجتماعات — 120 × 75 cm"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-016",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 25,
+        "product_number": 16,
+        "description_cell": "D25",
+        "dimension_cell": "C25",
+        "image_anchor_row": 25,
+        "image_index": 15
+      },
+      "source_description_tr": "Toplantı masası",
+      "titles": {
+        "tr": "Toplantı Masası — 140 × 75 cm",
+        "en": "Meeting Table — 140 × 75 cm",
+        "bg": "Маса за срещи — 140 × 75 cm",
+        "ar": "طاولة اجتماعات — 140 × 75 cm"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Toplantı Masası",
+          "en": "Meeting Table",
+          "bg": "Маса за срещи",
+          "ar": "طاولة اجتماعات"
+        },
+        "dimensions_as_written": "140*75 cm",
+        "dimension_unit": "cm",
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-016.webp",
+        "original_path": "original-images/furniture-016.jpeg",
+        "width": 805,
+        "height": 507,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Toplantı Masası — 140 × 75 cm",
+          "en": "Meeting Table — 140 × 75 cm",
+          "bg": "Маса за срещи — 140 × 75 cm",
+          "ar": "طاولة اجتماعات — 140 × 75 cm"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-017",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 26,
+        "product_number": 17,
+        "description_cell": "D26",
+        "dimension_cell": "C26",
+        "image_anchor_row": 26,
+        "image_index": 16
+      },
+      "source_description_tr": "YARIM KAPAKLI DOLAP",
+      "titles": {
+        "tr": "Yarım Kapaklı Dolap — 75 × 36 × 190h",
+        "en": "Cabinet with Lower Doors and Open Upper Shelves — 75 × 36 × 190h",
+        "bg": "Шкаф с долни врати и открити горни рафтове — 75 × 36 × 190h",
+        "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة — 75 × 36 × 190h"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Yarım Kapaklı Dolap",
+          "en": "Cabinet with Lower Doors and Open Upper Shelves",
+          "bg": "Шкаф с долни врати и открити горни рафтове",
+          "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة"
+        },
+        "dimensions_as_written": "75*36*190h",
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "source_notation_note": "h denotes height; unit and first two axis meanings are not explicitly given."
+      },
+      "image": {
+        "path": "images/furniture-017.webp",
+        "original_path": "original-images/furniture-017.jpeg",
+        "width": 263,
+        "height": 514,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Yarım Kapaklı Dolap — 75 × 36 × 190h",
+          "en": "Cabinet with Lower Doors and Open Upper Shelves — 75 × 36 × 190h",
+          "bg": "Шкаф с долни врати и открити горни рафтове — 75 × 36 × 190h",
+          "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة — 75 × 36 × 190h"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-018",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 27,
+        "product_number": 18,
+        "description_cell": "D27",
+        "dimension_cell": "C27",
+        "image_anchor_row": 27,
+        "image_index": 17
+      },
+      "source_description_tr": "YARIM KAPAKLI DOLAP",
+      "titles": {
+        "tr": "Yarım Kapaklı Dolap — 75 × 36 × 154h",
+        "en": "Cabinet with Lower Doors and Open Upper Shelves — 75 × 36 × 154h",
+        "bg": "Шкаф с долни врати и открити горни рафтове — 75 × 36 × 154h",
+        "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة — 75 × 36 × 154h"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Yarım Kapaklı Dolap",
+          "en": "Cabinet with Lower Doors and Open Upper Shelves",
+          "bg": "Шкаф с долни врати и открити горни рафтове",
+          "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة"
+        },
+        "dimensions_as_written": "75*36*154h",
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "source_notation_note": "h denotes height; unit and first two axis meanings are not explicitly given."
+      },
+      "image": {
+        "path": "images/furniture-018.webp",
+        "original_path": "original-images/furniture-018.jpeg",
+        "width": 346,
+        "height": 639,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Yarım Kapaklı Dolap — 75 × 36 × 154h",
+          "en": "Cabinet with Lower Doors and Open Upper Shelves — 75 × 36 × 154h",
+          "bg": "Шкаф с долни врати и открити горни рафтове — 75 × 36 × 154h",
+          "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة — 75 × 36 × 154h"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-019",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 28,
+        "product_number": 19,
+        "description_cell": "D28",
+        "dimension_cell": "C28",
+        "image_anchor_row": 28,
+        "image_index": 18
+      },
+      "source_description_tr": "YARIM KAPAKLI DOLAP",
+      "titles": {
+        "tr": "Yarım Kapaklı Dolap — 38 × 36 × 154h",
+        "en": "Cabinet with Lower Doors and Open Upper Shelves — 38 × 36 × 154h",
+        "bg": "Шкаф с долни врати и открити горни рафтове — 38 × 36 × 154h",
+        "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة — 38 × 36 × 154h"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Yarım Kapaklı Dolap",
+          "en": "Cabinet with Lower Doors and Open Upper Shelves",
+          "bg": "Шкаф с долни врати и открити горни рафтове",
+          "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة"
+        },
+        "dimensions_as_written": "38*36*154h",
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "source_notation_note": "h denotes height; unit and first two axis meanings are not explicitly given."
+      },
+      "image": {
+        "path": "images/furniture-019.webp",
+        "original_path": "original-images/furniture-019.jpeg",
+        "width": 263,
+        "height": 739,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Yarım Kapaklı Dolap — 38 × 36 × 154h",
+          "en": "Cabinet with Lower Doors and Open Upper Shelves — 38 × 36 × 154h",
+          "bg": "Шкаф с долни врати и открити горни рафтове — 38 × 36 × 154h",
+          "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة — 38 × 36 × 154h"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-020",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 29,
+        "product_number": 20,
+        "description_cell": "D29",
+        "dimension_cell": "C29",
+        "image_anchor_row": 29,
+        "image_index": 19
+      },
+      "source_description_tr": "YARIM KAPAKLI DOLAP",
+      "titles": {
+        "tr": "Yarım Kapaklı Dolap — 75 × 36 × 119h",
+        "en": "Cabinet with Lower Doors and Open Upper Shelves — 75 × 36 × 119h",
+        "bg": "Шкаф с долни врати и открити горни рафтове — 75 × 36 × 119h",
+        "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة — 75 × 36 × 119h"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Yarım Kapaklı Dolap",
+          "en": "Cabinet with Lower Doors and Open Upper Shelves",
+          "bg": "Шкаф с долни врати и открити горни рафтове",
+          "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة"
+        },
+        "dimensions_as_written": "75*36*119h",
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "source_notation_note": "h denotes height; unit and first two axis meanings are not explicitly given."
+      },
+      "image": {
+        "path": "images/furniture-020.webp",
+        "original_path": "original-images/furniture-020.jpeg",
+        "width": 263,
+        "height": 423,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Yarım Kapaklı Dolap — 75 × 36 × 119h",
+          "en": "Cabinet with Lower Doors and Open Upper Shelves — 75 × 36 × 119h",
+          "bg": "Шкаф с долни врати и открити горни рафтове — 75 × 36 × 119h",
+          "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة — 75 × 36 × 119h"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-021",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 30,
+        "product_number": 21,
+        "description_cell": "D30",
+        "dimension_cell": "C30",
+        "image_anchor_row": 30,
+        "image_index": 20
+      },
+      "source_description_tr": "YARIM KAPAKLI DOLAP",
+      "titles": {
+        "tr": "Yarım Kapaklı Dolap — 38 × 36 × 119h",
+        "en": "Cabinet with Lower Doors and Open Upper Shelves — 38 × 36 × 119h",
+        "bg": "Шкаф с долни врати и открити горни рафтове — 38 × 36 × 119h",
+        "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة — 38 × 36 × 119h"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Yarım Kapaklı Dolap",
+          "en": "Cabinet with Lower Doors and Open Upper Shelves",
+          "bg": "Шкаф с долни врати и открити горни рафтове",
+          "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة"
+        },
+        "dimensions_as_written": "38*36*119h",
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "source_notation_note": "h denotes height; unit and first two axis meanings are not explicitly given."
+      },
+      "image": {
+        "path": "images/furniture-021.webp",
+        "original_path": "original-images/furniture-021.jpeg",
+        "width": 263,
+        "height": 615,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Yarım Kapaklı Dolap — 38 × 36 × 119h",
+          "en": "Cabinet with Lower Doors and Open Upper Shelves — 38 × 36 × 119h",
+          "bg": "Шкаф с долни врати и открити горни рафтове — 38 × 36 × 119h",
+          "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة — 38 × 36 × 119h"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-022",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 31,
+        "product_number": 22,
+        "description_cell": "D31",
+        "dimension_cell": "C31",
+        "image_anchor_row": 31,
+        "image_index": 21
+      },
+      "source_description_tr": "YARIM KAPAKLI DOLAP",
+      "titles": {
+        "tr": "Kapaklı Dolap — 38 × 36 × 81h",
+        "en": "Closed Storage Cabinet — 38 × 36 × 81h",
+        "bg": "Шкаф с врати — 38 × 36 × 81h",
+        "ar": "خزانة تخزين بأبواب — 38 × 36 × 81h"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Kapaklı Dolap",
+          "en": "Closed Storage Cabinet",
+          "bg": "Шкаф с врати",
+          "ar": "خزانة تخزين بأبواب"
+        },
+        "dimensions_as_written": "38*36*81h",
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "source_notation_note": "h denotes height; unit and first two axis meanings are not explicitly given."
+      },
+      "image": {
+        "path": "images/furniture-022.webp",
+        "original_path": "original-images/furniture-022.jpeg",
+        "width": 263,
+        "height": 483,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Kapaklı Dolap — 38 × 36 × 81h",
+          "en": "Closed Storage Cabinet — 38 × 36 × 81h",
+          "bg": "Шкаф с врати — 38 × 36 × 81h",
+          "ar": "خزانة تخزين بأبواب — 38 × 36 × 81h"
+        }
+      },
+      "image_description_conflict": "Source says half-door cabinet, but photo shows a closed cabinet without open upper shelves.",
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-023",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 32,
+        "product_number": 23,
+        "description_cell": "D32",
+        "dimension_cell": "C32",
+        "image_anchor_row": 32,
+        "image_index": 22
+      },
+      "source_description_tr": "YARIM KAPAKLI DOLAP",
+      "titles": {
+        "tr": "Yarım Kapaklı Dolap — 38 × 36 × 190h",
+        "en": "Cabinet with Lower Doors and Open Upper Shelves — 38 × 36 × 190h",
+        "bg": "Шкаф с долни врати и открити горни рафтове — 38 × 36 × 190h",
+        "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة — 38 × 36 × 190h"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Yarım Kapaklı Dolap",
+          "en": "Cabinet with Lower Doors and Open Upper Shelves",
+          "bg": "Шкаф с долни врати и открити горни рафтове",
+          "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة"
+        },
+        "dimensions_as_written": "38*36*190h",
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "source_notation_note": "h denotes height; unit and first two axis meanings are not explicitly given."
+      },
+      "image": {
+        "path": "images/furniture-023.webp",
+        "original_path": "original-images/furniture-023.jpeg",
+        "width": 263,
+        "height": 731,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Yarım Kapaklı Dolap — 38 × 36 × 190h",
+          "en": "Cabinet with Lower Doors and Open Upper Shelves — 38 × 36 × 190h",
+          "bg": "Шкаф с долни врати и открити горни рафтове — 38 × 36 × 190h",
+          "ar": "خزانة بأبواب سفلية ورفوف علوية مفتوحة — 38 × 36 × 190h"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-024",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 33,
+        "product_number": 24,
+        "description_cell": "D33",
+        "dimension_cell": "C33",
+        "image_anchor_row": 33,
+        "image_index": 23
+      },
+      "source_description_tr": "KAPAKSIZ DOLAP",
+      "titles": {
+        "tr": "Kapaksız Dolap — 75 × 36 × 190h",
+        "en": "Open Shelving Cabinet — 75 × 36 × 190h",
+        "bg": "Отворен шкаф с рафтове — 75 × 36 × 190h",
+        "ar": "خزانة رفوف مفتوحة — 75 × 36 × 190h"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Kapaksız Dolap",
+          "en": "Open Shelving Cabinet",
+          "bg": "Отворен шкаф с рафтове",
+          "ar": "خزانة رفوف مفتوحة"
+        },
+        "dimensions_as_written": "75*36*190h",
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "source_notation_note": "h denotes height; unit and first two axis meanings are not explicitly given."
+      },
+      "image": {
+        "path": "images/furniture-024.webp",
+        "original_path": "original-images/furniture-024.jpeg",
+        "width": 247,
+        "height": 440,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Kapaksız Dolap — 75 × 36 × 190h",
+          "en": "Open Shelving Cabinet — 75 × 36 × 190h",
+          "bg": "Отворен шкаф с рафтове — 75 × 36 × 190h",
+          "ar": "خزانة رفوف مفتوحة — 75 × 36 × 190h"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-025",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 34,
+        "product_number": 25,
+        "description_cell": "D34",
+        "dimension_cell": null,
+        "image_anchor_row": 34,
+        "image_index": 71
+      },
+      "source_description_tr": "BAHÇE TAKIMI",
+      "titles": {
+        "tr": "Bahçe Mobilyası Takımı — 025",
+        "en": "Garden Furniture Set — 025",
+        "bg": "Комплект градински мебели — 025",
+        "ar": "طقم أثاث حدائق — 025"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Bahçe Mobilyası Takımı",
+          "en": "Garden Furniture Set",
+          "bg": "Комплект градински мебели",
+          "ar": "طقم أثاث حدائق"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-025.webp",
+        "original_path": "original-images/furniture-025.png",
+        "width": 416,
+        "height": 296,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Bahçe Mobilyası Takımı — 025",
+          "en": "Garden Furniture Set — 025",
+          "bg": "Комплект градински мебели — 025",
+          "ar": "طقم أثاث حدائق — 025"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "exact number and identity of pieces included in sale"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-026",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 35,
+        "product_number": 26,
+        "description_cell": "D35",
+        "dimension_cell": null,
+        "image_anchor_row": 35,
+        "image_index": 72
+      },
+      "source_description_tr": "BAHÇE TAKIMI",
+      "titles": {
+        "tr": "Bahçe Mobilyası Takımı — 026",
+        "en": "Garden Furniture Set — 026",
+        "bg": "Комплект градински мебели — 026",
+        "ar": "طقم أثاث حدائق — 026"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Bahçe Mobilyası Takımı",
+          "en": "Garden Furniture Set",
+          "bg": "Комплект градински мебели",
+          "ar": "طقم أثاث حدائق"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-026.webp",
+        "original_path": "original-images/furniture-026.png",
+        "width": 427,
+        "height": 330,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Bahçe Mobilyası Takımı — 026",
+          "en": "Garden Furniture Set — 026",
+          "bg": "Комплект градински мебели — 026",
+          "ar": "طقم أثاث حدائق — 026"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "exact number and identity of pieces included in sale"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-027",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 36,
+        "product_number": 27,
+        "description_cell": "D36",
+        "dimension_cell": null,
+        "image_anchor_row": 36,
+        "image_index": 24
+      },
+      "source_description_tr": "BAHÇE TAKIMI",
+      "titles": {
+        "tr": "Bahçe Mobilyası Takımı — 027",
+        "en": "Garden Furniture Set — 027",
+        "bg": "Комплект градински мебели — 027",
+        "ar": "طقم أثاث حدائق — 027"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Bahçe Mobilyası Takımı",
+          "en": "Garden Furniture Set",
+          "bg": "Комплект градински мебели",
+          "ar": "طقم أثاث حدائق"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-027.webp",
+        "original_path": "original-images/furniture-027.png",
+        "width": 418,
+        "height": 307,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Bahçe Mobilyası Takımı — 027",
+          "en": "Garden Furniture Set — 027",
+          "bg": "Комплект градински мебели — 027",
+          "ar": "طقم أثاث حدائق — 027"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "exact number and identity of pieces included in sale"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-028",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 37,
+        "product_number": 28,
+        "description_cell": "D37",
+        "dimension_cell": null,
+        "image_anchor_row": 37,
+        "image_index": 73
+      },
+      "source_description_tr": "BAHÇE TAKIMI",
+      "titles": {
+        "tr": "Bahçe Mobilyası Takımı — 028",
+        "en": "Garden Furniture Set — 028",
+        "bg": "Комплект градински мебели — 028",
+        "ar": "طقم أثاث حدائق — 028"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Bahçe Mobilyası Takımı",
+          "en": "Garden Furniture Set",
+          "bg": "Комплект градински мебели",
+          "ar": "طقم أثاث حدائق"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-028.webp",
+        "original_path": "original-images/furniture-028.png",
+        "width": 563,
+        "height": 253,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Bahçe Mobilyası Takımı — 028",
+          "en": "Garden Furniture Set — 028",
+          "bg": "Комплект градински мебели — 028",
+          "ar": "طقم أثاث حدائق — 028"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "exact number and identity of pieces included in sale"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-029",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 38,
+        "product_number": 29,
+        "description_cell": "D38",
+        "dimension_cell": null,
+        "image_anchor_row": 38,
+        "image_index": 25
+      },
+      "source_description_tr": "AHŞAP SANDALYE",
+      "titles": {
+        "tr": "Ahşap Sandalye — 029",
+        "en": "Wooden Chair — 029",
+        "bg": "Дървен стол — 029",
+        "ar": "كرسي خشبي — 029"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Ahşap Sandalye",
+          "en": "Wooden Chair",
+          "bg": "Дървен стол",
+          "ar": "كرسي خشبي"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "frame_material_as_written": "wood"
+      },
+      "image": {
+        "path": "images/furniture-029.webp",
+        "original_path": "original-images/furniture-029.png",
+        "width": 357,
+        "height": 697,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Ahşap Sandalye — 029",
+          "en": "Wooden Chair — 029",
+          "bg": "Дървен стол — 029",
+          "ar": "كرسي خشبي — 029"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-030",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 39,
+        "product_number": 30,
+        "description_cell": "D39",
+        "dimension_cell": null,
+        "image_anchor_row": 39,
+        "image_index": 26
+      },
+      "source_description_tr": "AHŞAP SANDALYE",
+      "titles": {
+        "tr": "Ahşap Sandalye — 030",
+        "en": "Wooden Chair — 030",
+        "bg": "Дървен стол — 030",
+        "ar": "كرسي خشبي — 030"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Ahşap Sandalye",
+          "en": "Wooden Chair",
+          "bg": "Дървен стол",
+          "ar": "كرسي خشبي"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "frame_material_as_written": "wood"
+      },
+      "image": {
+        "path": "images/furniture-030.webp",
+        "original_path": "original-images/furniture-030.png",
+        "width": 225,
+        "height": 427,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Ahşap Sandalye — 030",
+          "en": "Wooden Chair — 030",
+          "bg": "Дървен стол — 030",
+          "ar": "كرسي خشبي — 030"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-031",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 40,
+        "product_number": 31,
+        "description_cell": "D40",
+        "dimension_cell": null,
+        "image_anchor_row": 40,
+        "image_index": 28
+      },
+      "source_description_tr": "AHŞAP SANDALYE",
+      "titles": {
+        "tr": "Ahşap Sandalye — 031",
+        "en": "Wooden Chair — 031",
+        "bg": "Дървен стол — 031",
+        "ar": "كرسي خشبي — 031"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Ahşap Sandalye",
+          "en": "Wooden Chair",
+          "bg": "Дървен стол",
+          "ar": "كرسي خشبي"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "frame_material_as_written": "wood"
+      },
+      "image": {
+        "path": "images/furniture-031.webp",
+        "original_path": "original-images/furniture-031.png",
+        "width": 236,
+        "height": 430,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Ahşap Sandalye — 031",
+          "en": "Wooden Chair — 031",
+          "bg": "Дървен стол — 031",
+          "ar": "كرسي خشبي — 031"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-032",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 41,
+        "product_number": 32,
+        "description_cell": "D41",
+        "dimension_cell": null,
+        "image_anchor_row": 41,
+        "image_index": 27
+      },
+      "source_description_tr": "AHŞAP SANDALYE",
+      "titles": {
+        "tr": "Ahşap Sandalye — 032",
+        "en": "Wooden Chair — 032",
+        "bg": "Дървен стол — 032",
+        "ar": "كرسي خشبي — 032"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Ahşap Sandalye",
+          "en": "Wooden Chair",
+          "bg": "Дървен стол",
+          "ar": "كرسي خشبي"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "frame_material_as_written": "wood"
+      },
+      "image": {
+        "path": "images/furniture-032.webp",
+        "original_path": "original-images/furniture-032.png",
+        "width": 222,
+        "height": 432,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Ahşap Sandalye — 032",
+          "en": "Wooden Chair — 032",
+          "bg": "Дървен стол — 032",
+          "ar": "كرسي خشبي — 032"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-033",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 42,
+        "product_number": 33,
+        "description_cell": "D42",
+        "dimension_cell": null,
+        "image_anchor_row": 41,
+        "image_index": 29
+      },
+      "source_description_tr": "ÇELİK SANDALYE",
+      "titles": {
+        "tr": "Çelik Sandalye — 033",
+        "en": "Steel Chair — 033",
+        "bg": "Стоманен стол — 033",
+        "ar": "كرسي فولاذي — 033"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Çelik Sandalye",
+          "en": "Steel Chair",
+          "bg": "Стоманен стол",
+          "ar": "كرسي فولاذي"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "frame_material_as_written": "steel"
+      },
+      "image": {
+        "path": "images/furniture-033.webp",
+        "original_path": "original-images/furniture-033.png",
+        "width": 279,
+        "height": 448,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Çelik Sandalye — 033",
+          "en": "Steel Chair — 033",
+          "bg": "Стоманен стол — 033",
+          "ar": "كرسي فولاذي — 033"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-034",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 43,
+        "product_number": 34,
+        "description_cell": "D43",
+        "dimension_cell": null,
+        "image_anchor_row": 43,
+        "image_index": 30
+      },
+      "source_description_tr": "AHŞAP SANDALYE",
+      "titles": {
+        "tr": "Ahşap Sandalye — 034",
+        "en": "Wooden Chair — 034",
+        "bg": "Дървен стол — 034",
+        "ar": "كرسي خشبي — 034"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Ahşap Sandalye",
+          "en": "Wooden Chair",
+          "bg": "Дървен стол",
+          "ar": "كرسي خشبي"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "frame_material_as_written": "wood"
+      },
+      "image": {
+        "path": "images/furniture-034.webp",
+        "original_path": "original-images/furniture-034.png",
+        "width": 295,
+        "height": 532,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Ahşap Sandalye — 034",
+          "en": "Wooden Chair — 034",
+          "bg": "Дървен стол — 034",
+          "ar": "كرسي خشبي — 034"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-035",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 44,
+        "product_number": 35,
+        "description_cell": "D44",
+        "dimension_cell": null,
+        "image_anchor_row": 44,
+        "image_index": 31
+      },
+      "source_description_tr": "ÇELİK SANDALYE",
+      "titles": {
+        "tr": "Çelik Sandalye — 035",
+        "en": "Steel Chair — 035",
+        "bg": "Стоманен стол — 035",
+        "ar": "كرسي فولاذي — 035"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Çelik Sandalye",
+          "en": "Steel Chair",
+          "bg": "Стоманен стол",
+          "ar": "كرسي فولاذي"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "frame_material_as_written": "steel"
+      },
+      "image": {
+        "path": "images/furniture-035.webp",
+        "original_path": "original-images/furniture-035.png",
+        "width": 242,
+        "height": 432,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Çelik Sandalye — 035",
+          "en": "Steel Chair — 035",
+          "bg": "Стоманен стол — 035",
+          "ar": "كرسي فولاذي — 035"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-036",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 45,
+        "product_number": 36,
+        "description_cell": "D45",
+        "dimension_cell": null,
+        "image_anchor_row": 44,
+        "image_index": 32
+      },
+      "source_description_tr": "ÇELİK SANDALYE",
+      "titles": {
+        "tr": "Çelik Sandalye — 036",
+        "en": "Steel Chair — 036",
+        "bg": "Стоманен стол — 036",
+        "ar": "كرسي فولاذي — 036"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Çelik Sandalye",
+          "en": "Steel Chair",
+          "bg": "Стоманен стол",
+          "ar": "كرسي فولاذي"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null,
+        "frame_material_as_written": "steel"
+      },
+      "image": {
+        "path": "images/furniture-036.webp",
+        "original_path": "original-images/furniture-036.png",
+        "width": 352,
+        "height": 517,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Çelik Sandalye — 036",
+          "en": "Steel Chair — 036",
+          "bg": "Стоманен стол — 036",
+          "ar": "كرسي فولاذي — 036"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-037",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 46,
+        "product_number": 37,
+        "description_cell": "D46",
+        "dimension_cell": null,
+        "image_anchor_row": 46,
+        "image_index": 35
+      },
+      "source_description_tr": "OYUNCU KOLTUĞU",
+      "titles": {
+        "tr": "Oyuncu Koltuğu — 037",
+        "en": "Gaming Chair — 037",
+        "bg": "Геймърски стол — 037",
+        "ar": "كرسي ألعاب — 037"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Oyuncu Koltuğu",
+          "en": "Gaming Chair",
+          "bg": "Геймърски стол",
+          "ar": "كرسي ألعاب"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-037.webp",
+        "original_path": "original-images/furniture-037.png",
+        "width": 462,
+        "height": 442,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Oyuncu Koltuğu — 037",
+          "en": "Gaming Chair — 037",
+          "bg": "Геймърски стол — 037",
+          "ar": "كرسي ألعاب — 037"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-038",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 47,
+        "product_number": 38,
+        "description_cell": "D47",
+        "dimension_cell": null,
+        "image_anchor_row": 47,
+        "image_index": 36
+      },
+      "source_description_tr": "ÇALIŞMA KOLTUĞU",
+      "titles": {
+        "tr": "Çalışma Koltuğu — 038",
+        "en": "Office Chair — 038",
+        "bg": "Офис стол — 038",
+        "ar": "كرسي مكتب — 038"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Çalışma Koltuğu",
+          "en": "Office Chair",
+          "bg": "Офис стол",
+          "ar": "كرسي مكتب"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-038.webp",
+        "original_path": "original-images/furniture-038.png",
+        "width": 953,
+        "height": 378,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Çalışma Koltuğu — 038",
+          "en": "Office Chair — 038",
+          "bg": "Офис стол — 038",
+          "ar": "كرسي مكتب — 038"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-039",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 48,
+        "product_number": 39,
+        "description_cell": "D48",
+        "dimension_cell": null,
+        "image_anchor_row": 48,
+        "image_index": 37
+      },
+      "source_description_tr": "TOPLANTI KOLTUĞU",
+      "titles": {
+        "tr": "Toplantı Koltuğu — 039",
+        "en": "Meeting Chair — 039",
+        "bg": "Стол за заседателна зала — 039",
+        "ar": "كرسي اجتماعات — 039"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Toplantı Koltuğu",
+          "en": "Meeting Chair",
+          "bg": "Стол за заседателна зала",
+          "ar": "كرسي اجتماعات"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-039.webp",
+        "original_path": "original-images/furniture-039.png",
+        "width": 406,
+        "height": 535,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Toplantı Koltuğu — 039",
+          "en": "Meeting Chair — 039",
+          "bg": "Стол за заседателна зала — 039",
+          "ar": "كرسي اجتماعات — 039"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-040",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 49,
+        "product_number": 40,
+        "description_cell": "D49",
+        "dimension_cell": null,
+        "image_anchor_row": 49,
+        "image_index": 38
+      },
+      "source_description_tr": "ÇALIŞMA KOLTUĞU",
+      "titles": {
+        "tr": "Çalışma Koltuğu — 040",
+        "en": "Office Chair — 040",
+        "bg": "Офис стол — 040",
+        "ar": "كرسي مكتب — 040"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Çalışma Koltuğu",
+          "en": "Office Chair",
+          "bg": "Офис стол",
+          "ar": "كرسي مكتب"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-040.webp",
+        "original_path": "original-images/furniture-040.png",
+        "width": 313,
+        "height": 505,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Çalışma Koltuğu — 040",
+          "en": "Office Chair — 040",
+          "bg": "Офис стол — 040",
+          "ar": "كرسي مكتب — 040"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-041",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 50,
+        "product_number": 41,
+        "description_cell": "D50",
+        "dimension_cell": null,
+        "image_anchor_row": 50,
+        "image_index": 39
+      },
+      "source_description_tr": "ÇALIŞMA KOLTUĞU",
+      "titles": {
+        "tr": "Çalışma Koltuğu — 041",
+        "en": "Office Chair — 041",
+        "bg": "Офис стол — 041",
+        "ar": "كرسي مكتب — 041"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Çalışma Koltuğu",
+          "en": "Office Chair",
+          "bg": "Офис стол",
+          "ar": "كرسي مكتب"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-041.webp",
+        "original_path": "original-images/furniture-041.png",
+        "width": 284,
+        "height": 513,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Çalışma Koltuğu — 041",
+          "en": "Office Chair — 041",
+          "bg": "Офис стол — 041",
+          "ar": "كرسي مكتب — 041"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-042",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 51,
+        "product_number": 42,
+        "description_cell": "D51",
+        "dimension_cell": null,
+        "image_anchor_row": 51,
+        "image_index": 40
+      },
+      "source_description_tr": "DOSYA DOLAPI",
+      "titles": {
+        "tr": "Konsol / Yan Dolap — 042",
+        "en": "Sideboard — 042",
+        "bg": "Бюфет — 042",
+        "ar": "وحدة تخزين جانبية — 042"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Konsol / Yan Dolap",
+          "en": "Sideboard",
+          "bg": "Бюфет",
+          "ar": "وحدة تخزين جانبية"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-042.webp",
+        "original_path": "original-images/furniture-042.png",
+        "width": 420,
+        "height": 329,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Konsol / Yan Dolap — 042",
+          "en": "Sideboard — 042",
+          "bg": "Бюфет — 042",
+          "ar": "وحدة تخزين جانبية — 042"
+        }
+      },
+      "image_description_conflict": "Source says file cabinet; embedded photo shows a sideboard.",
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-043",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 52,
+        "product_number": 43,
+        "description_cell": "D52",
+        "dimension_cell": null,
+        "image_anchor_row": 52,
+        "image_index": 41
+      },
+      "source_description_tr": "DOSYA DOLAPI",
+      "titles": {
+        "tr": "Konsol / Yan Dolap — 043",
+        "en": "Sideboard — 043",
+        "bg": "Бюфет — 043",
+        "ar": "وحدة تخزين جانبية — 043"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Konsol / Yan Dolap",
+          "en": "Sideboard",
+          "bg": "Бюфет",
+          "ar": "وحدة تخزين جانبية"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-043.webp",
+        "original_path": "original-images/furniture-043.png",
+        "width": 463,
+        "height": 382,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Konsol / Yan Dolap — 043",
+          "en": "Sideboard — 043",
+          "bg": "Бюфет — 043",
+          "ar": "وحدة تخزين جانبية — 043"
+        }
+      },
+      "image_description_conflict": "Source says file cabinet; embedded photo shows a sideboard.",
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-044",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 53,
+        "product_number": 44,
+        "description_cell": "D53",
+        "dimension_cell": null,
+        "image_anchor_row": 53,
+        "image_index": 42
+      },
+      "source_description_tr": "DOSYA DOLAPI",
+      "titles": {
+        "tr": "Konsol / Yan Dolap — 044",
+        "en": "Sideboard — 044",
+        "bg": "Бюфет — 044",
+        "ar": "وحدة تخزين جانبية — 044"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Konsol / Yan Dolap",
+          "en": "Sideboard",
+          "bg": "Бюфет",
+          "ar": "وحدة تخزين جانبية"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-044.webp",
+        "original_path": "original-images/furniture-044.png",
+        "width": 420,
+        "height": 340,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Konsol / Yan Dolap — 044",
+          "en": "Sideboard — 044",
+          "bg": "Бюфет — 044",
+          "ar": "وحدة تخزين جانبية — 044"
+        }
+      },
+      "image_description_conflict": "Source says file cabinet; embedded photo shows a sideboard.",
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-045",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 54,
+        "product_number": 45,
+        "description_cell": "D54",
+        "dimension_cell": null,
+        "image_anchor_row": 54,
+        "image_index": 33
+      },
+      "source_description_tr": "KAHVE KÖŞESİ",
+      "titles": {
+        "tr": "Kahve Köşesi Dolabı — 045",
+        "en": "Coffee Station Cabinet — 045",
+        "bg": "Шкаф за кафе кът — 045",
+        "ar": "خزانة ركن قهوة — 045"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Kahve Köşesi Dolabı",
+          "en": "Coffee Station Cabinet",
+          "bg": "Шкаф за кафе кът",
+          "ar": "خزانة ركن قهوة"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-045.webp",
+        "original_path": "original-images/furniture-045.png",
+        "width": 277,
+        "height": 446,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Kahve Köşesi Dolabı — 045",
+          "en": "Coffee Station Cabinet — 045",
+          "bg": "Шкаф за кафе кът — 045",
+          "ar": "خزانة ركن قهوة — 045"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-046",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 55,
+        "product_number": 46,
+        "description_cell": "D55",
+        "dimension_cell": null,
+        "image_anchor_row": 55,
+        "image_index": 34
+      },
+      "source_description_tr": "DOSYA DOLAPI",
+      "titles": {
+        "tr": "Ayakkabılık — 046",
+        "en": "Shoe Cabinet — 046",
+        "bg": "Шкаф за обувки — 046",
+        "ar": "خزانة أحذية — 046"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Ayakkabılık",
+          "en": "Shoe Cabinet",
+          "bg": "Шкаф за обувки",
+          "ar": "خزانة أحذية"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-046.webp",
+        "original_path": "original-images/furniture-046.png",
+        "width": 382,
+        "height": 480,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Ayakkabılık — 046",
+          "en": "Shoe Cabinet — 046",
+          "bg": "Шкаф за обувки — 046",
+          "ar": "خزانة أحذية — 046"
+        }
+      },
+      "image_description_conflict": "Source says file cabinet; embedded caption explicitly identifies a shoe cabinet.",
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-047",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 56,
+        "product_number": 47,
+        "description_cell": "D56",
+        "dimension_cell": null,
+        "image_anchor_row": 56,
+        "image_index": 43
+      },
+      "source_description_tr": "KİTAPLIK",
+      "titles": {
+        "tr": "Kitaplık — 047",
+        "en": "Bookcase — 047",
+        "bg": "Библиотека — 047",
+        "ar": "مكتبة رفوف — 047"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Kitaplık",
+          "en": "Bookcase",
+          "bg": "Библиотека",
+          "ar": "مكتبة رفوف"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-047.webp",
+        "original_path": "original-images/furniture-047.png",
+        "width": 291,
+        "height": 536,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Kitaplık — 047",
+          "en": "Bookcase — 047",
+          "bg": "Библиотека — 047",
+          "ar": "مكتبة رفوف — 047"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-048",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 57,
+        "product_number": 48,
+        "description_cell": "D57",
+        "dimension_cell": null,
+        "image_anchor_row": 57,
+        "image_index": 44
+      },
+      "source_description_tr": "KİTAPLIK",
+      "titles": {
+        "tr": "Kitaplık — 048",
+        "en": "Bookcase — 048",
+        "bg": "Библиотека — 048",
+        "ar": "مكتبة رفوف — 048"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Kitaplık",
+          "en": "Bookcase",
+          "bg": "Библиотека",
+          "ar": "مكتبة رفوف"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-048.webp",
+        "original_path": "original-images/furniture-048.png",
+        "width": 317,
+        "height": 537,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Kitaplık — 048",
+          "en": "Bookcase — 048",
+          "bg": "Библиотека — 048",
+          "ar": "مكتبة رفوف — 048"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-049",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 58,
+        "product_number": 49,
+        "description_cell": "D58",
+        "dimension_cell": null,
+        "image_anchor_row": 58,
+        "image_index": 45
+      },
+      "source_description_tr": "KİTAPLIK",
+      "titles": {
+        "tr": "Kitaplık — 049",
+        "en": "Bookcase — 049",
+        "bg": "Библиотека — 049",
+        "ar": "مكتبة رفوف — 049"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Kitaplık",
+          "en": "Bookcase",
+          "bg": "Библиотека",
+          "ar": "مكتبة رفوف"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-049.webp",
+        "original_path": "original-images/furniture-049.png",
+        "width": 518,
+        "height": 413,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Kitaplık — 049",
+          "en": "Bookcase — 049",
+          "bg": "Библиотека — 049",
+          "ar": "مكتبة رفوف — 049"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-050",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 59,
+        "product_number": 50,
+        "description_cell": "D59",
+        "dimension_cell": null,
+        "image_anchor_row": 59,
+        "image_index": 46
+      },
+      "source_description_tr": "KİTAPLIK",
+      "titles": {
+        "tr": "Kitaplık — 050",
+        "en": "Bookcase — 050",
+        "bg": "Библиотека — 050",
+        "ar": "مكتبة رفوف — 050"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Kitaplık",
+          "en": "Bookcase",
+          "bg": "Библиотека",
+          "ar": "مكتبة رفوف"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-050.webp",
+        "original_path": "original-images/furniture-050.png",
+        "width": 527,
+        "height": 413,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Kitaplık — 050",
+          "en": "Bookcase — 050",
+          "bg": "Библиотека — 050",
+          "ar": "مكتبة رفوف — 050"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-051",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 60,
+        "product_number": 51,
+        "description_cell": "D60",
+        "dimension_cell": null,
+        "image_anchor_row": 60,
+        "image_index": 47
+      },
+      "source_description_tr": "KİTAPLIK",
+      "titles": {
+        "tr": "Kitaplık — 051",
+        "en": "Bookcase — 051",
+        "bg": "Библиотека — 051",
+        "ar": "مكتبة رفوف — 051"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Kitaplık",
+          "en": "Bookcase",
+          "bg": "Библиотека",
+          "ar": "مكتبة رفوف"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-051.webp",
+        "original_path": "original-images/furniture-051.png",
+        "width": 293,
+        "height": 538,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Kitaplık — 051",
+          "en": "Bookcase — 051",
+          "bg": "Библиотека — 051",
+          "ar": "مكتبة رفوف — 051"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-052",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 61,
+        "product_number": 52,
+        "description_cell": "D61",
+        "dimension_cell": null,
+        "image_anchor_row": 61,
+        "image_index": 48
+      },
+      "source_description_tr": "KİTAPLIK",
+      "titles": {
+        "tr": "Kitaplık — 052",
+        "en": "Bookcase — 052",
+        "bg": "Библиотека — 052",
+        "ar": "مكتبة رفوف — 052"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Kitaplık",
+          "en": "Bookcase",
+          "bg": "Библиотека",
+          "ar": "مكتبة رفوف"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-052.webp",
+        "original_path": "original-images/furniture-052.png",
+        "width": 321,
+        "height": 547,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Kitaplık — 052",
+          "en": "Bookcase — 052",
+          "bg": "Библиотека — 052",
+          "ar": "مكتبة رفوف — 052"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-053",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 62,
+        "product_number": 53,
+        "description_cell": "D62",
+        "dimension_cell": null,
+        "image_anchor_row": 62,
+        "image_index": 49
+      },
+      "source_description_tr": "KİTAPLIK",
+      "titles": {
+        "tr": "Kitaplık — 053",
+        "en": "Bookcase — 053",
+        "bg": "Библиотека — 053",
+        "ar": "مكتبة رفوف — 053"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Kitaplık",
+          "en": "Bookcase",
+          "bg": "Библиотека",
+          "ar": "مكتبة رفوف"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-053.webp",
+        "original_path": "original-images/furniture-053.png",
+        "width": 353,
+        "height": 511,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Kitaplık — 053",
+          "en": "Bookcase — 053",
+          "bg": "Библиотека — 053",
+          "ar": "مكتبة رفوف — 053"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-054",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 63,
+        "product_number": 54,
+        "description_cell": "D63",
+        "dimension_cell": null,
+        "image_anchor_row": 63,
+        "image_index": 50
+      },
+      "source_description_tr": "KİTAPLIK",
+      "titles": {
+        "tr": "Kitaplık — 054",
+        "en": "Bookcase — 054",
+        "bg": "Библиотека — 054",
+        "ar": "مكتبة رفوف — 054"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Kitaplık",
+          "en": "Bookcase",
+          "bg": "Библиотека",
+          "ar": "مكتبة رفوف"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-054.webp",
+        "original_path": "original-images/furniture-054.png",
+        "width": 270,
+        "height": 560,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Kitaplık — 054",
+          "en": "Bookcase — 054",
+          "bg": "Библиотека — 054",
+          "ar": "مكتبة رفوف — 054"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-055",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 64,
+        "product_number": 55,
+        "description_cell": "D64",
+        "dimension_cell": null,
+        "image_anchor_row": 64,
+        "image_index": 51
+      },
+      "source_description_tr": "KİTAPLIK",
+      "titles": {
+        "tr": "Kitaplık — 055",
+        "en": "Bookcase — 055",
+        "bg": "Библиотека — 055",
+        "ar": "مكتبة رفوف — 055"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Kitaplık",
+          "en": "Bookcase",
+          "bg": "Библиотека",
+          "ar": "مكتبة رفوف"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-055.webp",
+        "original_path": "original-images/furniture-055.png",
+        "width": 371,
+        "height": 475,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Kitaplık — 055",
+          "en": "Bookcase — 055",
+          "bg": "Библиотека — 055",
+          "ar": "مكتبة رفوف — 055"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-056",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 65,
+        "product_number": 56,
+        "description_cell": "D65",
+        "dimension_cell": null,
+        "image_anchor_row": 65,
+        "image_index": 52
+      },
+      "source_description_tr": "KİTAPLIK",
+      "titles": {
+        "tr": "Kitaplık — 056",
+        "en": "Bookcase — 056",
+        "bg": "Библиотека — 056",
+        "ar": "مكتبة رفوف — 056"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Kitaplık",
+          "en": "Bookcase",
+          "bg": "Библиотека",
+          "ar": "مكتبة رفوف"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-056.webp",
+        "original_path": "original-images/furniture-056.png",
+        "width": 276,
+        "height": 562,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Kitaplık — 056",
+          "en": "Bookcase — 056",
+          "bg": "Библиотека — 056",
+          "ar": "مكتبة رفوف — 056"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-057",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 66,
+        "product_number": 57,
+        "description_cell": "D66",
+        "dimension_cell": null,
+        "image_anchor_row": 66,
+        "image_index": 53
+      },
+      "source_description_tr": "AYAKLI AYNA",
+      "titles": {
+        "tr": "Ayaklı Boy Aynası — 057",
+        "en": "Freestanding Full-Length Mirror — 057",
+        "bg": "Стоящо огледало в цял ръст — 057",
+        "ar": "مرآة طولية أرضية — 057"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Ayaklı Boy Aynası",
+          "en": "Freestanding Full-Length Mirror",
+          "bg": "Стоящо огледало в цял ръст",
+          "ar": "مرآة طولية أرضية"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-057.webp",
+        "original_path": "original-images/furniture-057.png",
+        "width": 585,
+        "height": 482,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Ayaklı Boy Aynası — 057",
+          "en": "Freestanding Full-Length Mirror — 057",
+          "bg": "Стоящо огледало в цял ръст — 057",
+          "ar": "مرآة طولية أرضية — 057"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-058",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 67,
+        "product_number": 58,
+        "description_cell": "D67",
+        "dimension_cell": null,
+        "image_anchor_row": 67,
+        "image_index": 54
+      },
+      "source_description_tr": "AYAKLI AYNA",
+      "titles": {
+        "tr": "Ayaklı Boy Aynası — 058",
+        "en": "Freestanding Full-Length Mirror — 058",
+        "bg": "Стоящо огледало в цял ръст — 058",
+        "ar": "مرآة طولية أرضية — 058"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Ayaklı Boy Aynası",
+          "en": "Freestanding Full-Length Mirror",
+          "bg": "Стоящо огледало в цял ръст",
+          "ar": "مرآة طولية أرضية"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-058.webp",
+        "original_path": "original-images/furniture-058.png",
+        "width": 616,
+        "height": 492,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Ayaklı Boy Aynası — 058",
+          "en": "Freestanding Full-Length Mirror — 058",
+          "bg": "Стоящо огледало в цял ръст — 058",
+          "ar": "مرآة طولية أرضية — 058"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-059",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 68,
+        "product_number": 59,
+        "description_cell": "D68",
+        "dimension_cell": null,
+        "image_anchor_row": 68,
+        "image_index": 55
+      },
+      "source_description_tr": "ZİGON",
+      "titles": {
+        "tr": "Zigon Sehpa Takımı — 059",
+        "en": "Nesting Table Set — 059",
+        "bg": "Комплект помощни масички — 059",
+        "ar": "طقم طاولات متداخلة — 059"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Zigon Sehpa Takımı",
+          "en": "Nesting Table Set",
+          "bg": "Комплект помощни масички",
+          "ar": "طقم طاولات متداخلة"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-059.webp",
+        "original_path": "original-images/furniture-059.png",
+        "width": 276,
+        "height": 362,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Zigon Sehpa Takımı — 059",
+          "en": "Nesting Table Set — 059",
+          "bg": "Комплект помощни масички — 059",
+          "ar": "طقم طاولات متداخلة — 059"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "exact number and identity of pieces included in sale"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-060",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 69,
+        "product_number": 60,
+        "description_cell": "D69",
+        "dimension_cell": null,
+        "image_anchor_row": 69,
+        "image_index": 56
+      },
+      "source_description_tr": "YAN SEHPA",
+      "titles": {
+        "tr": "Zigon Sehpa Takımı — 060",
+        "en": "Nesting Table Set — 060",
+        "bg": "Комплект помощни масички — 060",
+        "ar": "طقم طاولات متداخلة — 060"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Zigon Sehpa Takımı",
+          "en": "Nesting Table Set",
+          "bg": "Комплект помощни масички",
+          "ar": "طقم طاولات متداخلة"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-060.webp",
+        "original_path": "original-images/furniture-060.png",
+        "width": 622,
+        "height": 387,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Zigon Sehpa Takımı — 060",
+          "en": "Nesting Table Set — 060",
+          "bg": "Комплект помощни масички — 060",
+          "ar": "طقم طاولات متداخلة — 060"
+        }
+      },
+      "image_description_conflict": "Source says side table; photo caption says Zigon and shows two variant views. Set quantity is unconfirmed.",
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "exact number and identity of pieces included in sale"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-061",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 70,
+        "product_number": 61,
+        "description_cell": "D70",
+        "dimension_cell": null,
+        "image_anchor_row": 69,
+        "image_index": 57
+      },
+      "source_description_tr": "YAN SEHPA",
+      "titles": {
+        "tr": "Zigon Sehpa Takımı — 061",
+        "en": "Nesting Table Set — 061",
+        "bg": "Комплект помощни масички — 061",
+        "ar": "طقم طاولات متداخلة — 061"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Zigon Sehpa Takımı",
+          "en": "Nesting Table Set",
+          "bg": "Комплект помощни масички",
+          "ar": "طقم طاولات متداخلة"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-061.webp",
+        "original_path": "original-images/furniture-061.png",
+        "width": 332,
+        "height": 347,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Zigon Sehpa Takımı — 061",
+          "en": "Nesting Table Set — 061",
+          "bg": "Комплект помощни масички — 061",
+          "ar": "طقم طاولات متداخلة — 061"
+        }
+      },
+      "image_description_conflict": "Source says side table; photo shows a nesting table group.",
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "exact number and identity of pieces included in sale"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-062",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 71,
+        "product_number": 62,
+        "description_cell": "D71",
+        "dimension_cell": null,
+        "image_anchor_row": 71,
+        "image_index": 58
+      },
+      "source_description_tr": "YAN SEHPA",
+      "titles": {
+        "tr": "Zigon Sehpa Takımı — 062",
+        "en": "Nesting Table Set — 062",
+        "bg": "Комплект помощни масички — 062",
+        "ar": "طقم طاولات متداخلة — 062"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Zigon Sehpa Takımı",
+          "en": "Nesting Table Set",
+          "bg": "Комплект помощни масички",
+          "ar": "طقم طاولات متداخلة"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-062.webp",
+        "original_path": "original-images/furniture-062.png",
+        "width": 275,
+        "height": 322,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Zigon Sehpa Takımı — 062",
+          "en": "Nesting Table Set — 062",
+          "bg": "Комплект помощни масички — 062",
+          "ar": "طقم طاولات متداخلة — 062"
+        }
+      },
+      "image_description_conflict": "Source says side table; photo shows a nesting table group.",
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "exact number and identity of pieces included in sale"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-063",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 72,
+        "product_number": 63,
+        "description_cell": "D72",
+        "dimension_cell": null,
+        "image_anchor_row": 72,
+        "image_index": 59
+      },
+      "source_description_tr": "ORTA SEHPA",
+      "titles": {
+        "tr": "Orta Sehpa — 063",
+        "en": "Coffee Table — 063",
+        "bg": "Холна маса — 063",
+        "ar": "طاولة وسط — 063"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Orta Sehpa",
+          "en": "Coffee Table",
+          "bg": "Холна маса",
+          "ar": "طاولة وسط"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-063.webp",
+        "original_path": "original-images/furniture-063.png",
+        "width": 335,
+        "height": 400,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Orta Sehpa — 063",
+          "en": "Coffee Table — 063",
+          "bg": "Холна маса — 063",
+          "ar": "طاولة وسط — 063"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-064",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 73,
+        "product_number": 64,
+        "description_cell": "D73",
+        "dimension_cell": null,
+        "image_anchor_row": 73,
+        "image_index": 60
+      },
+      "source_description_tr": "ZİGON",
+      "titles": {
+        "tr": "Zigon Sehpa Takımı — 064",
+        "en": "Nesting Table Set — 064",
+        "bg": "Комплект помощни масички — 064",
+        "ar": "طقم طاولات متداخلة — 064"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Zigon Sehpa Takımı",
+          "en": "Nesting Table Set",
+          "bg": "Комплект помощни масички",
+          "ar": "طقم طاولات متداخلة"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-064.webp",
+        "original_path": "original-images/furniture-064.png",
+        "width": 552,
+        "height": 366,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Zigon Sehpa Takımı — 064",
+          "en": "Nesting Table Set — 064",
+          "bg": "Комплект помощни масички — 064",
+          "ar": "طقم طاولات متداخلة — 064"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "exact number and identity of pieces included in sale"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-065",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 74,
+        "product_number": 65,
+        "description_cell": "D74",
+        "dimension_cell": null,
+        "image_anchor_row": 74,
+        "image_index": 61
+      },
+      "source_description_tr": "ZİGON",
+      "titles": {
+        "tr": "Zigon Sehpa Takımı — 065",
+        "en": "Nesting Table Set — 065",
+        "bg": "Комплект помощни масички — 065",
+        "ar": "طقم طاولات متداخلة — 065"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Zigon Sehpa Takımı",
+          "en": "Nesting Table Set",
+          "bg": "Комплект помощни масички",
+          "ar": "طقم طاولات متداخلة"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-065.webp",
+        "original_path": "original-images/furniture-065.png",
+        "width": 255,
+        "height": 296,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Zigon Sehpa Takımı — 065",
+          "en": "Nesting Table Set — 065",
+          "bg": "Комплект помощни масички — 065",
+          "ar": "طقم طاولات متداخلة — 065"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions",
+        "exact number and identity of pieces included in sale"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-066",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 75,
+        "product_number": 66,
+        "description_cell": "D75",
+        "dimension_cell": null,
+        "image_anchor_row": 75,
+        "image_index": 62
+      },
+      "source_description_tr": "TABLO",
+      "titles": {
+        "tr": "Ay Temalı Dekoratif Duvar Panosu — 066",
+        "en": "Moon-Themed Decorative Wall Art — 066",
+        "bg": "Декоративно пано за стена с лунен мотив — 066",
+        "ar": "لوحة حائط زخرفية بتصميم القمر — 066"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Ay Temalı Dekoratif Duvar Panosu",
+          "en": "Moon-Themed Decorative Wall Art",
+          "bg": "Декоративно пано за стена с лунен мотив",
+          "ar": "لوحة حائط زخرفية بتصميم القمر"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-066.webp",
+        "original_path": "original-images/furniture-066.png",
+        "width": 382,
+        "height": 622,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Ay Temalı Dekoratif Duvar Panosu — 066",
+          "en": "Moon-Themed Decorative Wall Art — 066",
+          "bg": "Декоративно пано за стена с лунен мотив — 066",
+          "ar": "لوحة حائط زخرفية بتصميم القمر — 066"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-067",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 76,
+        "product_number": 67,
+        "description_cell": "D76",
+        "dimension_cell": null,
+        "image_anchor_row": 75,
+        "image_index": 63
+      },
+      "source_description_tr": "ÇAY ARABASI",
+      "titles": {
+        "tr": "Çay / Servis Arabası — 067",
+        "en": "Tea / Serving Trolley — 067",
+        "bg": "Количка за чай и сервиране — 067",
+        "ar": "عربة شاي وتقديم — 067"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Çay / Servis Arabası",
+          "en": "Tea / Serving Trolley",
+          "bg": "Количка за чай и сервиране",
+          "ar": "عربة شاي وتقديم"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-067.webp",
+        "original_path": "original-images/furniture-067.png",
+        "width": 312,
+        "height": 413,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Çay / Servis Arabası — 067",
+          "en": "Tea / Serving Trolley — 067",
+          "bg": "Количка за чай и сервиране — 067",
+          "ar": "عربة شاي وتقديم — 067"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-068",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 77,
+        "product_number": 68,
+        "description_cell": "D77",
+        "dimension_cell": null,
+        "image_anchor_row": 77,
+        "image_index": 64
+      },
+      "source_description_tr": "DİKOR SAATİ",
+      "titles": {
+        "tr": "Tripod Dekoratif Saat — 068",
+        "en": "Decorative Tripod Clock — 068",
+        "bg": "Декоративен часовник на триножник — 068",
+        "ar": "ساعة ديكور على حامل ثلاثي — 068"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Tripod Dekoratif Saat",
+          "en": "Decorative Tripod Clock",
+          "bg": "Декоративен часовник на триножник",
+          "ar": "ساعة ديكور على حامل ثلاثي"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-068.webp",
+        "original_path": "original-images/furniture-068.png",
+        "width": 666,
+        "height": 436,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Tripod Dekoratif Saat — 068",
+          "en": "Decorative Tripod Clock — 068",
+          "bg": "Декоративен часовник на триножник — 068",
+          "ar": "ساعة ديكور على حامل ثلاثي — 068"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-069",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 78,
+        "product_number": 69,
+        "description_cell": "D78",
+        "dimension_cell": null,
+        "image_anchor_row": 78,
+        "image_index": 65
+      },
+      "source_description_tr": "DERSUAR",
+      "titles": {
+        "tr": "Dresuar — 069",
+        "en": "Console Table — 069",
+        "bg": "Конзолна маса — 069",
+        "ar": "طاولة كونسول — 069"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Dresuar",
+          "en": "Console Table",
+          "bg": "Конзолна маса",
+          "ar": "طاولة كونسول"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-069.webp",
+        "original_path": "original-images/furniture-069.png",
+        "width": 415,
+        "height": 742,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Dresuar — 069",
+          "en": "Console Table — 069",
+          "bg": "Конзолна маса — 069",
+          "ar": "طاولة كونسول — 069"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-070",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 79,
+        "product_number": 70,
+        "description_cell": "D79",
+        "dimension_cell": null,
+        "image_anchor_row": 79,
+        "image_index": 66
+      },
+      "source_description_tr": "DERSUAR",
+      "titles": {
+        "tr": "Dresuar — 070",
+        "en": "Console Table — 070",
+        "bg": "Конзолна маса — 070",
+        "ar": "طاولة كونسول — 070"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Dresuar",
+          "en": "Console Table",
+          "bg": "Конзолна маса",
+          "ar": "طاولة كونسول"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-070.webp",
+        "original_path": "original-images/furniture-070.png",
+        "width": 371,
+        "height": 682,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Dresuar — 070",
+          "en": "Console Table — 070",
+          "bg": "Конзолна маса — 070",
+          "ar": "طاولة كونسول — 070"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-071",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 80,
+        "product_number": 71,
+        "description_cell": "D80",
+        "dimension_cell": null,
+        "image_anchor_row": 80,
+        "image_index": 67
+      },
+      "source_description_tr": "DERSUAR",
+      "titles": {
+        "tr": "Dresuar — 071",
+        "en": "Console Table — 071",
+        "bg": "Конзолна маса — 071",
+        "ar": "طاولة كونسول — 071"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Dresuar",
+          "en": "Console Table",
+          "bg": "Конзолна маса",
+          "ar": "طاولة كونسول"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-071.webp",
+        "original_path": "original-images/furniture-071.png",
+        "width": 295,
+        "height": 602,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Dresuar — 071",
+          "en": "Console Table — 071",
+          "bg": "Конзолна маса — 071",
+          "ar": "طاولة كونسول — 071"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    },
+    {
+      "import_reference": "furniture-072",
+      "source": {
+        "file": "2026_09_10_Fiyat listesi.xlsx",
+        "sheet": "Table 1",
+        "row": 81,
+        "product_number": 72,
+        "description_cell": "D81",
+        "dimension_cell": null,
+        "image_anchor_row": 81,
+        "image_index": 68
+      },
+      "source_description_tr": "SALANCAK",
+      "titles": {
+        "tr": "Askılı Salıncak — 072",
+        "en": "Hanging Swing Chair — 072",
+        "bg": "Висящ люлеещ се стол — 072",
+        "ar": "كرسي أرجوحة معلّق — 072"
+      },
+      "specifications": {
+        "product_type": {
+          "tr": "Askılı Salıncak",
+          "en": "Hanging Swing Chair",
+          "bg": "Висящ люлеещ се стол",
+          "ar": "كرسي أرجوحة معلّق"
+        },
+        "dimensions_as_written": null,
+        "dimension_unit": null,
+        "dimension_axis_order": null
+      },
+      "image": {
+        "path": "images/furniture-072.webp",
+        "original_path": "original-images/furniture-072.png",
+        "width": 250,
+        "height": 514,
+        "source": "Embedded supplier catalogue image, extracted from this product row; not AI-generated",
+        "processing": "WebP encoding only; no crop, no stretch, no enlargement, no background alteration",
+        "alt": {
+          "tr": "Askılı Salıncak — 072",
+          "en": "Hanging Swing Chair — 072",
+          "bg": "Висящ люлеещ се стол — 072",
+          "ar": "كرسي أرجوحة معلّق — 072"
+        }
+      },
+      "image_description_conflict": null,
+      "supplier_confirmation_needed": [
+        "material/finish details not explicitly stated",
+        "supplier stock",
+        "brand/model attribution",
+        "load rating",
+        "assembly and delivery terms",
+        "dimensions"
+      ],
+      "status": "draft",
+      "display_price": false,
+      "stock_quantity": null
+    }
+  ]
+}

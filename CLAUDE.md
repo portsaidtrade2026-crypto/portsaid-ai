@@ -125,3 +125,14 @@ Replit (dev) and on a persistent VPS (production), and several things switch on 
 the index) — covering things like Unicode product-handle route decoding, Radix Select resubmitting
 a stale first option after reset, and Next's dev/prod builds sharing one output directory. Check
 there before re-debugging something that looks like infra flakiness.
+
+## Converting supplier documents (anydoc)
+
+When handed a Word/PowerPoint/Excel/OpenDocument/RTF/EPUB/CSV/PDF file that needs reading or
+analysis (supplier catalogs, price lists), convert it to Markdown first rather than reading it
+directly: `npx --yes @firecrawl/anydoc <file> -o <file>.md` (source: https://github.com/firecrawl/anydoc,
+MIT license). The conversion is local — never pass `--ocr hosted` without explicit user approval,
+since that sends the whole document to Firecrawl's external service. If conversion fails with
+`NeedsOcr` (a scanned PDF), tell the user and offer the options instead of proceeding. Save the
+resulting `.md` files outside the repo (a temp folder) unless asked otherwise, since they may
+contain confidential business data.
