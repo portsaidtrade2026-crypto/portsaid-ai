@@ -8,6 +8,8 @@ import { getCacheOptions } from "./cookies"
 export const listRegions = async (): Promise<HttpTypes.StoreRegion[]> => {
   const next = {
     ...(await getCacheOptions("regions")),
+    // public catalogue data: kept for 600 s instead of being fetched again on every page view (2026-10-28, site was slow)
+    revalidate: 600,
   }
 
   return sdk.client

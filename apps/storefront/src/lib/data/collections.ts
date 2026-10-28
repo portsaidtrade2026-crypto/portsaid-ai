@@ -10,6 +10,8 @@ export const retrieveCollection = async (id: string) => {
   const locale = await getRequestLocale()
   const next = {
     ...(await getCacheOptions("collections")),
+    // public catalogue data: kept for 120 s instead of being fetched again on every page view (2026-10-28, site was slow)
+    revalidate: 120,
   }
 
   return sdk.client
@@ -31,6 +33,8 @@ export const listCollections = async (
   const locale = await getRequestLocale()
   const next = {
     ...(await getCacheOptions("collections")),
+    // public catalogue data: kept for 120 s instead of being fetched again on every page view (2026-10-28, site was slow)
+    revalidate: 120,
   }
 
   queryParams.limit = queryParams.limit || "100"
@@ -60,6 +64,8 @@ export const getCollectionByHandle = async (
   const locale = await getRequestLocale()
   const next = {
     ...(await getCacheOptions("collections")),
+    // public catalogue data: kept for 120 s instead of being fetched again on every page view (2026-10-28, site was slow)
+    revalidate: 120,
   }
 
   return sdk.client

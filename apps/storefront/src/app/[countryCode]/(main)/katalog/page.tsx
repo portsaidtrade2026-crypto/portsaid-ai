@@ -33,7 +33,9 @@ export default async function KatalogPage(props: Props) {
       queryParams: {
         limit: 300,
         fields:
-          "*variants.calculated_price,*variants.options,+metadata,*categories",
+          // only what the product card reads (title, handle, picture, price, category): 0.6 MB instead of 1.6 MB, which also fits
+          // Next's 2 MB fetch-cache limit, so the 2.7 s Medusa query is no longer repeated on every visit
+          "id,title,subtitle,handle,thumbnail,+metadata,*variants.calculated_price,*categories,*images",
       } as any,
     }),
   ])

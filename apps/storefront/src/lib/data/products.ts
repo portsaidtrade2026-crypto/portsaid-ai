@@ -23,6 +23,8 @@ export const getProductsById = async ({
 
   const next = {
     ...(await getCacheOptions("products")),
+    // public catalogue data: kept for 120 s instead of being fetched again on every page view (2026-10-28, site was slow)
+    revalidate: 120,
   }
 
   return sdk.client
@@ -51,6 +53,8 @@ export const getProductByHandle = async (handle: string, regionId: string) => {
 
   const next = {
     ...(await getCacheOptions("products")),
+    // public catalogue data: kept for 120 s instead of being fetched again on every page view (2026-10-28, site was slow)
+    revalidate: 120,
   }
 
   return sdk.client
@@ -103,6 +107,8 @@ export const listProducts = async ({
 
   const next = {
     ...(await getCacheOptions("products")),
+    // public catalogue data: kept for 120 s instead of being fetched again on every page view (2026-10-28, site was slow)
+    revalidate: 120,
   }
 
   return sdk.client

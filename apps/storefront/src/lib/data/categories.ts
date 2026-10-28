@@ -16,6 +16,8 @@ export const listCategories = async (
   const locale = localize ? await getRequestLocale() : null
   const next = {
     ...(await getCacheOptions("categories")),
+    // public catalogue data: kept for 120 s instead of being fetched again on every page view (2026-10-28, site was slow)
+    revalidate: 120,
   }
 
   const limit = query?.limit || 100
@@ -48,6 +50,8 @@ export const getCategoryByHandle = async (
 
   const next = {
     ...(await getCacheOptions("categories")),
+    // public catalogue data: kept for 120 s instead of being fetched again on every page view (2026-10-28, site was slow)
+    revalidate: 120,
   }
 
   return sdk.client
