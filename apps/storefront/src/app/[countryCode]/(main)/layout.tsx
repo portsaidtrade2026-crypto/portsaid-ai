@@ -13,6 +13,7 @@ import { notFound } from "next/navigation"
 import { getRequestLocale } from "@/lib/i18n/server"
 import { translate } from "@/lib/i18n/messages"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import ReturningVisitorPrompt from "@/modules/lead/components/returning-visitor-prompt"
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
@@ -65,6 +66,7 @@ export default async function PageLayout(props: { children: React.ReactNode; par
           freeShippingPrices={freeShippingPrices}
         />
       )}
+      <ReturningVisitorPrompt isLoggedIn={!!customer} />
     </>
   )
 }
