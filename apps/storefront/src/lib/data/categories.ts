@@ -67,27 +67,62 @@ export const getCategoryByHandle = async (
 }
 
 // Handles of categories that hold at least one product, sub-categories counted (a parent with a non-empty child counts).
-// One small count request per category instead of embedding every product of every category (see lib/util/category-fields.ts).
-export const listCategoryHandlesWithProducts = async (): Promise<string[]> => {
-  const categories = await listCategories({ fields: LIGHT_CATEGORY_FIELDS }, { localize: false })
-  const direct = await Promise.all(
-    categories.map((c) =>
-      sdk.client
-        .fetch<{ count?: number }>("/store/products", {
-          query: { limit: 1, fields: "id", category_id: c.id },
-          next: { revalidate: 300 },
-        })
-        .then((r) => (r.count ?? 0) > 0)
-    )
+// History: this used to send one count request per category (31 of them, ~0.3 s each and they queue up inside Medusa), re-done every
+// 5 minutes on a page render - so the first visitor after each expiry waited ~8 s for ANY page (found 2026-10-28, "the site is very slow").
+// Now ONE request returns every category with its products (identical result, checked against the old method), the answer is kept in
+// memory for 20 minutes, and once it is older it is refreshed in the background while the old answer is still served.
+const HANDLES_TTL_MS = 20 * 60 * 1000
+let handlesCache: { at: number; handles: string[] } | null = null
+let handlesInflight: Promise<string[]> | null = null
+
+type CategoryWithProducts = {
+  id: string
+  handle: string
+  parent_category_id?: string | null
+  products?: { id: string }[]
+}
+
+async function computeCategoryHandlesWithProducts(): Promise<string[]> {
+  const { product_categories } = await sdk.client.fetch<{ product_categories: CategoryWithProducts[] }>(
+    "/store/product-categories",
+    { query: { limit: 200, fields: "id,handle,parent_category_id,*products" }, cache: "no-store" }
   )
-  const byId = new Map(categories.map((c, i) => [c.id, { c, has: direct[i] }]))
+  const byId = new Map(product_categories.map((c) => [c.id, c]))
   const filled = new Set<string>()
-  byId.forEach(({ has }, id) => {
-    if (!has) return
-    for (let cur: string | null | undefined = id, n = 0; cur && n < 10; n++) {
+  for (const c of product_categories) {
+    if (!c.products?.length) continue
+    for (let cur: string | null | undefined = c.id, n = 0; cur && n < 10; n++) {
       filled.add(cur)
-      cur = byId.get(cur)?.c.parent_category_id
+      cur = byId.get(cur)?.parent_category_id
     }
-  })
-  return categories.filter((c) => filled.has(c.id)).map((c) => c.handle)
+  }
+  return product_categories.filter((c) => filled.has(c.id)).map((c) => c.handle)
+}
+
+function refreshCategoryHandles(): Promise<string[]> {
+  if (!handlesInflight) {
+    handlesInflight = computeCategoryHandlesWithProducts()
+      .then((handles) => {
+        handlesCache = { at: Date.now(), handles }
+        return handles
+      })
+      .finally(() => {
+        handlesInflight = null
+      })
+  }
+  return handlesInflight
+}
+
+export const listCategoryHandlesWithProducts = async (): Promise<string[]> => {
+  if (handlesCache) {
+    if (Date.now() - handlesCache.at > HANDLES_TTL_MS) refreshCategoryHandles().catch(() => {})
+    return handlesCache.handles
+  }
+  try {
+    return await refreshCategoryHandles()
+  } catch {
+    // never take the whole page down because the menu filter failed: show every category instead
+    const categories = await listCategories({ fields: LIGHT_CATEGORY_FIELDS }, { localize: false })
+    return categories.map((c) => c.handle)
+  }
 }
