@@ -5,21 +5,23 @@ import { translate } from "@/lib/i18n/messages"
 
 // Homepage brand film (same file as the login page): muted autoplay loop (browsers require muted for autoplay), poster
 // shown until it loads, native controls so visitors can unmute, pause or go fullscreen.
-// Layout (Ahmed 2026-10-31, "needs formatting in length and width"): a full-width dark band, edge to edge like the pallet banner
-// under it. The box keeps the film's own 16:9 shape (aspect-video) and is only CAPPED in height (62% of the screen, at most
-// 620 px; was 76% / 720 px, too tall: it pushed the pallet banner below the first screen): when the cap binds the sides get dark bars, when it does not the box is exactly the picture. A fixed height (the first
-// version) left a dark strip above and below the picture on narrower screens. The whole frame is always shown (object-contain,
-// never cropped - the title text is in the picture).
+// Layout (Ahmed 2026-10-31: "I want it the full height of the page, not short"): a full-width dark band whose film fills the
+// screen height under the header (100svh minus the ~130 px of menu + yellow strip). The film keeps its 16:9 shape, so its width
+// is min(page width, available height x 16/9): on a wide screen it is full height with dark bars on the sides, on a narrower
+// one it is full width and a little shorter - never cropped (the title text is in the picture) and never a dark strip
+// above or below the picture.
 // -mx-2/-mt-2 cancel the home page wrapper's m-2 so the band runs edge to edge and touches the yellow strip above it.
+const FILM_WIDTH = "w-[min(100%,calc((100svh-130px)*1.7778))]"
+
 const PromoVideo = async () => {
   const locale = await getRequestLocale()
   const t = (text: string) => translate(locale, text)
 
   return (
     <section className="relative -mx-2 -mt-2 w-[calc(100%+1rem)] bg-[#0b0b0c]">
-      <div className="relative mx-auto max-w-[1700px]">
+      <div className={`relative mx-auto ${FILM_WIDTH}`}>
         <video
-          className="mx-auto block aspect-video w-full max-h-[min(62vh,620px)] object-contain"
+          className="block aspect-video w-full object-contain"
           poster="/promo/portsaid-promo-poster.jpg"
           preload="metadata"
           autoPlay
