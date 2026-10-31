@@ -2,6 +2,7 @@ import { listCategoryHandlesWithProducts } from "@/lib/data/categories"
 import CategoryGrid from "@/modules/home/components/category-grid"
 import ComingSoonBanner from "@/modules/home/components/coming-soon-banner"
 import FeaturedProducts from "@/modules/home/components/featured-products"
+import Hero from "@/modules/home/components/hero"
 import PromoBanner from "@/modules/home/components/promo-banner"
 import PromoVideo from "@/modules/home/components/promo-video"
 import SkeletonFeaturedProducts from "@/modules/skeletons/templates/skeleton-featured-products"
@@ -34,8 +35,9 @@ export default async function Home(props: {
 
   return (
     <div className="flex flex-col gap-y-2 m-2">
-      {/* The PS PORT film takes the place of the plastic-pallet hero (Ahmed 2026-10-31): same file as the login page. The pallet hero component is kept in modules/home/components/hero if it is wanted back. */}
+      {/* The PS PORT film (same file as the login page) on top, the plastic-pallet banner directly under it (Ahmed 2026-10-31). */}
       <PromoVideo />
+      <Hero />
       <ComingSoonBanner />
       <CategoryGrid availableHandles={availableHandles} />
       <PromoBanner />
