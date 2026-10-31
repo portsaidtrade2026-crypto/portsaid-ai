@@ -6,9 +6,10 @@ import { translate } from "@/lib/i18n/messages"
 // Homepage brand film (same file as the login page): muted autoplay loop (browsers require muted for autoplay), poster
 // shown until it loads, native controls so visitors can unmute, pause or go fullscreen.
 // Layout (Ahmed 2026-10-31, "needs formatting in length and width"): a full-width dark band, edge to edge like the pallet banner
-// under it. On phones the film keeps its 16:9 shape. From the "small" breakpoint the band has a capped height (76% of the
-// screen, at most 720 px) and the whole frame is shown inside it (object-contain, never cropped - the title text is in the
-// picture), so on a big monitor the film no longer pushes everything else a full screen down.
+// under it. The box keeps the film's own 16:9 shape (aspect-video) and is only CAPPED in height (76% of the screen, at most
+// 720 px): when the cap binds the sides get dark bars, when it does not the box is exactly the picture. A fixed height (the first
+// version) left a dark strip above and below the picture on narrower screens. The whole frame is always shown (object-contain,
+// never cropped - the title text is in the picture).
 // -mx-2/-mt-2 cancel the home page wrapper's m-2 so the band runs edge to edge and touches the yellow strip above it.
 const PromoVideo = async () => {
   const locale = await getRequestLocale()
@@ -18,7 +19,7 @@ const PromoVideo = async () => {
     <section className="relative -mx-2 -mt-2 w-[calc(100%+1rem)] bg-[#0b0b0c]">
       <div className="relative mx-auto max-w-[1700px]">
         <video
-          className="mx-auto block aspect-video w-full small:aspect-auto small:h-[min(76vh,720px)] object-contain"
+          className="mx-auto block aspect-video w-full max-h-[min(76vh,720px)] object-contain"
           poster="/promo/portsaid-promo-poster.jpg"
           preload="metadata"
           autoPlay
