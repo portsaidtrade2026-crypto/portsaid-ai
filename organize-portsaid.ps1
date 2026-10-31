@@ -1,4 +1,4 @@
-<#
+﻿<#
   organize-portsaid.ps1 - ترتيب ملفات مشروع بورسعيد (Windows PowerShell)
   الوضع الافتراضي: معاينة فقط (لا ينقل شيئاً). للتنفيذ الفعلي أضف -Apply
   مثال:  .\organize-portsaid.ps1 -Root D:\PortSaid
